@@ -87,20 +87,112 @@ body {
 .banner-full-width .banner-full-image {
     display: block;
     width: 100%;
-    height: auto;
+    height: 340px; /* fixed hero height on desktop */
+    object-fit: cover;
     border-radius: 0;
 }
+
+/* refined profile overlay */
 .banner-full-width .profile-overlay {
     position: absolute;
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
-    width: 240px;
+    width: 260px;
     max-width: 90%;
-    background: #fff;
-    padding: 16px;
-    border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.96);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 12px 36px rgba(7,25,50,0.16);
+    z-index: 40;
+}
+
+/* Banner hero area (left side content) */
+.banner-hero {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    z-index: 30;
+}
+.banner-hero .hero-inner {
+    max-width: 720px;
+    padding: 32px 24px;
+}
+.hero-title {
+    color: #fff;
+    font-size: 2.2rem;
+    margin: 0 0 8px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 0 8px 24px rgba(6,18,38,0.45);
+}
+.hero-sub {
+    color: rgba(255,255,255,0.92);
+    font-size: 1.05rem;
+    margin: 0 0 16px;
+    max-width: 60ch;
+}
+.hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.btn-hero {
+    background: #ffd54a;
+    color: #071732;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-outline-hero {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 10px;
+    padding: 9px 12px;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-hero:hover {
+    opacity: 0.95;
+}
+.btn-outline-hero:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+/* subtle left-to-right gradient to aid readability */
+.banner-full-width::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    background: linear-gradient(90deg, rgba(7,18,34,0.62) 0%, rgba(7,18,34,0.28) 30%, rgba(7,18,34,0.08) 60%, rgba(7,18,34,0) 100%);
+}
+
+/* profile avatar refinements */
+.profile-avatar-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.profile-name {
+    font-size: 0.95rem;
+    margin-top: 10px;
+    color: #071732;
+    text-align: center;
+}
+.profile-role {
+    font-size: 0.85rem;
+    color: #5b7db0;
+    text-align: center;
 }
 
 .profile-card {
@@ -474,12 +566,30 @@ footer ul li a:hover {
 
 @media (max-width: 991px) {
     .banner-image {
-        height: 200px;
+        height: 220px;
+    }
+    .banner-full-width .banner-full-image {
+        height: 220px;
     }
     .profile-card {
         margin-top: 10px;
         height: auto;
+        right: 18px;
+        width: 220px;
+        padding: 14px;
     }
+    .hero-title { font-size: 1.5rem; }
+    .hero-sub { font-size: 0.98rem; }
+}
+
+@media (max-width: 576px) {
+    .banner-full-width .banner-full-image { height: 200px; }
+    .banner-hero .hero-inner { padding: 18px; }
+    /* On very small screens stack the profile card under the banner */
+    .profile-overlay { position: static; transform: none; margin: -40px auto 18px; width: calc(100% - 36px); max-width: 420px; }
+    .hero-title { font-size: 1.25rem; }
+    .hero-sub { font-size: 0.92rem; }
+    .btn-hero, .btn-outline-hero { padding: 8px 10px; }
 }
 
 /* Main top spacing moved from inline */

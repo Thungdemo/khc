@@ -82,12 +82,27 @@
   <!-- Full-width banner with overlapping profile card -->
   <div class="banner-full-width">
     <img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image banner-full-image">
+    <!-- Hero content (left) and profile overlay (right) -->
+    <div class="banner-hero">
+      <div class="container">
+        <div class="hero-inner">
+          <h1 class="hero-title">Gauhati High Court — Kohima Bench</h1>
+          <p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
+          <div class="hero-cta">
+            <a href="#" class="btn btn-hero">Explore Services</a>
+            <a href="#" class="btn btn-outline-hero">Latest Notices</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Profile card overlayed on the right side of the banner -->
     <div class="profile-card profile-overlay">
-      <img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="profile-overlay-img">
-      <h5 class="mb-1" style="font-size:1rem;">Hon’ble Mr. Justice Rajesh Mazumdar</h5>
-      <div class="role text-muted" style="font-size:0.875rem;">Station Judge</div>
+      <div class="profile-avatar-wrap">
+        <img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="profile-overlay-img">
+      </div>
+      <h5 class="mb-1 profile-name">Hon’ble Mr. Justice Rajesh Mazumdar</h5>
+      <div class="role profile-role">Station Judge</div>
     </div>
   </div>
   <main class="container site-main">
