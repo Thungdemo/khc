@@ -87,6 +87,52 @@
     </div>
   </header>
   <main class="container" style="margin-top:40px;">
+
+    <section class="services-section mb-4">
+
+      <div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
+        <div class="service-tile d-flex">
+          <div class="service-card">
+            <i class="bi bi-search service-icon"></i>
+            <h5 class="fw-bold">Case Status</h5>
+            <p class="text-muted mb-0">Track your case status easily</p>
+          </div>
+        </div>
+
+        <div class="service-tile d-flex">
+          <div class="service-card">
+            <i class="bi bi-journal-text service-icon"></i>
+            <h5 class="fw-bold">Cause List</h5>
+            <p class="text-muted mb-0">View daily cause lists</p>
+          </div>
+        </div>
+
+        <div class="service-tile d-flex">
+          <div class="service-card">
+            <i class="bi bi-display service-icon"></i>
+            <h5 class="fw-bold">Display Board</h5>
+            <p class="text-muted mb-0">Access the digital display board</p>
+          </div>
+        </div>
+
+        <div class="service-tile d-flex">
+          <div class="service-card">
+            <i class="bi bi-grid service-icon"></i>
+            <h5 class="fw-bold">NJDG</h5>
+            <p class="text-muted mb-0">National Judicial Data Grid</p>
+          </div>
+        </div>
+
+        <div class="service-tile d-flex">
+          <div class="service-card">
+            <i class="bi bi-globe service-icon"></i>
+            <h5 class="fw-bold">eCourts</h5>
+            <p class="text-muted mb-0">Access the digital display board</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="news-wrap p-3">
       <div class="d-flex justify-content-between align-items-start">
         <h4 class="mb-3 fw-bold">Latest News & Updates</h4>
@@ -137,58 +183,46 @@
             <li class="list-group-item d-flex align-items-center"><div class="icon"><i class="bi bi-file-earmark-text-fill"></i></div><div class="flex-grow-1">Updated Guidelines for Document Submission Process</div><div class="text-muted">Oct 18, 2025</div></li>
             <li class="list-group-item d-flex align-items-center"><div class="icon"><i class="bi bi-calendar-check-fill"></i></div><div class="flex-grow-1">Notice for Annual Departmental Meeting 2025</div><div class="text-muted">Oct 13, 2025</div></li>
           </ul>
+          <div class="text-end mt-2">
+            <a href="#" class="link-primary small">View more</a>
+          </div>
         </div>
       </div>
     </div>
-    <section class="services-section">
-      <h4 class="fw-bold mb-3">Our Services</h4>
-
-      <div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-search service-icon"></i>
-            <h5 class="fw-bold">Case Status</h5>
-            <p class="text-muted mb-0">Track your case status easily</p>
+    
+      <!-- Videos section (added below Notifications) -->
+      <div class="videos-wrap p-3">
+        <h4 class="fw-bold mb-3">Youtube Channel</h4>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="video-card">
+              <div class="video-embed">
+                <!-- Replace the video ID below with the desired YouTube video -->
+                <iframe src="https://www.youtube.com/embed/v-ZbzsO3Grc" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-journal-text service-icon"></i>
-            <h5 class="fw-bold">Cause List</h5>
-            <p class="text-muted mb-0">View daily cause lists</p>
+          <div class="col-md-4">
+            <div class="video-card">
+              <div class="video-embed">
+                <iframe src="https://www.youtube.com/embed/WdwKDzIsKj8" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-display service-icon"></i>
-            <h5 class="fw-bold">Display Board</h5>
-            <p class="text-muted mb-0">Access the digital display board</p>
-          </div>
-        </div>
-
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-grid service-icon"></i>
-            <h5 class="fw-bold">NJDG</h5>
-            <p class="text-muted mb-0">National Judicial Data Grid</p>
-          </div>
-        </div>
-
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-globe service-icon"></i>
-            <h5 class="fw-bold">eCourts</h5>
-            <p class="text-muted mb-0">Access the digital display board</p>
+          <div class="col-md-4">
+            <div class="video-card">
+              <div class="video-embed">
+                <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- App download callout -->
-    <section class="app-downloads mt-4 mb-4 text-center">
-      <div class="container">
-        <div class="download-box d-inline-flex align-items-center gap-3">
+
+      <!-- App download callout -->
+    <section class="app-downloads mt-4 mb-4">
+      <div class="download-wrap">
+        <div class="download-box d-flex align-items-center justify-content-between gap-3">
           <div class="download-text text-start">
             <div class="small text-muted">Download</div>
             <div class="h5 mb-0 fw-bold">eCourts services app</div>
@@ -212,13 +246,17 @@
     <div class="container">
       <div class="row text-center text-md-start">
         <div class="col-md-3 mb-3">
-          <h6>About Us</h6>
-          <ul>
-            <li><a href="#">Vision & Mission</a></li>
-            <li><a href="#">Organization Structure</a></li>
-            <li><a href="#">Contact Details</a></li>
-            <li><a href="#">FAQs</a></li>
-          </ul>
+          <h6>Contact & Info</h6>
+          <div class="footer-contact">
+            <p class="mb-1">Gauhati High Court - Kohima Bench<br>Seventh Mile, Kohima, Nagaland - 797001</p>
+            <p class="mb-1 small">Site last updated: 10-10-2025</p>
+            <p class="mb-1 small">Visitor count: <span id="visitorCount">2,34,567</span></p>
+            <p class="mb-0">
+              <a href="#" class="text-white me-2" aria-label="YouTube channel"><i class="bi bi-youtube" style="font-size:1.25rem"></i></a>
+              <a href="#" class="text-white me-2" aria-label="Twitter"><i class="bi bi-twitter" style="font-size:1.0rem"></i></a>
+              <a href="#" class="text-white" aria-label="Facebook"><i class="bi bi-facebook" style="font-size:1.0rem"></i></a>
+            </p>
+          </div>
         </div>
         <div class="col-md-3 mb-3">
           <h6>Services</h6>
