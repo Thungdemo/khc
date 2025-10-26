@@ -10,11 +10,11 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container pb-4">
+    <div class="container py-2">
       <div class="logo-row">
         <div class="d-flex align-items-center">
-          <a href="{{ url('/') }}" style="display:inline-flex;align-items:center;margin-right:8px">
-            <img src="{{ asset('images/logo.png') }}" alt="Government Portal Logo" style="width:60px;height:auto;display:block;" />
+          <a href="{{ url('/') }}" class="logo-link">
+            <img src="{{ asset('images/logo.png') }}" alt="Government Portal Logo" class="logo-img" />
           </a>
           <div>
             <div class="logo-title">GAUHATI HIGH COURT KOHIMA BENCH</div>
@@ -27,11 +27,15 @@
           <button class="control-btn" id="themeToggle"><i class="bi bi-brightness-high"></i></button>
         </div>
       </div>
-      <div class="nav-row">
+    </div>
+
+    <!-- Navbar in its own container so it sits separately from the logo row -->
+    <div class="container">
+      <div class="nav-row py-2">
         <nav class="navbar navbar-expand-lg p-0">
-          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse justify-content-center" id="navMenu">
-            <ul class="navbar-nav align-items-center gap-3">
+            <ul class="navbar-nav align-items-center gap-3 mx-auto">
               <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profile-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
@@ -71,22 +75,22 @@
           </div>
         </nav>
       </div>
-      <div class="row banner-section g-3 align-items-stretch">
-        <div class="col-lg-10">
-          <img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
-        </div>
-        <div class="col-lg-2 d-flex">
-          <div class="profile-card w-100 d-flex flex-column align-items-center justify-content-center text-center p-3">
-            <img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" style="width:100%;height:150px;object-fit:cover;border-radius:4px;display:block;margin-bottom:12px;">
-            <h5 class="mb-1" style="font-size:1rem;">Hon’ble Mr. Justice Rajesh Mazumdar</h5>
-            <div class="role text-muted" style="font-size:0.875rem;">Station Judge</div>
-            {{-- <div class="dept">Ministry of Digital Services</div> --}}
-          </div>
-        </div>
       </div>
     </div>
   </header>
-  <main class="container" style="margin-top:40px;">
+
+  <!-- Full-width banner with overlapping profile card -->
+  <div class="banner-full-width">
+    <img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image banner-full-image">
+
+    <!-- Profile card overlayed on the right side of the banner -->
+    <div class="profile-card profile-overlay">
+      <img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="profile-overlay-img">
+      <h5 class="mb-1" style="font-size:1rem;">Hon’ble Mr. Justice Rajesh Mazumdar</h5>
+      <div class="role text-muted" style="font-size:0.875rem;">Station Judge</div>
+    </div>
+  </div>
+  <main class="container site-main">
 
     <section class="services-section mb-4">
 
@@ -191,7 +195,7 @@
     </div>
     
       <!-- Videos section (added below Notifications) -->
-      <div class="videos-wrap p-3">
+      {{-- <div class="videos-wrap p-3">
         <h4 class="fw-bold mb-3">Youtube Channel</h4>
         <div class="row g-3">
           <div class="col-md-4">
@@ -217,7 +221,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <!-- App download callout -->
     <section class="app-downloads mt-4 mb-4">
