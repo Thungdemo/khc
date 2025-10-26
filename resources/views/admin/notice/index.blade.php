@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="mb-0">Notices</h4>
         <a class="btn btn-primary btn-sm" href="{{route('admin.notice.create')}}">Add Notice</a>
@@ -15,7 +14,7 @@
             </div>
             <div class="col-md-3">
                 <label class="form-label small mb-1">Category</label>
-                <x-select :options="$noticeCategories" name="notice_category_id" class="form-select form-select-sm" placeholder="All Categories" selected="request('notice_category_id')" />
+                <x-select :options="$noticeCategories" name="notice_category_id" class="form-select form-select-sm" placeholder="All Categories" :selected="request('notice_category_id')" />
             </div>
             <div class="col-md-3 d-flex gap-2">
                 <button type="submit" class="btn btn-sm btn-primary">Search</button>
@@ -66,6 +65,6 @@
                 @endforelse
             </tbody>
         </table>
+        {{ $notices->withQueryString()->links() }}
     </div>
-</div>
 @endsection

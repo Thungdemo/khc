@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container-fluid p-4">
     <h4 class="mb-4">Edit Notice</h4>
     <div class="bg-white p-4 rounded shadow-sm">
         <form action="{{ route('admin.notice.update', $notice->id) }}" method="POST" enctype="multipart/form-data">
@@ -50,5 +49,4 @@
             <a href="{{ route('admin.notice.index') }}" class="btn btn-secondary ms-2">Cancel</a>
         </form>
     </div>
-</div>
 @endsection

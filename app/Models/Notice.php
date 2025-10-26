@@ -21,7 +21,7 @@ class Notice extends Model
 
     public function scopeFilter($query, $request)
     {
-        if ($request->category) {
+        if ($request->notice_category_id) {
             $query->where('notice_category_id', $request->notice_category_id);
         }
 

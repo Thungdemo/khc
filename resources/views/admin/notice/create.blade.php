@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container-fluid p-4">
     <h4 class="mb-4">Create Notice</h4>
     <div class="bg-white p-4 rounded shadow-sm">
         <form action="{{ route('admin.notice.store') }}" method="POST" enctype="multipart/form-data">
@@ -33,5 +32,4 @@
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
-</div>
 @endsection
