@@ -89,7 +89,7 @@
           <h1 class="hero-title">Gauhati High Court — Kohima Bench</h1>
           <p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
           <div class="hero-cta">
-            <a href="#" class="btn btn-hero">Explore Services</a>
+            <a href="#" class="btn btn-hero">About</a>
             <a href="#" class="btn btn-outline-hero">Latest Notices</a>
           </div>
         </div>
