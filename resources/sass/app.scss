@@ -1,0 +1,85 @@
+@import 'bootstrap/scss/bootstrap';
+
+:root { --sidebar-width: 260px; }
+      body { background-color: #f8f9fa; }
+
+      .layout-wrapper {
+        display: flex;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .sidebar {
+        width: var(--sidebar-width);
+        background-color: #212529;
+        color: #fff;
+        flex-shrink: 0;
+      }
+
+      .sidebar .nav-link { color: #adb5bd; font-weight: 400; transition: background-color 0.3s ease, color 0.3s ease; }
+      .sidebar .nav-link.active,
+      .sidebar .nav-link:hover { color: #fff; background-color: #343a40; border-radius: .375rem; }
+      .sidebar hr { border-color: rgba(255, 255, 255, 0.1); }
+
+      .submenu {
+        padding-left: 1.5rem;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+      }
+      .submenu.show {
+        max-height: 500px;
+        transition: max-height 0.4s ease-in;
+      }
+
+      .btn-toggle {
+        position: relative;
+        font-weight: 400;
+        color: #adb5bd;
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+        padding: .5rem 1rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .btn-toggle:hover,
+      .btn-toggle:focus {
+        color: #fff;
+        background-color: #343a40;
+        border-radius: .375rem;
+      }
+
+      .btn-toggle::after {
+        content: "";
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" stroke="white" stroke-width="2" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>') no-repeat center center;
+        background-size: contain;
+        filter: brightness(100%);
+        transition: transform 0.3s ease;
+      }
+      .btn-toggle[aria-expanded="true"]::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      .content { flex-grow: 1; background-color: #f8f9fa; }
+
+      @media (max-width: 991.98px) {
+        .sidebar {
+          position: fixed;
+          left: -100%;
+          top: 0;
+          height: 100%;
+          z-index: 1030;
+          transition: left .25s ease;
+        }
+        .sidebar.show { left: 0; }
+      }
+
+      .card-counter { font-size: 1.6rem; font-weight: 700; }
