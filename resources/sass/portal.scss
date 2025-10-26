@@ -619,3 +619,88 @@ footer ul li a:hover {
     background: #0b1e2f;
     color: #f1f5f9;
 }
+
+/* Dark theme overrides: apply when <body> has .dark-mode */
+body.dark-mode {
+    background: #071227;
+    color: #e6eef8;
+    transition: background 220ms ease, color 220ms ease;
+}
+
+body.dark-mode .site-header {
+    background: #071522;
+    color: #e6eef8;
+}
+
+body.dark-mode .nav-link {
+    color: rgba(230,240,255,0.95) !important;
+}
+
+body.dark-mode .dropdown-menu {
+    background: #0b2633;
+    color: #e6eef8;
+}
+
+body.dark-mode .dropdown-item {
+    color: #e6eef8 !important;
+}
+
+body.dark-mode .news-wrap,
+body.dark-mode .notif-wrap,
+body.dark-mode .download-wrap,
+body.dark-mode .videos-wrap {
+    background: #071827;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    color: #dceaf8;
+}
+
+body.dark-mode .service-card {
+    background: linear-gradient(180deg, #06243a 0%, #071827 100%);
+    color: #e6eef8;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.45);
+}
+
+body.dark-mode .service-icon {
+    background: linear-gradient(135deg, #3b97ff 0%, #2b6fd6 100%);
+    color: #fff;
+}
+
+body.dark-mode footer,
+body.dark-mode .footer-bottom {
+    background: #061021;
+    color: #9fb6d1;
+}
+
+body.dark-mode .btn-hero {
+    background: #ffca28;
+    color: #071227;
+}
+
+body.dark-mode .btn-outline-hero {
+    border-color: rgba(255,255,255,0.12);
+    color: #e6eef8;
+}
+
+body.dark-mode .profile-overlay {
+    background: rgba(10,18,28,0.78);
+}
+
+body.dark-mode .profile-name,
+body.dark-mode .profile-role {
+    color: #e6eef8;
+}
+
+body.dark-mode .banner-full-width::before {
+    background: linear-gradient(90deg, rgba(2,8,18,0.72) 0%, rgba(2,8,18,0.4) 30%, rgba(2,8,18,0.18) 60%, rgba(2,8,18,0) 100%);
+}
+
+/* Smooth transitions for key elements */
+.banner-full-width .profile-overlay,
+.news-wrap,
+.notif-wrap,
+.service-card,
+.download-wrap,
+.videos-wrap {
+    transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}

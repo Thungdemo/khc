@@ -86,7 +86,7 @@
     <div class="banner-hero">
       <div class="container">
         <div class="hero-inner">
-          <h1 class="hero-title">Gauhati High Court — Kohima Bench</h1>
+          <h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
           <p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
           <div class="hero-cta">
             <a href="#" class="btn btn-hero">About</a>
@@ -114,7 +114,7 @@
           <div class="service-card">
             <i class="bi bi-search service-icon"></i>
             <h5 class="fw-bold">Case Status</h5>
-            <p class="text-muted mb-0">Track your case status easily</p>
+            {{-- <p class="text-muted mb-0">Track your case status easily</p> --}}
           </div>
         </div>
 
@@ -122,7 +122,7 @@
           <div class="service-card">
             <i class="bi bi-journal-text service-icon"></i>
             <h5 class="fw-bold">Cause List</h5>
-            <p class="text-muted mb-0">View daily cause lists</p>
+            {{-- <p class="text-muted mb-0">View daily cause lists</p> --}}
           </div>
         </div>
 
@@ -130,7 +130,7 @@
           <div class="service-card">
             <i class="bi bi-display service-icon"></i>
             <h5 class="fw-bold">Display Board</h5>
-            <p class="text-muted mb-0">Access the digital display board</p>
+            {{-- <p class="text-muted mb-0">Access the digital display board</p> --}}
           </div>
         </div>
 
@@ -138,7 +138,7 @@
           <div class="service-card">
             <i class="bi bi-grid service-icon"></i>
             <h5 class="fw-bold">NJDG</h5>
-            <p class="text-muted mb-0">National Judicial Data Grid</p>
+            {{-- <p class="text-muted mb-0">National Judicial Data Grid</p> --}}
           </div>
         </div>
 
@@ -146,7 +146,7 @@
           <div class="service-card">
             <i class="bi bi-globe service-icon"></i>
             <h5 class="fw-bold">eCourts</h5>
-            <p class="text-muted mb-0">Access the digital display board</p>
+            {{-- <p class="text-muted mb-0">Access the digital display board</p> --}}
           </div>
         </div>
       </div>
@@ -155,7 +155,7 @@
     <div class="news-wrap p-3">
       <div class="d-flex justify-content-between align-items-start">
         <h4 class="mb-3 fw-bold">Latest News & Updates</h4>
-        <small class="text-muted">Showing 3 per slide</small>
+        {{-- <small class="text-muted">Showing 3 per slide</small> --}}
       </div>
 
       <div id="newsCarousel" class="carousel slide news-carousel" data-bs-ride="carousel">
@@ -186,7 +186,7 @@
       </div>
     </div>
     <div class="notif-wrap p-3">
-      <h4 class="fw-bold">Notifications</h4>
+      <h4 class="fw-bold">Notice Board</h4>
       <ul class="nav nav-tabs mt-3 mb-2" role="tablist">
         <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-general">General Notice</button></li>
         <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-circulars">Circulars</button></li>
