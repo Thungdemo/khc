@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Government Portal</title>
   @vite('resources\sass\portal.scss')
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"> --}}
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,10 +13,12 @@
     <div class="container pb-4">
       <div class="logo-row">
         <div class="d-flex align-items-center">
-          <span style="width:34px;height:34px;background:#203a6a;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;margin-right:8px"><i class="bi bi-shield-check-fill" style="color:#fff;font-size:16px"></i></span>
+          <a href="{{ url('/') }}" style="display:inline-flex;align-items:center;margin-right:8px">
+            <img src="{{ asset('images/logo.png') }}" alt="Government Portal Logo" style="width:60px;height:auto;display:block;" />
+          </a>
           <div>
-            <div class="logo-title">Government Portal</div>
-            <div class="logo-sub">Ministry of Digital Services</div>
+            <div class="logo-title">GAUHATI HIGH COURT KOHIMA BENCH</div>
+            {{-- <div class="logo-sub">Ministry of Digital Services</div> --}}
           </div>
         </div>
         <div class="controls">
@@ -31,32 +33,54 @@
           <div class="collapse navbar-collapse justify-content-center" id="navMenu">
             <ul class="navbar-nav align-items-center gap-3">
               <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Departments</a></li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="noticeBoardDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Notice Board</a>
-                <ul class="dropdown-menu" aria-labelledby="noticeBoardDropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profile-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                <ul class="dropdown-menu" aria-labelledby="profile-menu">
                   <li><a class="dropdown-item" href="#">General Notice</a></li>
                   <li><a class="dropdown-item" href="#">Recruitment</a></li>
                   <li><a class="dropdown-item" href="#">Tenders</a></li>
                 </ul>
               </li>
-              <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="services-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                <ul class="dropdown-menu" aria-labelledby="services-menu">
+                  <li><a class="dropdown-item" href="#">General Notice</a></li>
+                  <li><a class="dropdown-item" href="#">Recruitment</a></li>
+                  <li><a class="dropdown-item" href="#">Tenders</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="notice-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Notice Board</a>
+                <ul class="dropdown-menu" aria-labelledby="notice-menu">
+                  <li><a class="dropdown-item" href="#">General Notice</a></li>
+                  <li><a class="dropdown-item" href="#">Recruitment</a></li>
+                  <li><a class="dropdown-item" href="#">Tenders</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="ict-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">ICT Milestones</a>
+                <ul class="dropdown-menu" aria-labelledby="ict-menu">
+                  <li><a class="dropdown-item" href="#">General Notice</a></li>
+                  <li><a class="dropdown-item" href="#">Recruitment</a></li>
+                  <li><a class="dropdown-item" href="#">Tenders</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
         </nav>
       </div>
       <div class="row banner-section g-3 align-items-stretch">
-        <div class="col-lg-9">
-          <img src="https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=1600&q=80" alt="Government Office Building" class="banner-image">
+        <div class="col-lg-10">
+          <img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
         </div>
-        <div class="col-lg-3 d-flex">
-          <div class="profile-card w-100">
-            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Profile Photo">
-            <h5>Dr. Rajesh Kumar</h5>
-            <div class="role">Secretary</div>
-            <div class="dept">Ministry of Digital Services</div>
+        <div class="col-lg-2 d-flex">
+          <div class="profile-card w-100 d-flex flex-column align-items-center justify-content-center text-center p-3">
+            <img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" style="width:100%;height:150px;object-fit:cover;border-radius:4px;display:block;margin-bottom:12px;">
+            <h5 class="mb-1" style="font-size:1rem;">Hon’ble Mr. Justice Rajesh Mazumdar</h5>
+            <div class="role text-muted" style="font-size:0.875rem;">Station Judge</div>
+            {{-- <div class="dept">Ministry of Digital Services</div> --}}
           </div>
         </div>
       </div>
@@ -64,11 +88,36 @@
   </header>
   <main class="container" style="margin-top:40px;">
     <div class="news-wrap p-3">
-      <h4 class="mb-3 fw-bold">Latest News & Updates</h4>
-      <div class="row g-3">
-        <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 23, 2025</div><div class="fw-bold">New Digital Services Platform Launched</div></div></div>
-        <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 23, 2025</div><div class="fw-bold">Public Consultation on New Policy</div></div></div>
-        <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 20, 2025</div><div class="fw-bold">Excellence in Public Service Award</div></div></div>
+      <div class="d-flex justify-content-between align-items-start">
+        <h4 class="mb-3 fw-bold">Latest News & Updates</h4>
+        <small class="text-muted">Showing 3 per slide</small>
+      </div>
+
+      <div id="newsCarousel" class="carousel slide news-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row g-3">
+              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 23, 2025</div><div class="fw-bold">New Digital Services Platform Launched</div></div></div>
+              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 23, 2025</div><div class="fw-bold">Public Consultation on New Policy</div></div></div>
+              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 20, 2025</div><div class="fw-bold">Excellence in Public Service Award</div></div></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-3">
+              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 18, 2025</div><div class="fw-bold">Launch of Citizen Feedback Portal</div></div></div>
+              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 15, 2025</div><div class="fw-bold">New Accessibility Guidelines Published</div></div></div>
+              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 10, 2025</div><div class="fw-bold">Inter-Departmental Data Sharing Agreement Signed</div></div></div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
     <div class="notif-wrap p-3">
@@ -93,26 +142,67 @@
     </div>
     <section class="services-section">
       <h4 class="fw-bold mb-3">Our Services</h4>
-      <div class="row g-3 align-items-stretch">
-        <div class="col-md-4 d-flex">
-          <div class="service-card w-100">
+
+      <div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
+        <div class="service-tile d-flex">
+          <div class="service-card">
             <i class="bi bi-search service-icon"></i>
             <h5 class="fw-bold">Case Status</h5>
             <p class="text-muted mb-0">Track your case status easily</p>
           </div>
         </div>
-        <div class="col-md-4 d-flex">
-          <div class="service-card w-100">
+
+        <div class="service-tile d-flex">
+          <div class="service-card">
             <i class="bi bi-journal-text service-icon"></i>
             <h5 class="fw-bold">Cause List</h5>
             <p class="text-muted mb-0">View daily cause lists</p>
           </div>
         </div>
-        <div class="col-md-4 d-flex">
-          <div class="service-card w-100">
+
+        <div class="service-tile d-flex">
+          <div class="service-card">
             <i class="bi bi-display service-icon"></i>
             <h5 class="fw-bold">Display Board</h5>
             <p class="text-muted mb-0">Access the digital display board</p>
+          </div>
+        </div>
+
+        <div class="service-tile d-flex">
+          <div class="service-card">
+            <i class="bi bi-grid service-icon"></i>
+            <h5 class="fw-bold">NJDG</h5>
+            <p class="text-muted mb-0">National Judicial Data Grid</p>
+          </div>
+        </div>
+
+        <div class="service-tile d-flex">
+          <div class="service-card">
+            <i class="bi bi-globe service-icon"></i>
+            <h5 class="fw-bold">eCourts</h5>
+            <p class="text-muted mb-0">Access the digital display board</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- App download callout -->
+    <section class="app-downloads mt-4 mb-4 text-center">
+      <div class="container">
+        <div class="download-box d-inline-flex align-items-center gap-3">
+          <div class="download-text text-start">
+            <div class="small text-muted">Download</div>
+            <div class="h5 mb-0 fw-bold">eCourts services app</div>
+            <div class="text-muted" style="font-size:0.9rem;">Get the mobile app for case status, cause lists and notifications</div>
+          </div>
+          <div class="download-buttons d-flex gap-2">
+            <a class="btn btn-store btn-play d-inline-flex align-items-center" href="#" aria-label="Get it on Google Play">
+              <i class="bi bi-phone me-2"></i>
+              <div class="d-none d-sm-block">Get it on<br><strong>Google Play</strong></div>
+            </a>
+            <a class="btn btn-store btn-apple d-inline-flex align-items-center" href="#" aria-label="Download on the App Store">
+              <i class="bi bi-apple me-2"></i>
+              <div class="d-none d-sm-block">Download on the<br><strong>App Store</strong></div>
+            </a>
           </div>
         </div>
       </div>
