@@ -33,6 +33,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 
 Route::name('portal.')->group(function () {
     Route::view('/', 'portal.home')->name('home');
+    Route::get('gallery', [App\Http\Controllers\Portal\ImageController::class, 'index'])->name('image.index');
 });
 
 
