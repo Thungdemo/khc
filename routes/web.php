@@ -30,3 +30,9 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::put('notices/{notice}', [NoticeController::class, 'update'])->name('notice.update');
     Route::delete('notices/{notice}', [NoticeController::class, 'destroy'])->name('notice.destroy');
 });
+
+Route::name('portal.')->group(function () {
+    Route::view('/', 'portal.home')->name('home');
+});
+
+
