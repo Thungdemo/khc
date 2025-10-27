@@ -108,9 +108,9 @@
             <p class="mb-1">Site last updated: 10-10-2025</p>
             <p class="mb-1">Visitor count: <span id="visitorCount">2,34,567</span></p>
             <p class="mb-0">
-              <a href="#" class="text-white me-2" aria-label="YouTube channel"><i class="bi bi-youtube" style="font-size:1.25rem"></i></a>
-              <a href="#" class="text-white me-2" aria-label="Twitter"><i class="bi bi-twitter" style="font-size:1.0rem"></i></a>
-              <a href="#" class="text-white" aria-label="Facebook"><i class="bi bi-facebook" style="font-size:1.0rem"></i></a>
+              <a href="#" class="text-white me-2" aria-label="YouTube channel"><i class="bi bi-youtube"></i></a>
+              <a href="#" class="text-white me-2" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-white" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
             </p>
           </div>
         </div>
@@ -138,12 +138,16 @@
           </ul>
         </div>
         <div class="col-md-3 mb-3">
-          <h6>Quick Links</h6>
+          <h6>External Links</h6>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Departments</a></li>
-            <li><a href="#">Notice Board</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a class="external-link" href="https://www.india.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Government of India</a></li>
+            <li><a class="external-link" href="https://www.nagaland.gov.in" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Government of Nagaland</a></li>
+            <li><a class="external-link" href="https://main.sci.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Supreme Court of India</a></li>
+            <li><a class="external-link" href="http://www.sclsc.nic.in" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Supreme Court Legal Services Committee</a></li>
+            <li><a class="external-link" href="https://ghconline.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court</a></li>
+            <li><a class="external-link" href="https://ghcazlbench.nic.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court Aizawl Bench</a></li>
+            <li><a class="external-link" href="http://ghcitanagar.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court Itanagar Bench</a></li>
+            <li><a class="external-link" href="https://nslsa.nagaland.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Nagaland State Legal Services Authority</a></li>
           </ul>
         </div>
       </div>
