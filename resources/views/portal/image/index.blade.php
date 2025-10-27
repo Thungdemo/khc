@@ -39,7 +39,7 @@
 
     @foreach($images as $image)
       <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal{{ $image['id'] }}">
+        <div class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="{{ $image['url'] }}" alt="{{ $image['title'] }}" class="gallery-img">
             <div class="gallery-overlay">
@@ -49,25 +49,6 @@
           <div class="gallery-caption">
             <h6 class="mb-1">{{ $image['title'] }}</h6>
             <small class="text-muted">{{ $image['date'] }}</small>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal for full-size image -->
-      <div class="modal fade" id="imageModal{{ $image['id'] }}" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">{{ $image['title'] }}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0">
-              <img src="{{ $image['url'] }}" alt="{{ $image['title'] }}" class="w-100">
-            </div>
-            <div class="modal-footer">
-              <small class="text-muted me-auto">{{ $image['date'] }}</small>
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-            </div>
           </div>
         </div>
       </div>

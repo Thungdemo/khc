@@ -43,7 +43,7 @@
                   <li><a class="dropdown-item" href="#">About</a></li>
                   <li><a class="dropdown-item" href="#">Station Judges</a></li>
                   <li><a class="dropdown-item" href="#">Former Judges of Kohima Bench</a></li>
-                  <li><a class="dropdown-item" href="#">Registry Officials</a></li>
+                  <li><a class="dropdown-item" href="#">RegistryOfficial Officials</a></li>
                   <li><a class="dropdown-item" href="#">Advocate General</a></li>
                   <li><a class="dropdown-item" href="#">High Court Legal Services Committee</a></li>
                 </ul>
@@ -80,7 +80,7 @@
                   @endforeach
                 </ul>
               </li>
-              <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{route('portal.image.index')}}">Gallery</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="ict-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">ICT Milestones</a>

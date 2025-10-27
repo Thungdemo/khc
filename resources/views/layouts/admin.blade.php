@@ -19,6 +19,7 @@
         <nav class="nav flex-column">
           <a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
           <a class="nav-link" href="{{route('admin.notice.index')}}"><i class="bi bi-file-text me-2"></i>Notices</a>
+          <a class="nav-link" href="{{route('admin.registry-official.index')}}"><i class="bi bi-file-text me-2"></i>Registry Officials</a>
           <a class="nav-link" href="#"><i class="bi bi-people me-2"></i>Users</a>
           <a class="nav-link" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
         </nav>
@@ -56,7 +57,7 @@
         </div>
       </main>
     </div>
-	@vite('resources/js/app.js')
+	@vite('resources/js/admin.js')
     <script>
       const btn = document.getElementById('btnToggle');
       const sidebar = document.getElementById('sidebar');
