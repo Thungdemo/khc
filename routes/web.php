@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Portal\HomeController;
-use App\Http\Controllers\Admin\NoticeController;
+use App\Http\Controllers\Portal\ImageController;
+use App\Http\Controllers\Portal\NoticeController;
 use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/dashboard', function () {
@@ -30,7 +31,8 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 
 Route::name('portal.')->group(function () {
     Route::get('/',[HomeController::class,'index'])->name('home.index');
-    Route::get('gallery', [App\Http\Controllers\Portal\ImageController::class, 'index'])->name('image.index');
+    Route::get('notices/{noticeCategory}',[NoticeController::class,'index'])->name('notice.index');
+    Route::get('gallery', [ImageController::class, 'index'])->name('image.index');
 });
 
 
