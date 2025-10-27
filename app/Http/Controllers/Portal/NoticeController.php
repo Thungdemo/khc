@@ -10,6 +10,8 @@ class NoticeController extends Controller
 {
     public function index(NoticeCategory $noticeCategory,Request $request)
     {
-        
+        return view('portal.notice.index', [
+            'noticeCategory' => $noticeCategory,
+        ]);
     }
 }
