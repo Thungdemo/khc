@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{config('app.name')}}</title>
-  @vite('resources\sass\portal.scss')
+  @vite('resources/sass/portal.scss')
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -41,9 +41,9 @@
                 <ul class="dropdown-menu" aria-labelledby="profile-menu">
                   <li><a class="dropdown-item" href="#">History</a></li>
                   <li><a class="dropdown-item" href="#">About</a></li>
-                  <li><a class="dropdown-item" href="#">Station Judges</a></li>
-                  <li><a class="dropdown-item" href="#">Former Judges of Kohima Bench</a></li>
-                  <li><a class="dropdown-item" href="#">RegistryOfficial Officials</a></li>
+                  <li><a class="dropdown-item" href="{{route('portal.station-judge.index')}}">Station Judges</a></li>
+                  <li><a class="dropdown-item" href="{{route('portal.former-judge.index')}}">Former Judges of Kohima Bench</a></li>
+                  <li><a class="dropdown-item" href="#">Registry Officials</a></li>
                   <li><a class="dropdown-item" href="#">Advocate General</a></li>
                   <li><a class="dropdown-item" href="#">High Court Legal Services Committee</a></li>
                 </ul>
