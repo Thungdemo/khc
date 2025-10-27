@@ -28,14 +28,12 @@
     @endphp
 
     @foreach($images as $image)
-      <div class="col-lg-4 col-md-4 col-sm-6">
-        <div class="col">
-          <a class="figure" href="{{ $image['url'] }}" >
+      <div class="col-lg-4 col-md-4 col-sm-6 chocolat-parent">
+          <a class="figure chocolat-image" href="{{ $image['url'] }}" >
             <img src="{{ $image['url'] }}" class="img-thumbnail" alt="{{ $image['title'] }}">
             
             <div class="text-center text-muted mt-2">{{$image['title']}}</div>
           </a>
-        </div>
       </div>
     @endforeach
   </div>

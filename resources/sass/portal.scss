@@ -840,11 +840,6 @@ body.dark-mode .banner-full-width::before {
         font-size: 0.9rem;
     }
 }
-
-.figure img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.figure:hover img {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+.chocolat-overlay{
+    background-color: rgba(0, 0, 0, 0.9) !important;
 }

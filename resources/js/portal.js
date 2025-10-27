@@ -1,12 +1,10 @@
 import './bootstrap';
 import 'bootstrap';
-import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import 'photoswipe/style.css';
+import Chocolat from 'chocolat';
+import 'chocolat/dist/css/chocolat.css';
 
-const lightbox = new PhotoSwipeLightbox({
-  gallery: '#my-gallery',
-  children: 'a',
-  pswpModule: () => import('photoswipe')
+Chocolat(document.querySelectorAll('.chocolat-parent .chocolat-image'),{
+  imageSize: 'contain',
+  overlayColor: 'rgba(0, 0, 0, 0.9)'
 });
-lightbox.init();
 
