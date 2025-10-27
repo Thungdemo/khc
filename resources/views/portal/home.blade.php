@@ -30,70 +30,46 @@
     <section class="services-section mb-4">
 
       <div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
+        @foreach([
+          ['title'=>'Case Status','icon'=>'bi bi-search service-icon','url'=>'https://hcservices.ecourts.gov.in/ecourtindiaHC/index_highcourt.php?state_cd=6&dist_cd=1&court_code=2&stateNm=Assam'],
+          ['title'=>'Cause List','icon'=>'bi bi-journal-text service-icon','url'=>'https://hcservices.ecourts.gov.in/ecourtindiaHC/cases/highcourt_causelist.php?state_cd=6&dist_cd=1&court_code=2&stateNm=Assam'],
+          ['title'=>'Display Board','icon'=>'bi bi-display service-icon','url'=>'https://board.hcnlservices.in/display/'],
+          ['title'=>'NJDG','icon'=>'bi bi-grid service-icon','url'=>'https://njdg.ecourts.gov.in/njdgnew/index.php'],
+          ['title'=>'eCourts','icon'=>'bi bi bi-globe service-icon','url'=>'http://ecourts.gov.in/']
+        ] as $service)
         <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-search service-icon"></i>
-            <h5 class="fw-bold">Case Status</h5>
+          <a href="{{$service['url']}}" class="service-card" target="_blank external-link">
+            <i class="{{$service['icon']}}"></i>
+            <h5 class="fw-bold">{{$service['title']}}</h5>
             {{-- <p class="text-muted mb-0">Track your case status easily</p> --}}
-          </div>
+          </a>
         </div>
-
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-journal-text service-icon"></i>
-            <h5 class="fw-bold">Cause List</h5>
-            {{-- <p class="text-muted mb-0">View daily cause lists</p> --}}
-          </div>
-        </div>
-
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-display service-icon"></i>
-            <h5 class="fw-bold">Display Board</h5>
-            {{-- <p class="text-muted mb-0">Access the digital display board</p> --}}
-          </div>
-        </div>
-
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-grid service-icon"></i>
-            <h5 class="fw-bold">NJDG</h5>
-            {{-- <p class="text-muted mb-0">National Judicial Data Grid</p> --}}
-          </div>
-        </div>
-
-        <div class="service-tile d-flex">
-          <div class="service-card">
-            <i class="bi bi-globe service-icon"></i>
-            <h5 class="fw-bold">eCourts</h5>
-            {{-- <p class="text-muted mb-0">Access the digital display board</p> --}}
-          </div>
-        </div>
-      </div>
+        @endforeach
     </section>
 
     <div class="news-wrap p-3">
       <div class="d-flex justify-content-between align-items-start">
         <h4 class="mb-3 fw-bold">Latest News & Updates</h4>
-        {{-- <small class="text-muted">Showing 3 per slide</small> --}}
       </div>
 
       <div id="newsCarousel" class="carousel slide news-carousel" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          @foreach($latestNews->chunk(3) as $items)
+          <div class="carousel-item {{$loop->first?'active':''}}">
             <div class="row g-3">
-              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 23, 2025</div><div class="fw-bold">New Digital Services Platform Launched</div></div></div>
-              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 23, 2025</div><div class="fw-bold">Public Consultation on New Policy</div></div></div>
-              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 20, 2025</div><div class="fw-bold">Excellence in Public Service Award</div></div></div>
+              @foreach($items as $item)
+              <div class="col-md-4">
+                <div class="news-item">
+                  <div class="date">
+                    <i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
+                  </div>
+                  <div class="fw-bold"><a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a></div>
+                </div>
+              </div>
+              @endforeach
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="row g-3">
-              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 18, 2025</div><div class="fw-bold">Launch of Citizen Feedback Portal</div></div></div>
-              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 15, 2025</div><div class="fw-bold">New Accessibility Guidelines Published</div></div></div>
-              <div class="col-md-4"><div class="news-item"><div class="date"><i class="bi bi-calendar3 me-2"></i>October 10, 2025</div><div class="fw-bold">Inter-Departmental Data Sharing Agreement Signed</div></div></div>
-            </div>
-          </div>
+          @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -108,24 +84,30 @@
     <div class="notif-wrap p-3">
       <h4 class="fw-bold">Notice Board</h4>
       <ul class="nav nav-tabs mt-3 mb-2" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-general">General Notice</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-circulars">Circulars</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-tenders">Tenders</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-recruitment">Recruitment</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-misc">Miscellaneous</button></li>
+        @foreach($noticeCategories as $noticeCategory)
+        <li class="nav-item"><button class="nav-link {{$loop->first?'active':''}}" data-bs-toggle="tab" data-bs-target="#{{$noticeCategory->id}}-tab">{{$noticeCategory->name}}</button></li>
+        @endforeach
       </ul>
       <div class="tab-content">
-        <div class="tab-pane fade show active" id="tab-general">
+        @foreach($noticeCategories as $noticeCategory)
+        <div class="tab-pane {{$loop->first?'show active':''}}" id="{{$noticeCategory->id}}-tab">
           <ul class="list-group list-notif">
-            <li class="list-group-item d-flex align-items-center"><div class="icon"><i class="bi bi-envelope-fill"></i></div><div class="flex-grow-1">Public Holiday Notification for Republic Day 2025</div><div class="text-muted">Oct 24, 2025</div></li>
-            <li class="list-group-item d-flex align-items-center"><div class="icon"><i class="bi bi-megaphone-fill"></i></div><div class="flex-grow-1">Important Notice regarding Online Service Portal Maintenance</div><div class="text-muted">Oct 20, 2025</div></li>
-            <li class="list-group-item d-flex align-items-center"><div class="icon"><i class="bi bi-file-earmark-text-fill"></i></div><div class="flex-grow-1">Updated Guidelines for Document Submission Process</div><div class="text-muted">Oct 18, 2025</div></li>
-            <li class="list-group-item d-flex align-items-center"><div class="icon"><i class="bi bi-calendar-check-fill"></i></div><div class="flex-grow-1">Notice for Annual Departmental Meeting 2025</div><div class="text-muted">Oct 13, 2025</div></li>
+            @forelse($noticeCategory->notices()->published()->newest()->limit(5)->get() as $notice)
+            <li class="list-group-item d-flex align-items-center">
+              <div class="icon"><i class="bi bi-file-earmark-text-fill"></i></div>
+              <div class="flex-grow-1">
+                <a class="notif-link" href="{{$notice->documentUrl()}}" target="_blank">{{$notice->title}}</a>
+              </div>
+              <div class="text-muted">{{\App\Helpers\DateHelper::display($notice->published_at)}}</div>
+            </li>
+            @empty
+            @endforelse
           </ul>
           <div class="text-end mt-2">
             <a href="#" class="link-primary small">View more</a>
           </div>
         </div>
+        @endforeach
       </div>
     </div>
     

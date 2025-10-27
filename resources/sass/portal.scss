@@ -239,6 +239,13 @@ body {
     box-shadow: 0 6px 20px rgba(7, 25, 50, 0.06);
     margin-bottom: 28px;
 }
+.notif-link {
+    text-decoration: none;
+    color: black;
+}
+.notif-link:hover {
+    color: var(--bs-link-hover-color);
+}
 
 /* Carousel-specific tweaks for news section */
 .news-carousel .news-item {

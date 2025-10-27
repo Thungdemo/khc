@@ -69,4 +69,14 @@ class Notice extends Model
     {
         return $this->belongsTo(NoticeCategory::class);
     }
+
+    public function scopePublished($query)
+    {
+        $query->where('published_at','<=',now()->toDatetimeString());
+    }
+
+    public function scopeNewest($query)
+    {
+        $query->orderBy('published_at','desc');
+    }
 }

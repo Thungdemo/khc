@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{config('app.name')}}</title>
-	@vite('resources/css/app.css')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
+    <title>GHCKB</title>
+	  @vite('resources/sass/admin.scss')
   </head>
   <body>
 
@@ -14,7 +13,7 @@
       <aside class="sidebar p-3" id="sidebar">
         <div class="mb-4 text-center">
           <div class="bg-white text-dark rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:50px;height:50px;font-weight:bold;">A</div>
-          <h6 class="mt-2 text-white mb-0">{{config('app.name')}}</h6>
+          <h6 class="mt-2 text-white mb-0">GHCKB</h6>
           <small class="text-secondary">Dashboard</small>
         </div>
         <nav class="nav flex-column">

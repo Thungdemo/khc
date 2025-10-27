@@ -18,17 +18,22 @@ class DateHelper
 
 	public static function date($date)
 	{
-		return static::_format($date,config('khc.date_format'));
+		return static::attemptFormat($date,config('khc.date.date_format'));
 	}
 
 	public static function time($date)
 	{
-		return static::_format($date,config('khc.time_format'));
+		return static::attemptFormat($date,config('khc.date.time_format'));
+	}
+
+	public static function display($date)
+	{
+		return static::attemptFormat($date,config('khc.date.display_format'));
 	}
 
 	public static function datetime($date)
 	{
-		return static::_format($date,config('khc.date_format').' '.config('khc.time_format'));
+		return static::attemptFormat($date,config('khc.date.date_format').' '.config('khc.date.time_format'));
 	}
 
 	public static function hasTime($date)
@@ -36,7 +41,7 @@ class DateHelper
 		return preg_match('/[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}/',$date);
 	}
 
-	protected static function _format($date,$format)
+	protected static function attemptFormat($date,$format)
 	{
 		if($date==null) return $date;
 		try 

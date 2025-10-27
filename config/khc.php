@@ -13,11 +13,15 @@ return [
     |
     */
 
-    'pagination' => 50,
+    'pagination' => 20,
 
     'max_upload_size' => 5000, // in Kilobytes (10 MB)
 
-    'date_format' => 'd-m-Y',
+    'date' => [
+        'date_format' => 'd-m-Y',
+    
+        'time_format' => 'h:i A',
 
-    'time_format' => 'h:i A',
+        'display_format' => 'd M Y',
+    ]
 ];

@@ -7,7 +7,6 @@ window.Alpine = Alpine;
 Alpine.start();
 
 import 'bootstrap';
-import '../sass/app.scss';
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
