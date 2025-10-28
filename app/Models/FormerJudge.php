@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\DateHelper;
 use Illuminate\Support\Str;
 use App\Helpers\AttributeHelper;
 use Illuminate\Database\Eloquent\Model;
@@ -37,15 +38,23 @@ class FormerJudge extends Model
 
     public function deletePhoto()
     {
-        Storage::disk('public')->delete($this->photo);
-        $this->forceFill([
-            'photo' => null,
-        ])->save();
+        if($this->photo)
+        {
+            Storage::disk('public')->delete($this->photo);
+            $this->forceFill([
+                'photo' => null,
+            ])->save();
+        }
     }
 
     public function delete()
     {
         $this->deletePhoto();
         parent::delete();
+    }
+
+    public function getTenure()
+    {
+        return DateHelper::display($this->start) . ' - ' . DateHelper::display($this->end);
     }
 }
