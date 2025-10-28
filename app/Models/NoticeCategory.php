@@ -15,6 +15,6 @@ class NoticeCategory extends Model
 
     public function scopeSort($query)
     {
-        $query;
+        $query->orderBy('ordering');
     }
 }

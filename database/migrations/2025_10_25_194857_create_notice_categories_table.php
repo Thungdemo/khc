@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('notice_categories', function (Blueprint $table) {
             $table->string('id',20)->primary();
             $table->string('name');
+            $table->integer('ordering')->deault(0);
             $table->timestamps();
         });
     }
