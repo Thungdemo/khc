@@ -42,6 +42,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('former-judges/{formerJudge}/edit', [App\Http\Controllers\Admin\FormerJudgeController::class, 'edit'])->name('former-judge.edit');
     Route::put('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'update'])->name('former-judge.update');
     Route::delete('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'destroy'])->name('former-judge.destroy');
+
+    Route::get('users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('user.index');
+    Route::get('users/create', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('user.create');
+    Route::post('users', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('user.store');
+    Route::get('users/{user}/edit', [App\Http\Controllers\Admin\UserController::class, 'edit'])->name('user.edit');
+    Route::put('users/{user}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('user.update');
+    Route::delete('users/{user}', [App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('user.destroy');
 });
 
 Route::name('portal.')->group(function () {

@@ -21,7 +21,7 @@
           <a class="nav-link" href="{{route('admin.notice.index')}}"><i class="bi bi-file-text me-2"></i>Notices</a>
           <a class="nav-link" href="{{route('admin.registry-official.index')}}"><i class="bi bi-file-text me-2"></i>Registry Officials</a>
           <a class="nav-link" href="{{route('admin.former-judge.index')}}"><i class="bi bi-file-text me-2"></i>Former Judges</a>
-          <a class="nav-link" href="#"><i class="bi bi-people me-2"></i>Users</a>
+          <a class="nav-link" href="{{route('admin.user.index')}}"><i class="bi bi-people me-2"></i>Users</a>
           <a class="nav-link" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
         </nav>
       </aside>
