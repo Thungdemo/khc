@@ -35,6 +35,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('registries/{registryOfficial}/edit', [App\Http\Controllers\Admin\RegistryOfficialController::class, 'edit'])->name('registry-official.edit');
     Route::put('registries/{registryOfficial}', [App\Http\Controllers\Admin\RegistryOfficialController::class, 'update'])->name('registry-official.update');
     Route::delete('registries/{registryOfficial}', [App\Http\Controllers\Admin\RegistryOfficialController::class, 'destroy'])->name('registry-official.destroy');
+
+    Route::get('former-judges', [App\Http\Controllers\Admin\FormerJudgeController::class, 'index'])->name('former-judge.index');
+    Route::get('former-judges/create', [App\Http\Controllers\Admin\FormerJudgeController::class, 'create'])->name('former-judge.create');
+    Route::post('former-judges', [App\Http\Controllers\Admin\FormerJudgeController::class, 'store'])->name('former-judge.store');
+    Route::get('former-judges/{formerJudge}/edit', [App\Http\Controllers\Admin\FormerJudgeController::class, 'edit'])->name('former-judge.edit');
+    Route::put('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'update'])->name('former-judge.update');
+    Route::delete('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'destroy'])->name('former-judge.destroy');
 });
 
 Route::name('portal.')->group(function () {
