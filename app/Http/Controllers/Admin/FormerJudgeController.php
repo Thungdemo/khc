@@ -21,7 +21,9 @@ class FormerJudgeController extends Controller
 
     public function create()
     {
-        return view('admin.former-judge.create');
+        return view('admin.former-judge.create',[
+            'photoSize' => FormerJudge::$photoSize,
+        ]);
     }
 
     public function store(Request $request)
@@ -30,7 +32,7 @@ class FormerJudgeController extends Controller
             'full_name' => ['required', 'string', 'max:255',new Xss],
             'start' => ['required', 'date'],
             'end' => ['required', 'date','after_or_equal:start'],
-            'photo' => ['required','file','max:'.FormerJudge::$maxFileSize,new Filetype(['jpg','png'])]
+            'photo' => ['required','file','max:'.FormerJudge::$photoSize,new Filetype(['jpg','png'])]
         ]);
 
         $formerJudge = FormerJudge::create([
@@ -48,6 +50,7 @@ class FormerJudgeController extends Controller
     {
         return view('admin.former-judge.edit',[
             'formerJudge' => $formerJudge,
+            'photoSize' => FormerJudge::$photoSize,
         ]);
     }
 

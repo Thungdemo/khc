@@ -40,6 +40,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::put('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'update'])->name('former-judge.update');
     Route::delete('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'destroy'])->name('former-judge.destroy');
 
+    Route::get('station-judges', [App\Http\Controllers\Admin\StationJudgeController::class, 'index'])->name('station-judge.index');
+    Route::get('station-judges/create', [App\Http\Controllers\Admin\StationJudgeController::class, 'create'])->name('station-judge.create');
+    Route::post('station-judges', [App\Http\Controllers\Admin\StationJudgeController::class, 'store'])->name('station-judge.store');
+    Route::get('station-judges/{stationJudge}/edit', [App\Http\Controllers\Admin\StationJudgeController::class, 'edit'])->name('station-judge.edit');
+    Route::put('station-judges/{stationJudge}', [App\Http\Controllers\Admin\StationJudgeController::class, 'update'])->name('station-judge.update');
+    Route::delete('station-judges/{stationJudge}', [App\Http\Controllers\Admin\StationJudgeController::class, 'destroy'])->name('station-judge.destroy');
+
     Route::get('gallery',[App\Http\Controllers\Admin\GalleryImageController::class, 'index'])->name('gallery-image.index');
     Route::get('gallery/create',[App\Http\Controllers\Admin\GalleryImageController::class, 'create'])->name('gallery-image.create');
     Route::post('gallery',[App\Http\Controllers\Admin\GalleryImageController::class, 'store'])->name('gallery-image.store');
