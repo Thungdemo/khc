@@ -44,12 +44,18 @@
             <form>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="school@email.com">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                    @error('email')
+                        <div class="text-dangerk">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="••••••••">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
+                    @error('password')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -58,7 +64,10 @@
                             @captcha
                         </div>
                     </div>
-                    <input type="text" name="captcha" id="captcha" class="form-control" placeholder="Enter the code above">
+                    <input type="text" name="captcha" id="captcha" class="form-control @error('captcha') is-invalid @enderror" value="{{ old('captcha') }}" placeholder="Enter the code above">
+                    @error('captcha')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
