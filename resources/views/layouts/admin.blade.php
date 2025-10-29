@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>GHCKB</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 		@vite('resources/sass/admin.scss')
 	</head>
 	<body>
@@ -42,7 +43,7 @@
 						<button class="btn btn-outline-dark d-lg-none" id="btnToggle"><i class="bi bi-list"></i></button>
 					</div>
 					<div class="dropdown ms-auto py-2 d-flex align-items-center">
-						<a href="/" class="text-decoration-none text-dark me-3" title="Visit Website">
+						<a href="{{url('/')}}" class="text-decoration-none text-dark me-3" title="Visit Website">
 						<i class="bi bi-globe"></i>
 						</a>
 						<a href="#" class="text-decoration-none text-dark" id="adminDropdown" data-bs-toggle="dropdown" aria-expanded="false">
