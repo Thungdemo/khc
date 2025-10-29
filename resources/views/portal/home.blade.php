@@ -104,7 +104,7 @@
             @endforelse
           </ul>
           <div class="text-end mt-2">
-            <a href="#" class="link-primary small">View more</a>
+            <a href="{{route('portal.notice.index',$noticeCategory)}}" class="link-primary small">View more</a>
           </div>
         </div>
         @endforeach

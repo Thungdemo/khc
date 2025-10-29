@@ -42,4 +42,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function delete()
+    {
+        $this->roles()->detach();
+        return parent::delete();
+    }
 }

@@ -15,10 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'admin@email.com',
-        ]);
         $this->call(NoticeCategorySeeder::class);
         $this->call(RoleSeeder::class);
     }

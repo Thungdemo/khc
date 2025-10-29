@@ -7,9 +7,6 @@ use App\Http\Controllers\Portal\ImageController;
 use App\Http\Controllers\Portal\NoticeController;
 use App\Http\Controllers\Admin\DashboardController;
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
