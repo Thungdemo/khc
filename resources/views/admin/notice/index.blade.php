@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@section('breadcrumbs')
+    {{ \Diglactic\Breadcrumbs\Breadcrumbs::render('admin.notice.index') }}
+@endsection
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="mb-0">Notices</h4>

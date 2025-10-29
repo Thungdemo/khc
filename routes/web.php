@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Portal\HomeController;
-use App\Http\Controllers\Portal\ImageController;
+use App\Http\Controllers\Portal\GalleryImageController;
 use App\Http\Controllers\Portal\NoticeController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -40,6 +40,11 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::put('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'update'])->name('former-judge.update');
     Route::delete('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'destroy'])->name('former-judge.destroy');
 
+    Route::get('gallery',[App\Http\Controllers\Admin\GalleryImageController::class, 'index'])->name('gallery-image.index');
+    Route::get('gallery/create',[App\Http\Controllers\Admin\GalleryImageController::class, 'create'])->name('gallery-image.create');
+    Route::post('gallery',[App\Http\Controllers\Admin\GalleryImageController::class, 'store'])->name('gallery-image.store');
+    Route::delete('gallery/{galleryImage}',[App\Http\Controllers\Admin\GalleryImageController::class, 'destroy'])->name('gallery-image.destroy');
+
     Route::get('users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('user.index');
     Route::get('users/create', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('user.create');
     Route::post('users', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('user.store');
@@ -50,7 +55,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 
 Route::name('portal.')->group(function () {
     Route::get('/',[HomeController::class,'index'])->name('home.index');
-    Route::get('gallery', [ImageController::class, 'index'])->name('image.index');
+    Route::get('gallery', [GalleryImageController::class, 'index'])->name('image.index');
     Route::get('notices/{noticeCategory}',[NoticeController::class,'index'])->name('notice.index');
     Route::get('station-judges',[App\Http\Controllers\Portal\StationJudgeController::class,'index'])->name('station-judge.index');
     Route::get('former-judges',[App\Http\Controllers\Portal\FormerJudgeController::class,'index'])->name('former-judge.index');

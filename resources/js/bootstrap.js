@@ -19,3 +19,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+document.querySelectorAll('.imgp-input').forEach(input => {
+    input.addEventListener('change', function() {
+        const target = this.dataset.target;
+        const previewImg = document.querySelector(target);
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                let parent = previewImg.parentElement;
+                while (parent && !parent.classList.contains('imgp-preview')) {
+                    parent = parent.parentElement;
+                }
+                if (parent && parent.classList.contains('imgp-preview')) {
+                    parent.style.display = 'block';
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+});

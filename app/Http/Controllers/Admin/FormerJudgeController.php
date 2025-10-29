@@ -30,7 +30,7 @@ class FormerJudgeController extends Controller
             'full_name' => ['required', 'string', 'max:255',new Xss],
             'start' => ['required', 'date'],
             'end' => ['required', 'date','after_or_equal:start'],
-            'photo' => ['required','file','max:'.FormerJudge::$maxPhotoSize,new Filetype(['jpg','png'])]
+            'photo' => ['required','file','max:'.FormerJudge::$maxFileSize,new Filetype(['jpg','png'])]
         ]);
 
         $formerJudge = FormerJudge::create([
@@ -57,7 +57,7 @@ class FormerJudgeController extends Controller
             'full_name' => ['required', 'string', 'max:255',new Xss],
             'start' => ['required', 'date'],
             'end' => ['required', 'date','after_or_equal:start'],
-            'photo' => ['nullable','file','max:'.FormerJudge::$maxPhotoSize,new Filetype(['jpg','png'])]
+            'photo' => ['nullable','file','max:'.FormerJudge::$maxFileSize,new Filetype(['jpg','png'])]
         ]);
 
         $formerJudge->update([

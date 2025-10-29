@@ -18,16 +18,16 @@ class FormerJudge extends Model
 
     protected $datable = ['start','end'];
 
-    static $maxPhotoSize = 1000; // in KB
+    static $maxFileSize = 1000; // in KB
 
-    static $photoPath = 'former-judges';
+    static $filePath = 'former-judges';
 
     public function savePhoto($file)
     {
         $filename = Str::random(10) . '.' . $file->guessExtension();
-        $file->storeAs(self::$photoPath, $filename, 'public');
+        $file->storeAs(self::$filePath, $filename, 'public');
         $this->forceFill(([
-            'photo' => self::$photoPath . '/' . $filename,
+            'photo' => self::$filePath . '/' . $filename,
         ]))->save();
     }
 
