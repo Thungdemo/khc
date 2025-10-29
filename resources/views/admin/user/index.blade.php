@@ -2,7 +2,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="mb-0">Notices</h4>
-        <a class="btn btn-primary btn-sm" href="{{route('admin.user.create')}}">Add User</a>
+        <a class="btn btn-primary" href="{{route('admin.user.create')}}">Add User</a>
     </div>
 
     <!-- Filter Section -->

@@ -1,11 +1,14 @@
 import axios from 'axios';
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Chocolat from 'chocolat';
+import 'chocolat/dist/css/chocolat.css';
 
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // init datepickers
     document.querySelectorAll('.datetimepicker').forEach(el => {
         flatpickr(el, {
             enableTime: true,
@@ -19,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// init image file input previews
 document.querySelectorAll('.imgp-input').forEach(input => {
     input.addEventListener('change', function() {
         const target = this.dataset.target;
@@ -39,4 +43,10 @@ document.querySelectorAll('.imgp-input').forEach(input => {
             reader.readAsDataURL(file);
         }
     });
+});
+
+// init Chocolat image viewer
+Chocolat(document.querySelectorAll('.chocolat-parent .chocolat-image'),{
+  imageSize: 'contain',
+  overlayColor: 'rgba(0, 0, 0, 0.9)'
 });

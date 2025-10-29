@@ -2,7 +2,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="mb-0">Former Judges</h4>
-        <a class="btn btn-primary btn-sm" href="{{route('admin.former-judge.create')}}">Add</a>
+        <a class="btn btn-primary" href="{{route('admin.former-judge.create')}}">Add</a>
     </div>
 
     <div class="table-responsive">
