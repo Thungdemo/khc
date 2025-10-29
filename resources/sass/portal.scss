@@ -1,5 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import 'variables';
 
 body {
     font-family: 'Inter', sans-serif;
@@ -12,7 +13,7 @@ body {
 }
 
 .site-header {
-    background: var(--dark);
+    background: var(--theme-primary);
     color: #fff;
     // padding: 24px 0 0;
 }
@@ -527,7 +528,7 @@ body {
     }
 
 footer {
-    background: var(--dark);
+    background: var(--theme-primary);
     color: #fff;
     padding: 40px 0;
     margin-top: 40px;
