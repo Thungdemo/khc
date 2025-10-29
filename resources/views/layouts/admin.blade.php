@@ -17,10 +17,20 @@
 				</div>
 				<nav class="nav flex-column">
 					<a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
-					<a class="nav-link" href="{{route('admin.notice.index')}}"><i class="bi bi-file-text me-2"></i>Notices</a>
-					<a class="nav-link" href="{{route('admin.registry-official.index')}}"><i class="bi bi-file-text me-2"></i>Registry Officials</a>
-					<a class="nav-link" href="{{route('admin.former-judge.index')}}"><i class="bi bi-file-text me-2"></i>Former Judges</a>
-					<a class="nav-link" href="{{route('admin.gallery-image.index')}}"><i class="bi bi-file-text me-2"></i>Gallery</a>
+					
+					<div class="sidemenu-divider text-secondary fw-semibold">
+						Content Management
+					</div>
+					<a class="nav-link" href="{{route('admin.notice.index')}}"><i class="bi bi-bell me-2"></i>Notices</a>
+					<a class="nav-link" href="#"><i class="bi bi-person-badge me-2"></i>Station Judges</a>
+					<a class="nav-link" href="{{route('admin.former-judge.index')}}"><i class="bi bi-person-check me-2"></i>Former Judges</a>
+					<a class="nav-link" href="{{route('admin.registry-official.index')}}"><i class="bi bi-person-workspace me-2"></i>Registry Officials</a>
+					<a class="nav-link" href="#"><i class="bi bi-briefcase me-2"></i>Advocate General</a>
+					<a class="nav-link" href="{{route('admin.gallery-image.index')}}"><i class="bi bi-images me-2"></i>Gallery</a>
+					
+					<div class="sidemenu-divider text-secondary fw-semibold">
+						Administration
+					</div>
 					<a class="nav-link" href="{{route('admin.user.index')}}"><i class="bi bi-people me-2"></i>Users</a>
 					<a class="nav-link" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
 				</nav>
@@ -44,7 +54,7 @@
 							<li>
 								<hr class="dropdown-divider">
 							</li>
-							<li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+							<li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -73,5 +83,26 @@
 			const sidebar = document.getElementById('sidebar');
 			btn && btn.addEventListener('click', () => sidebar.classList.toggle('show'));
 		</script>
+		<!-- Logout Modal -->
+		<div class="modal" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Are you sure you want to logout?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+						<form method="POST" action="{{ route('logout') }}" class="d-inline">
+							@csrf
+							<button type="submit" class="btn btn-danger">Logout</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
