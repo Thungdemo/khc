@@ -20,7 +20,9 @@
           <a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
           <a class="nav-link" href="{{route('admin.notice.index')}}"><i class="bi bi-file-text me-2"></i>Notices</a>
           <a class="nav-link" href="{{route('admin.registry-official.index')}}"><i class="bi bi-file-text me-2"></i>Registry Officials</a>
-          <a class="nav-link" href="#"><i class="bi bi-people me-2"></i>Users</a>
+          <a class="nav-link" href="{{route('admin.former-judge.index')}}"><i class="bi bi-file-text me-2"></i>Former Judges</a>
+          <a class="nav-link" href="{{route('admin.gallery-image.index')}}"><i class="bi bi-file-text me-2"></i>Gallery</a>
+          <a class="nav-link" href="{{route('admin.user.index')}}"><i class="bi bi-people me-2"></i>Users</a>
           <a class="nav-link" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
         </nav>
       </aside>
@@ -45,15 +47,9 @@
 
         <div class="container-fluid p-4">
           <!-- Breadcrumbs -->
-          <nav aria-label="breadcrumb" class="mb-4">
-            <ol class="breadcrumb bg-transparent p-0">
-              <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted">Home</a></li>
-              <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted">Notices</a></li>
-              <li class="breadcrumb-item active text-dark" aria-current="page">Create</li>
-            </ol>
-          </nav>
+          @yield('breadcrumbs')
 
-			@yield('content')
+			    @yield('content')
         </div>
       </main>
     </div>

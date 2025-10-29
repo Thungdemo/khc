@@ -1,15 +1,12 @@
 @extends('layouts.admin')
-@section('breadcrumbs')
-    {{ \Diglactic\Breadcrumbs\Breadcrumbs::render('admin.notice.index') }}
-@endsection
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="mb-0">Notices</h4>
-        <a class="btn btn-primary btn-sm" href="{{route('admin.notice.create')}}">Add Notice</a>
+        <a class="btn btn-primary btn-sm" href="{{route('admin.user.create')}}">Add User</a>
     </div>
 
     <!-- Filter Section -->
-    <div class="mb-3 p-3 bg-white rounded shadow-sm">
+    {{-- <div class="mb-3 p-3 bg-white rounded shadow-sm">
         <form class="row g-3 align-items-end">
             <div class="col-md-3">
                 <label class="form-label small mb-1">Title</label>
@@ -24,34 +21,34 @@
                 <a href="{{route('admin.notice.index')}}" class="btn btn-sm btn-secondary">Clear</a>
             </div>
         </form>
-    </div>
+    </div> --}}
 
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>
-                    <th>Title</th>
-                    <th>Category</th>
-                    <th>Document</th>
-                    <th>Publish Date</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Roles</th>
                     <th>Options</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($notices as $notice)
-                    <td>{{$notice->title}}</td>
-                    <td>{{$notice->noticeCategory->name}}</td>
+                @forelse ($users as $user)
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
                     <td>
-                        <a href="{{ $notice->documentUrl() }}" target="_blank">{{$notice->documentFilename()}}</a>
+                        @foreach ($user->roles as $role)
+                            <span class="badge bg-secondary">{{ $role->display_name }}</span>
+                        @endforeach
                     </td>
-                    <td>{{$notice->published_at}}</td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{route('admin.notice.edit',$notice)}}">Edit</a></li>
+                                <li><a class="dropdown-item" href="{{route('admin.user.edit',$user)}}">Edit</a></li>
                                 <li>
-                                    <form action="{{ route('admin.notice.destroy', $notice) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this notice?')">
+                                    <form action="{{ route('admin.user.destroy', $user) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="dropdown-item text-danger">Delete</button>
@@ -68,6 +65,6 @@
                 @endforelse
             </tbody>
         </table>
-        {{ $notices->withQueryString()->links() }}
+        {{ $users->withQueryString()->links() }}
     </div>
 @endsection

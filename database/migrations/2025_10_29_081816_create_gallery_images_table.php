@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notice_categories', function (Blueprint $table) {
-            $table->string('id',20)->primary();
-            $table->string('name');
-            $table->integer('ordering')->deault(0);
+        Schema::create('gallery_images', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('filename')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notice_categories');
+        Schema::dropIfExists('gallery_images');
     }
 };
