@@ -1,7 +1,7 @@
 @extends('layouts.portal')
 @section('content')
 <div class="banner-full-width">
-	<img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image banner-full-image">
+	<img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
 	<!-- Hero content (left) and profile overlay (right) -->
 	<div class="banner-hero">
 		<div class="container">
@@ -17,11 +17,11 @@
 	</div>
 	<!-- Profile card overlayed on the right side of the banner -->
 	<div class="profile-card profile-overlay">
-		<div class="profile-avatar-wrap">
-			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="profile-overlay-img">
+		<div>
+			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="">
 		</div>
-		<h5 class="mb-1 profile-name">Hon’ble Mr. Justice Rajesh Mazumdar</h5>
-		<div class="role profile-role">Station Judge</div>
+		<div class="mb-1 text-center fw-bold">Hon’ble Mr. Justice Rajesh Mazumdar</div>
+		<div class="text-muted small">Station Judge</div>
 	</div>
 </div>
 <main class="container site-main">
@@ -57,7 +57,7 @@
 						@foreach($items as $item)
 						<div class="col-md-4">
 							<div class="news-item">
-								<div class="date">
+								<div class="small text-muted mb-1">
 									<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
 								</div>
 								<div class="fw-bold"><a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a></div>
