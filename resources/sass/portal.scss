@@ -4,8 +4,8 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #f6f7fb;
-    color: #0b1e2f;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 :root {
@@ -188,7 +188,7 @@ body {
 }
 
 .card-wrap {
-    background: #fff;
+    background: var(--card-bg);
     border-radius: 14px;
     padding: 18px;
     box-shadow: 0 6px 20px rgba(7, 25, 50, 0.06);
@@ -196,15 +196,10 @@ body {
 }
 .notif-link {
     text-decoration: none;
-    color: black;
+    color: var(--text-color)
 }
 .notif-link:hover {
     color: var(--bs-link-hover-color);
-}
-
-/* Carousel-specific tweaks for news section */
-.news-carousel .news-item {
-        height: 100%;
 }
 
 .news-carousel .carousel-control-prev-icon,
@@ -221,11 +216,6 @@ body {
         flex: 0 0 100%;
         max-width: 100%;
     }
-}
-
-/* Move carousel controls to the extreme ends (outside the card area) */
-.card-wrap {
-    position: relative;
 }
 
 /* Place controls inside the news box; add inner padding to carousel-inner so cards don't get overlapped */
@@ -253,11 +243,10 @@ body {
 .news-item {
     border-radius: 10px;
     padding: 14px;
-    background: #fbfdff;
-    border: 1px solid #eef3fb;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    height: 100%;
 }
-
-/* Videos section styling - now uses card-wrap */
 
 .video-card {
     border-radius: 10px;
@@ -292,6 +281,7 @@ body {
     border: none;
     padding: 12px 0;
     border-bottom: 1px solid #f1f5f9;
+    background-color: var(--card-bg);
 }
 
 .list-notif .icon {
@@ -311,36 +301,34 @@ body {
 }
 
 .service-card {
+    background-color: var(--card-bg);
     border-radius: 10px;
-    padding: 20px;
-    background: #fff;
-    border: 1px solid #eef3fb;
+    border: 1px solid #e4e4e4;
     box-shadow: 0 6px 16px rgba(11, 30, 56, 0.04);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* square card: fixed width, 1:1 aspect ratio */
-    width: 180px;
+    width: 160px;
     aspect-ratio: 1 / 1;
     height: auto; /* controlled by aspect-ratio */
-    transition: transform 0.22s cubic-bezier(.2,.9,.3,1), box-shadow 0.22s ease, border-color 0.22s ease;
-    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-    border: 1px solid rgba(35,74,138,0.06);
-    border-radius: 14px;
-    padding: 18px 16px; /* keep internal spacing while aspect-ratio controls height */
     text-decoration: none; /* if wrapped in link later */
 }
 
+.service-tile {
+    flex: 0 0 auto; /* fixed-width tiles, do not stretch */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .service-card:hover {
-    transform: translateY(-4px);
+    transform: scale(1.05);
 }
 
 .service-icon {
     font-size: 1.8rem;
-    margin-bottom: 12px;
-    font-size: 1.6rem;
     margin-bottom: 12px;
     color: #fff;
     display: inline-flex;
@@ -355,89 +343,60 @@ body {
 
 /* Services row: center all cards in a single row, allow horizontal scroll on small screens */
 .services-row {
-        gap: 1rem;
-        overflow-x: auto;
-        padding-bottom: 8px; /* space for potential scrollbar */
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 8px; /* space for potential scrollbar */
 }
 
-.service-tile {
-        flex: 0 0 auto; /* fixed-width tiles, do not stretch */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+/* Titles and descriptions inside card */
+.service-card h5 {
+    margin: 8px 0 6px;
+    font-size: 1rem;
+    line-height: 1.1;
+    color: var(--text-color);
 }
 
-/* Hover lift preserved */
-.service-card:hover {
-        transform: translateY(-8px) scale(1.01);
-        box-shadow: 0 14px 30px rgba(11,30,56,0.12);
-        border-color: rgba(35,74,138,0.14);
+.service-card p {
+    font-size: 0.82rem;
+    color: #6b7c96;
+    margin: 0;
 }
 
-@media (max-width: 768px) {
-        .service-card { width: 140px; padding: 14px 12px; }
+/* App download callout styles */
+.app-downloads .download-box {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    align-items: center;
 }
 
-@media (max-width: 480px) {
-    .services-row { gap: 0.75rem; }
-        .service-card { width: 120px; padding: 12px 10px; }
+.app-downloads .download-text .small { font-size: 0.8rem; color: #6b7c96; }
+
+.btn-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
 }
 
-    /* Titles and descriptions inside card */
-    .service-card h5 {
-        margin: 8px 0 6px;
-        font-size: 1rem;
-        line-height: 1.1;
-        color: #0b2136;
-    }
+.btn-play {
+    background: linear-gradient(135deg,#2b63a8,#1f3f78);
+}
 
-    .service-card p {
-        font-size: 0.82rem;
-        color: #6b7c96;
-        margin: 0;
-    }
+.btn-apple {
+    background: linear-gradient(135deg,#111827,#0b1e2f);
+}
 
-    /* Make the whole card clickable visually (if turned into a link later) */
-    .service-card { cursor: default; }
-    .service-tile:hover .service-card { cursor: pointer; }
+.btn-store i { font-size: 1.25rem; }
 
-    /* App download callout styles */
-    .app-downloads .download-box {
-        background: transparent;
-        border-radius: 0;
-        padding: 0;
-        align-items: center;
-    }
-
-    /* Make the download area match other white sections - now uses card-wrap */
-
-    .app-downloads .download-text .small { font-size: 0.8rem; color: #6b7c96; }
-
-    .btn-store {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 12px;
-        border-radius: 10px;
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .btn-play {
-        background: linear-gradient(135deg,#2b63a8,#1f3f78);
-    }
-
-    .btn-apple {
-        background: linear-gradient(135deg,#111827,#0b1e2f);
-    }
-
-    .btn-store i { font-size: 1.25rem; }
-
-    @media (max-width: 576px) {
-        .app-downloads .download-box { flex-direction: column; gap: 8px; }
-        .app-downloads .download-text { text-align: center; }
-        .download-buttons .d-none.d-sm-block { display: none !important; }
-    }
+@media (max-width: 576px) {
+    .app-downloads .download-box { flex-direction: column; gap: 8px; }
+    .app-downloads .download-text { text-align: center; }
+    .download-buttons .d-none.d-sm-block { display: none !important; }
+}
 
 footer {
     background: var(--theme-primary);
@@ -589,4 +548,7 @@ footer ul li a:hover {
 }
 .chocolat-overlay{
     background-color: rgba(0, 0, 0, 0.9) !important;
+}
+.nav-tabs .nav-link {
+    color: var(--text-color) !important;
 }

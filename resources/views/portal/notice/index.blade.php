@@ -8,7 +8,7 @@
   </div>
 
   <!-- Filter Section -->
-  <div class="notif-wrap p-3 mb-4">
+  <div class="mb-4">
     <form method="GET" action="{{ route('portal.notice.index',$noticeCategory) }}">
       <div class="d-flex gap-2 align-items-end">
         <div class="flex-grow-1">
@@ -27,7 +27,7 @@
   </div>
 
   <!-- Tabbed Notice Layout -->
-  <div class="notif-wrap p-3">
+  <div class="card-wrap p-3">
     {{-- <h4 class="fw-bold">Notice Board</h4> --}}
     <ul class="nav nav-tabs mt-3 mb-2" role="tablist">
       @foreach($noticeCategories as $item)

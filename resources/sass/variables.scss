@@ -1,3 +1,13 @@
 :root {
   --theme-primary: #19242c;
+  --bg-color: #fafafa;
+  --text-color: #000000;
+  --card-bg: white;
+  --border-color: #dddddd;
+}
+[data-theme="dark"] {
+  --bg-color: #111111;
+  --text-color: #ffffff;
+  --card-bg: var(--theme-primary);
+  --border-color: #444444;
 }
