@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('stream');
             $table->date('elevation_date');
             $table->string('stationing');
-            $table->text('description')->nullable();
+            $table->text('biography')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
         });
