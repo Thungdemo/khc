@@ -31,11 +31,11 @@
 
       <div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
         @foreach([
-          ['title'=>'Case Status','icon'=>'bi bi-search service-icon','url'=>'https://hcservices.ecourts.gov.in/ecourtindiaHC/index_highcourt.php?state_cd=6&dist_cd=1&court_code=2&stateNm=Assam'],
-          ['title'=>'Cause List','icon'=>'bi bi-journal-text service-icon','url'=>'https://hcservices.ecourts.gov.in/ecourtindiaHC/cases/highcourt_causelist.php?state_cd=6&dist_cd=1&court_code=2&stateNm=Assam'],
-          ['title'=>'Display Board','icon'=>'bi bi-display service-icon','url'=>'https://board.hcnlservices.in/display/'],
-          ['title'=>'NJDG','icon'=>'bi bi-grid service-icon','url'=>'https://njdg.ecourts.gov.in/njdgnew/index.php'],
-          ['title'=>'eCourts','icon'=>'bi bi bi-globe service-icon','url'=>'http://ecourts.gov.in/']
+          ['title'=>'Case Status','icon'=>'bi bi-search service-icon','url'=>config('links.case_status')],
+          ['title'=>'Cause List','icon'=>'bi bi-journal-text service-icon','url'=>config('links.causelist_local')],
+          ['title'=>'Display Board','icon'=>'bi bi-display service-icon','url'=>config('links.display_board')],
+          ['title'=>'NJDG','icon'=>'bi bi-grid service-icon','url'=>config('links.njdg')],
+          ['title'=>'eCourts','icon'=>'bi bi bi-globe service-icon','url'=>config('links.ecourts')]
         ] as $service)
         <div class="service-tile d-flex">
           <a href="{{$service['url']}}" class="service-card" target="_blank external-link">

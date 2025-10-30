@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Rules\Xss;
+use App\Rules\Filetype;
+use App\Models\StationJudge;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,13 +13,15 @@ class StationJudgeController extends Controller
     public function index()
     {
         return view('admin.station-judge.index',[
-            'stationJudges' => StationJudge::paginate(config('khc.pagination.per_page'))
+            'stationJudges' => StationJudge::paginate(config('khc.pagination'))
         ]);
     }
 
     public function create()
     {
-        return view('admin.station-judge.create');
+        return view('admin.station-judge.create',[
+            'photoSize' => StationJudge::$photoSize
+        ]);
     }
 
     public function store(Request $request)
@@ -41,6 +46,8 @@ class StationJudgeController extends Controller
             'stationing' => $request->stationing,
             'description' => $request->description
         ]);
+
+        $stationJudge->savePhoto($request->file('photo'));
 
         return redirect()->route('admin.station-judge.index');
     }

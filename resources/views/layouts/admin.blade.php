@@ -23,7 +23,7 @@
 						Content Management
 					</div>
 					<a class="nav-link" href="{{route('admin.notice.index')}}"><i class="bi bi-bell me-2"></i>Notices</a>
-					<a class="nav-link" href="#"><i class="bi bi-person-badge me-2"></i>Station Judges</a>
+					<a class="nav-link" href="{{route('admin.station-judge.index')}}"><i class="bi bi-person-badge me-2"></i>Station Judges</a>
 					<a class="nav-link" href="{{route('admin.former-judge.index')}}"><i class="bi bi-person-check me-2"></i>Former Judges</a>
 					<a class="nav-link" href="{{route('admin.registry-official.index')}}"><i class="bi bi-person-workspace me-2"></i>Registry Officials</a>
 					<a class="nav-link" href="#"><i class="bi bi-briefcase me-2"></i>Advocate General</a>

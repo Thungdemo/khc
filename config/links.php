@@ -19,4 +19,6 @@ return [
     'e_filing' => '#',
     'epay' => '#',
     'virtual_courts' => '#',
+    'njdg' => 'https://njdg.ecourts.gov.in/njdgnew/index.php',
+    'ecourts' => 'http://ecourts.gov.in',
 ];
