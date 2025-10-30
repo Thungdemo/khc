@@ -33,8 +33,8 @@
 			<div class="container">
 				<div class="nav-row py-2">
 					<nav class="navbar navbar-expand-lg p-0">
-						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
-						<div class="collapse navbar-collapse justify-content-center" id="navMenu">
+						<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
+						<div class="collapse navbar-collapse justify-content-center d-none d-lg-block" id="navMenu">
 							<ul class="navbar-nav align-items-center gap-3 mx-auto">
 								<li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
 								<li class="nav-item dropdown">
@@ -96,6 +96,80 @@
 			</div>
 			</div>
 		</header>
+
+		<!-- Offcanvas Menu -->
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title">Menu</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
+					<li class="nav-item">
+						<a class="nav-link" data-bs-toggle="collapse" href="#profileSubmenu" role="button">Profile</a>
+						<div class="collapse" id="profileSubmenu">
+							<ul class="list-unstyled ps-3">
+								<li><a class="nav-link" href="#">History</a></li>
+								<li><a class="nav-link" href="#">About</a></li>
+								<li><a class="nav-link" href="{{route('portal.station-judge.index')}}">Station Judges</a></li>
+								<li><a class="nav-link" href="{{route('portal.former-judge.index')}}">Former Judges of Kohima Bench</a></li>
+								<li><a class="nav-link" href="#">Registry Officials</a></li>
+								<li><a class="nav-link" href="#">Advocate General</a></li>
+								<li><a class="nav-link" href="#">High Court Legal Services Committee</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-bs-toggle="collapse" href="#servicesSubmenu" role="button">Services</a>
+						<div class="collapse" id="servicesSubmenu">
+							<ul class="list-unstyled ps-3">
+								<li><a class="nav-link" href="{{config('links.causelist_national')}}" target="_blank">Cause List (National Server)</a></li>
+								<li><a class="nav-link" href="{{config('links.causelist_local')}}" target="_blank">Cause List (Local Server)</a></li>
+								<li><a class="nav-link" href="{{config('links.case_status')}}" target="_blank">Case Status</a></li>
+								<li><a class="nav-link" href="{{config('links.neutral_citation')}}" target="_blank">Neutral Citation</a></li>
+								<li><a class="nav-link" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
+								<li><a class="nav-link" href="#">Statistics</a></li>
+								<li><a class="nav-link" href="#">Library</a></li>
+								<li><a class="nav-link" href="#">Downloads</a></li>
+								<li><a class="nav-link" href="{{config('links.justice_clock')}}" target="_blank">Virtual Justice Clock</a></li>
+								<li><a class="nav-link" href="#">eCommittee Newsletters</a></li>
+								<li><a class="nav-link" href="{{config('links.mact_dashboard')}}" target="_blank">MACT Dashboard</a></li>
+								<li><a class="nav-link" href="{{config('links.mact')}}" target="_blank">MACT Information Portal</a></li>
+								<li><a class="nav-link" href="#">RTI</a></li>
+								<li><a class="nav-link" href="{{config('links.escr')}}" target="_blank">eSCR Judgements & Orders</a></li>
+								<li><a class="nav-link" href="#">Court Vc Links</a></li>
+								<li><a class="nav-link" href="#">eFiling</a></li>
+								<li><a class="nav-link" href="#">ePay</a></li>
+								<li><a class="nav-link" href="#">Virtual Courts</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-bs-toggle="collapse" href="#noticeSubmenu" role="button">Notice Board</a>
+						<div class="collapse" id="noticeSubmenu">
+							<ul class="list-unstyled ps-3">
+								@foreach($navbarNotices as $item)
+								<li><a class="nav-link" href="{{route('portal.notice.index',$item)}}">{{$item->name}}</a></li>
+								@endforeach
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="{{route('portal.image.index')}}">Gallery</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+					<li class="nav-item">
+						<a class="nav-link" data-bs-toggle="collapse" href="#ictSubmenu" role="button">ICT Milestones</a>
+						<div class="collapse" id="ictSubmenu">
+							<ul class="list-unstyled ps-3">
+								<li><a class="nav-link" href="#">View from Desktop</a></li>
+								<li><a class="nav-link" href="#">View from Mobile</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
 		<!-- Full-width banner with overlapping profile card -->
 		@yield('content')
 		<footer>
