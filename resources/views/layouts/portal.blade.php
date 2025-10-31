@@ -24,6 +24,7 @@
 					</div>
 					<div class="controls">
 						<button class="control-btn" id="fontInc">A+</button>
+						<button class="control-btn" id="fontReset">A</button>
 						<button class="control-btn" id="fontDec">A-</button>
 						<button class="control-btn" id="themeToggle"><i class="bi bi-brightness-high"></i></button>
 					</div>
