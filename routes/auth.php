@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\AuthenticatedSessionController;
-use App\Http\Controllers\Admin\ConfirmablePasswordController;
-use App\Http\Controllers\Admin\NewPasswordController;
-use App\Http\Controllers\Admin\PasswordResetLinkController;
+use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Admin\Auth\NewPasswordController;
+use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:web')->name('admin.')->prefix('admin')->group(function () {

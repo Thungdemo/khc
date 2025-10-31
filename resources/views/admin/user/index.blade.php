@@ -2,7 +2,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="mb-0">Notices</h4>
-        <a class="btn btn-primary" href="{{route('admin.user.create')}}">Add User</a>
+        <a class="btn btn-primary" href="{{route('admin.user.create')}}">Users</a>
     </div>
 
     <!-- Filter Section -->
@@ -44,7 +44,7 @@
                     </td>
                     <td>
                         <div class="dropdown">
-                            <button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>
+                            <button class="row-options dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{route('admin.user.edit',$user)}}">Edit</a></li>
                                 <li>

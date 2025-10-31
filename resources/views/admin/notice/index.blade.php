@@ -48,7 +48,7 @@
                     <td>
                         <div class="dropdown">
                             <button class="row-options dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>
-                            <ul class="dropdown-menu position-fixed">
+                            <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{route('admin.notice.edit',$notice)}}">Edit</a></li>
                                 <li>
                                     <form action="{{ route('admin.notice.destroy', $notice) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this notice?')">

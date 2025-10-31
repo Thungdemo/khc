@@ -22,7 +22,7 @@
                     <td>{{$formerJudge->end}}</td>
                     <td>
                         <div class="dropdown">
-                            <button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>
+                            <button class="row-options dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{route('admin.former-judge.edit',$formerJudge)}}">Edit</a></li>
                                 <li>
