@@ -40,8 +40,8 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="profile-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
 									<ul class="dropdown-menu" aria-labelledby="profile-menu">
-										<li><a class="dropdown-item" href="#">History</a></li>
-										<li><a class="dropdown-item" href="#">About</a></li>
+										{{-- <li><a class="dropdown-item" href="{{route('portal.history')}}">History</a></li> --}}
+										<li><a class="dropdown-item" href="{{route('portal.about')}}">About</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.station-judge.index')}}">Station Judges</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.former-judge.index')}}">Former Judges of Kohima Bench</a></li>
 										<li><a class="dropdown-item" href="#">Registry Officials</a></li>
@@ -110,8 +110,8 @@
 						<a class="nav-link" data-bs-toggle="collapse" href="#profileSubmenu" role="button">Profile</a>
 						<div class="collapse" id="profileSubmenu">
 							<ul class="list-unstyled ps-3">
-								<li><a class="nav-link" href="#">History</a></li>
-								<li><a class="nav-link" href="#">About</a></li>
+								{{-- <li><a class="nav-link" href="{{route('portal.history')}}">History</a></li> --}}
+								<li><a class="nav-link" href="{{route('portal.about')}}">About</a></li>
 								<li><a class="nav-link" href="{{route('portal.station-judge.index')}}">Station Judges</a></li>
 								<li><a class="nav-link" href="{{route('portal.former-judge.index')}}">Former Judges of Kohima Bench</a></li>
 								<li><a class="nav-link" href="#">Registry Officials</a></li>
