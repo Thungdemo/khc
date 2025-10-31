@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Admin Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     @vite('resources/sass/admin.scss')
 </head>
@@ -13,11 +13,11 @@
             <div class="text-center  text-light">
                 <img src="{{asset('images/logo.png')}}" alt="Logo" style="height: 100px;">
                 <h4 class="mt-3 mb-2">Gauhati High Court Kohima Bench</h4>
-                <p class="mb-2">Department Login</p>
+                <p class="mb-2">Admin Login</p>
             </div>
         </div>
         <div class="login-card">
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('admin.login') }}">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -56,7 +56,7 @@
                 <button type="submit" class="btn btn-dark w-100">LOG IN</button>
                 
                 <div class="mt-3 text-end">
-                    <a href="#" class="text-decoration-none small">Forgot your password?</a>
+                    <a href="{{ route('admin.password.request') }}" class="text-decoration-none small">Forgot your password?</a>
                 </div>
             </form>
         </div>
