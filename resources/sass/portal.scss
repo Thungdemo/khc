@@ -90,7 +90,7 @@ body {
     transform: translateY(-50%);
     width: 200px;
     max-width: 90%;
-    background: rgba(255,255,255,0.96);
+    background: var(--card-bg);
     padding: 18px;
     border-radius: 12px;
     box-shadow: 0 12px 36px rgba(7,25,50,0.16);
@@ -327,22 +327,21 @@ body {
 .service-icon {
     font-size: 1.8rem;
     margin-bottom: 12px;
-    color: #fff;
+    color: white;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #2b63a8 0%, #1f3f78 100%);
-    box-shadow: 0 6px 18px rgba(11,30,56,0.08);
+    background: var(--theme-primary);
 }
 
 /* Services row: center all cards in a single row, allow horizontal scroll on small screens */
 .services-row {
     gap: 1rem;
     overflow-x: auto;
-    padding-bottom: 8px; /* space for potential scrollbar */
+    padding: 6px; /* space for potential scrollbar */
 }
 
 /* Titles and descriptions inside card */
@@ -446,17 +445,18 @@ footer ul li a:hover {
 .controls {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 }
 
 .control-btn {
     background: #fff;
-    color: #071732;
+    color: #242424;
     border: none;
     border-radius: 8px;
     padding: 4px 8px;
     cursor: pointer;
     font-weight: 600;
+    width: 35px;
 }
 
 .control-btn:hover {

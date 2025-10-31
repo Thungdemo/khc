@@ -47,6 +47,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::put('station-judges/{stationJudge}', [App\Http\Controllers\Admin\StationJudgeController::class, 'update'])->name('station-judge.update');
     Route::delete('station-judges/{stationJudge}', [App\Http\Controllers\Admin\StationJudgeController::class, 'destroy'])->name('station-judge.destroy');
 
+    Route::get('advocate-generals', [App\Http\Controllers\Admin\AdvocateGeneralController::class, 'index'])->name('advocate-general.index');
+    Route::get('advocate-generals/create', [App\Http\Controllers\Admin\AdvocateGeneralController::class, 'create'])->name('advocate-general.create');
+    Route::post('advocate-generals', [App\Http\Controllers\Admin\AdvocateGeneralController::class, 'store'])->name('advocate-general.store');
+    Route::get('advocate-generals/{advocateGeneral}/edit', [App\Http\Controllers\Admin\AdvocateGeneralController::class, 'edit'])->name('advocate-general.edit');
+    Route::put('advocate-generals/{advocateGeneral}', [App\Http\Controllers\Admin\AdvocateGeneralController::class, 'update'])->name('advocate-general.update');
+    Route::delete('advocate-generals/{advocateGeneral}', [App\Http\Controllers\Admin\AdvocateGeneralController::class, 'destroy'])->name('advocate-general.destroy');
+
     Route::get('gallery',[App\Http\Controllers\Admin\GalleryImageController::class, 'index'])->name('gallery-image.index');
     Route::get('gallery/create',[App\Http\Controllers\Admin\GalleryImageController::class, 'create'])->name('gallery-image.create');
     Route::post('gallery',[App\Http\Controllers\Admin\GalleryImageController::class, 'store'])->name('gallery-image.store');

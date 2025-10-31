@@ -22,11 +22,13 @@
 							--}}
 						</div>
 					</div>
-					<div class="controls">
-						<button class="control-btn" id="fontInc">A+</button>
-						<button class="control-btn" id="fontReset">A</button>
-						<button class="control-btn" id="fontDec">A-</button>
-						<button class="control-btn" id="themeToggle"><i class="bi bi-brightness-high"></i></button>
+					<div class="controls d-none d-md-flex">
+						<button class="control-btn" id="fontInc" type="button" aria-label="Increase font size">A+</button>
+						<button class="control-btn" id="fontReset" type="button" aria-label="Reset font size">A</button>
+						<button class="control-btn" id="fontDec" type="button" aria-label="Decrease font size">A-</button>
+						<button class="control-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+							<i class="bi bi-brightness-high" aria-hidden="true"></i>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -34,7 +36,9 @@
 			<div class="container">
 				<div class="nav-row py-2">
 					<nav class="navbar navbar-expand-lg p-0">
-						<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
+						<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
 						<div class="collapse navbar-collapse justify-content-center d-none d-lg-block" id="navMenu">
 							<ul class="navbar-nav align-items-center gap-3 mx-auto">
 								<li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
@@ -94,7 +98,6 @@
 						</div>
 					</nav>
 				</div>
-			</div>
 			</div>
 		</header>
 
@@ -215,14 +218,14 @@
 					<div class="col-md-3 mb-3">
 						<h6>External Links</h6>
 						<ul>
-							<li><a class="external-link" href="https://www.india.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Government of India</a></li>
-							<li><a class="external-link" href="https://www.nagaland.gov.in" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Government of Nagaland</a></li>
-							<li><a class="external-link" href="https://main.sci.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Supreme Court of India</a></li>
-							<li><a class="external-link" href="http://www.sclsc.nic.in" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Supreme Court Legal Services Committee</a></li>
-							<li><a class="external-link" href="https://ghconline.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court</a></li>
-							<li><a class="external-link" href="https://ghcazlbench.nic.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court Aizawl Bench</a></li>
-							<li><a class="external-link" href="http://ghcitanagar.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court Itanagar Bench</a></li>
-							<li><a class="external-link" href="https://nslsa.nagaland.gov.in/" target="_"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Nagaland State Legal Services Authority</a></li>
+							<li><a class="external-link" href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Government of India</a></li>
+							<li><a class="external-link" href="https://www.nagaland.gov.in" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Government of Nagaland</a></li>
+							<li><a class="external-link" href="https://main.sci.gov.in/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Supreme Court of India</a></li>
+							<li><a class="external-link" href="http://www.sclsc.nic.in" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Supreme Court Legal Services Committee</a></li>
+							<li><a class="external-link" href="https://ghconline.gov.in/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court</a></li>
+							<li><a class="external-link" href="https://ghcazlbench.nic.in/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court Aizawl Bench</a></li>
+							<li><a class="external-link" href="http://ghcitanagar.gov.in/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Gauhati High Court Itanagar Bench</a></li>
+							<li><a class="external-link" href="https://nslsa.nagaland.gov.in/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2" aria-hidden="true"></i>Nagaland State Legal Services Authority</a></li>
 						</ul>
 					</div>
 				</div>
