@@ -71,7 +71,7 @@ Route::name('portal.')->group(function () {
     Route::get('/',[HomeController::class,'index'])->name('home.index');
     Route::view('about', 'portal.about')->name('about');
     Route::get('gallery', [GalleryImageController::class, 'index'])->name('image.index');
-    Route::get('notices/{noticeCategory}',[NoticeController::class,'index'])->name('notice.index');
+    Route::get('notices',[NoticeController::class,'index'])->name('notice.index');
     Route::get('station-judges',[App\Http\Controllers\Portal\StationJudgeController::class,'index'])->name('station-judge.index');
     Route::get('former-judges',[App\Http\Controllers\Portal\FormerJudgeController::class,'index'])->name('former-judge.index');
     Route::get('registry-officials',[App\Http\Controllers\Portal\RegistryOfficalController::class,'index'])->name('registry-official.index');

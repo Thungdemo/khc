@@ -1,50 +1,70 @@
 @extends('layouts.portal')
 @section('content')
 <div class="banner-full-width">
-	<img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
-	<!-- Hero content (left) and profile overlay (right) -->
-	<div class="banner-hero">
-		<div class="container">
-			<div class="hero-inner">
-				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
-				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
-				<div class="hero-cta">
-					<a href="#" class="btn btn-hero">About</a>
-					<a href="#" class="btn btn-outline-hero">Latest Notices</a>
+	<div class="banner-row">
+		<!-- Banner section - 80% width -->
+		<div class="banner-section">
+			<img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
+		</div>
+		
+		<!-- Profile section - 20% width -->
+		<div class="profile-section">
+			<div class="profile-card">
+				<div class="profile-image-container">
+					<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="profile-image">
+				</div>
+				<div class="profile-info">
+					<div class="profile-name">Sri Justice Dhiraj Singh Thakur</div>
+					<div class="profile-title">The Hon'ble The Chief Justice</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Profile card overlayed on the right side of the banner -->
-	<div class="profile-card profile-overlay">
-		<div>
-			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="">
-		</div>
-		<div class="mb-1 text-center fw-bold">Hon’ble Mr. Justice Rajesh Mazumdar</div>
-		<div class="text-muted small">Station Judge</div>
+
+	<!-- Navigation buttons at bottom of banner -->
+	<div class="banner-nav-buttons">
+		<div class="nav-buttons-row">
+				<a href="{{config('links.causelist_local')}}" class="nav-button" target="_blank">
+					<div class="nav-button-icon">
+						<i class="bi bi-journal-text"></i>
+					</div>
+					<span class="nav-button-text">Cause List</span>
+				</a>
+				<a href="{{config('links.display_board')}}" class="nav-button" target="_blank">
+					<div class="nav-button-icon">
+						<i class="bi bi-display"></i>
+					</div>
+					<span class="nav-button-text">Display Board</span>
+				</a>
+				<a href="#" class="nav-button">
+					<div class="nav-button-icon">
+						<i class="bi bi-people"></i>
+					</div>
+					<span class="nav-button-text">Roster</span>
+				</a>
+				<a href="{{route('portal.notice.index')}}" class="nav-button">
+					<div class="nav-button-icon">
+						<i class="bi bi-bell"></i>
+					</div>
+					<span class="nav-button-text">Notice</span>
+				</a>
+				<a href="{{config('links.case_status')}}" class="nav-button" target="_blank">
+					<div class="nav-button-icon">
+						<i class="bi bi-search"></i>
+					</div>
+					<span class="nav-button-text">APHC Case Status</span>
+				</a>
+				<a href="{{config('links.njdg')}}" class="nav-button" target="_blank">
+					<div class="nav-button-icon">
+						<i class="bi bi-grid-3x3-gap"></i>
+					</div>
+					<span class="nav-button-text">NJDG Case Status</span>
+				</a>
+			</div>
 	</div>
 </div>
 <main class="container site-main">
-	<section class="services-section mb-4">
-		<div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
-		@foreach([
-			['title'=>'Case Status','icon'=>'bi bi-search service-icon','url'=>config('links.case_status')],
-			['title'=>'Cause List','icon'=>'bi bi-journal-text service-icon','url'=>config('links.causelist_local')],
-			['title'=>'Display Board','icon'=>'bi bi-display service-icon','url'=>config('links.display_board')],
-			['title'=>'NJDG','icon'=>'bi bi-grid service-icon','url'=>config('links.njdg')],
-			['title'=>'eCourts','icon'=>'bi bi bi-globe service-icon','url'=>config('links.ecourts')]
-		] as $service)
-		<div class="service-tile d-flex">
-			<a href="{{$service['url']}}" class="service-card" target="_blank external-link">
-				<i class="{{$service['icon']}}"></i>
-				<h5 class="fw-bold">{{$service['title']}}</h5>
-				{{-- 
-				<p class="text-muted mb-0">Track your case status easily</p>
-				--}}
-			</a>
-		</div>
-		@endforeach
-	</section>
+
 	<div class="card-wrap p-3">
 		<div class="d-flex justify-content-between align-items-start">
 			<h4 class="mb-3 fw-bold">Latest News & Updates</h4>
