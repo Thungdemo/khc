@@ -3,11 +3,11 @@
   --bg-color: #fafafa;
   --text-color: #000000;
   --card-bg: white;
-  --border-color: #dddddd;
+  --border-color: #e4e4e4;
 }
 [data-theme="dark"] {
   --bg-color: #111111;
   --text-color: #ffffff;
   --card-bg: var(--theme-primary);
-  --border-color: #444444;
+  --border-color: #e4e4e4;
 }

@@ -7,14 +7,14 @@
       <h2 class="mb-1 fw-bold">Gallery</h2>
       <p class="text-muted mb-0">Browse through our collection of images</p>
     </div>
-    <div class="btn-group" role="group" aria-label="View mode">
+    {{-- <div class="btn-group" role="group" aria-label="View mode">
       <button type="button" class="btn btn-outline-secondary active" data-view="grid">
         <i class="bi bi-grid-3x3-gap"></i>
       </button>
       <button type="button" class="btn btn-outline-secondary" data-view="list">
         <i class="bi bi-list"></i>
       </button>
-    </div>
+    </div> --}}
   </div>
 
   <!-- Gallery Grid -->
