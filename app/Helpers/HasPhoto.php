@@ -6,12 +6,17 @@ use Illuminate\Support\Facades\Storage;
 
 trait HasPhoto
 {
+    public function getPhotoColumn()
+    {
+        return property_exists($this, 'photoColumn') ? static::$photoColumn : 'photo';
+    }
+
     public function savePhoto($file)
     {
         $filename = uniqid() . '.' . $file->guessExtension();
         $file->storeAs(self::$photoPath, $filename, 'public');
         $this->forceFill(([
-            'photo' => self::$photoPath . '/' . $filename,
+            $this->getPhotoColumn() => self::$photoPath . '/' . $filename,
         ]))->save();
     }
 
@@ -26,7 +31,7 @@ trait HasPhoto
         {
             Storage::disk('public')->delete($this->photo);
             $this->forceFill([
-                'photo' => null,
+                $this->getPhotoColumn() => null,
             ])->save();
         }
     }

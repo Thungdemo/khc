@@ -65,6 +65,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('users/{user}/edit', [App\Http\Controllers\Admin\UserController::class, 'edit'])->name('user.edit');
     Route::put('users/{user}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('user.update');
     Route::delete('users/{user}', [App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('user.destroy');
+
+    Route::get('activities', [App\Http\Controllers\Admin\ActivityController::class, 'index'])->name('activity.index');
+    Route::get('activities/create', [App\Http\Controllers\Admin\ActivityController::class, 'create'])->name('activity.create');
+    Route::post('activities', [App\Http\Controllers\Admin\ActivityController::class, 'store'])->name('activity.store');
+    Route::get('activities/{activity}/edit', [App\Http\Controllers\Admin\ActivityController::class, 'edit'])->name('activity.edit');
+    Route::put('activities/{activity}', [App\Http\Controllers\Admin\ActivityController::class, 'update'])->name('activity.update');
+    Route::delete('activities/{activity}', [App\Http\Controllers\Admin\ActivityController::class, 'destroy'])->name('activity.destroy');
 });
 
 Route::name('portal.')->group(function () {

@@ -18,6 +18,7 @@ class TestSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'admin@email.com',
+            'password' => bcrypt('password'),
         ])->assignRole('admin');
         $this->call(NoticeSeeder::class);
         DB::commit();

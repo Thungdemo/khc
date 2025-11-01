@@ -45,6 +45,7 @@
 		</div>
 		@endforeach
 	</section>
+
 	<div class="card-wrap p-3">
 		<div class="d-flex justify-content-between align-items-start">
 			<h4 class="mb-3 fw-bold">Latest News & Updates</h4>
@@ -78,6 +79,57 @@
 			</button>
 		</div>
 	</div>
+
+	<!-- Activities Section -->
+	<section class="activities-section mb-4">
+		<div class="card-wrap p-3">
+			<div class="d-flex justify-content-between align-items-center mb-3">
+				<h4 class="mb-0 fw-bold">Recent Activities</h4>
+				<a href="#" class="link-primary small">View all</a>
+			</div>
+			<div class="row g-3">
+				@foreach([
+					[
+						'title' => 'Annual Court Excellence Awards Ceremony',
+						'description' => 'The High Court celebrated outstanding achievements in judicial administration with the Annual Court Excellence Awards, recognizing exemplary service and dedication.',
+						'date' => 'Oct 28, 2025',
+						'image' => 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop'
+					],
+					[
+						'title' => 'Legal Aid Workshop for Rural Communities',
+						'description' => 'A comprehensive legal aid workshop was conducted to provide free legal assistance and awareness to underserved rural communities in the region.',
+						'date' => 'Oct 25, 2025',
+						'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop'
+					],
+					[
+						'title' => 'Digital Court System Launch',
+						'description' => 'The High Court successfully launched its new digital filing system, enabling electronic case submissions and improving accessibility for legal practitioners.',
+						'date' => 'Oct 22, 2025',
+						'image' => 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop'
+					]
+				] as $activity)
+				<div class="col-lg-4 col-md-6">
+					<div class="activity-card">
+						<div class="activity-image">
+							<img src="{{ $activity['image'] }}" alt="{{ $activity['title'] }}" class="activity-img">
+						</div>
+						<div class="activity-content">
+							<div class="activity-date">
+								<i class="bi bi-calendar3 me-2"></i>
+								{{ $activity['date'] }}
+							</div>
+							<h6 class="activity-title">{{ $activity['title'] }}</h6>
+							<p class="activity-description">
+								{{ $activity['description'] }}
+							</p>
+							<a href="#" class="activity-link">Read more <i class="bi bi-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+				@endforeach
+			</div>
+		</div>
+	</section>
 	<div class="card-wrap p-3">
 		<h4 class="fw-bold">Notice Board</h4>
 		<ul class="nav nav-tabs mt-3 mb-2" role="tablist">
