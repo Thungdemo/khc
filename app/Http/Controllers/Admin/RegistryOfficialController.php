@@ -31,7 +31,8 @@ class RegistryOfficialController extends Controller
             'qualification' => ['nullable',new Xss],
             'email' => ['nullable','email',new Xss],
             'phone_no' => ['nullable','digits:10'],
-            'photo' => ['required','file','max:1000',new Filetype(['jpg','png'])]
+            'photo' => ['required','file','max:1000',new Filetype(['jpg','png'])],
+            'level' => ['required','integer','min:1'],
         ]);
         RegistryOfficial::create([
             'full_name' => $request->full_name,
@@ -40,6 +41,7 @@ class RegistryOfficialController extends Controller
             'qualification' => $request->qualification,
             'email' => $request->email,
             'phone_no' => $request->phone_no,
+            'level' => $request->level,
         ]);
         return redirect()->route('admin.registry-official.create')->with('success', 'Record created successfully.');
     }
@@ -60,7 +62,8 @@ class RegistryOfficialController extends Controller
             'qualification' => ['nullable',new Xss],
             'email' => ['nullable','email',new Xss],
             'phone_no' => ['nullable','digits:10'],
-            'photo' => ['nullable','file','max:1000',new Filetype(['jpg','png'])]
+            'photo' => ['nullable','file','max:1000',new Filetype(['jpg','png'])],
+            'level' => ['required','integer','min:1'],
         ]);
         $registryOfficial->update([
             'full_name' => $request->full_name,
@@ -69,6 +72,7 @@ class RegistryOfficialController extends Controller
             'qualification' => $request->qualification,
             'email' => $request->email,
             'phone_no' => $request->phone_no,
+            'level' => $request->level,
         ]);
         return redirect()->route('admin.registry-official.edit',$registryOfficial)->with('success', 'Record updated successfully.');
     }

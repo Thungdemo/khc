@@ -10,15 +10,15 @@
             @method('PUT')
 
             <div class="mb-3">
-                <label class="form-label">Title</label>
+                <label class="form-label">Title *</label>
                 <input type="text" class="form-control" name="title" placeholder="Enter notice title"
-                       value="{{ old('title', $notice->title) }}">
+                       value="{{ old('title', $notice->title) }}" rrr>
                 <span class="text-danger small">@error('title') {{ $message }} @enderror</span>
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Category</label>
-                <select class="form-select" name="notice_category_id">
+                <label class="form-label">Category *</label>
+                <select class="form-select" name="notice_category_id" rrr>
                     <option value="">Select category</option>
                     @foreach ($noticeCategories as $id => $name)
                         <option value="{{ $id }}" @selected(old('notice_category_id', $notice->notice_category_id) == $id)>{{ $name }}</option>
@@ -28,9 +28,9 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Publish Date</label>
+                <label class="form-label">Publish Date *</label>
                 <input type="text" class="form-control datetimepicker" name="published_at"
-                       value="{{ old('published_at', $notice->published_at) }}">
+                       value="{{ old('published_at', $notice->published_at) }}" rrr>
                 <span class="text-danger small">@error('published_at') {{ $message }} @enderror</span>
             </div>
 

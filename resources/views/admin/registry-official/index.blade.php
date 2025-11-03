@@ -31,6 +31,7 @@
                     <th>Designation</th>
                     <th>DOB</th>
                     <th>Qualification</th>
+                    <th>Level</th>
                     <th>Options</th>
                 </tr>
             </thead>
@@ -40,6 +41,7 @@
                     <td>{{$registryOfficial->designation}}</td>
                     <td>{{$registryOfficial->dob}}</td>
                     <td>{{$registryOfficial->qualification}}</td>
+                    <td>{{$registryOfficial->level}}</td>
                     <td>
                         <div class="dropdown">
                             <button class="row-options dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>

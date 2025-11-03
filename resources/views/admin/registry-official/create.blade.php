@@ -15,6 +15,12 @@
                 <span class="text-danger small">@error('designation') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
+                <label class="form-label">Level *</label>
+                <input type="text" class="form-control" name="level">
+                <span class="text-danger small">@error('level') {{ $message }} @enderror</span>
+            </div>
+
+            <div class="mb-3">
                 <label class="form-label">DOB</label>
                 <input type="text" class="form-control datepicker" name="dob" >
                 <span class="text-danger small">@error('dob') {{ $message }} @enderror</span>

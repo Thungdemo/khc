@@ -49,7 +49,7 @@
 										<li><a class="dropdown-item" href="{{route('portal.about')}}">About</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.station-judge.index')}}">Station Judges</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.former-judge.index')}}">Former Judges of Kohima Bench</a></li>
-										<li><a class="dropdown-item" href="#">Registry Officials</a></li>
+										<li><a class="dropdown-item" href="{{route('portal.registry-official.index')}}">Registry Officials</a></li>
 										<li><a class="dropdown-item" href="#">Advocate General</a></li>
 										<li><a class="dropdown-item" href="#">High Court Legal Services Committee</a></li>
 									</ul>
@@ -118,7 +118,7 @@
 								<li><a class="nav-link" href="{{route('portal.about')}}">About</a></li>
 								<li><a class="nav-link" href="{{route('portal.station-judge.index')}}">Station Judges</a></li>
 								<li><a class="nav-link" href="{{route('portal.former-judge.index')}}">Former Judges of Kohima Bench</a></li>
-								<li><a class="nav-link" href="#">Registry Officials</a></li>
+								<li><a class="nav-link" href="{{route('portal.registry-official.index')}}">Registry Officials</a></li>
 								<li><a class="nav-link" href="#">Advocate General</a></li>
 								<li><a class="nav-link" href="#">High Court Legal Services Committee</a></li>
 							</ul>

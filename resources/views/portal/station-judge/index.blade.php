@@ -3,7 +3,7 @@
 <div class="container site-main">
 	<div class="mb-4">
 		<h2 class="mb-1 fw-bold">Station Judges</h2>
-		<p class="text-muted mb-0">Gauhati High Court Kohima Bench</p>
+		<p class="hc-text-muted mb-0">Gauhati High Court Kohima Bench</p>
 	</div>
 	<!-- Judges Cards -->
 	@php
@@ -29,48 +29,46 @@
 	]
 	];
 	@endphp
-	<div class="judges-list">
-		@foreach($judges as $judge)
-		<div class="judge-card mb-4">
-			<div class="row g-4">
-				<div class="col-md-3 col-lg-2">
-					<div class="judge-photo-wrap">
-						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" class="judge-photo">
-					</div>
-				</div>
-				<div class="col-md-9 col-lg-10">
-					<div class="judge-header mb-3">
-						<h5 class="fw-bold mb-1">{{ $judge['name'] }}</h5>
-						<div class="text-muted">{{ $judge['title'] }}</div>
-					</div>
-					<table class="table table-sm judge-table">
-						<tbody>
-							@if($judge['born'])
-							<tr>
-								<td class="label-col"><i class="bi bi-calendar3 me-2"></i>Date of Birth</td>
-								<td>{{ $judge['born'] }}</td>
-							</tr>
-							@endif
-							<tr>
-								<td class="label-col"><i class="bi bi-briefcase me-2"></i>Date of Appointment</td>
-								<td>{{ $judge['appointed'] }}</td>
-							</tr>
-							<tr>
-								<td class="label-col"><i class="bi bi-geo-alt me-2"></i>District Portfolio</td>
-								<td>{{ $judge['portfolio'] }}</td>
-							</tr>
-						</tbody>
-					</table>
-					@if($judge['bio'])
-					<div class="judge-bio">
-						<h6 class="fw-semibold mb-2">Biography</h6>
-						<p class="text-muted mb-0">{{ $judge['bio'] }}</p>
-					</div>
-					@endif
+	@foreach($judges as $judge)
+	<div class="card-wrap mb-4 p-4">
+		<div class="row g-4">
+			<div class="col-md-3 col-lg-2">
+				<div class="judge-photo-wrap">
+					<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" class="judge-photo">
 				</div>
 			</div>
+			<div class="col-md-9 col-lg-10">
+				<div class="judge-header mb-3">
+					<h5 class="fw-bold mb-1">{{ $judge['name'] }}</h5>
+					<div class="hc-text-muted">{{ $judge['title'] }}</div>
+				</div>
+				<table class="table table-sm judge-table">
+					<tbody>
+						@if($judge['born'])
+						<tr>
+							<td class="label-col"><i class="bi bi-calendar3 me-2"></i>Date of Birth</td>
+							<td>{{ $judge['born'] }}</td>
+						</tr>
+						@endif
+						<tr>
+							<td class="label-col"><i class="bi bi-briefcase me-2"></i>Date of Appointment</td>
+							<td>{{ $judge['appointed'] }}</td>
+						</tr>
+						<tr>
+							<td class="label-col"><i class="bi bi-geo-alt me-2"></i>District Portfolio</td>
+							<td>{{ $judge['portfolio'] }}</td>
+						</tr>
+					</tbody>
+				</table>
+				@if($judge['bio'])
+				<div class="judge-bio">
+					<h6 class="fw-semibold mb-2">Biography</h6>
+					<p class="hc-text-muted mb-0">{{ $judge['bio'] }}</p>
+				</div>
+				@endif
+			</div>
 		</div>
-		@endforeach
 	</div>
+	@endforeach
 </div>
 @endsection

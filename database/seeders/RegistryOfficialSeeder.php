@@ -12,6 +12,6 @@ class RegistryOfficialSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\RegistryOfficial::factory()->count(10)->create();
     }
 }

@@ -46,7 +46,7 @@
 		@endforeach
 	</section>
 
-	<div class="card-wrap p-3">
+	<div class="card-wrap p-3 mb-4">
 		<div class="d-flex justify-content-between align-items-start">
 			<h4 class="mb-3 fw-bold">Latest News & Updates</h4>
 		</div>
@@ -82,7 +82,7 @@
 
 	<!-- Activities Section -->
 	<section class="activities-section mb-4">
-		<div class="card-wrap p-3">
+		<div class="card-wrap p-3 mb-4">
 			<div class="d-flex justify-content-between align-items-center mb-3">
 				<h4 class="mb-0 fw-bold">Recent Activities</h4>
 				<a href="#" class="link-primary small">View all</a>
@@ -111,7 +111,7 @@
 			</div>
 		</div>
 	</section>
-	<div class="card-wrap p-3">
+	<div class="card-wrap p-3 mb-4">
 		<h4 class="fw-bold">Notice Board</h4>
 		<ul class="nav nav-tabs mt-3 mb-2" role="tablist">
 			@foreach($noticeCategories as $noticeCategory)
@@ -142,7 +142,7 @@
 	</div>
 	<!-- Videos section (added below Notifications) -->
 	
-	<div class="card-wrap p-3">
+	<div class="card-wrap p-3 mb-4">
 		<h4 class="fw-bold mb-3">Youtube Channel</h4>
 		<div class="row g-3">
 			<div class="col-md-4">

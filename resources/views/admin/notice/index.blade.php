@@ -32,6 +32,7 @@
                 <tr>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Status</th>
                     <th>Document</th>
                     <th>Publish Date</th>
                     <th>Options</th>
@@ -39,8 +40,20 @@
             </thead>
             <tbody>
                 @forelse ($notices as $notice)
+                <tr>
                     <td>{{$notice->title}}</td>
                     <td>{{$notice->noticeCategory->name}}</td>
+                    <td>
+                        @if($notice->isPublished())
+                            <span class="badge bg-success">
+                                <i class="bi bi-check-circle me-1"></i>Published
+                            </span>
+                        @else
+                            <span class="badge bg-warning text-dark">
+                                <i class="bi bi-clock me-1"></i>Scheduled
+                            </span>
+                        @endif
+                    </td>
                     <td>
                         <a href="{{ $notice->documentUrl() }}" target="_blank">{{$notice->documentFilename()}}</a>
                     </td>
@@ -63,7 +76,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5" class="text-center">No notices found.</td>
+                    <td colspan="6" class="text-center">No notices found.</td>
                 </tr>
                 @endforelse
             </tbody>

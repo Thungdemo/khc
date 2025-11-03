@@ -3,25 +3,28 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import Chocolat from 'chocolat';
 import 'chocolat/dist/css/chocolat.css';
+import Alpine from 'alpinejs'
 
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-document.addEventListener('DOMContentLoaded', () => {
-    // init datepickers
-    document.querySelectorAll('.datetimepicker').forEach(el => {
-        flatpickr(el, {
-            enableTime: true,
-            time_24hr: false,
-            dateFormat: "d-m-Y h:i K",
-        });
-    });
-    document.querySelectorAll('.datepicker').forEach(el => {
-        flatpickr(el, {
-            dateFormat: "d-m-Y",
-        });
+window.Alpine = Alpine
+Alpine.start()
+
+// init datepickers
+document.querySelectorAll('.datetimepicker').forEach(el => {
+    flatpickr(el, {
+        enableTime: true,
+        time_24hr: false,
+        dateFormat: "d-m-Y h:i K",
     });
 });
+document.querySelectorAll('.datepicker').forEach(el => {
+    flatpickr(el, {
+        dateFormat: "d-m-Y",
+    });
+});
+
 // init image file input previews
 document.querySelectorAll('.imgp-input').forEach(input => {
     input.addEventListener('change', function() {
