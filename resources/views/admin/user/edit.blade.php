@@ -30,6 +30,10 @@
             <div class="mb-3">
                 <label class="form-label">Password</label>
                 <input type="password" class="form-control" name="password">
+                <div class="form-text text-muted small mb-2">
+                    <i class="bi bi-info-circle me-1"></i>
+                    Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.
+                </div>
                 <span class="text-danger small">@error('password') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">

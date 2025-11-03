@@ -2,7 +2,7 @@
 @section('content')
     <h4 class="mb-4">Create User</h4>
     <div class="bg-white p-4 rounded shadow-sm">
-        <form action="{{ route('admin.user.store') }}" class="confirm-submit" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.user.store') }}" class="confirm-submit" method="POST">
             @csrf
             <div class="mb-3">
                 <label class="form-label">Name *</label>
@@ -17,6 +17,10 @@
             <div class="mb-3">
                 <label class="form-label">Password *</label>
                 <input type="password" class="form-control" name="password" rrr>
+                <div class="form-text text-muted small mb-2">
+                    <i class="bi bi-info-circle me-1"></i>
+                    Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.
+                </div>
                 <span class="text-danger small">@error('password') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
