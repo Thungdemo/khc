@@ -17,7 +17,8 @@ class GalleryImageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->sentence,
+            'filename' => 'dummy/gallery-image-'.rand(1,2).'.jpg',
         ];
     }
 }

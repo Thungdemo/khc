@@ -18,21 +18,13 @@
   </div>
 
   <!-- Gallery Grid -->
-  <div class=row g-3" id="my-gallery">
-    @php
-      // Sample gallery data with stock images
-      $images = [
-        ['id' => 1, 'title' => 'High Court Building', 'date' => 'Oct 20, 2025', 'url' => 'https://kohimahighcourt.gov.in/gallery/album47_1.png'],
-        ['id' => 2, 'title' => 'Court Room Session', 'date' => 'Oct 18, 2025', 'url' => 'https://kohimahighcourt.gov.in/gallery/album46_1.png'],
-      ];
-    @endphp
-
-    @foreach($images as $image)
-      <div class="col-lg-4 col-md-4 col-sm-6 chocolat-parent">
-          <a class="figure chocolat-image" href="{{ $image['url'] }}" >
-            <img src="{{ $image['url'] }}" class="img-thumbnail" alt="{{ $image['title'] }}">
+  <div class="row g-4" id="my-gallery">
+    @foreach($galleryImages as $galleryImage)
+      <div class="col-lg-4 col-sm-6 mb-4 chocolat-parent">
+          <a class="figure chocolat-image text-decoration-none" href="{{ $galleryImage->imageUrl() }}" >
+            <img src="{{ $galleryImage->imageUrl() }}" class="img-thumbnail" alt="{{ $galleryImage->title }}">
             
-            <div class="text-center text-muted mt-2">{{$image['title']}}</div>
+            <div class="gallery-caption mt-1">{{$galleryImage->title}}</div>
           </a>
       </div>
     @endforeach

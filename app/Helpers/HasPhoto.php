@@ -22,14 +22,14 @@ trait HasPhoto
 
     public function photoUrl()
     {
-        return $this->photo ? asset('storage/' . $this->photo) : null;
+        return $this[$this->getPhotoColumn()] ? asset('storage/' . $this[$this->getPhotoColumn()]) : null;
     }
 
     public function deletePhoto()
     {
-        if($this->photo)
+        if($this[$this])
         {
-            Storage::disk('public')->delete($this->photo);
+            Storage::disk('public')->delete($this[$this]);
             $this->forceFill([
                 $this->getPhotoColumn() => null,
             ])->save();

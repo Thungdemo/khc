@@ -21,6 +21,9 @@ class TestSeeder extends Seeder
             'password' => bcrypt('password'),
         ])->assignRole('admin');
         $this->call(NoticeSeeder::class);
+        $this->call(FormerJudgeSeeder::class);
+        $this->call(GalleryImageSeeder::class);
+        $this->call(ActivitySeeder::class);
         DB::commit();
     }
 }

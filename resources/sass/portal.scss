@@ -207,11 +207,31 @@ body {
         height: 36px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     /* On small screens, let each carousel slide show one item (the columns will stack) */
     .news-carousel .carousel-item .col-md-4 {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+    .app-downloads .download-box { flex-direction: column; gap: 8px; }
+    .app-downloads .download-text { text-align: center; }
+    .download-buttons .d-none.d-sm-block { display: none !important; }
+
+    .judge-photo-wrap {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    .activity-image {
+        height: 160px;
+    }
+    
+    .activity-content {
+        padding: 15px;
+    }
+    
+    .activity-title {
+        font-size: 1rem;
     }
 }
 
@@ -388,12 +408,6 @@ body {
 
 .btn-store i { font-size: 1.25rem; }
 
-@media (max-width: 576px) {
-    .app-downloads .download-box { flex-direction: column; gap: 8px; }
-    .app-downloads .download-text { text-align: center; }
-    .download-buttons .d-none.d-sm-block { display: none !important; }
-}
-
 footer {
     background: var(--theme-primary);
     color: #fff;
@@ -534,12 +548,6 @@ footer ul li a:hover {
     font-size: 0.95rem;
 }
 
-@media (max-width: 768px) {
-    .judge-photo-wrap {
-        max-width: 150px;
-        margin: 0 auto;
-    }
-}
 .offcanvas .nav-link{
     color: black !important;
 }
@@ -659,17 +667,9 @@ footer ul li a:hover {
     transform: translateX(2px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .activity-image {
-        height: 160px;
-    }
-    
-    .activity-content {
-        padding: 15px;
-    }
-    
-    .activity-title {
-        font-size: 1rem;
-    }
+.gallery-caption{
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
 }

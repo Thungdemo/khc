@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Helpers\HasPhoto;
 use App\Helpers\AttributeHelper;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Activity extends Model
 {
-    use AttributeHelper,HasPhoto;
+    use AttributeHelper,HasPhoto,HasFactory;
 
     protected $guarded = [];
 

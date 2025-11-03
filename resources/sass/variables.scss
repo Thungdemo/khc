@@ -4,12 +4,14 @@
   --font-scale: 1;
   --bg-color: #fafafa;
   --text-color: #000000;
+  --text-muted: #6c757d;
   --card-bg: white;
   --border-color: #e4e4e4;
 }
 [data-theme="dark"] {
   --bg-color: #111111;
   --text-color: #ffffff;
+  --text-muted: #bfbfbf;
   --card-bg: var(--theme-primary);
   --border-color: #e4e4e4;
 }

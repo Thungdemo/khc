@@ -21,7 +21,7 @@ class NoticeFactory extends Factory
             'title' => fake()->sentence(),
             'notice_category_id' => NoticeCategory::inRandomOrder()->first()->id,
             'published_at' => fake()->dateTimeBetween('-1 year', 'now'),
-            'filename' => 'dummy-notice.pdf',
+            'filename' => 'dummy/notice.pdf',
         ];
     }
 }

@@ -12,6 +12,6 @@ class GalleryImageSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\GalleryImage::factory()->count(20)->create();
     }
 }

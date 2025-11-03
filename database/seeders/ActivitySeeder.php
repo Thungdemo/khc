@@ -12,6 +12,6 @@ class ActivitySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\Activity::factory()->count(20)->create();
     }
 }

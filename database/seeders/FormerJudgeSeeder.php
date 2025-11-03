@@ -12,6 +12,6 @@ class FormerJudgeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\FormerJudge::factory()->count(20)->create();
     }
 }

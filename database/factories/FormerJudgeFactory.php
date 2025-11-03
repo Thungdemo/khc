@@ -17,7 +17,10 @@ class FormerJudgeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'full_name' => fake()->name(),
+            'start' => fake()->date(),
+            'end' => fake()->date(),
+            'photo' => 'dummy/former-judge-'.rand(1, 2).'.jpg',
         ];
     }
 }
