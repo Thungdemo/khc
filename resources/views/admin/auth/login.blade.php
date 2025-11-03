@@ -61,5 +61,11 @@
             </form>
         </div>
     </div>
+    
+    <footer class="position-fixed bottom-0 w-100 text-center py-2">
+        <small class="text-white">
+            © {{ date('Y') }} {{config('app.full_name')}}. All rights reserved.
+        </small>
+    </footer>
 </body>
 </html>

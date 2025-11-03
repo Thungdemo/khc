@@ -123,5 +123,5 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'full_name' => 'GAUHATI HIGH COURT KOHIMA BENCH'
+    'full_name' => 'Gauhati High Court Kohima Bench'
 ];

@@ -9,6 +9,10 @@ body {
     color: var(--text-color);
 }
 
+.hc-text-muted {
+    color: var(--text-muted);
+}
+
 .site-header {
     background: var(--theme-primary);
     color: #fff;
@@ -477,13 +481,6 @@ footer ul li a:hover {
     background: #e2e8f0;
 }
 
-/* Smooth transitions for key elements */
-.banner-full-width .profile-overlay,
-.card-wrap,
-.service-card {
-    transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
-}
-
 /* Station Judges Page Styles */
 .judge-card {
     background: #fff;
@@ -565,10 +562,9 @@ footer ul li a:hover {
 
 .activity-card {
     background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(11, 30, 56, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -619,12 +615,10 @@ footer ul li a:hover {
     flex-direction: column;
 }
 
-.activity-date {
+.post-date {
     font-size: 0.8rem;
-    color: #64748b;
+    color: var(--text-muted);
     margin-bottom: 8px;
-    display: flex;
-    align-items: center;
 }
 
 .activity-title {

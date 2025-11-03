@@ -58,7 +58,7 @@
 						@foreach($items as $item)
 						<div class="col-md-4">
 							<div class="news-item">
-								<div class="small text-muted mb-1">
+								<div class="post-date">
 									<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
 								</div>
 								<div class="fw-bold"><a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a></div>
@@ -95,7 +95,7 @@
 							<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="activity-img">
 						</div>
 						<div class="activity-content">
-							<div class="activity-date">
+							<div class="post-date">
 								<i class="bi bi-calendar3 me-2"></i>
 								{{ $activity->published_at }}
 							</div>
@@ -180,13 +180,11 @@
 					<div class="text-muted" style="font-size:0.9rem;">Get the mobile app for case status, cause lists and notifications</div>
 				</div>
 				<div class="download-buttons d-flex gap-2">
-					<a class="btn btn-store btn-play d-inline-flex align-items-center" href="#" aria-label="Get it on Google Play">
-						<i class="bi bi-phone me-2"></i>
-						<div class="d-none d-sm-block">Get it on<br><strong>Google Play</strong></div>
+					<a class="store-badge" href="#" aria-label="Get it on Google Play">
+						<img src="{{asset('images/google-play.png')}}" alt="Get it on Google Play" style="height: 50px; width: auto;">
 					</a>
-					<a class="btn btn-store btn-apple d-inline-flex align-items-center" href="#" aria-label="Download on the App Store">
-						<i class="bi bi-apple me-2"></i>
-						<div class="d-none d-sm-block">Download on the<br><strong>App Store</strong></div>
+					<a class="store-badge" href="#" aria-label="Download on the App Store">
+						<img src="{{asset('images/app-store.png')}}" alt="Download on the App Store" style="height: 50px; width: auto;">
 					</a>
 				</div>
 			</div>
