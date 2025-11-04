@@ -40,12 +40,12 @@
       <div class="tab-pane show active" id="content-general" role="tabpanel">
         <ul class="list-group list-notif">
           @foreach($notices as $notice)
-            <li class="list-group-item d-flex align-items-center">
+            <li class="list-group-item d-flex align-items-start py-1">
               <div class="icon"><i class="bi bi-file-earmark-text-fill"></i></div>
               <div class="flex-grow-1">
                 <a class="notif-link" href="{{ $notice->documentUrl() }}" target="_blank">{{ $notice->title }}</a>
+                <div class="post-date mt-1 mb-0">{{ \App\Helpers\DateHelper::display($notice->published_at) }}</div>
               </div>
-              <div class="text-muted">{{ \App\Helpers\DateHelper::display($notice->published_at) }}</div>
             </li>
           @endforeach
         </ul>

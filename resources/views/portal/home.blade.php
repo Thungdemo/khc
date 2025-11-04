@@ -59,7 +59,7 @@
 						@foreach($items as $item)
 						<div class="col-md-4">
 							<div class="news-item">
-								<div class="post-date">
+								<div class="post-date mb-1">
 									<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
 								</div>
 								<div class="fw-bold"><a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a></div>
@@ -123,12 +123,12 @@
 			<div class="tab-pane {{$loop->first?'show active':''}}" id="{{$noticeCategory->id}}-tab">
 				<ul class="list-group list-notif">
 					@forelse($noticeCategory->notices()->published()->newest()->limit(5)->get() as $notice)
-					<li class="list-group-item d-flex align-items-center">
+					<li class="list-group-item d-flex align-items-start py-1">
 						<div class="icon"><i class="bi bi-file-earmark-text-fill"></i></div>
 						<div class="flex-grow-1">
 							<a class="notif-link" href="{{$notice->documentUrl()}}" target="_blank">{{$notice->title}}</a>
+							<div class="post-date mt-1 mb-0">{{\App\Helpers\DateHelper::display($notice->published_at)}}</div>
 						</div>
-						<div class="text-muted">{{\App\Helpers\DateHelper::display($notice->published_at)}}</div>
 					</li>
 					@empty
 					@endforelse

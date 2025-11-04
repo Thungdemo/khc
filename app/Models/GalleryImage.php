@@ -33,7 +33,7 @@ class GalleryImage extends Model
 
     public function deleteImage()
     {
-        if($this->filename)
+        if($this->filename && strpos($this->filname,'dummy') === false)
         {
             Storage::disk('public')->delete($this->filename);
             $this->forceFill([

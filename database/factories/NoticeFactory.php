@@ -18,7 +18,7 @@ class NoticeFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(),
+            'title' => fake()->words(rand(20,30), true),
             'notice_category_id' => NoticeCategory::inRandomOrder()->first()->id,
             'published_at' => fake()->dateTimeBetween('-1 year', 'now'),
             'filename' => 'dummy/notice.pdf',

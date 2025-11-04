@@ -18,7 +18,7 @@ class ActivityFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'description' => fake()->paragraph(),
+            'description' => fake()->words(rand(80,100), true),
             'published_at' => fake()->date(),
             'image' => 'dummy/activity-'.rand(1, 2).'.jpg',
         ];
