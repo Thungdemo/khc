@@ -23,5 +23,6 @@ return [
         'time_format' => 'h:i A',
 
         'display_format' => 'd M Y',
-    ]
+    ],
+    'captcha' => false,
 ];

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     @vite('resources/sass/admin.scss')
 </head>
 <body class="login-body">
@@ -12,7 +11,7 @@
         <div class="logo">
             <div class="text-center  text-light">
                 <img src="{{asset('images/logo.png')}}" alt="Logo" style="height: 100px;">
-                <h4 class="mt-3 mb-2">Gauhati High Court Kohima Bench</h4>
+                <h4 class="mt-3 mb-2">{{config('app.full_name')}}</h4>
                 <p class="mb-2">Admin Login</p>
             </div>
         </div>
@@ -33,7 +32,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-
+                @if(config('khc.captcha'))
                 <div class="mb-3">
                     <div class="d-flex gap-2 align-items-center mb-2">
                         <div class="flex-grow-1">
@@ -45,7 +44,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-
+                @endif
                 <div class="mb-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="remember">
