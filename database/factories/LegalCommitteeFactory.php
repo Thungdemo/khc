@@ -17,7 +17,9 @@ class LegalCommitteeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'full_name' => $this->faker->name(),
+            'designation' => $this->faker->jobTitle(),
+            'photo' => null,
         ];
     }
 }

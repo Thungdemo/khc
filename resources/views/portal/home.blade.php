@@ -8,15 +8,15 @@
 			<div class="hero-inner">
 				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
 				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
-				<div class="hero-cta">
+				{{-- <div class="hero-cta">
 					<a href="#" class="btn btn-hero">About</a>
 					<a href="#" class="btn btn-outline-hero">Latest Notices</a>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>
 	<!-- Profile card overlayed on the right side of the banner -->
-	<div class="profile-card profile-overlay">
+	<div class="profile-card profile-overlay d-none d-md-block">
 		<div>
 			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="">
 		</div>
@@ -32,7 +32,8 @@
 			['title'=>'Cause List','icon'=>'bi bi-journal-text service-icon','url'=>config('links.causelist_local')],
 			['title'=>'Display Board','icon'=>'bi bi-display service-icon','url'=>config('links.display_board')],
 			['title'=>'NJDG','icon'=>'bi bi-grid service-icon','url'=>config('links.njdg')],
-			['title'=>'eCourts','icon'=>'bi bi bi-globe service-icon','url'=>config('links.ecourts')]
+			['title'=>'eCourts','icon'=>'bi bi bi-globe service-icon','url'=>config('links.ecourts')],
+			['title'=>'Live Streaming','icon'=>'bi bi-camera-video service-icon','url'=>config('links.live_streaming')]
 		] as $service)
 		<div class="service-tile d-flex">
 			<a href="{{$service['url']}}" class="service-card" target="_blank external-link">

@@ -28,6 +28,7 @@
 					<a class="nav-link" href="{{route('admin.former-judge.index')}}"><i class="bi bi-person-check me-2"></i>Former Judges</a>
 					<a class="nav-link" href="{{route('admin.registry-official.index')}}"><i class="bi bi-person-workspace me-2"></i>Registry Officials</a>
 					<a class="nav-link" href="{{route('admin.advocate-general.index')}}"><i class="bi bi-briefcase me-2"></i>Advocate General</a>
+					<a class="nav-link" href="{{route('admin.legal-committee.index')}}"><i class="bi bi-people me-2"></i>Legal Committee</a>
 					<a class="nav-link" href="{{route('admin.gallery-image.index')}}"><i class="bi bi-images me-2"></i>Gallery</a>
 					
 					<div class="sidemenu-divider text-secondary fw-semibold">

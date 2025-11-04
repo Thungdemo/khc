@@ -12,6 +12,6 @@ class LegalCommitteeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\LegalCommittee::factory(5)->create();
     }
 }

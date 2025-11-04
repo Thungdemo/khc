@@ -40,6 +40,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::put('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'update'])->name('former-judge.update');
     Route::delete('former-judges/{formerJudge}', [App\Http\Controllers\Admin\FormerJudgeController::class, 'destroy'])->name('former-judge.destroy');
 
+    Route::get('legal-committees', [App\Http\Controllers\Admin\LegalCommitteeController::class, 'index'])->name('legal-committee.index');
+    Route::get('legal-committees/create', [App\Http\Controllers\Admin\LegalCommitteeController::class, 'create'])->name('legal-committee.create');
+    Route::post('legal-committees', [App\Http\Controllers\Admin\LegalCommitteeController::class, 'store'])->name('legal-committee.store');
+    Route::get('legal-committees/{legalCommittee}/edit', [App\Http\Controllers\Admin\LegalCommitteeController::class, 'edit'])->name('legal-committee.edit');
+    Route::put('legal-committees/{legalCommittee}', [App\Http\Controllers\Admin\LegalCommitteeController::class, 'update'])->name('legal-committee.update');
+    Route::delete('legal-committees/{legalCommittee}', [App\Http\Controllers\Admin\LegalCommitteeController::class, 'destroy'])->name('legal-committee.destroy');
+
     Route::get('station-judges', [App\Http\Controllers\Admin\StationJudgeController::class, 'index'])->name('station-judge.index');
     Route::get('station-judges/create', [App\Http\Controllers\Admin\StationJudgeController::class, 'create'])->name('station-judge.create');
     Route::post('station-judges', [App\Http\Controllers\Admin\StationJudgeController::class, 'store'])->name('station-judge.store');
@@ -83,6 +90,7 @@ Route::name('portal.')->group(function () {
     Route::get('former-judges',[App\Http\Controllers\Portal\FormerJudgeController::class,'index'])->name('former-judge.index');
     Route::get('registry-officials',[App\Http\Controllers\Portal\RegistryOfficalController::class,'index'])->name('registry-official.index');
     Route::get('advocate-generals',[App\Http\Controllers\Portal\AdvocateGeneralController::class,'index'])->name('advocate-general.index');
+    Route::get('legal-committee',[App\Http\Controllers\Portal\LegalCommitteeController::class,'index'])->name('legal-committee.index');
 });
 
 
