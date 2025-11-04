@@ -85,13 +85,14 @@
 										@endforeach
 									</ul>
 								</li>
+								<li class="nav-item"><a class="nav-link" href="{{route('portal.activity.index')}}">Activities</a></li>
 								<li class="nav-item"><a class="nav-link" href="{{route('portal.image.index')}}">Gallery</a></li>
-								<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+								<li class="nav-item"><a class="nav-link" href="{{route('portal.contact.index')}}">Contact</a></li>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="ict-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">ICT Milestones</a>
 									<ul class="dropdown-menu" aria-labelledby="ict-menu">
-										<li><a class="dropdown-item" href="#">View from Desktop</a></li>
-										<li><a class="dropdown-item" href="#">View from Mobile</a></li>
+										<li><a class="dropdown-item" href="https://hcnlservices.in/ict_milestone_2024/main.html" target="_blank">View from Desktop</a></li>
+										<li><a class="dropdown-item" href="https://hcnlservices.in/pdf/" target="_blank">View from Mobile</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -159,8 +160,9 @@
 							</ul>
 						</div>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="{{route('portal.activity.index')}}">Activities</a></li>
 					<li class="nav-item"><a class="nav-link" href="{{route('portal.image.index')}}">Gallery</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{route('portal.contact.index')}}">Contact</a></li>
 					<li class="nav-item">
 						<a class="nav-link" data-bs-toggle="collapse" href="#ictSubmenu" role="button">ICT Milestones</a>
 						<div class="collapse" id="ictSubmenu">

@@ -91,6 +91,9 @@ Route::name('portal.')->group(function () {
     Route::get('registry-officials',[App\Http\Controllers\Portal\RegistryOfficalController::class,'index'])->name('registry-official.index');
     Route::get('advocate-generals',[App\Http\Controllers\Portal\AdvocateGeneralController::class,'index'])->name('advocate-general.index');
     Route::get('legal-committee',[App\Http\Controllers\Portal\LegalCommitteeController::class,'index'])->name('legal-committee.index');
+    Route::get('contact',[App\Http\Controllers\Portal\ContactController::class,'index'])->name('contact.index');
+    Route::get('activities',[App\Http\Controllers\Portal\ActivityController::class,'index'])->name('activity.index');
+    Route::get('activities/{activity}',[App\Http\Controllers\Portal\ActivityController::class,'show'])->name('activity.show');
 });
 
 

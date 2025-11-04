@@ -86,27 +86,26 @@
 		<div class="card-wrap p-3 mb-4">
 			<div class="d-flex justify-content-between align-items-center mb-3">
 				<h4 class="mb-0 fw-bold">Recent Activities</h4>
-				<a href="#" class="link-primary small">View all</a>
+				<a href="{{ route('portal.activity.index') }}" class="link-primary small">View all</a>
 			</div>
 			<div class="row g-3">
 				@foreach($activities as $activity)
 				<div class="col-lg-4 col-md-6">
-					<div class="activity-card">
+					<a class="activity-card" href="{{ route('portal.activity.show', $activity) }}">
 						<div class="activity-image">
-							<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="activity-img">
+							<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
 						</div>
-						<div class="activity-content">
+						<div class="p-3">
 							<div class="post-date">
 								<i class="bi bi-calendar3 me-2"></i>
 								{{ $activity->published_at }}
 							</div>
 							<h6 class="activity-title">{{ $activity->title }}</h6>
 							<p class="activity-description">
-								{{ Str::limit($activity->description,100) }}
+								{{ Str::limit(strip_tags($activity->description),100) }}
 							</p>
-							<a href="#" class="activity-link">Read more <i class="bi bi-arrow-right"></i></a>
 						</div>
-					</div>
+					</a>
 				</div>
 				@endforeach
 			</div>
@@ -181,10 +180,10 @@
 					<div class="text-muted" style="font-size:0.9rem;">Get the mobile app for case status, cause lists and notifications</div>
 				</div>
 				<div class="download-buttons d-flex gap-2">
-					<a class="store-badge" href="#" aria-label="Get it on Google Play">
-						<img src="{{asset('images/google-play.png')}}" alt="Get it on Google Play" style="height: 50px; width: auto;">
+					<a class="store-badge" href="https://play.google.com/store/apps/details?id=in.gov.ecourts.eCourtsServices" aria-label="Get it on Google Play">
+						<img src="{{asset('images/google-play.png')}}" alt="Get it on Google Play">
 					</a>
-					<a class="store-badge" href="#" aria-label="Download on the App Store">
+					<a class="store-badge" href="https://apps.apple.com/in/app/ecourts-services/id1260905816?mt=8" aria-label="Download on the App Store">
 						<img src="{{asset('images/app-store.png')}}" alt="Download on the App Store" style="height: 50px; width: auto;">
 					</a>
 				</div>
