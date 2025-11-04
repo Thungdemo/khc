@@ -82,6 +82,7 @@ Route::name('portal.')->group(function () {
     Route::get('station-judges',[App\Http\Controllers\Portal\StationJudgeController::class,'index'])->name('station-judge.index');
     Route::get('former-judges',[App\Http\Controllers\Portal\FormerJudgeController::class,'index'])->name('former-judge.index');
     Route::get('registry-officials',[App\Http\Controllers\Portal\RegistryOfficalController::class,'index'])->name('registry-official.index');
+    Route::get('advocate-generals',[App\Http\Controllers\Portal\AdvocateGeneralController::class,'index'])->name('advocate-general.index');
 });
 
 

@@ -17,7 +17,10 @@ class AdvocateGeneralFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'full_name' => $this->faker->name(),
+            'doj' => $this->faker->date(),
+            'served_till' => $this->faker->date(),
+            'ag_category_id' => \App\Models\AgCategory::inRandomOrder()->first()->id,
         ];
     }
 }

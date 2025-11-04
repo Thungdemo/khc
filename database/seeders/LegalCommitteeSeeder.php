@@ -2,17 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\AdvocateGeneral;
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class AdvocateGeneralSeeder extends Seeder
+class LegalCommitteeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        AdvocateGeneral::factory()->count(50)->create();
+        //
     }
 }

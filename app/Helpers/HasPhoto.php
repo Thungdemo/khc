@@ -27,9 +27,9 @@ trait HasPhoto
 
     public function deletePhoto()
     {
-        if($this[$this])
+        if($this[$this->getPhotoColumn()] && stripos($this[$this->getPhotoColumn()], 'dummy') !== false)
         {
-            Storage::disk('public')->delete($this[$this]);
+            Storage::disk('public')->delete($this[$this->getPhotoColumn()]);
             $this->forceFill([
                 $this->getPhotoColumn() => null,
             ])->save();
