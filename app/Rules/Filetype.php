@@ -7,6 +7,20 @@ use Illuminate\Contracts\Validation\ValidationRule;
 
 class Filetype implements ValidationRule
 {
+    const MAPPING = [
+        'pdf' => 'application/pdf',
+        'jpg' => 'image/jpeg',
+        'png' => 'image/png',
+        'webp' => 'image/webp',
+    ];
+
+    protected array $allowedTypes;
+
+    public function __construct(array $allowedTypes)
+    {
+        $this->allowedTypes = $allowedTypes;
+    }
+
     /**
      * Run the validation rule.
      *
@@ -14,6 +28,17 @@ class Filetype implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        //
+        foreach($this->allowedTypes as $allowedType) 
+        {
+            if(
+                $value->extension() !== $allowedType ||
+                $value->clientExtension() !== $allowedType ||
+                $value->getClientMimeType() !== (static::MAPPING[$allowedType] ?? null) ||
+                $value->getMimeType() !== (static::MAPPING[$allowedType] ?? null)
+            ){
+                $fail('The :attribute must be a valid ' . strtoupper($allowedType) . ' file.');
+                return;
+            }
+        }
     }
 }
