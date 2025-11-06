@@ -9,17 +9,17 @@
             @csrf
             <div class="mb-3">
                 <label class="form-label">Title *</label>
-                <input type="text" class="form-control" name="title" placeholder="Enter notice title" rrr>
+                <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter notice title" rrr>
                 <span class="text-danger small">@error('title') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Category *</label>
-                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" rrr/>
+                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :value="old('notice_category_id')" rrr/>
                 <span class="text-danger small">@error('notice_category_id') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="schedule" name="schedule" value="1">
+                    <input class="form-check-input" type="checkbox" id="schedule" name="schedule" value="1" @checked(old('schedule'))>
                     <label class="form-check-label" for="schedule">
                         <i class="bi bi-clock me-1"></i>Schedule publish date
                     </label>
@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Publish Date</label>
-                <input type="text" class="form-control datetimepicker" name="published_at" placeholder="Select date and time">
+                <input type="text" class="form-control datetimepicker" name="published_at" value="{{ old('published_at') }}" placeholder="Select date and time">
                 <span class="text-danger small">@error('published_at') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
@@ -42,13 +42,13 @@
             <!-- Additional Documents Section -->
             <div class="mb-4">
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" id="addMoreDocuments" name="add_more_documents">
+                    <input class="form-check-input" type="checkbox" id="addMoreDocuments" name="more_documents" @checked(old('more_documents'))>
                     <label class="form-check-label" for="addMoreDocuments">
                         Add more documents
                     </label>
                 </div>
                 
-                <div id="documentsSection" class="d-none">
+                <div id="documentsSection" @class(['d-none' => !old('more_documents')])>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <label class="form-label mb-0">Additional Documents</label>
                         <button type="button" class="btn btn-outline-primary btn-sm" id="addDocumentRow">
@@ -66,6 +66,23 @@
                                 </tr>
                             </thead>
                             <tbody id="documentsTableBody">
+                                @foreach(old('notice_children', []) as $index => $item)
+                                <tr>
+                                    <td>
+                                        <input type="text" class="form-control" name="notice_children[{{ $index }}][title]" placeholder="Enter document title" value="{{ $item['title'] }}">
+                                        <span class="text-danger small">@error('notice_children.'.$index.'.title') {{ $message }} @enderror</span>
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control" name="notice_children[{{ $index }}][document]" accept="application/pdf">
+                                        <span class="text-danger small">@error('notice_children.'.$index.'.document') {{ $message }} @enderror</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-outline-danger btn-sm remove-row">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                @endforeach
                                 <!-- Dynamic rows will be added here -->
                             </tbody>
                         </table>

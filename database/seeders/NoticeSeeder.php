@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Notice;
+use App\Models\NoticeChild;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,15 @@ class NoticeSeeder extends Seeder
      */
     public function run(): void
     {
-        Notice::factory(200)->create();
+        $notices = Notice::factory(200)->create();
+
+        // Create 1 NoticeChild for every 10 notices seeded
+        $notices->each(function ($notice, $index) {
+            if (($index + 1) % 10 === 0) {
+                NoticeChild::factory()->create([
+                    'notice_id' => $notice->id,
+                ]);
+            }
+        });
     }
 }

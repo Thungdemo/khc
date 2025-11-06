@@ -62,4 +62,14 @@ class Notice extends Model
     {
         return $this->published_at && Carbon::parse($this->published_at)->lessThanOrEqualTo(now());
     }
+
+    public function delete()
+    {
+        foreach($this->noticeChildren as $child)
+        {
+            $child->delete();
+        }
+        $this->documentDelete();
+        parent::delete();
+    }
 }

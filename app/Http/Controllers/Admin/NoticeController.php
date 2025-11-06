@@ -47,11 +47,14 @@ class NoticeController extends Controller
 
         $notice->saveDocument($request->file('document'));
 
-        foreach($request->notice_children ?? [] as $child) {
-            $noticeChild = $notice->noticeChildren()->create([
-                'title' => $child['title'],
-            ]);
-            $noticeChild->saveDocument($child['document']);
+        if($request->more_documents)
+        {
+            foreach($request->notice_children ?? [] as $child) {
+                $noticeChild = $notice->noticeChildren()->create([
+                    'title' => $child['title'],
+                ]);
+                $noticeChild->saveDocument($child['document']);
+            }
         }
 
         return redirect()->route('admin.notice.index')->with('success', 'Notice created successfully.');
@@ -80,12 +83,33 @@ class NoticeController extends Controller
             'notice_category_id' => $validated['notice_category_id'],
         ]);
 
-        if ($request->hasFile('document')) {
+        if($request->hasFile('document')) 
+        {
             $notice->documentDelete();
             $notice->saveDocument($request->file('document'));
         }
+        
+        if($request->more_documents)
+        {
+            $notice->noticeChildren()->whereNotIn('id', array_keys($request->notice_children ?? []))->each(function($child) {
+                $child->delete();
+            });
+            foreach($request->notice_children ?? [] as $id => $child) 
+            {
+                $noticeChild = $notice->noticeChildren()->where('id',$id)->updateOrCreate(
+                    ['title' => $child['title']]
+                );
+                isset($child['document']) and $noticeChild->saveDocument($child['document']);
+            }
+        }
+        else
+        {
+            $notice->noticeChildren()->each(function($child) {
+                $child->delete();
+            });
+        }
 
-        return redirect()->route('admin.notice.index')->with('success', 'Notice updated successfully.');
+        return redirect()->route('admin.notice.edit',$notice)->with('success', 'Notice updated successfully.');
     }
 
     public function destroy(Notice $notice)

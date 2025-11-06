@@ -17,7 +17,8 @@ class NoticeChildFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->word(),
+            'filename' => 'dummy/notice.pdf',
         ];
     }
 }

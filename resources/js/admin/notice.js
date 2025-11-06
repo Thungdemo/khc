@@ -1,4 +1,8 @@
-let documentRowIndex = 0;
+// Function to generate random hash starting with a number
+function generateDocumentHash() {
+    const random = Math.random().toString(36).substring(2, 8);
+    return '1' + random; // Last 4 digits of timestamp + random string
+}
 
 // Toggle documents section visibility
 document.getElementById('addMoreDocuments').addEventListener('change', function() {
@@ -15,20 +19,20 @@ document.getElementById('addMoreDocuments').addEventListener('change', function(
         documentsSection.classList.add('d-none');
         // Clear all rows when hiding
         tableBody.innerHTML = '';
-        documentRowIndex = 0;
     }
 });
 
 // Function to add a new document row
 function addDocumentRow() {
     const tableBody = document.getElementById('documentsTableBody');
+    const documentHash = generateDocumentHash();
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
         <td>
-            <input type="text" class="form-control" name="notice_children[${documentRowIndex}][title]" placeholder="Enter document title">
+            <input type="text" class="form-control" name="notice_children[${documentHash}][title]" placeholder="Enter document title">
         </td>
         <td>
-            <input type="file" class="form-control" name="notice_children[${documentRowIndex}][document]" accept="application/pdf">
+            <input type="file" class="form-control" name="notice_children[${documentHash}][document]" accept="application/pdf">
         </td>
         <td class="text-center">
             <button type="button" class="btn btn-outline-danger btn-sm remove-row">
@@ -37,7 +41,6 @@ function addDocumentRow() {
         </td>
     `;
     tableBody.appendChild(newRow);
-    documentRowIndex++;
 }
 
 // Add new document row on button click

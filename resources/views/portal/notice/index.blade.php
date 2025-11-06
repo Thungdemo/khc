@@ -43,7 +43,13 @@
             <li class="list-group-item d-flex align-items-start py-1">
               <div class="icon"><i class="bi bi-file-earmark-text-fill"></i></div>
               <div class="flex-grow-1">
-                <a class="notif-link" href="{{ $notice->documentUrl() }}" target="_blank">{{ $notice->title }}</a>
+                <div class="d-flex align-items-center flex-wrap gap-2">
+                  <a class="notif-link" href="{{ $notice->documentUrl() }}" target="_blank">{{ $notice->title }}</a>
+                  @foreach($notice->noticeChildren as $child)
+                    <span class="text-muted">&nbsp;•&nbsp;</span>
+                    <a class="notif-link" href="{{ $child->documentUrl() }}" target="_blank">{{ $child->title }}</a>
+                  @endforeach
+                </div>
                 <div class="post-date mt-1 mb-0">{{ \App\Helpers\DateHelper::display($notice->published_at) }}</div>
               </div>
             </li>
