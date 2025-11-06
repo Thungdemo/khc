@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use App\Helpers\HasDocument;
 use App\Helpers\AttributeHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -12,13 +13,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Notice extends Model
 {
     /** @use HasFactory<\Database\Factories\NoticeFactory> */
-    use HasFactory,AttributeHelper;
-
-    static $documentPath = 'notices';
+    use HasFactory,AttributeHelper,HasDocument;
 
     protected $datetimeable = ['published_at'];
 
     protected $guarded = [];
+
+    public static $documentPath = 'notices/{id}';
+
+    public static $documentMaxSize = 5000;
+
+    public static $documentColumn = 'filename';
 
     public function scopeFilter($query, $request)
     {
@@ -33,45 +38,14 @@ class Notice extends Model
         return $query;
     }
 
-    public function saveDocument($file)
-    {
-        $filename = uniqid() .'.'. $file->guessExtension();
-        $file->storeAs(self::$documentPath, $filename, 'public');
-        $this->forceFill(([
-            'filename' => self::$documentPath . '/' . $filename,
-        ]))->save();
-    }
-
-    public function documentUrl()
-    {
-        return asset('storage/' . $this->filename);
-    }
-
-    public function documentFilename()
-    {
-        return basename($this->filename);
-    }
-
-    public function documentDelete()
-    {
-        if($this->filename)
-        {
-            Storage::disk('public')->delete($this->filename);
-            $this->forceFill(([
-                'filename' => null,
-            ]))->save();
-        }
-    }
-
-    public function delete()
-    {
-        $this->documentDelete();
-        parent::delete();
-    }
-
     public function noticeCategory()
     {
         return $this->belongsTo(NoticeCategory::class);
+    }
+
+    public function noticeChildren()
+    {
+        return $this->hasMany(NoticeChild::class);
     }
 
     public function scopePublished($query)

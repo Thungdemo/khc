@@ -33,7 +33,7 @@
                     <th>Title</th>
                     <th>Category</th>
                     <th>Status</th>
-                    <th>Document</th>
+                    <th>Document(s)</th>
                     <th>Publish Date</th>
                     <th>Options</th>
                 </tr>
@@ -54,8 +54,11 @@
                             </span>
                         @endif
                     </td>
-                    <td>
+                    <td class="small">
                         <a href="{{ $notice->documentUrl() }}" target="_blank">{{$notice->documentFilename()}}</a>
+                        @foreach($notice->noticeChildren as $child)
+                            , <a href="{{ $child->documentUrl() }}" target="_blank">{{$child->documentFilename()}}</a>
+                        @endforeach
                     </td>
                     <td>{{$notice->published_at}}</td>
                     <td>

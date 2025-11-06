@@ -81,11 +81,7 @@
 			</main>
 		</div>
 		@vite('resources/js/admin.js')
-		<script>
-			const btn = document.getElementById('btnToggle');
-			const sidebar = document.getElementById('sidebar');
-			btn && btn.addEventListener('click', () => sidebar.classList.toggle('show'));
-		</script>
+		@stack('scripts')
 		<!-- Logout Modal -->
 		<div class="modal" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
 			<div class="modal-dialog">

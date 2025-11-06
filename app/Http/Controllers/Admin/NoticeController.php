@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Rules\Xss;
 use App\Models\Notice;
 use App\Rules\Filetype;
+use App\Models\NoticeChild;
 use Illuminate\Http\Request;
 use App\Models\NoticeCategory;
 use App\Http\Controllers\Controller;
@@ -32,7 +33,10 @@ class NoticeController extends Controller
             'title' => ['required', 'string', 'max:255', new Xss],
             'published_at' => ['required_if:schedule,1','nullable','date'],
             'notice_category_id' => ['required', 'exists:notice_categories,id'],
-            'document' => ['required', 'file', 'max:'.config('khc.max_upload_size'), new Filetype(['pdf'])],
+            'document' => ['required', 'file', 'max:'.Notice::$documentMaxSize, new Filetype(['pdf'])],
+            'notice_children' => ['nullable', 'array'],
+            'notice_children.*.title' => ['required', 'string', 'max:255', new Xss],
+            'notice_children.*.document' => ['required', 'file', 'max:'.NoticeChild::$documentMaxSize, new Filetype(['pdf'])],
         ]);
 
         $notice = Notice::create([
@@ -42,6 +46,13 @@ class NoticeController extends Controller
         ]);
 
         $notice->saveDocument($request->file('document'));
+
+        foreach($request->notice_children ?? [] as $child) {
+            $noticeChild = $notice->noticeChildren()->create([
+                'title' => $child['title'],
+            ]);
+            $noticeChild->saveDocument($child['document']);
+        }
 
         return redirect()->route('admin.notice.index')->with('success', 'Notice created successfully.');
     }
@@ -57,10 +68,10 @@ class NoticeController extends Controller
     public function update(Request $request, Notice $notice)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'published_at' => 'required|date',
-            'notice_category_id' => 'required|exists:notice_categories,id',
-            'document' => 'nullable|file|mimetypes:application/pdf|max:'.config('khc.max_upload_size'),
+            'title' => ['required', 'string', 'max:255', new Xss],
+            'published_at' => ['required_if:schedule,1','nullable','date'],
+            'notice_category_id' => ['required', 'exists:notice_categories,id'],
+            'document' => ['nullable', 'file', 'max:'.Notice::$documentMaxSize, new Filetype(['pdf'])],
         ]);
 
         $notice->update([
