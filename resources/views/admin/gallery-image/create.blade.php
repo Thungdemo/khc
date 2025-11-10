@@ -12,8 +12,9 @@
                             <div class="imgp-preview">
                                 <img id="image-preview" style="max-height: 200px;">
                             </div>
-                            <input type="file" class="form-control imgp-input" data-target="#image-preview" name="filename" accept="image/*" rrr>
+                            <input type="file" class="form-control imgp-input" data-target="#image-preview" name="filename" accept="image/*" required>
                             <span class="text-danger small">@error('filename') {{ $message }} @enderror</span>
+                            <span class="form-text small text-muted">Allowed files: jpg, png, webp. Max size: {{ $maxFileSize }} KB</span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Title *</label>

@@ -28,7 +28,7 @@ class GalleryImageController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'filename' => ['required','image','max:' . GalleryImage::$maxFileSize,new Filetype(['jpg','png'])],
+            'filename' => ['required','image','max:' . GalleryImage::$maxFileSize,new Filetype(['jpg','png','webp'])],
             'title' => ['required','string','max:255',new Xss],
         ]);
         $galleryImage = GalleryImage::create([

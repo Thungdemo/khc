@@ -21,7 +21,7 @@
 			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="">
 		</div>
 		<div class="mb-1 text-center fw-bold">Hon’ble Mr. Justice Rajesh Mazumdar</div>
-		<div class="text-muted small">Station Judge</div>
+		<div class="text-muted small text-center">Station Judge</div>
 	</div>
 </div>
 <main class="container site-main">

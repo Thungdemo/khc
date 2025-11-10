@@ -10,6 +10,7 @@ class Filetype implements ValidationRule
     const MAPPING = [
         'pdf' => 'application/pdf',
         'jpg' => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
         'png' => 'image/png',
         'webp' => 'image/webp',
     ];
@@ -31,14 +32,14 @@ class Filetype implements ValidationRule
         foreach($this->allowedTypes as $allowedType) 
         {
             if(
-                $value->extension() !== $allowedType ||
-                $value->clientExtension() !== $allowedType ||
-                $value->getClientMimeType() !== (static::MAPPING[$allowedType] ?? null) ||
-                $value->getMimeType() !== (static::MAPPING[$allowedType] ?? null)
+                $value->extension() == $allowedType &&
+                $value->clientExtension() == $allowedType &&
+                $value->getClientMimeType() == (static::MAPPING[$allowedType] ?? null) &&
+                $value->getMimeType() == (static::MAPPING[$allowedType] ?? null)
             ){
-                $fail('The :attribute must be a valid ' . strtoupper($allowedType) . ' file.');
                 return;
             }
         }
+        $fail('The :attribute must be a file of type: ' . implode(', ', $this->allowedTypes) . '.');
     }
 }
