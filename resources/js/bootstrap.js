@@ -1,8 +1,6 @@
 import axios from 'axios';
 import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
 import Chocolat from 'chocolat';
-import 'chocolat/dist/css/chocolat.css';
 import Alpine from 'alpinejs'
 
 window.axios = axios;

@@ -82,65 +82,54 @@
 	</div>
 
 	<!-- Activities Section -->
-	<section class="activities-section mb-4">
-		<div class="card-wrap p-3 mb-4">
-			<div class="d-flex justify-content-between align-items-center mb-3">
-				<h4 class="mb-0 fw-bold">Recent Activities</h4>
-				<a href="{{ route('portal.activity.index') }}" class="link-primary small">View all</a>
-			</div>
-			<div class="row g-3">
-				@foreach($activities as $activity)
-				<div class="col-lg-4 col-md-6">
-					<a class="activity-card" href="{{ route('portal.activity.show', $activity) }}">
-						<div class="activity-image">
-							<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
-						</div>
-						<div class="p-3">
-							<div class="post-date">
-								<i class="bi bi-calendar3 me-2"></i>
-								{{ $activity->published_at }}
-							</div>
-							<h6 class="activity-title">{{ $activity->title }}</h6>
-							<p class="activity-description">
-								{{ Str::limit(strip_tags($activity->description),100) }}
-							</p>
-						</div>
-					</a>
+	<div class="row g-4 mb-4">
+		<!-- Notice Board - Left Side (Larger) -->
+		<div class="col-lg-8">
+			<div class="card-wrap p-3 mb-4">
+				<div class="d-flex justify-content-between align-items-center mb-3">
+					<h4 class="mb-0 fw-bold">Recent Activities</h4>
+					<a href="{{ route('portal.activity.index') }}" class="link-primary small">View all</a>
 				</div>
-				@endforeach
+				<div class="row g-3">
+					@foreach($activities as $activity)
+					<div class="col-lg-4 col-md-6">
+						<a class="activity-card" href="{{ route('portal.activity.show', $activity) }}">
+							<div class="activity-image">
+								<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
+							</div>
+							<div class="p-3">
+								<div class="post-date">
+									<i class="bi bi-calendar3 me-2"></i>
+									{{ $activity->published_at }}
+								</div>
+								<h6 class="activity-title">{{ $activity->title }}</h6>
+								<p class="activity-description">
+									{{ Str::limit(strip_tags($activity->description),100) }}
+								</p>
+							</div>
+						</a>
+					</div>
+					@endforeach
+				</div>
 			</div>
 		</div>
-	</section>
-	<div class="card-wrap p-3 mb-4">
-		<h4 class="fw-bold">Notice Board</h4>
-		<ul class="nav nav-tabs mt-3 mb-2" role="tablist">
-			@foreach($noticeCategories as $noticeCategory)
-			<li class="nav-item"><button class="nav-link {{$loop->first?'active':''}}" data-bs-toggle="tab" data-bs-target="#{{$noticeCategory->id}}-tab">{{$noticeCategory->name}}</button></li>
-			@endforeach
-		</ul>
-		<div class="tab-content">
-			@foreach($noticeCategories as $noticeCategory)
-			<div class="tab-pane {{$loop->first?'show active':''}}" id="{{$noticeCategory->id}}-tab">
-				<ul class="list-group list-notif">
-					@forelse($noticeCategory->notices()->published()->newest()->limit(5)->get() as $notice)
-					<li class="list-group-item d-flex align-items-start py-1">
-						<div class="icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
-						<div class="flex-grow-1">
-							<a class="notif-link" href="{{$notice->documentUrl()}}" target="_blank">{{$notice->title}}</a>
-							<div class="post-date mt-1 mb-0">{{\App\Helpers\DateHelper::display($notice->published_at)}}</div>
-						</div>
-					</li>
-					@empty
-					@endforelse
-				</ul>
-				<div class="text-end mt-2">
-					<a href="{{route('portal.notice.index',$noticeCategory)}}" class="link-primary small">View more</a>
+		<div class="col-lg-4">
+			<div class="card-wrap p-3">
+				<h5 class="fw-bold mb-3">Calendar</h5>
+				<div id="portalCalendar" data-events='@json($calendarEvents)'></div>
+				<div class="calendar-legend mt-2">
+					<div class="d-flex align-items-center gap-1">
+						<div class="calendar-legend-color legend-national"></div>
+						<span>National</span>
+					</div>
+					<div class="d-flex align-items-center gap-1">
+						<div class="calendar-legend-color legend-restricted"></div>
+						<span>Restricted</span>
+					</div>
 				</div>
 			</div>
-			@endforeach
 		</div>
 	</div>
-	<!-- Videos section (added below Notifications) -->
 	
 	<div class="card-wrap p-3 mb-4">
 		<h4 class="fw-bold mb-3">Youtube Channel</h4>
@@ -169,7 +158,6 @@
 			</div>
 		</div>
 	</div>
-	
 	<!-- App download callout -->
 	<section class="app-downloads mt-4 mb-4">
 		<div class="card-wrap">

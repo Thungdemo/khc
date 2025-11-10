@@ -18,14 +18,14 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label class="form-label">Start Date *</label>
-                        <input type="date" class="form-control datepicker" name="start_date" value="{{ old('start_date', $calendar->start_date) }}" required>
+                        <input type="text" class="form-control datepicker" name="start_date" value="{{ old('start_date', $calendar->start_date) }}" required>
                         <span class="text-danger small">@error('start_date') {{ $message }} @enderror</span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label class="form-label">End Date</label>
-                        <input type="date" class="form-control datepicker" name="end_date" value="{{ old('end_date', $calendar->end_date) }}">
+                        <input type="text" class="form-control datepicker" name="end_date" value="{{ old('end_date', $calendar->end_date) }}">
                         <div class="form-text small text-muted">Leave empty for single day events</div>
                         <span class="text-danger small">@error('end_date') {{ $message }} @enderror</span>
                     </div>

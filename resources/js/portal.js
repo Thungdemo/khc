@@ -1,5 +1,6 @@
 import './bootstrap';
 import 'bootstrap';
+import './portal/calendar';
 
 function setTheme(theme, button) {
     document.documentElement.setAttribute("data-theme", theme);

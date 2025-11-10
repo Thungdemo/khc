@@ -5,6 +5,9 @@ $dropdown-item-padding-y:0.5rem;
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import 'variables';
+@import 'portal/calendar';
+@import "flatpickr/dist/flatpickr.min.css";
+@import 'chocolat/dist/css/chocolat.css';
 
 body {
     font-family: 'Inter', sans-serif;
@@ -554,7 +557,7 @@ footer ul li a:hover {
 .table th,
 table td,
 table th {
-    background-color: var(--card-bg) !important;
+    background-color: var(--card-bg);
 }
 
 .offcanvas .nav-link{
@@ -562,11 +565,6 @@ table th {
 }
 .chocolat-overlay{
     background-color: rgba(0, 0, 0, 0.9) !important;
-}
-
-/* Activity Cards */
-.activities-section {
-    margin-bottom: 2rem;
 }
 
 .activity-card {
