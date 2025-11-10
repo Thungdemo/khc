@@ -79,6 +79,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('activities/{activity}/edit', [App\Http\Controllers\Admin\ActivityController::class, 'edit'])->name('activity.edit');
     Route::put('activities/{activity}', [App\Http\Controllers\Admin\ActivityController::class, 'update'])->name('activity.update');
     Route::delete('activities/{activity}', [App\Http\Controllers\Admin\ActivityController::class, 'destroy'])->name('activity.destroy');
+
+    Route::get('calendars', [App\Http\Controllers\Admin\CalendarController::class, 'index'])->name('calendar.index');
+    Route::get('calendars/create', [App\Http\Controllers\Admin\CalendarController::class, 'create'])->name('calendar.create');
+    Route::post('calendars', [App\Http\Controllers\Admin\CalendarController::class, 'store'])->name('calendar.store');
+    Route::get('calendars/{calendar}/edit', [App\Http\Controllers\Admin\CalendarController::class, 'edit'])->name('calendar.edit');
+    Route::put('calendars/{calendar}', [App\Http\Controllers\Admin\CalendarController::class, 'update'])->name('calendar.update');
+    Route::delete('calendars/{calendar}', [App\Http\Controllers\Admin\CalendarController::class, 'destroy'])->name('calendar.destroy');
 });
 
 Route::name('portal.')->group(function () {

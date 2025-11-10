@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notice_categories', function (Blueprint $table) {
-            $table->string('id',20)->primary();
+            $table->id();
             $table->string('name');
             $table->integer('ordering')->deault(0);
             $table->timestamps();

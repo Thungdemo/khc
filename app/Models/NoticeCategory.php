@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NoticeCategory extends Model
 {
-    public $incrementing = false;
+    // public $incrementing = false;
 
     public function notices()
     {

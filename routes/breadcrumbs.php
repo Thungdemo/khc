@@ -24,3 +24,19 @@ Breadcrumbs::for('admin.notice.edit', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.notice.index');
     $trail->push('Edit');
 });
+
+// Calendar Breadcrumbs
+Breadcrumbs::for('admin.calendar.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard.index');
+    $trail->push('Calendar Events', route('admin.calendar.index'));
+});
+
+Breadcrumbs::for('admin.calendar.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.calendar.index');
+    $trail->push('Create Event');
+});
+
+Breadcrumbs::for('admin.calendar.edit', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.calendar.index');
+    $trail->push('Edit Event');
+});

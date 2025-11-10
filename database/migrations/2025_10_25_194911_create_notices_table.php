@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('filename')->nullable();
-            $table->string('notice_category_id',20);
+            $table->foreignId('notice_category_id')->constrained();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
