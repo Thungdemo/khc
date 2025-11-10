@@ -101,6 +101,7 @@ Route::name('portal.')->group(function () {
     Route::get('contact',[App\Http\Controllers\Portal\ContactController::class,'index'])->name('contact.index');
     Route::get('activities',[App\Http\Controllers\Portal\ActivityController::class,'index'])->name('activity.index');
     Route::get('activities/{activity}',[App\Http\Controllers\Portal\ActivityController::class,'show'])->name('activity.show');
+    Route::get('statistics',[App\Http\Controllers\Portal\StatisticsController::class,'index'])->name('statistics.index');
 });
 
 

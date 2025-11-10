@@ -130,6 +130,36 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="card-wrap p-3 mb-4">
+		<h4 class="fw-bold">Notice Board</h4>
+		<ul class="nav nav-tabs mt-3 mb-2" role="tablist">
+			@foreach($noticeCategories as $noticeCategory)
+			<li class="nav-item"><button class="nav-link {{$loop->first?'active':''}}" data-bs-toggle="tab" data-bs-target="#{{$noticeCategory->id}}-tab">{{$noticeCategory->name}}</button></li>
+			@endforeach
+		</ul>
+		<div class="tab-content">
+			@foreach($noticeCategories as $noticeCategory)
+			<div class="tab-pane {{$loop->first?'show active':''}}" id="{{$noticeCategory->id}}-tab">
+				<ul class="list-group list-notif">
+					@forelse($noticeCategory->notices()->published()->newest()->limit(5)->get() as $notice)
+					<li class="list-group-item d-flex align-items-start py-1">
+						<div class="icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+						<div class="flex-grow-1">
+							<a class="notif-link" href="{{$notice->documentUrl()}}" target="_blank">{{$notice->title}}</a>
+							<div class="post-date mt-1 mb-0">{{\App\Helpers\DateHelper::display($notice->published_at)}}</div>
+						</div>
+					</li>
+					@empty
+					@endforelse
+				</ul>
+				<div class="text-end mt-2">
+					<a href="{{route('portal.notice.index',$noticeCategory)}}" class="link-primary small">View more</a>
+				</div>
+			</div>
+			@endforeach
+		</div>
+	</div>
 	
 	<div class="card-wrap p-3 mb-4">
 		<h4 class="fw-bold mb-3">Youtube Channel</h4>
