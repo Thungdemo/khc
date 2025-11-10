@@ -86,6 +86,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('calendars/{calendar}/edit', [App\Http\Controllers\Admin\CalendarController::class, 'edit'])->name('calendar.edit');
     Route::put('calendars/{calendar}', [App\Http\Controllers\Admin\CalendarController::class, 'update'])->name('calendar.update');
     Route::delete('calendars/{calendar}', [App\Http\Controllers\Admin\CalendarController::class, 'destroy'])->name('calendar.destroy');
+
+    Route::get('statistics', [App\Http\Controllers\Admin\StatisticsController::class, 'index'])->name('statistics.index');
+    Route::get('statistics/create', [App\Http\Controllers\Admin\StatisticsController::class, 'create'])->name('statistics.create');
+    Route::post('statistics', [App\Http\Controllers\Admin\StatisticsController::class, 'store'])->name('statistics.store');
+    Route::get('statistics/{statistics}/edit', [App\Http\Controllers\Admin\StatisticsController::class, 'edit'])->name('statistics.edit');
+    Route::put('statistics/{statistics}', [App\Http\Controllers\Admin\StatisticsController::class, 'update'])->name('statistics.update');
+    Route::delete('statistics/{statistics}', [App\Http\Controllers\Admin\StatisticsController::class, 'destroy'])->name('statistics.destroy');
 });
 
 Route::name('portal.')->group(function () {

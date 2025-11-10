@@ -42,7 +42,7 @@ trait HasDocument
 
     public function documentDelete()
     {
-        if($this[static::$documentColumn])
+        if($this[static::$documentColumn] && stripos($this[static::$documentColumn], 'dummy') === false)
         {
             Storage::disk('public')->delete($this[static::$documentColumn]);
             $this->forceFill(([

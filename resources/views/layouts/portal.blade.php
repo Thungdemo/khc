@@ -62,7 +62,7 @@
 										<li><a class="dropdown-item" href="{{config('links.case_status')}}" target="_blank">Case Status</a></li>
 										<li><a class="dropdown-item" href="{{config('links.neutral_citation')}}" target="_blank">Neutral Citation</a></li>
 										<li><a class="dropdown-item" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
-										<li><a class="dropdown-item" href="#">Statistics</a></li>
+										<li><a class="dropdown-item" href="{{route('portal.statistics.index')}}">Statistics</a></li>
 										<li><a class="dropdown-item" href="#">Library</a></li>
 										<li><a class="dropdown-item" href="#">Downloads</a></li>
 										<li><a class="dropdown-item" href="{{config('links.justice_clock')}}" target="_blank">Virtual Justice Clock</a></li>

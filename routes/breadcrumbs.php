@@ -40,3 +40,19 @@ Breadcrumbs::for('admin.calendar.edit', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.calendar.index');
     $trail->push('Edit Event');
 });
+
+// Statistics Breadcrumbs
+Breadcrumbs::for('admin.statistics.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard.index');
+    $trail->push('Statistics', route('admin.statistics.index'));
+});
+
+Breadcrumbs::for('admin.statistics.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.statistics.index');
+    $trail->push('Add Statistics');
+});
+
+Breadcrumbs::for('admin.statistics.edit', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.statistics.index');
+    $trail->push('Edit Statistics');
+});

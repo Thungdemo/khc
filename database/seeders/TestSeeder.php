@@ -26,6 +26,7 @@ class TestSeeder extends Seeder
         $this->call(ActivitySeeder::class);
         $this->call(RegistryOfficialSeeder::class);
         $this->call(AdvocateGeneralSeeder::class);
+        $this->call(StatisticsSeeder::class);
         DB::commit();
     }
 }

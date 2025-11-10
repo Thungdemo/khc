@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
+            $table->year('year');
+            $table->integer('month');
+            $table->string('filename')->nullable();
             $table->timestamps();
         });
     }
