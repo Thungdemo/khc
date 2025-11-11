@@ -43,6 +43,14 @@
 							<ul class="navbar-nav align-items-center gap-3 mx-auto">
 								<li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
 								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="court-tools-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Court Tools</a>
+									<ul class="dropdown-menu" aria-labelledby="court-tools-menu">
+										<li><a class="dropdown-item" href="{{config('links.live_streaming')}}" target="_blank">Live Streaming</a></li>
+										<li><a class="dropdown-item" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
+										<li><a class="dropdown-item" href="{{config('links.eservices_portal')}}" target="_blank">eServices Portal</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="profile-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
 									<ul class="dropdown-menu" aria-labelledby="profile-menu">
 										{{-- <li><a class="dropdown-item" href="{{route('portal.history')}}">History</a></li> --}}
@@ -126,6 +134,16 @@
 						</div>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" data-bs-toggle="collapse" href="#courtToolsMenu" role="button">Court Tools</a>
+						<div class="collapse" id="courtToolsMenu">
+							<ul class="list-unstyled ps-3">
+								<li><a class="nav-link" href="{{config('links.live_streaming')}}" target="_blank">Live Streaming</a></li>
+								<li><a class="nav-link" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
+								<li><a class="nav-link" href="{{config('links.eservices_portal')}}" target="_blank">eServices Portal</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" data-bs-toggle="collapse" href="#servicesSubmenu" role="button">Services</a>
 						<div class="collapse" id="servicesSubmenu">
 							<ul class="list-unstyled ps-3">
@@ -180,7 +198,7 @@
 		@yield('content')
 		<footer>
 			<div class="container" style="font-size:0.85em">
-				<div class="row text-center text-md-start">
+				<div class="row text-md-start">
 					<div class="col-md-3 mb-3">
 						<h6>Contact & Info</h6>
 						<div class="footer-contact">
@@ -209,12 +227,12 @@
 						</ul>
 					</div>
 					<div class="col-md-3 mb-3">
-						<h6>Resources</h6>
+						<h6>Site Links</h6>
 						<ul>
-							<li><a href="#">Downloads</a></li>
-							<li><a href="#">Circulars</a></li>
-							<li><a href="#">Tenders</a></li>
-							<li><a href="#">Recruitment</a></li>
+							<li><a href="{{ url('/') }}">Home</a></li>
+							<li><a href="{{ route('portal.about') }}">About</a></li>
+							<li><a href="{{ route('portal.image.index')}}">Gallery</a></li>
+							<li><a href="{{ route('portal.contact.index') }}">Contact</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3 mb-3">

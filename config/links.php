@@ -22,4 +22,5 @@ return [
     'njdg' => 'https://njdg.ecourts.gov.in/njdgnew/index.php',
     'ecourts' => 'http://ecourts.gov.in',
     'live_streaming' => 'https://www.youtube.com/@ecourtsnagaland/streams',
+    'eservices_portal' => 'https://hcnlservices.in/',
 ];
