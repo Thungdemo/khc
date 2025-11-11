@@ -8,8 +8,18 @@
     </div>
 
     <!-- Library Banner -->
-    <div class="mb-4">
+    <div class="mb-4 position-relative">
         <img src="{{asset('images/library-banner.png')}}" alt="Library Banner" class="img-fluid w-100 rounded shadow-sm" style="height: 400px; object-fit: cover;">
+        
+        <!-- Banner Overlay -->
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center rounded" style="background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));">
+            <div class="text-center text-white px-4" style="max-width: 800px;">
+                <blockquote class="blockquote mb-4">
+                    <p class="h4 mb-3">"In a good bookroom you feel in some mysterious way that you are absorbing the wisdom contained in all the books through your skin, without even opening them."</p>
+                    <cite title="Source Title" class="text-white fs-5">— Mark Twain</cite>
+                </blockquote>
+            </div>
+        </div>
     </div>
 
     <!-- Horizontal Tabs -->
