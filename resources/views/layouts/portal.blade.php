@@ -71,7 +71,7 @@
 										<li><a class="dropdown-item" href="{{config('links.neutral_citation')}}" target="_blank">Neutral Citation</a></li>
 										<li><a class="dropdown-item" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.statistics.index')}}">Statistics</a></li>
-										<li><a class="dropdown-item" href="#">Library</a></li>
+										<li><a class="dropdown-item" href="{{route('portal.library.index')}}">Library</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.form-download.index')}}">Downloads</a></li>
 										<li><a class="dropdown-item" href="{{config('links.justice_clock')}}" target="_blank">Virtual Justice Clock</a></li>
 										<li><a class="dropdown-item" href="#">eCommittee Newsletters</a></li>
@@ -153,7 +153,7 @@
 								<li><a class="nav-link" href="{{config('links.neutral_citation')}}" target="_blank">Neutral Citation</a></li>
 								<li><a class="nav-link" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
 								<li><a class="nav-link" href="#">Statistics</a></li>
-								<li><a class="nav-link" href="#">Library</a></li>
+								<li><a class="nav-link" href="{{route('portal.library.index')}}">Library</a></li>
 								<li><a class="nav-link" href="{{route('portal.form-download.index')}}">Downloads</a></li>
 								<li><a class="nav-link" href="{{config('links.justice_clock')}}" target="_blank">Virtual Justice Clock</a></li>
 								<li><a class="nav-link" href="#">eCommittee Newsletters</a></li>
