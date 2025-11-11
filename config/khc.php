@@ -24,7 +24,7 @@ return [
 
         'display_format' => 'd M Y',
     ],
-    'captcha' => false,
+    'captcha' => env('CAPTCHA',true),
 
     /*
     |--------------------------------------------------------------------------
