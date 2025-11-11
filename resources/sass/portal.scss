@@ -1,6 +1,8 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
+
 $dropdown-item-padding-y:0.5rem;
+$table-color:var(--text-color);
 
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
@@ -489,22 +491,12 @@ footer ul li a:hover {
 }
 
 /* Station Judges Page Styles */
-.judge-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 28px;
-    box-shadow: 0 6px 20px rgba(7, 25, 50, 0.06);
-    transition: box-shadow 0.2s ease;
-}
-
 .judge-photo-wrap {
     width: 100%;
     max-width: 180px;
     aspect-ratio: 3/4;
     overflow: hidden;
     border-radius: 10px;
-    background: #f0f4f8;
-    box-shadow: 0 4px 12px rgba(7, 25, 50, 0.08);
 }
 
 .judge-photo {
@@ -515,7 +507,7 @@ footer ul li a:hover {
 }
 
 .judge-header {
-    border-bottom: 2px solid #e6eef9;
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 12px;
 }
 
@@ -532,17 +524,17 @@ footer ul li a:hover {
 
 .judge-table .label-col {
     font-weight: 600;
-    color: #0b1e2f;
+    color: var(--text-color);
     width: 220px;
     white-space: nowrap;
 }
 
 .judge-table tbody td:last-child {
-    color: #4a5568;
+    color: var(--text-muted);
 }
 
 .judge-bio {
-    border-top: 2px solid #e6eef9;
+    border-top: 2px solid var(--border-color);
     padding-top: 16px;
     margin-top: 16px;
 }

@@ -14,7 +14,7 @@
             </div>
             
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table">
                     <thead class="table-light">
                         <tr>
                             <th scope="col" class="fw-semibold">#</th>
@@ -28,16 +28,16 @@
                         <tr>
                             <td class="text-muted">{{ $loop->iteration }}</td>
                             <td>
-                                <div class="fw-semibold text-dark">{{ $advocateGeneral->full_name }}</div>
+                                <div class="fw-semibold">{{ $advocateGeneral->full_name }}</div>
                             </td>
                             <td>
-                                <span class="text-muted">
+                                <span class="hc-text-muted">
                                     <i class="bi bi-calendar3 me-1"></i>
                                     {{ $advocateGeneral->doj }}
                                 </span>
                             </td>
                             <td>
-                                <span class="text-muted">
+                                <span class="hc-text-muted">
                                     <i class="bi bi-calendar3 me-1"></i>
                                     {{ $advocateGeneral->served_till }}
                                 </span>
