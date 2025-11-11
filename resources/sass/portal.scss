@@ -657,3 +657,29 @@ table th {
 .store-badge:hover {
     transform: scale(1.03);
 }
+
+table.pdf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+table.pdf-table td, table.pdf-table th {
+    padding: 0.4rem 0.5rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+}
+table.pdf-table a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.pdf-icon {
+    width: 18px;
+    height: 18px;
+}
+.publish-date {
+    color: var(--text-muted);
+}

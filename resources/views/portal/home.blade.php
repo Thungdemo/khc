@@ -62,7 +62,7 @@
 								<div class="post-date mb-1">
 									<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
 								</div>
-								<div class="fw-bold"><a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a></div>
+								<div><a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a></div>
 							</div>
 						</div>
 						@endforeach

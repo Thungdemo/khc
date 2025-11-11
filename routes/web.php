@@ -93,6 +93,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('statistics/{statistics}/edit', [App\Http\Controllers\Admin\StatisticsController::class, 'edit'])->name('statistics.edit');
     Route::put('statistics/{statistics}', [App\Http\Controllers\Admin\StatisticsController::class, 'update'])->name('statistics.update');
     Route::delete('statistics/{statistics}', [App\Http\Controllers\Admin\StatisticsController::class, 'destroy'])->name('statistics.destroy');
+
+    Route::get('form-downloads', [App\Http\Controllers\Admin\FormDownloadController::class, 'index'])->name('form-download.index');
+    Route::get('form-downloads/create', [App\Http\Controllers\Admin\FormDownloadController::class, 'create'])->name('form-download.create');
+    Route::post('form-downloads', [App\Http\Controllers\Admin\FormDownloadController::class, 'store'])->name('form-download.store');
+    Route::get('form-downloads/{formDownload}/edit', [App\Http\Controllers\Admin\FormDownloadController::class, 'edit'])->name('form-download.edit');
+    Route::put('form-downloads/{formDownload}', [App\Http\Controllers\Admin\FormDownloadController::class, 'update'])->name('form-download.update');
+    Route::delete('form-downloads/{formDownload}', [App\Http\Controllers\Admin\FormDownloadController::class, 'destroy'])->name('form-download.destroy');
 });
 
 Route::name('portal.')->group(function () {
@@ -109,6 +116,7 @@ Route::name('portal.')->group(function () {
     Route::get('activities',[App\Http\Controllers\Portal\ActivityController::class,'index'])->name('activity.index');
     Route::get('activities/{activity}',[App\Http\Controllers\Portal\ActivityController::class,'show'])->name('activity.show');
     Route::get('statistics',[App\Http\Controllers\Portal\StatisticsController::class,'index'])->name('statistics.index');
+    Route::get('form-downloads',[App\Http\Controllers\Portal\FormDownloadController::class,'index'])->name('form-download.index');
 });
 
 
