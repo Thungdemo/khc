@@ -3,6 +3,7 @@
 
 $dropdown-item-padding-y:0.5rem;
 $table-color:var(--text-color);
+$table-bg:--var(--card-bg);
 
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
@@ -545,12 +546,12 @@ footer ul li a:hover {
 }
 
 /* Bootstrap 5 table cell background override */
-.table td,
-.table th,
-table td,
-table th {
-    background-color: var(--card-bg);
-}
+// .table td,
+// .table th,
+// table td,
+// table th {
+//     background-color: var(--card-bg);
+// }
 
 .offcanvas .nav-link{
     color: black !important;

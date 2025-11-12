@@ -16,7 +16,7 @@
                     <span class="text-danger small">@error('parent_court') {{ $message }} @enderror</span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">DOB *</label>
+                    <label class="form-label">DOB</label>
                     <input type="text" class="form-control datepicker" name="dob" value="{{ old('dob') }}" rrr>
                     <span class="text-danger small">@error('dob') {{ $message }} @enderror</span>
                 </div>

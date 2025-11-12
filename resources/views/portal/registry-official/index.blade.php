@@ -10,7 +10,7 @@
     @foreach($levels as $registryOfficials)
     <div class="d-flex justify-content-center gap-3">
         @foreach($registryOfficials as $registryOfficial)
-        <div class="card-wrap border" style="width: 260px;">
+        <div class="card-wrap" style="width: 260px;">
             <div class="text-center">
                 <img src="{{ $registryOfficial->photo ? $registryOfficial->photoUrl() : asset('images/blank-avatar.jpg') }}" 
                      alt="Registrar General" 

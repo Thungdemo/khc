@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\LegalCommittee;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class LegalCommitteeSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class LegalCommitteeSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\LegalCommittee::factory(5)->create();
+        LegalCommittee::factory(5)->create();
     }
 }

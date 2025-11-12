@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
             plugins: [dayGridPlugin, interactionPlugin],
             initialView: 'dayGridMonth',
             headerToolbar: {
-                left: 'prev,next',
+                left: 'prev',
                 center: 'title',
-                right: null
+                right: 'next'
             },
             height: 'auto',
             events: eventsData.map(event => ({

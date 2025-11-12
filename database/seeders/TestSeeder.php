@@ -28,6 +28,7 @@ class TestSeeder extends Seeder
         $this->call(AdvocateGeneralSeeder::class);
         $this->call(StatisticsSeeder::class);
         $this->call(FormDownloadSeeder::class);
+        $this->call(LegalCommitteeSeeder::class);
         DB::commit();
     }
 }

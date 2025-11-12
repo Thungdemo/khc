@@ -14,19 +14,19 @@
             </div>
             
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-sm small">
                     <thead class="table-light">
                         <tr>
-                            <th scope="col" class="fw-semibold">#</th>
-                            <th scope="col" class="fw-semibold">Name</th>
-                            <th scope="col" class="fw-semibold">Date of Joining</th>
-                            <th scope="col" class="fw-semibold">Served Till</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date of Joining</th>
+                            <th scope="col">Served Till</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($category->advocateGenerals as $advocateGeneral)
                         <tr>
-                            <td class="text-muted">{{ $loop->iteration }}</td>
+                            <td><span class="hc-text-muted">{{ $loop->iteration }}</span></td>
                             <td>
                                 <div class="fw-semibold">{{ $advocateGeneral->full_name }}</div>
                             </td>
