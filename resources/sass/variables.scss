@@ -2,11 +2,14 @@
   --theme-primary: #19242c;
   --font-size: 16px;
   --font-scale: 1;
+}
+:root {
   --bg-color: #fafafa;
   --text-color: #000000;
   --text-muted: #6c757d;
   --card-bg: white;
   --border-color: #e4e4e4;
+  --banner-bg: #e7e7e7;
 }
 [data-theme="dark"] {
   --bg-color: #111111;
@@ -14,4 +17,5 @@
   --text-muted: #bfbfbf;
   --card-bg: var(--theme-primary);
   --border-color: #495057;
+  --banner-bg: color-mix(in srgb, var(--theme-primary) 95%, white 5%);
 }

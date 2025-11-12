@@ -1,10 +1,8 @@
 @extends('layouts.portal')
 @section('content')
-<div class="banner-full-width">
-	<img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
-	<!-- Hero content (left) and profile overlay (right) -->
-	<div class="banner-hero">
-		<div class="container">
+<div class="row g-0 banner-full-width">
+	<div class="col-md-9">
+		<div class="banner-hero">
 			<div class="hero-inner">
 				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
 				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
@@ -14,8 +12,27 @@
 				</div> --}}
 			</div>
 		</div>
+		<img src="{{asset('images/banner.png')}}" alt="Gauhati High Court Kohima Bench" class="w-100 h-100 object-fit-cover">
 	</div>
-	<!-- Profile card overlayed on the right side of the banner -->
+	<div class="col-md-3">
+		<div class="text-center banner-judge-profile">
+			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="Station Judge" class="mb-4" style="width:250px">
+			<div class="h5 fw-bold">Hon'ble Mr. Justice Rajesh Mazumdar</div>
+			<div>Station Judge</div>
+		</div>
+	</div>
+</div>
+
+{{-- <div class="banner-full-width">
+	<img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
+	<div class="banner-hero">
+		<div class="container">
+			<div class="hero-inner">
+				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
+				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
+			</div>
+		</div>
+	</div>
 	<div class="profile-card profile-overlay d-none d-md-block">
 		<div>
 			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="">
@@ -23,7 +40,8 @@
 		<div class="mb-1 text-center fw-bold">Hon’ble Mr. Justice Rajesh Mazumdar</div>
 		<div class="text-muted small text-center">Station Judge</div>
 	</div>
-</div>
+</div> --}}
+
 <main class="container site-main">
 	<section class="services-section mb-4">
 		<div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
