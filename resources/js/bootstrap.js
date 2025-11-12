@@ -2,6 +2,7 @@ import axios from 'axios';
 import flatpickr from "flatpickr";
 import Chocolat from 'chocolat';
 import Alpine from 'alpinejs'
+import { Popover } from 'bootstrap';
 
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -53,4 +54,4 @@ Chocolat(document.querySelectorAll('.chocolat-parent .chocolat-image'),{
 });
 // init Bootstrap popovers
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new Popover(popoverTriggerEl))

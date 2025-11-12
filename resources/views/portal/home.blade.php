@@ -134,9 +134,6 @@
 		<div class="col-lg-4">
 			<div class="card-wrap p-3">
 				<h5 class="fw-bold mb-3">Calendar</h5>
-				<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
-  <button class="btn btn-primary" type="button" disabled>Disabled button</button>
-</span>
 				<div id="portalCalendar" data-events='@json($calendarEvents)'></div>
 				<div class="calendar-legend mt-2">
 					<div class="d-flex align-items-center gap-1">
