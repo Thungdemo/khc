@@ -4,6 +4,9 @@
 }
 /* FullCalendar Compact Styling */
 .fc {
+    .fc-col-header-cell{
+        background-color: var(--card-bg);
+    }
     font-size: 0.8rem;
     
     .fc-button {

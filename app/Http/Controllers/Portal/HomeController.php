@@ -16,8 +16,8 @@ class HomeController extends Controller
         return view('portal.home',[
             'noticeCategories' => NoticeCategory::sort()->get(),
             'latestNews' => Notice::published()->newest()->limit(6)->get(),
-            'activities' => Activity::latest()->limit(3)->get(),
-            'calendarEvents' => Calendar::all(),
+            'activities' => Activity::latest()->limit(2)->get(),
+            'calendarEvents' => Calendar::recentHolidays()->get(),
         ]);
     }
 }

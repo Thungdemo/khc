@@ -92,6 +92,20 @@
                                 of the Gauhati High Court at the capital Kohima on the 1st of December 1972.
                             </p>
                         </div>
+
+                        <!-- Video Section -->
+                        <div class="my-5">
+                            <div class="video-card w-50 mx-auto shadow-sm">
+                                <div class="video-embed">
+                                    <iframe src="https://www.youtube.com/embed/2qt_u-fqreg" 
+                                            title="Gauhati High Court Kohima Bench Video" 
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                            allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

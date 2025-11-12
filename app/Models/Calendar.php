@@ -48,4 +48,10 @@ class Calendar extends Model
     {
         return $query->orderBy('start_date', 'desc');
     }
+
+    public function scopeRecentHolidays($query)
+    {
+        return $query->where('start_date', '>=', now()->subMonths(6)->toDateString())
+                     ->orderBy('start_date');
+    }
 }

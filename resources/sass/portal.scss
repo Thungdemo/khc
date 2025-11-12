@@ -99,7 +99,6 @@ body {
 /* Full width banner wrapper and overlay profile */
 .banner-full-width {
     position: relative;
-    width: 100%;
     overflow: hidden;
 }
 // .banner-full-width .banner-image {
@@ -111,19 +110,19 @@ body {
 // }
 
 /* refined profile overlay */
-.banner-full-width .profile-overlay {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 200px;
-    max-width: 90%;
-    background: var(--card-bg);
-    padding: 18px;
-    border-radius: 12px;
-    box-shadow: 0 12px 36px rgba(7,25,50,0.16);
-    z-index: 40;
-}
+// .banner-full-width .profile-overlay {
+//     position: absolute;
+//     right: 30px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     width: 200px;
+//     max-width: 90%;
+//     background: var(--card-bg);
+//     padding: 18px;
+//     border-radius: 12px;
+//     box-shadow: 0 12px 36px rgba(7,25,50,0.16);
+//     z-index: 40;
+// }
 
 /* Banner hero area (left side content) */
 .banner-hero {

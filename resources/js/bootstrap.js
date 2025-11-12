@@ -51,3 +51,6 @@ Chocolat(document.querySelectorAll('.chocolat-parent .chocolat-image'),{
   imageSize: 'contain',
   overlayColor: 'rgba(0, 0, 0, 0.9)'
 });
+// init Bootstrap popovers
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))

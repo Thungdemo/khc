@@ -1,7 +1,7 @@
 @extends('layouts.portal')
 @section('content')
-<div class="row g-0 banner-full-width">
-	<div class="col-md-9">
+<div class="row g-0">
+	<div class="col-md-9 banner-full-width">
 		<div class="banner-hero">
 			<div class="hero-inner">
 				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
@@ -12,13 +12,13 @@
 				</div> --}}
 			</div>
 		</div>
-		<img src="{{asset('images/banner.png')}}" alt="Gauhati High Court Kohima Bench" class="w-100 h-100 object-fit-cover">
+		<img src="{{asset('images/banner.png')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
 	</div>
 	<div class="col-md-3">
 		<div class="text-center banner-judge-profile">
-			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="Station Judge" class="mb-4" style="width:250px">
-			<div class="h5 fw-bold">Hon'ble Mr. Justice Rajesh Mazumdar</div>
-			<div>Station Judge</div>
+			<img src="https://ghconline.gov.in/wp-content/uploads/2018/06/HCJ-Ashutosh-Kumar.jpg" alt="Station Judge" class="mb-4" style="width:250px">
+			<div class="h5 fw-bold">Hon'ble Mr. Justice Ashutosh Kumar</div>
+			<div>Chief Justice</div>
 		</div>
 	</div>
 </div>
@@ -110,7 +110,7 @@
 				</div>
 				<div class="row g-3">
 					@foreach($activities as $activity)
-					<div class="col-lg-4 col-md-6">
+					<div class="col-sm-12 col-md-6">
 						<a class="activity-card" href="{{ route('portal.activity.show', $activity) }}">
 							<div class="activity-image">
 								<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
@@ -134,6 +134,9 @@
 		<div class="col-lg-4">
 			<div class="card-wrap p-3">
 				<h5 class="fw-bold mb-3">Calendar</h5>
+				<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+  <button class="btn btn-primary" type="button" disabled>Disabled button</button>
+</span>
 				<div id="portalCalendar" data-events='@json($calendarEvents)'></div>
 				<div class="calendar-legend mt-2">
 					<div class="d-flex align-items-center gap-1">
