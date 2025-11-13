@@ -1,6 +1,8 @@
 import './bootstrap';
 import 'bootstrap';
 import './portal/calendar';
+import Swiper from 'swiper';
+import { Pagination } from 'swiper/modules';
 
 function setTheme(theme, button) {
     document.documentElement.setAttribute("data-theme", theme);
@@ -37,4 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('fontInc').addEventListener('click', () => setScale(getScale() + STEP));
     document.getElementById('fontDec').addEventListener('click', () => setScale(getScale() - STEP));
     document.getElementById('fontReset').addEventListener('click', () => setScale(1));
+
+    // Initialize Swiper sliders
+    var swiper = new Swiper(".judges-slider", {
+        modules: [Pagination],
+        pagination: {
+            el: ".swiper-pagination",
+        },
+    });
 });

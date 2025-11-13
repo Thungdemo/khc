@@ -19,7 +19,9 @@ class RegistryOfficialController extends Controller
 
     public function create(Request $request)
     {
-        return view('admin.registry-official.create');
+        return view('admin.registry-official.create',[
+            'photoSize' => RegistryOfficial::$photoSize,
+        ]);
     }
 
     public function store(Request $request)
@@ -34,7 +36,7 @@ class RegistryOfficialController extends Controller
             'photo' => ['required','file','max:1000',new Filetype(['jpg','png'])],
             'level' => ['required','integer','min:1'],
         ]);
-        RegistryOfficial::create([
+        $registryOfficial = RegistryOfficial::create([
             'full_name' => $request->full_name,
             'designation' => $request->designation,
             'dob' => $request->dob,
@@ -43,13 +45,15 @@ class RegistryOfficialController extends Controller
             'phone_no' => $request->phone_no,
             'level' => $request->level,
         ]);
+        $registryOfficial->savePhoto($request->file('photo'));
         return redirect()->route('admin.registry-official.create')->with('success', 'Record created successfully.');
     }
 
     public function edit(RegistryOfficial $registryOfficial)
     {
         return view('admin.registry-official.edit',[
-            'registryOfficial' => $registryOfficial
+            'registryOfficial' => $registryOfficial,
+            'photoSize' => RegistryOfficial::$photoSize,
         ]);
     }
 
@@ -74,6 +78,10 @@ class RegistryOfficialController extends Controller
             'phone_no' => $request->phone_no,
             'level' => $request->level,
         ]);
+        if ($request->hasFile('photo')) {
+            $registryOfficial->deletePhoto();
+            $registryOfficial->savePhoto($request->file('photo'));
+        }
         return redirect()->route('admin.registry-official.edit',$registryOfficial)->with('success', 'Record updated successfully.');
     }
 

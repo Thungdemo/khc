@@ -16,6 +16,11 @@
                 <span class="text-danger small">@error('designation') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
+                <label class="form-label">Level *</label>
+                <input type="text" class="form-control" name="level" value="{{ old('level', $registryOfficial->level) }}">
+                <span class="text-danger small">@error('level') {{ $message }} @enderror</span>
+            </div>
+            <div class="mb-3">
                 <label class="form-label">DOB</label>
                 <input type="text" class="form-control datepicker" name="dob" value="{{ old('dob', $registryOfficial->dob) }}">
                 <span class="text-danger small">@error('dob') {{ $message }} @enderror</span>
@@ -37,13 +42,11 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Photo</label>
-                @if($registryOfficial->photo)
-                    <div class="mb-2">
-                        <img src="{{ asset('storage/' . $registryOfficial->photo) }}" alt="Current Photo" class="img-thumbnail" style="max-height: 100px;">
-                    </div>
-                @endif
-                <input type="file" class="form-control" name="photo" accept="image/*">
-                <small class="form-text text-muted">Leave empty to keep current photo</small>
+                <div class="imgp-preview">
+                    <img src="{{ $registryOfficial->photoUrl() }}" alt="Preview" id="photo-preview">
+                </div>
+                <input type="file" class="form-control imgp-input" data-target="#photo-preview" name="photo" accept="image/*">
+                <span class="text-muted">Maximum file size: {{ $photoSize }} KB. Leave empty to keep current photo.</span><br>
                 <span class="text-danger small">@error('photo') {{ $message }} @enderror</span>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>

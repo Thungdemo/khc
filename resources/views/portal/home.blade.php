@@ -16,9 +16,18 @@
 	</div>
 	<div class="col-md-3">
 		<div class="text-center banner-judge-profile">
-			<img src="https://ghconline.gov.in/wp-content/uploads/2018/06/HCJ-Ashutosh-Kumar.jpg" alt="Station Judge" class="mb-4" style="width:250px">
-			<div class="h5 fw-bold">Hon'ble Mr. Justice Ashutosh Kumar</div>
-			<div>Chief Justice</div>
+			<div class="swiper judges-slider">
+				<div class="swiper-wrapper">
+					@foreach($judges as $judge)
+					<div class="swiper-slide">
+						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" class="mb-3">
+						<div class="h5 fw-bold">{{ $judge['name'] }}</div>
+						<div>{{ $judge['position'] }}</div>
+					</div>
+					@endforeach
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
 		</div>
 	</div>
 </div>

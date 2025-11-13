@@ -19,9 +19,9 @@ class HomeController extends Controller
             'activities' => Activity::latest()->limit(2)->get(),
             'calendarEvents' => Calendar::recentHolidays()->get(),
             'judges' => [
-                ['name' => "Hon'ble Mr. Justice Ashutosh Kumar", 'position' => 'Chief Justice', 'image' => 'images/judges/chief-justice.jpg'],
-                ['name' => "Hon’ble Mrs. Justice Yarenjungla Longkumer", 'position' => 'Station Judge', 'image' => 'images/judges/station-judge-1.jpg'],
-                ['name' => "Hon’ble Mr. Justice Rajesh Mazumdar", 'position' => 'Station Judge', 'image' => 'images/judges/station-judge-2.jpg'],
+                ['name' => "Hon'ble Mr. Justice Ashutosh Kumar", 'position' => 'Chief Justice', 'image' => asset('images/judges/chief-justice.jpg')],
+                ['name' => "Hon’ble Mrs. Justice Yarenjungla Longkumer", 'position' => 'Station Judge', 'image' => asset('images/judges/station-judge-1.jpg')],
+                ['name' => "Hon’ble Mr. Justice Rajesh Mazumdar", 'position' => 'Station Judge', 'image' => asset('images/judges/station-judge-2.jpg')],
             ]
         ]);
     }
