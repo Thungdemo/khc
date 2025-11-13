@@ -12,6 +12,11 @@ use App\Http\Controllers\Controller;
 
 class NoticeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
+
     public function index(Request $request)
     {
         return view('admin.notice.index',[

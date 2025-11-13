@@ -17,14 +17,15 @@
 					<small class="text-secondary">Dashboard</small>
 				</div>
 				<nav class="nav flex-column">
-					<a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
-					
+					<a class="nav-link active" href="{{route('admin.dashboard.index')}}"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+					@can('cms')
 					<div class="sidemenu-divider text-secondary fw-semibold">
 						Content Management
 					</div>
 					<a class="nav-link" href="{{route('admin.notice.index')}}"><i class="bi bi-bell me-2"></i>Notices</a>
 					<a class="nav-link" href="{{route('admin.activity.index')}}"><i class="bi bi-calendar-event me-2"></i>Activities</a>
 					<a class="nav-link" href="{{route('admin.calendar.index')}}"><i class="bi bi-calendar-date me-2"></i>Calendar</a>
+					<a class="nav-link" href="{{route('admin.statistics.index')}}"><i class="bi bi-bar-chart me-2"></i>Statistics</a>
 					<a class="nav-link" href="{{route('admin.station-judge.index')}}"><i class="bi bi-person-badge me-2"></i>Station Judges</a>
 					<a class="nav-link" href="{{route('admin.former-judge.index')}}"><i class="bi bi-person-check me-2"></i>Former Judges</a>
 					<a class="nav-link" href="{{route('admin.registry-official.index')}}"><i class="bi bi-person-workspace me-2"></i>Registry Officials</a>
@@ -32,12 +33,14 @@
 					<a class="nav-link" href="{{route('admin.legal-committee.index')}}"><i class="bi bi-people me-2"></i>Legal Committee</a>
 					<a class="nav-link" href="{{route('admin.album.index')}}"><i class="bi bi-collection me-2"></i>Albums</a>
 					<a class="nav-link" href="{{route('admin.form-download.index')}}"><i class="bi bi-file-earmark-pdf me-2"></i>Form Downloads</a>
-					
+					@endcan
+					@can('user')
 					<div class="sidemenu-divider text-secondary fw-semibold">
 						Administration
 					</div>
 					<a class="nav-link" href="{{route('admin.user.index')}}"><i class="bi bi-people me-2"></i>Users</a>
 					<a class="nav-link" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
+					@endcan
 				</nav>
 			</aside>
 			<!-- Main Content -->

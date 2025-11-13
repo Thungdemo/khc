@@ -12,6 +12,11 @@ use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:user');
+    }
+
     public function index()
     {
         return view('admin.user.index',[
@@ -32,7 +37,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255', new Xss],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', Password::defaults(), 'confirmed'],
-            'roles' => ['nullable','array'],
+            'roles' => ['required','array'],
             'roles.*' => ['exists:roles,name'],
         ]);
         DB::beginTransaction();

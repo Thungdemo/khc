@@ -7,6 +7,7 @@
         {{-- <small class="text-muted">Updated: Oct 26, 2025</small> --}}
     </div>
     <div class="row g-3 mb-4">
+        @can('user')
         <div class="col-12 col-sm-6 col-md-4">
             <div class="card p-3 shadow-sm">
                 <div class="d-flex justify-content-between align-items-center">
@@ -18,6 +19,7 @@
                 </div>
             </div>
         </div>
+        @endcan
         <div class="col-12 col-sm-6 col-md-4">
             <div class="card p-3 shadow-sm">
                 <div class="d-flex justify-content-between align-items-center">
