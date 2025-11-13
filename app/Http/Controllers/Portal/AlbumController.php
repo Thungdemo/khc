@@ -11,8 +11,17 @@ class AlbumController extends Controller
 {
     public function index()
     {
-        return view('portal.album.index',[
-            'albums' => Album::latest()->paginate(config('khc.pagination')),
-        ]);
+        $albums = Album::has('galleryImages')
+            ->with(['coverImage', 'galleryImages'])
+            ->latest()
+            ->paginate(config('khc.pagination'));
+
+        return view('portal.album.index', compact('albums'));
+    }
+
+    public function show(Album $album)
+    {
+        $album->load('galleryImages');
+        return view('portal.album.show', compact('album'));
     }
 }

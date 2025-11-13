@@ -94,7 +94,7 @@
 									</ul>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="{{route('portal.activity.index')}}">Activities</a></li>
-								<li class="nav-item"><a class="nav-link" href="{{route('portal.image.index')}}">Gallery</a></li>
+								<li class="nav-item"><a class="nav-link" href="{{route('portal.album.index')}}">Gallery</a></li>
 								<li class="nav-item"><a class="nav-link" href="{{route('portal.contact.index')}}">Contact</a></li>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="ict-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">ICT Milestones</a>
@@ -179,7 +179,7 @@
 						</div>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="{{route('portal.activity.index')}}">Activities</a></li>
-					<li class="nav-item"><a class="nav-link" href="{{route('portal.image.index')}}">Gallery</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{route('portal.album.index')}}">Gallery</a></li>
 					<li class="nav-item"><a class="nav-link" href="{{route('portal.contact.index')}}">Contact</a></li>
 					<li class="nav-item">
 						<a class="nav-link" data-bs-toggle="collapse" href="#ictSubmenu" role="button">ICT Milestones</a>
@@ -231,7 +231,7 @@
 						<ul>
 							<li><a href="{{ url('/') }}">Home</a></li>
 							<li><a href="{{ route('portal.about') }}">About</a></li>
-							<li><a href="{{ route('portal.image.index')}}">Gallery</a></li>
+							<li><a href="{{ route('portal.album.index')}}">Gallery</a></li>
 							<li><a href="{{ route('portal.contact.index') }}">Contact</a></li>
 						</ul>
 					</div>

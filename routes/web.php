@@ -110,7 +110,8 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 Route::name('portal.')->group(function () {
     Route::get('/',[HomeController::class,'index'])->name('home.index');
     Route::view('about', 'portal.about')->name('about');
-    Route::get('gallery', [App\Http\Controllers\Portal\AlbumController::class, 'index'])->name('image.index');
+    Route::get('gallery', [App\Http\Controllers\Portal\AlbumController::class, 'index'])->name('album.index');
+    Route::get('gallery/{album}', [App\Http\Controllers\Portal\AlbumController::class, 'show'])->name('album.show');
     Route::get('notices/{noticeCategory}',[NoticeController::class,'index'])->name('notice.index');
     Route::get('station-judges',[App\Http\Controllers\Portal\StationJudgeController::class,'index'])->name('station-judge.index');
     Route::get('former-judges',[App\Http\Controllers\Portal\FormerJudgeController::class,'index'])->name('former-judge.index');
