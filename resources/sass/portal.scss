@@ -95,39 +95,25 @@ body {
     box-shadow: none;
     outline: none;
 }
-.banner-judge-profile {
-    padding:50px;
+.banner-judge {
+    border-radius: 0;
     background-color: var(--banner-bg);
+    border:none;
+    color: var(--text-color);
 }
-/* Full width banner wrapper and overlay profile */
+.banner-judge img {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    background: var(--card-bg);
+    width:200px;
+    height:250px;
+    object-fit:cover;
+}
 .banner-full-width {
     position: relative;
     overflow: hidden;
 }
-// .banner-full-width .banner-image {
-//     display: block;
-//     width: 100%;
-//     height: 340px; /* fixed hero height on desktop */
-//     object-fit: cover;
-//     border-radius: 0;
-// }
-
-/* refined profile overlay */
-// .banner-full-width .profile-overlay {
-//     position: absolute;
-//     right: 30px;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     width: 200px;
-//     max-width: 90%;
-//     background: var(--card-bg);
-//     padding: 18px;
-//     border-radius: 12px;
-//     box-shadow: 0 12px 36px rgba(7,25,50,0.16);
-//     z-index: 40;
-// }
-
-/* Banner hero area (left side content) */
 .banner-hero {
     position: absolute;
     left: 0;
@@ -141,6 +127,17 @@ body {
     max-width: 720px;
     padding: 32px 24px;
 }
+.banner-full-width::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    background: linear-gradient(90deg, rgba(7,18,34,0.62) 0%, rgba(7,18,34,0.28) 30%, rgba(7,18,34,0.08) 60%, rgba(7,18,34,0) 100%);
+}
+
 .hero-title {
     color: #fff;
     font-size: 2.2rem;
@@ -177,27 +174,6 @@ body {
 .btn-outline-hero:hover {
     background: rgba(255,255,255,0.06);
 }
-.banner-judge-profile img {
-    border-radius: 8px;
-    border: 2px solid var(--border-color);
-    padding: 10px;
-    background: var(--card-bg);
-    width:250px;height:300px;object-fit:cover;
-    // box-shadow: 0 4px 16px rgba(7,18,34,0.32);
-}
-
-/* subtle left-to-right gradient to aid readability */
-.banner-full-width::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 20;
-    background: linear-gradient(90deg, rgba(7,18,34,0.62) 0%, rgba(7,18,34,0.28) 30%, rgba(7,18,34,0.08) 60%, rgba(7,18,34,0) 100%);
-}
-
 /* profile avatar refinements */
 
 .profile-card {

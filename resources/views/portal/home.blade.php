@@ -15,16 +15,32 @@
 		<img src="{{asset('images/banner.png')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
 	</div>
 	<div class="col-md-3">
-		<div class="text-center banner-judge-profile">
+		{{-- <div class="text-center banner-judge-profile">
 			<div class="swiper judges-slider">
 				<div class="swiper-wrapper">
 					@foreach($judges as $judge)
 					<div class="swiper-slide">
-						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" class="mb-3">
-						<div class="h5 fw-bold">{{ $judge['name'] }}</div>
+						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" class="mb-2">
+						<div class="h5 fw-semibold">{{ $judge['name'] }}</div>
 						<div>{{ $judge['position'] }}</div>
 					</div>
 					@endforeach
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div> --}}
+		<div class="card text-center h-100 pt-3 banner-judge">
+			<div class="card-body">
+				<div class="swiper judges-slider">
+					<div class="swiper-wrapper">
+						@foreach($judges as $judge)
+						<div class="swiper-slide">
+							<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" style="width: 200px;border-radius: 5px;" class="mb-3">
+							<div class="h5 fw-bold px-4">{{ $judge['name'] }}</div>
+							<div>{{ $judge['position'] }}</div>
+						</div>
+						@endforeach
+					</div>
 				</div>
 				<div class="swiper-pagination"></div>
 			</div>
