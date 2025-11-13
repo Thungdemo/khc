@@ -31,7 +31,7 @@ class FormerJudgeController extends Controller
         $validated = $request->validate([
             'full_name' => ['required', 'string', 'max:255',new Xss],
             'start' => ['required', 'date'],
-            'end' => ['required', 'date','after_or_equal:start'],
+            'end' => ['nullable', 'date','after_or_equal:start'],
             'photo' => ['required','file','max:'.FormerJudge::$photoSize,new Filetype(['jpg','png'])]
         ]);
 
@@ -59,7 +59,7 @@ class FormerJudgeController extends Controller
         $validated = $request->validate([
             'full_name' => ['required', 'string', 'max:255',new Xss],
             'start' => ['required', 'date'],
-            'end' => ['required', 'date','after_or_equal:start'],
+            'end' => ['nullable', 'date','after_or_equal:start'],
             'photo' => ['nullable','file','max:'.FormerJudge::$maxFileSize,new Filetype(['jpg','png'])]
         ]);
 

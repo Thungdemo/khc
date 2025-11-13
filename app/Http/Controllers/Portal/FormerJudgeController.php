@@ -11,7 +11,7 @@ class FormerJudgeController extends Controller
     public function index()
     {
         return view('portal.former-judge.index',[
-            'formerJudges' => FormerJudge::orderBy('end','desc')->get(),
+            'formerJudges' => FormerJudge::orderBy('start')->get(),
         ]);
     }
 }

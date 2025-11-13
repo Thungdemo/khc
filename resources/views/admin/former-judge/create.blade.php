@@ -7,17 +7,17 @@
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Full Name *</label>
-                    <input type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" rrr>
+                    <input type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" required>
                     <span class="text-danger small">@error('full_name') {{ $message }} @enderror</span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Start Date *</label>
-                    <input type="text" class="form-control datepicker" name="start" value="{{ old('start') }}" rrr>
+                    <input type="text" class="form-control datepicker" name="start" value="{{ old('start') }}" required>
                     <span class="text-danger small">@error('start') {{ $message }} @enderror</span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">End Date *</label>
-                    <input type="text" class="form-control datepicker" name="end" value="{{ old('end') }}" rrr>
+                    <label class="form-label">End Date</label>
+                    <input type="text" class="form-control datepicker" name="end" value="{{ old('end') }}">
                     <span class="text-danger small">@error('end') {{ $message }} @enderror</span>
                 </div>
                 <div class="mb-3">
@@ -25,7 +25,7 @@
                     <div class="imgp-preview">
                         <img src="{{ asset('images/placeholder-image.png') }}" alt="Preview" id="photo-preview">
                     </div>
-                    <input type="file" class="form-control imgp-input" data-target="#photo-preview" name="photo" accept="image/*" rrr>
+                    <input type="file" class="form-control imgp-input" data-target="#photo-preview" name="photo" accept="image/*" required>
                     <span class="text-muted">Maximum file size: {{ $photoSize }} KB.</span><br>
                     <span class="text-danger small">@error('photo') {{ $message }} @enderror</span>
                 </div>

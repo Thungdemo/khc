@@ -25,6 +25,9 @@ class FormerJudge extends Model
 
     public function getTenure()
     {
-        return DateHelper::display($this->start) . ' - ' . DateHelper::display($this->end);
+        return implode(' to ', array_filter([
+            $this->start,
+            $this->end
+        ]));
     }
 }
