@@ -33,7 +33,7 @@ class AdvocateGeneralController extends Controller
         $request->validate([
             'full_name' => ['required', 'string', 'max:255', new Xss],
             'doj' => ['required', 'date'],
-            'served_till' => ['required', 'date', 'after_or_equal:doj'],
+            'served_till' => ['nullable', 'date', 'after_or_equal:doj'],
             'ag_category_id' => ['required', 'exists:ag_categories,id'],
         ]);
         AdvocateGeneral::create([
@@ -58,7 +58,7 @@ class AdvocateGeneralController extends Controller
         $request->validate([
             'full_name' => ['required', 'string', 'max:255', new Xss],
             'doj' => ['required', 'date'],
-            'served_till' => ['required', 'date', 'after_or_equal:doj'],
+            'served_till' => ['nullable', 'date', 'after_or_equal:doj'],
             'ag_category_id' => ['required', 'exists:ag_categories,id'],
         ]);
         $advocateGeneral->update([

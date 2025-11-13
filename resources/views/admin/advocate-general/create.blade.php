@@ -26,8 +26,8 @@
             </div>
             
             <div class="mb-3">
-                <label class="form-label">Served Till *</label>
-                <input type="text" class="form-control datepicker" name="served_till" value="{{ old('served_till') }}" required>
+                <label class="form-label">Served Till</label>
+                <input type="text" class="form-control datepicker" name="served_till" value="{{ old('served_till') }}">
                 <span class="text-danger small">@error('served_till') {{ $message }} @enderror</span>
             </div>
             
