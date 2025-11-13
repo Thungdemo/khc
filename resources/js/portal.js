@@ -2,7 +2,7 @@ import './bootstrap';
 import 'bootstrap';
 import './portal/calendar';
 import Swiper from 'swiper';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 function setTheme(theme, button) {
     document.documentElement.setAttribute("data-theme", theme);
@@ -42,9 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize Swiper sliders
     var swiper = new Swiper(".judges-slider", {
-        modules: [Pagination],
+        modules: [Pagination, Autoplay],
         pagination: {
             el: ".swiper-pagination",
+        },
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
         },
     });
 });
