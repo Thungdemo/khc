@@ -17,6 +17,14 @@ class GalleryImage extends Model
 
     public static $filePath = 'gallery-images';
 
+    /**
+     * Get the album that owns the gallery image.
+     */
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+    }
+
     public function saveImage($file)
     {
         $filename = uniqid() . '.' . $file->guessExtension();

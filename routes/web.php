@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Portal\HomeController;
-use App\Http\Controllers\Portal\GalleryImageController;
 use App\Http\Controllers\Portal\NoticeController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -61,10 +60,16 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::put('advocate-generals/{advocateGeneral}', [App\Http\Controllers\Admin\AdvocateGeneralController::class, 'update'])->name('advocate-general.update');
     Route::delete('advocate-generals/{advocateGeneral}', [App\Http\Controllers\Admin\AdvocateGeneralController::class, 'destroy'])->name('advocate-general.destroy');
 
-    Route::get('gallery',[App\Http\Controllers\Admin\GalleryImageController::class, 'index'])->name('gallery-image.index');
-    Route::get('gallery/create',[App\Http\Controllers\Admin\GalleryImageController::class, 'create'])->name('gallery-image.create');
-    Route::post('gallery',[App\Http\Controllers\Admin\GalleryImageController::class, 'store'])->name('gallery-image.store');
-    Route::delete('gallery/{galleryImage}',[App\Http\Controllers\Admin\GalleryImageController::class, 'destroy'])->name('gallery-image.destroy');
+    Route::get('albums', [App\Http\Controllers\Admin\AlbumController::class, 'index'])->name('album.index');
+    Route::get('albums/create', [App\Http\Controllers\Admin\AlbumController::class, 'create'])->name('album.create');
+    Route::post('albums', [App\Http\Controllers\Admin\AlbumController::class, 'store'])->name('album.store');
+    Route::get('albums/{album}/edit', [App\Http\Controllers\Admin\AlbumController::class, 'edit'])->name('album.edit');
+    Route::put('albums/{album}', [App\Http\Controllers\Admin\AlbumController::class, 'update'])->name('album.update');
+    Route::delete('albums/{album}', [App\Http\Controllers\Admin\AlbumController::class, 'destroy'])->name('album.destroy');
+    Route::get('albums/{album}/gallery-images', [App\Http\Controllers\Admin\AlbumController::class, 'galleryImagesCreate'])->name('album.gallery-images.create');
+    Route::post('albums/{album}/gallery-images', [App\Http\Controllers\Admin\AlbumController::class, 'galleryImageStore'])->name('album.gallery-images.store');
+    Route::patch('albums/{album}/gallery-images/{galleryImage}/set-cover', [App\Http\Controllers\Admin\AlbumController::class, 'setCover'])->name('album.gallery-images.set-cover');
+    Route::delete('albums/{album}/gallery-images/{galleryImage}', [App\Http\Controllers\Admin\AlbumController::class, 'galleryImageDestroy'])->name('album.gallery-images.destroy');
 
     Route::get('users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('user.index');
     Route::get('users/create', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('user.create');
@@ -105,7 +110,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 Route::name('portal.')->group(function () {
     Route::get('/',[HomeController::class,'index'])->name('home.index');
     Route::view('about', 'portal.about')->name('about');
-    Route::get('gallery', [GalleryImageController::class, 'index'])->name('image.index');
+    Route::get('gallery', [App\Http\Controllers\Portal\AlbumController::class, 'index'])->name('image.index');
     Route::get('notices/{noticeCategory}',[NoticeController::class,'index'])->name('notice.index');
     Route::get('station-judges',[App\Http\Controllers\Portal\StationJudgeController::class,'index'])->name('station-judge.index');
     Route::get('former-judges',[App\Http\Controllers\Portal\FormerJudgeController::class,'index'])->name('former-judge.index');

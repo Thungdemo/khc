@@ -15,11 +15,7 @@ class TestSeeder extends Seeder
     public function run(): void
     {
         DB::beginTransaction();
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'admin@email.com',
-            'password' => bcrypt('password'),
-        ])->assignRole('admin');
+        $this->call(UserSeeder::class);
         $this->call(NoticeSeeder::class);
         $this->call(FormerJudgeSeeder::class);
         $this->call(GalleryImageSeeder::class);

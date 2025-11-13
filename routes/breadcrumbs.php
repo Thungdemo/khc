@@ -56,3 +56,19 @@ Breadcrumbs::for('admin.statistics.edit', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.statistics.index');
     $trail->push('Edit Statistics');
 });
+
+// Album Breadcrumbs
+Breadcrumbs::for('admin.album.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard.index');
+    $trail->push('Albums', route('admin.album.index'));
+});
+
+Breadcrumbs::for('admin.album.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.album.index');
+    $trail->push('Create Album');
+});
+
+Breadcrumbs::for('admin.album.edit', function (BreadcrumbTrail $trail, $album) {
+    $trail->parent('admin.album.index');
+    $trail->push('Edit Album');
+});
