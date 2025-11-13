@@ -33,8 +33,10 @@
                     <span class="text-danger small">@error('image') {{ $message }} @enderror</span>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a href="{{ route('admin.activity.index') }}" class="btn btn-secondary">Cancel</a>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="{{ route('admin.activity.index') }}" class="btn btn-secondary">Back</a>
+                </div>
             </form>
         </div>
     </div>

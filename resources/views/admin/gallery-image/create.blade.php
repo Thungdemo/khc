@@ -18,10 +18,13 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Title *</label>
-                            <input type="text" class="form-control" name="title" value="{{old('title')}}" rrr>
+                            <input type="text" class="form-control" name="title" value="{{old('title')}}" required>
                             <span class="text-danger small">@error('title') {{ $message }} @enderror</span>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <a href="{{ route('admin.gallery-image.index') }}" class="btn btn-secondary">Back</a>
+                        </div>
                     </form>
                 </div>
             </div>

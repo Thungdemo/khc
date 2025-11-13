@@ -24,8 +24,10 @@
                     <span class="text-muted">Maximum file size: {{ $photoSize }} KB.</span><br>
                     <span class="text-danger small">@error('photo') {{ $message }} @enderror</span>
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a href="{{ route('admin.legal-committee.index') }}" class="btn btn-secondary">Cancel</a>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="{{ route('admin.legal-committee.index') }}" class="btn btn-secondary">Back</a>
+                </div>
             </form>
         </div>
     </div>

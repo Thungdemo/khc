@@ -37,9 +37,9 @@
                 <span class="text-danger small">@error('type') {{ $message }} @enderror</span>
             </div>
 
-            <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-primary">Create Event</button>
-                <a href="{{ route('admin.calendar.index') }}" class="btn btn-outline-secondary">Back to List</a>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{ route('admin.calendar.index') }}" class="btn btn-secondary">Back</a>
             </div>
         </form>
     </div>

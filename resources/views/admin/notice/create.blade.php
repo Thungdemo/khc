@@ -9,12 +9,12 @@
             @csrf
             <div class="mb-3">
                 <label class="form-label">Title *</label>
-                <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter notice title" rrr>
+                <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter notice title" required>
                 <span class="text-danger small">@error('title') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Category *</label>
-                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :value="old('notice_category_id')" rrr/>
+                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :value="old('notice_category_id')" required/>
                 <span class="text-danger small">@error('notice_category_id') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
@@ -35,7 +35,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Upload PDF *</label>
-                <input type="file" class="form-control" name="document" accept="application/pdf" rrr>
+                <input type="file" class="form-control" name="document" accept="application/pdf" required>
                 <span class="text-danger small">@error('document') {{ $message }} @enderror</span>
             </div>
 
@@ -90,7 +90,10 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Save</button>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{ route('admin.notice.index') }}" class="btn btn-secondary">Back</a>
+            </div>
         </form>
     </div>
 @endsection

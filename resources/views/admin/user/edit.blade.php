@@ -7,12 +7,12 @@
             @method('PUT')
             <div class="mb-3">
                 <label class="form-label">Name *</label>
-                <input type="text" class="form-control" name="name" value="{{old('name', $user->name)}}" rrr>
+                <input type="text" class="form-control" name="name" value="{{old('name', $user->name)}}" required>
                 <span class="text-danger small">@error('name') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email *</label>
-                <input type="text" class="form-control" name="email" value="{{old('email', $user->email)}}" rrr>
+                <input type="text" class="form-control" name="email" value="{{old('email', $user->email)}}" required>
                 <span class="text-danger small">@error('email') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">

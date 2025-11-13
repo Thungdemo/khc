@@ -11,7 +11,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Year *</label>
-                <select class="form-select" name="year" rrr>
+                <select class="form-select" name="year" required>
                     <option value="">Select Year</option>
                     @foreach($years as $yearValue => $yearLabel)
                         <option value="{{ $yearValue }}" {{ (old('year') ?? $statistics->year) == $yearValue ? 'selected' : '' }}>
@@ -24,7 +24,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Month *</label>
-                <select class="form-select" name="month" rrr>
+                <select class="form-select" name="month" required>
                     <option value="">Select Month</option>
                     @foreach($months as $monthValue => $monthLabel)
                         <option value="{{ $monthValue }}" {{ (old('month') ?? $statistics->month) == $monthValue ? 'selected' : '' }}>

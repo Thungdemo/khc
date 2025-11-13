@@ -6,17 +6,17 @@
             @csrf
             <div class="mb-3">
                 <label class="form-label">Name *</label>
-                <input type="text" class="form-control" name="name" value="{{old('name')}}" rrr>
+                <input type="text" class="form-control" name="name" value="{{old('name')}}" required>
                 <span class="text-danger small">@error('name') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email *</label>
-                <input type="text" class="form-control" name="email" value="{{old('email')}}" rrr>
+                <input type="text" class="form-control" name="email" value="{{old('email')}}" required>
                 <span class="text-danger small">@error('email') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Password *</label>
-                <input type="password" class="form-control" name="password" rrr>
+                <input type="password" class="form-control" name="password" required>
                 <div class="form-text text-muted small mb-2">
                     <i class="bi bi-info-circle me-1"></i>
                     Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.
@@ -25,7 +25,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Confirm Password *</label>
-                <input type="password" class="form-control" name="password_confirmation" rrr>
+                <input type="password" class="form-control" name="password_confirmation" required>
                 <span class="text-danger small">@error('password_confirmation') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
@@ -40,7 +40,10 @@
                 @endforeach
                 <span class="text-danger small">@error('roles') {{ $message }} @enderror</span>
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{ route('admin.user.index') }}" class="btn btn-secondary">Back</a>
+            </div>
         </form>
     </div>
 @endsection
