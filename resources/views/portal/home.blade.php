@@ -12,7 +12,7 @@
 				</div> --}}
 			</div>
 		</div>
-		<img src="{{asset('images/banner.png')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
+		<img src="{{asset('images/banner.webp')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
 	</div>
 	<div class="col-md-3">
 		{{-- <div class="text-center banner-judge-profile">
