@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('notice_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('parent_id')->constrained('notice_categories')->nullable();
-            $table->integer('ordering')->deault(0);
+            $table->foreignId('parent_id')->nullable()->constrained('notice_categories');
+            $table->integer('ordering')->nullable();
             $table->timestamps();
         });
     }

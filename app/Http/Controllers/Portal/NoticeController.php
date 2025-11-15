@@ -11,7 +11,7 @@ class NoticeController extends Controller
     public function index(NoticeCategory $noticeCategory,Request $request)
     {
         return view('portal.notice.index', [
-            'noticeCategories' => NoticeCategory::sort()->get(),
+            'noticeCategories' => NoticeCategory::isParent()->sort()->get(),
             'noticeCategory' => $noticeCategory,
             'notices' => $noticeCategory->notices()->filter($request)->published()->newest()->paginate(config('khc.pagination')),
         ]);

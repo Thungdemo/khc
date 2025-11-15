@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('portal.home',[
-            'noticeCategories' => NoticeCategory::sort()->get(),
+            'noticeCategories' => NoticeCategory::isParent()->sort()->get(),
             'latestNews' => Notice::published()->newest()->limit(6)->get(),
             'activities' => Activity::latest()->limit(2)->get(),
             'calendarEvents' => Calendar::recentHolidays()->get(),

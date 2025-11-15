@@ -22,7 +22,7 @@ return [
     
         'time_format' => 'h:i A',
 
-        'display_format' => 'd M Y',
+        'display_format' => 'd-m-Y',
     ],
     'captcha' => env('CAPTCHA',true),
 
