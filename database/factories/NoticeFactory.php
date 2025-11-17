@@ -19,7 +19,7 @@ class NoticeFactory extends Factory
     {
         $noticeCategory = NoticeCategory::inRandomOrder()->first();
         return [
-            'title' => fake()->words(rand(15,20), true),
+            'title' => fake()->words(rand(15,30), true),
             'notice_category_id' => $noticeCategory->id,
             'notice_subcategory_id' => $noticeCategory->children()->inRandomOrder()->value('id'),
             'published_at' => fake()->dateTimeBetween('-1 year', 'now'),

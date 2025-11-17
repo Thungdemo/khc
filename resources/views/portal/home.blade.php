@@ -15,20 +15,6 @@
 		<img src="{{asset('images/banner.webp')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
 	</div>
 	<div class="col-md-3">
-		{{-- <div class="text-center banner-judge-profile">
-			<div class="swiper judges-slider">
-				<div class="swiper-wrapper">
-					@foreach($judges as $judge)
-					<div class="swiper-slide">
-						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" class="mb-2">
-						<div class="h5 fw-semibold">{{ $judge['name'] }}</div>
-						<div>{{ $judge['position'] }}</div>
-					</div>
-					@endforeach
-				</div>
-				<div class="swiper-pagination"></div>
-			</div>
-		</div> --}}
 		<div class="card text-center h-100 pt-3 banner-judge">
 			<div class="card-body">
 				<div class="swiper judges-slider">
