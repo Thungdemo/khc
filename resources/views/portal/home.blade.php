@@ -1,7 +1,106 @@
 @extends('layouts.portal')
 @section('content')
 <div class="row g-0">
-	<div class="col-md-9 banner-full-width">
+	<div class="col-md-2 banner-menu-sidebar">
+		<div class="quick-menu-vertical h-100 bg-dark">
+			<div class="quick-menu-header text-center py-3 border-bottom border-secondary">
+				<h6 class="text-white mb-0 fw-bold">Quick Access</h6>
+			</div>
+			<nav class="quick-menu-nav">
+				<div class="quick-menu-item-wrapper">
+					<a href="#" class="quick-menu-link">
+						<i class="bi bi-search"></i>
+						<span>Case Status</span>
+						<i class="bi bi-chevron-left submenu-arrow"></i>
+					</a>
+					<div class="submenu-popup">
+						<div class="submenu-header">Case Services</div>
+						<a href="{{ config('links.case_status') }}" target="_blank">Search by Case Number</a>
+						<a href="{{ config('links.case_status') }}" target="_blank">Search by Party Name</a>
+						<a href="{{ config('links.case_status') }}" target="_blank">Case History</a>
+						<a href="{{ config('links.case_status') }}" target="_blank">Next Date of Hearing</a>
+					</div>
+				</div>
+				
+				<div class="quick-menu-item-wrapper">
+					<a href="{{ config('links.causelist_local') }}" class="quick-menu-link" target="_blank">
+						<i class="bi bi-journal-text"></i>
+						<span>Cause List</span>
+						<i class="bi bi-chevron-left submenu-arrow"></i>
+					</a>
+					<div class="submenu-popup">
+						<div class="submenu-header">Daily Lists</div>
+						<a href="{{ config('links.causelist_local') }}" target="_blank">Today's Cause List</a>
+						<a href="{{ config('links.causelist_local') }}" target="_blank">Tomorrow's List</a>
+						<a href="{{ config('links.causelist_local') }}" target="_blank">Weekly Schedule</a>
+						<a href="{{ config('links.causelist_local') }}" target="_blank">Court Calendar</a>
+					</div>
+				</div>
+				
+				<div class="quick-menu-item-wrapper">
+					<a href="{{ config('links.display_board') }}" class="quick-menu-link" target="_blank">
+						<i class="bi bi-display"></i>
+						<span>Display Board</span>
+						<i class="bi bi-chevron-left submenu-arrow"></i>
+					</a>
+					<div class="submenu-popup">
+						<div class="submenu-header">Court Information</div>
+						<a href="{{ config('links.display_board') }}" target="_blank">Live Court Status</a>
+						<a href="{{ config('links.display_board') }}" target="_blank">Judge Availability</a>
+						<a href="{{ config('links.display_board') }}" target="_blank">Court Timings</a>
+						<a href="{{ config('links.display_board') }}" target="_blank">Important Notices</a>
+					</div>
+				</div>
+				
+				<div class="quick-menu-item-wrapper">
+					<a href="{{ config('links.njdg') }}" class="quick-menu-link" target="_blank">
+						<i class="bi bi-grid"></i>
+						<span>NJDG</span>
+						<i class="bi bi-chevron-left submenu-arrow"></i>
+					</a>
+					<div class="submenu-popup">
+						<div class="submenu-header">Data & Analytics</div>
+						<a href="{{ config('links.njdg') }}" target="_blank">Case Statistics</a>
+						<a href="{{ config('links.njdg') }}" target="_blank">Performance Dashboard</a>
+						<a href="{{ config('links.njdg') }}" target="_blank">Monthly Reports</a>
+						<a href="{{ config('links.njdg') }}" target="_blank">Judicial Data</a>
+					</div>
+				</div>
+				
+				<div class="quick-menu-item-wrapper">
+					<a href="{{ config('links.ecourts') }}" class="quick-menu-link" target="_blank">
+						<i class="bi bi-globe"></i>
+						<span>eCourts</span>
+						<i class="bi bi-chevron-left submenu-arrow"></i>
+					</a>
+					<div class="submenu-popup">
+						<div class="submenu-header">Online Services</div>
+						<a href="{{ config('links.ecourts') }}" target="_blank">Case Filing</a>
+						<a href="{{ config('links.ecourts') }}" target="_blank">Payment Gateway</a>
+						<a href="{{ config('links.ecourts') }}" target="_blank">Document Upload</a>
+						<a href="{{ config('links.ecourts') }}" target="_blank">Virtual Hearing</a>
+					</div>
+				</div>
+				
+				<div class="quick-menu-item-wrapper">
+					<a href="{{ config('links.live_streaming') }}" class="quick-menu-link" target="_blank">
+						<i class="bi bi-camera-video"></i>
+						<span>Live Stream</span>
+						<i class="bi bi-chevron-left submenu-arrow"></i>
+					</a>
+					<div class="submenu-popup">
+						<div class="submenu-header">Live Proceedings</div>
+						<a href="{{ config('links.live_streaming') }}" target="_blank">Current Hearings</a>
+						<a href="{{ config('links.live_streaming') }}" target="_blank">Scheduled Streams</a>
+						<a href="{{ config('links.live_streaming') }}" target="_blank">Recorded Sessions</a>
+						<a href="{{ config('links.live_streaming') }}" target="_blank">Stream Guidelines</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	
+	<div class="col-md-8 banner-full-width">
 		<div class="banner-hero">
 			<div class="hero-inner">
 				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
@@ -14,7 +113,21 @@
 		</div>
 		<img src="{{asset('images/banner.webp')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-2">
+		{{-- <div class="text-center banner-judge-profile">
+			<div class="swiper judges-slider">
+				<div class="swiper-wrapper">
+					@foreach($judges as $judge)
+					<div class="swiper-slide">
+						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" class="mb-2">
+						<div class="h5 fw-semibold">{{ $judge['name'] }}</div>
+						<div>{{ $judge['position'] }}</div>
+					</div>
+					@endforeach
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div> --}}
 		<div class="card text-center h-100 pt-3 banner-judge">
 			<div class="card-body">
 				<div class="swiper judges-slider">
