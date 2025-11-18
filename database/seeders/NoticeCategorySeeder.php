@@ -18,11 +18,13 @@ class NoticeCategorySeeder extends Seeder
             ['id'=>2,'name'=>'Transfer & Posting','ordering'=>2,'parent_id'=>null],
             ['id'=>3,'name'=>'Recruitment','ordering'=>3,'parent_id'=>null],
             ['id'=>4,'name'=>'Tender Notice','ordering'=>4,'parent_id'=>null],
-            ['id'=>5,'name'=>'Nagaland District Judiciary','ordering'=>5,'parent_id'=>null],
             ['id'=>6,'name'=>'Miscellaneous','ordering'=>6,'parent_id'=>null],
 
-            ['id'=>7,'name'=>'District Court','ordering'=>null,'parent_id'=>3],
-            ['id'=>8,'name'=>'High Court','ordering'=>null,'parent_id'=>3],
+            ['id'=>7,'name'=>'High Court','ordering'=>null,'parent_id'=>3],
+            ['id'=>8,'name'=>'District Court','ordering'=>null,'parent_id'=>3],
+            ['id'=>9,'name'=>'High Court','ordering'=>null,'parent_id'=>2],
+            ['id'=>10,'name'=>'District Court','ordering'=>null,'parent_id'=>2],
+            
         ]);
     }
 }
