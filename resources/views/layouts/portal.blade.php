@@ -17,9 +17,6 @@
 						</a>
 						<div>
 							<div class="logo-title">{{config('app.full_name')}}</div>
-							{{-- 
-							<div class="logo-sub">Ministry of Digital Services</div>
-							--}}
 						</div>
 					</div>
 					<div class="controls d-none d-md-flex">

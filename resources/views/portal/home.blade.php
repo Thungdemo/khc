@@ -2,111 +2,62 @@
 @section('content')
 <div class="row g-0">
 	<div class="col-md-2 banner-menu-sidebar">
-<div class="btn-group">
-  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-    Left-aligned but right aligned when large screen
-  </button>
-  <ul class="dropdown-menu dropdown-menu-lg-dropend">
-    <li><button class="dropdown-item" type="button">Action</button></li>
-    <li><button class="dropdown-item" type="button">Another action</button></li>
-    <li><button class="dropdown-item" type="button">Something else here</button></li>
-  </ul>
-</div>
-		
 		<div class="quick-menu-vertical h-100 bg-dark">
-			<div class="quick-menu-header text-center py-3 border-bottom border-secondary">
+			<div class="quick-menu-header text-center py-3">
 				<h6 class="text-white mb-0 fw-bold">Quick Access</h6>
 			</div>
-			<nav class="quick-menu-nav">
-				<div class="quick-menu-item-wrapper">
-					<a href="#" class="quick-menu-link">
-						<i class="bi bi-search"></i>
-						<span>Case Status</span>
-						<i class="bi bi-chevron-left submenu-arrow"></i>
-					</a>
-					<div class="submenu-popup">
-						<div class="submenu-header">Case Services</div>
-						<a href="{{ config('links.case_status') }}" target="_blank">Search by Case Number</a>
-						<a href="{{ config('links.case_status') }}" target="_blank">Search by Party Name</a>
-						<a href="{{ config('links.case_status') }}" target="_blank">Case History</a>
-						<a href="{{ config('links.case_status') }}" target="_blank">Next Date of Hearing</a>
-					</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="{{ config('links.case_status') }}" class="quick-menu-link" target="_blank">
+					Case Status
+				</a>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="#causeListMenu" class="quick-menu-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="causeListMenu">
+					Cause List
+					<i class="bi bi-chevron-down ms-2"></i>
+				</a>
+				<div class="collapse" id="causeListMenu">
+					<ul class="ps-3">
+						<li class="submenu-link">
+							<a href="{{config('links.causelist_local')}}" target="_blank">
+								Local Server
+							</a>
+						</li>
+						<li class="submenu-link">
+							<a href="{{config('links.causelist_national')}}" target="_blank">
+								National Server
+							</a>
+						</li>
+					</ul>
 				</div>
-				<div class="quick-menu-item-wrapper">
-					<a href="{{ config('links.causelist_local') }}" class="quick-menu-link" target="_blank">
-						<i class="bi bi-journal-text"></i>
-						<span>Cause List</span>
-						<i class="bi bi-chevron-left submenu-arrow"></i>
-					</a>
-					<div class="submenu-popup">
-						<div class="submenu-header">Daily Lists</div>
-						<a href="{{ config('links.causelist_local') }}" target="_blank">Today's Cause List</a>
-						<a href="{{ config('links.causelist_local') }}" target="_blank">Tomorrow's List</a>
-						<a href="{{ config('links.causelist_local') }}" target="_blank">Weekly Schedule</a>
-						<a href="{{ config('links.causelist_local') }}" target="_blank">Court Calendar</a>
-					</div>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="{{ config('links.live_streaming') }}" class="quick-menu-link" target="_blank">
+					Live Streaming
+				</a>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="{{ config('links.display_board') }}" class="quick-menu-link" target="_blank">
+					Display Board
+				</a>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="#noticeBoardMenu" class="quick-menu-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="noticeBoardMenu">
+					Notice Board
+					<i class="bi bi-chevron-down ms-2"></i>
+				</a>
+				<div class="collapse" id="noticeBoardMenu">
+					<ul class="ps-3">
+						@foreach($noticeCategories as $noticeCategory)
+						<li class="submenu-link">
+							<a href="{{route('portal.notice.index',$noticeCategory)}}" target="_blank">
+								{{$noticeCategory->name}}
+							</a>
+						</li>
+						@endforeach
+					</ul>
 				</div>
-				
-				<div class="quick-menu-item-wrapper">
-					<a href="{{ config('links.display_board') }}" class="quick-menu-link" target="_blank">
-						<i class="bi bi-display"></i>
-						<span>Display Board</span>
-						<i class="bi bi-chevron-left submenu-arrow"></i>
-					</a>
-					<div class="submenu-popup">
-						<div class="submenu-header">Court Information</div>
-						<a href="{{ config('links.display_board') }}" target="_blank">Live Court Status</a>
-						<a href="{{ config('links.display_board') }}" target="_blank">Judge Availability</a>
-						<a href="{{ config('links.display_board') }}" target="_blank">Court Timings</a>
-						<a href="{{ config('links.display_board') }}" target="_blank">Important Notices</a>
-					</div>
-				</div>
-				
-				<div class="quick-menu-item-wrapper">
-					<a href="{{ config('links.njdg') }}" class="quick-menu-link" target="_blank">
-						<i class="bi bi-grid"></i>
-						<span>NJDG</span>
-						<i class="bi bi-chevron-left submenu-arrow"></i>
-					</a>
-					<div class="submenu-popup">
-						<div class="submenu-header">Data & Analytics</div>
-						<a href="{{ config('links.njdg') }}" target="_blank">Case Statistics</a>
-						<a href="{{ config('links.njdg') }}" target="_blank">Performance Dashboard</a>
-						<a href="{{ config('links.njdg') }}" target="_blank">Monthly Reports</a>
-						<a href="{{ config('links.njdg') }}" target="_blank">Judicial Data</a>
-					</div>
-				</div>
-				
-				<div class="quick-menu-item-wrapper">
-					<a href="{{ config('links.ecourts') }}" class="quick-menu-link" target="_blank">
-						<i class="bi bi-globe"></i>
-						<span>eCourts</span>
-						<i class="bi bi-chevron-left submenu-arrow"></i>
-					</a>
-					<div class="submenu-popup">
-						<div class="submenu-header">Online Services</div>
-						<a href="{{ config('links.ecourts') }}" target="_blank">Case Filing</a>
-						<a href="{{ config('links.ecourts') }}" target="_blank">Payment Gateway</a>
-						<a href="{{ config('links.ecourts') }}" target="_blank">Document Upload</a>
-						<a href="{{ config('links.ecourts') }}" target="_blank">Virtual Hearing</a>
-					</div>
-				</div>
-				
-				<div class="quick-menu-item-wrapper">
-					<a href="{{ config('links.live_streaming') }}" class="quick-menu-link" target="_blank">
-						<i class="bi bi-camera-video"></i>
-						<span>Live Stream</span>
-						<i class="bi bi-chevron-left submenu-arrow"></i>
-					</a>
-					<div class="submenu-popup">
-						<div class="submenu-header">Live Proceedings</div>
-						<a href="{{ config('links.live_streaming') }}" target="_blank">Current Hearings</a>
-						<a href="{{ config('links.live_streaming') }}" target="_blank">Scheduled Streams</a>
-						<a href="{{ config('links.live_streaming') }}" target="_blank">Recorded Sessions</a>
-						<a href="{{ config('links.live_streaming') }}" target="_blank">Stream Guidelines</a>
-					</div>
-				</div>
-			</nav>
+			</div>
 		</div>
 	</div>
 	
