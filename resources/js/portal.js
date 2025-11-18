@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
             el: ".swiper-pagination",
         },
         loop: true,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
+        // autoplay: {
+        //     delay: 4000,
+        //     disableOnInteraction: false,
+        // },
     });
 
     document.querySelectorAll('.external-link').forEach(link => {

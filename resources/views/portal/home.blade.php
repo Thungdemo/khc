@@ -1,7 +1,7 @@
 @extends('layouts.portal')
 @section('content')
 <div class="row g-0">
-	<div class="col-md-2 banner-menu-sidebar">
+	<div class="col-md-2">
 		<div class="quick-menu-vertical h-100 bg-dark">
 			<div class="quick-menu-header text-center py-3">
 				<h6 class="text-white mb-0 fw-bold">Quick Access</h6>
@@ -73,24 +73,20 @@
 			<div class="hero-inner">
 				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
 				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
-				{{-- <div class="hero-cta">
-					<a href="#" class="btn btn-hero">About</a>
-					<a href="#" class="btn btn-outline-hero">Latest Notices</a>
-				</div> --}}
 			</div>
 		</div>
 		<img src="{{asset('images/banner.webp')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
 	</div>
 	<div class="col-md-2">
-		<div class="card text-center h-100 pt-3 banner-judge">
+		<div class="card text-center h-100 banner-judge">
 			<div class="card-body">
 				<div class="swiper judges-slider">
 					<div class="swiper-wrapper">
 						@foreach($judges as $judge)
 						<div class="swiper-slide">
-							<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" style="width: 200px;border-radius: 5px;" class="mb-3">
-							<div class="h5 fw-bold px-4">{{ $judge['name'] }}</div>
-							<div>{{ $judge['position'] }}</div>
+							<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" style="width: 200px;border-radius: 5px;" class="mb-2">
+							<div class="h6 fw-bold px-4">{{ $judge['name'] }}</div>
+							<div class="hc-text-muted small">{{ $judge['position'] }}</div>
 						</div>
 						@endforeach
 					</div>
