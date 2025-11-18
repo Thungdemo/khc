@@ -31,6 +31,10 @@ class Notice extends Model
             $query->where('notice_category_id', $request->notice_category_id);
         }
 
+        if ($request->notice_subcategory_id) {
+            $query->where('notice_subcategory_id', $request->notice_subcategory_id);
+        }
+
         if ($request->title) {
             $query->where('title', 'like', '%' . $request->title . '%');
         }

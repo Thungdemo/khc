@@ -50,10 +50,17 @@
 					<ul class="ps-3">
 						@foreach($noticeCategories as $noticeCategory)
 						<li class="submenu-link">
-							<a href="{{route('portal.notice.index',$noticeCategory)}}" target="_blank">
+							<a href="{{route('portal.notice.index',$noticeCategory)}}">
 								{{$noticeCategory->name}}
 							</a>
 						</li>
+							@foreach($noticeCategory->children as $childCategory)
+							<li class="submenu-link ps-5">
+								<a href="{{route('portal.notice.index',[$noticeCategory,'notice_subcategory_id'=>$childCategory->id])}}">
+									{{$childCategory->name}}
+								</a>
+							</li>
+							@endforeach
 						@endforeach
 					</ul>
 				</div>
@@ -75,20 +82,6 @@
 		<img src="{{asset('images/banner.webp')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
 	</div>
 	<div class="col-md-2">
-		{{-- <div class="text-center banner-judge-profile">
-			<div class="swiper judges-slider">
-				<div class="swiper-wrapper">
-					@foreach($judges as $judge)
-					<div class="swiper-slide">
-						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" class="mb-2">
-						<div class="h5 fw-semibold">{{ $judge['name'] }}</div>
-						<div>{{ $judge['position'] }}</div>
-					</div>
-					@endforeach
-				</div>
-				<div class="swiper-pagination"></div>
-			</div>
-		</div> --}}
 		<div class="card text-center h-100 pt-3 banner-judge">
 			<div class="card-body">
 				<div class="swiper judges-slider">

@@ -710,10 +710,11 @@ table.pdf-table a {
         padding: var(--quick-menu-padding);
     }
     .submenu-link a{
-        color:white;
+        color: rgba(255, 255, 255, 0.85);
         text-decoration: none;
         width: 100%;
         display: block;
+        font-size: 0.95rem;
     }
     ul{
         list-style: none;
