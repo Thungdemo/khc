@@ -29,7 +29,7 @@ class StationJudgeController extends Controller
         $request->validate([
             'full_name' => ['required', 'string', 'max:255', new Xss],
             'parent_court' => ['required', 'string', 'max:255', new Xss],
-            'dob' => ['required', 'date'],
+            'dob' => ['nullable', 'date'],
             'stream' => ['required', 'string', 'max:255', new Xss],
             'elevation_date' => ['required', 'date'],
             'stationing' => ['required', 'string', 'max:255', new Xss],
@@ -65,7 +65,7 @@ class StationJudgeController extends Controller
         $request->validate([
             'full_name' => ['required', 'string', 'max:255', new Xss],
             'parent_court' => ['required', 'string', 'max:255', new Xss],
-            'dob' => ['required', 'date'],
+            'dob' => ['nullable', 'date'],
             'stream' => ['required', 'string', 'max:255', new Xss],
             'elevation_date' => ['required', 'date'],
             'stationing' => ['required', 'string', 'max:255', new Xss],

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('parent_court');
-            $table->date('dob');
+            $table->date('dob')->nullable();
             $table->string('stream');
             $table->date('elevation_date');
             $table->string('stationing');

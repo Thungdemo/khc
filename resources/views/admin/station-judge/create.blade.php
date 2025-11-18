@@ -17,7 +17,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">DOB</label>
-                    <input type="text" class="form-control datepicker" name="dob" value="{{ old('dob') }}" required>
+                    <input type="text" class="form-control datepicker" name="dob" value="{{ old('dob') }}">
                     <span class="text-danger small">@error('dob') {{ $message }} @enderror</span>
                 </div>
                 <div class="mb-3">
