@@ -17,9 +17,11 @@ class NoticeFactory extends Factory
      */
     public function definition(): array
     {
+        $noticeCategory = NoticeCategory::inRandomOrder()->first();
         return [
-            'title' => fake()->words(rand(15,20), true),
-            'notice_category_id' => NoticeCategory::inRandomOrder()->first()->id,
+            'title' => fake()->words(rand(15,30), true),
+            'notice_category_id' => $noticeCategory->id,
+            'notice_subcategory_id' => $noticeCategory->children()->inRandomOrder()->value('id'),
             'published_at' => fake()->dateTimeBetween('-1 year', 'now'),
             'filename' => 'dummy/notice.pdf',
         ];

@@ -43,6 +43,11 @@ class Notice extends Model
         return $this->belongsTo(NoticeCategory::class);
     }
 
+    public function noticeSubcategory()
+    {
+        return $this->belongsTo(NoticeCategory::class, 'notice_subcategory_id');
+    }
+
     public function noticeChildren()
     {
         return $this->hasMany(NoticeChild::class);

@@ -17,4 +17,19 @@ class NoticeCategory extends Model
     {
         $query->orderBy('ordering');
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(NoticeCategory::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(NoticeCategory::class, 'parent_id');
+    }
+
+    public function scopeIsParent($query)
+    {
+        return $query->whereNull('parent_id');
+    }
 }

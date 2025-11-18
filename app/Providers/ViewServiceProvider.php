@@ -23,7 +23,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Facades\View::composer('layouts.portal', function (View $view) {
-            $view->with('navbarNotices',NoticeCategory::sort()->get());
+            $view->with('navbarNotices',NoticeCategory::isParent()->sort()->get());
         });
     }
 }

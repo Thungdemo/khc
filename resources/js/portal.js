@@ -52,4 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
             disableOnInteraction: false,
         },
     });
+
+    document.querySelectorAll('.external-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            if(!confirm('You are being redirected to an external website not maintained by us. Do you wish to continue?')) {
+                e.preventDefault();
+                return;
+            }
+        });
+    });
 });
