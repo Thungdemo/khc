@@ -794,3 +794,42 @@ table.pdf-table a {
         }
     }
 }
+
+.side-menu {
+            width: 260px;
+            background: #1f2227;
+            color: #fff;
+            padding: 15px 0;
+            font-size: 15px;
+        }
+        .side-menu .menu-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .side-menu .menu-item:hover {
+            background: #2c2f35;
+        }
+        .submenu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: #2c2f35;
+            min-width: 220px;
+            padding: 10px 0;
+            display: none;
+            border-left: 1px solid #444;
+        }
+        .menu-item:hover .submenu {
+            display: block;
+        }
+        .submenu .submenu-item {
+            padding: 10px 15px;
+            white-space: nowrap;
+        }
+        .submenu .submenu-item:hover {
+            background: #3a3d44;
+        }

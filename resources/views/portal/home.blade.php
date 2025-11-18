@@ -2,6 +2,17 @@
 @section('content')
 <div class="row g-0">
 	<div class="col-md-2 banner-menu-sidebar">
+<div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+    Left-aligned but right aligned when large screen
+  </button>
+  <ul class="dropdown-menu dropdown-menu-lg-dropend">
+    <li><button class="dropdown-item" type="button">Action</button></li>
+    <li><button class="dropdown-item" type="button">Another action</button></li>
+    <li><button class="dropdown-item" type="button">Something else here</button></li>
+  </ul>
+</div>
+		
 		<div class="quick-menu-vertical h-100 bg-dark">
 			<div class="quick-menu-header text-center py-3 border-bottom border-secondary">
 				<h6 class="text-white mb-0 fw-bold">Quick Access</h6>
@@ -21,7 +32,6 @@
 						<a href="{{ config('links.case_status') }}" target="_blank">Next Date of Hearing</a>
 					</div>
 				</div>
-				
 				<div class="quick-menu-item-wrapper">
 					<a href="{{ config('links.causelist_local') }}" class="quick-menu-link" target="_blank">
 						<i class="bi bi-journal-text"></i>
