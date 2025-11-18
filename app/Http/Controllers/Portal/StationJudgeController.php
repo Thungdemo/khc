@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Portal;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\StationJudge;
 
 class StationJudgeController extends Controller
 {
     public function index()
     {
-        return view('portal.station-judge.index');
+        $judges = StationJudge::all();
+
+        return view('portal.station-judge.index', compact('judges'));
     }
 }
