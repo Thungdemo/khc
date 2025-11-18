@@ -13,7 +13,7 @@ class GalleryImage extends Model
 
     protected $guarded = [];
 
-    public static $maxFileSize = 2000; // in KB
+    public static $maxFileSize = 20000; // in KB
 
     public static $filePath = 'gallery-images';
 

@@ -16,7 +16,7 @@ class FormDownload extends Model
 
     public static $documentPath = 'form-downloads/{id}';
 
-    public static $documentMaxSize = 10000; // 10MB for forms
+    public static $documentMaxSize = 200000; // 200MB for forms
 
     public static $documentColumn = 'filename';
 
