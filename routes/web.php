@@ -105,6 +105,8 @@ Route::middleware(['auth',\App\Http\Middleware\DisableCacheMiddleware::class])->
     Route::get('form-downloads/{formDownload}/edit', [App\Http\Controllers\Admin\FormDownloadController::class, 'edit'])->name('form-download.edit');
     Route::put('form-downloads/{formDownload}', [App\Http\Controllers\Admin\FormDownloadController::class, 'update'])->name('form-download.update');
     Route::delete('form-downloads/{formDownload}', [App\Http\Controllers\Admin\FormDownloadController::class, 'destroy'])->name('form-download.destroy');
+
+    Route::get('authentication-logs', [\App\Http\Controllers\Admin\AuthenticationLogController::class, 'index'])->name('authentication-log.index');
 });
 
 Route::name('portal.')->group(function () {

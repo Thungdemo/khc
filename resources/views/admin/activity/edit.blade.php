@@ -1,3 +1,6 @@
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.activity.edit', $activity) }}
+@endsection
 @extends('layouts.admin')
 @section('content')
     <h4 class="mb-4">Edit Activity</h4>

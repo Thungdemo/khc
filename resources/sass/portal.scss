@@ -14,7 +14,9 @@ $table-bg:--var(--card-bg);
 @import 'swiper/css';
 @import 'swiper/css/pagination';
 
-
+html{
+    font-size: var(--font-size);
+}
 body {
     font-family: 'Inter', sans-serif;
     font-size: calc(var(--font-size) * var(--font-scale));
@@ -206,6 +208,7 @@ body {
 }
 .notif-link {
     text-decoration: none;
+    font-size: 0.9rem;
     color: var(--text-color)
 }
 .notif-link:hover {

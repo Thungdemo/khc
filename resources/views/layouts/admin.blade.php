@@ -34,12 +34,14 @@
 					<a class="nav-link" href="{{route('admin.album.index')}}"><i class="bi bi-collection me-2"></i>Albums</a>
 					<a class="nav-link" href="{{route('admin.form-download.index')}}"><i class="bi bi-file-earmark-pdf me-2"></i>Form Downloads</a>
 					@endcan
-					@can('user')
 					<div class="sidemenu-divider text-secondary fw-semibold">
 						Administration
 					</div>
+					@can('user')
 					<a class="nav-link" href="{{route('admin.user.index')}}"><i class="bi bi-people me-2"></i>Users</a>
-					<a class="nav-link" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
+					@endcan
+					@can('security')
+					<a class="nav-link" href="{{route('admin.authentication-log.index')}}"><i class="bi bi-lock me-2"></i>Authentication Logs</a>
 					@endcan
 				</nav>
 			</aside>

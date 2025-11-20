@@ -71,7 +71,7 @@
 	<div class="col-md-8 banner-full-width">
 		<div class="banner-hero">
 			<div class="hero-inner">
-				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
+				<h1 class="hero-title">Gauhati High Court Kohima Bench, Nagaland</h1>
 				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
 			</div>
 		</div>
