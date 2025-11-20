@@ -18,13 +18,19 @@
 
             <div class="mb-3">
                 <label class="form-label">Category *</label>
-                <select class="form-select" name="notice_category_id" required>
+                <select class="form-select" name="notice_category_id" required id="notice_category_id">
                     <option value="">Select category</option>
                     @foreach ($noticeCategories as $id => $name)
                         <option value="{{ $id }}" @selected(old('notice_category_id', $notice->notice_category_id) == $id)>{{ $name }}</option>
                     @endforeach
                 </select>
                 <span class="text-danger small">@error('notice_category_id') {{ $message }} @enderror</span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Subcategory</label>
+                <x-select class="form-select" name="notice_subcategory_id" placeholder="Select Subcategory" :options="$noticeSubcategories" :selected="old('notice_subcategory_id', $notice->notice_subcategory_id)" id="notice_subcategory_id" />
+                <span class="text-danger small">@error('notice_subcategory_id') {{ $message }} @enderror</span>
             </div>
 
             <div class="mb-3">

@@ -18,6 +18,7 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth',\App\Http\Middleware\DisableCacheMiddleware::class])->name('admin.')->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
+    Route::get('notices/notice-subcategories', [App\Http\Controllers\Admin\NoticeController::class, 'noticeSubcategory'])->name('notice.notice-subcategory');
     Route::get('notices', [App\Http\Controllers\Admin\NoticeController::class, 'index'])->name('notice.index');
     Route::get('notices/create', [App\Http\Controllers\Admin\NoticeController::class, 'create'])->name('notice.create');
     Route::post('notices', [App\Http\Controllers\Admin\NoticeController::class, 'store'])->name('notice.store');

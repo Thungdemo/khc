@@ -116,8 +116,30 @@ crontab -e
 ```
 Replace `/path/to/khc` to the full path to your actual project in the server
 
+### 7. Create an Admin User (via Tinker)
+
+To create an admin user manually, use Laravel Tinker:
+
+```bash
+cd /path/to/project
+php artisan tinker
+```
+
+Then run the following in the Tinker shell:
+
+```php
+$user = new \App\Models\User();
+$user->name = 'Admin';
+$user->email = 'admin@example.com';
+$user->password = bcrypt('yourpassword'); // Change to a secure password
+$user->save();
+$user->roles()->attach(1);
+```
+
+Adjust the fields as needed for your user model and roles.
+
 ## Security TODO LIST
 
 - Hide powered by php in production server
 - Use strong server and database passwords
-- Implement proper backup policies
+- Implement proper backup policies. Backup folder `storage/app` and database at least weekly.

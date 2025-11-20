@@ -14,8 +14,13 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Category *</label>
-                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :value="old('notice_category_id')" required/>
+                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :value="old('notice_category_id')" id="notice_category_id" required/>
                 <span class="text-danger small">@error('notice_category_id') {{ $message }} @enderror</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Subcategory</label>
+                <x-select class="form-select" name="notice_subcategory_id" placeholder="Select Subcategory" :options="$noticeSubcategories" :value="old('notice_subcategory_id')" id="notice_subcategory_id" />
+                <span class="text-danger small">@error('notice_subcategory_id') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <div class="form-check">
@@ -28,7 +33,7 @@
                     Check this box to set a specific publish date and time. If unchecked, the notice will be published immediately.
                 </div>
             </div>
-            <div class="mb-3">
+            <div id="publishDateSection" @class(['mb-3','d-none' => !old('schedule',false)])>
                 <label class="form-label">Publish Date</label>
                 <input type="text" class="form-control datetimepicker" name="published_at" value="{{ old('published_at') }}" placeholder="Select date and time">
                 <span class="text-danger small">@error('published_at') {{ $message }} @enderror</span>
@@ -37,6 +42,7 @@
                 <label class="form-label">Upload PDF *</label>
                 <input type="file" class="form-control" name="document" accept="application/pdf" required>
                 <span class="text-danger small">@error('document') {{ $message }} @enderror</span>
+                <span class="text-muted small">Maximum file size: {{ $maxFileSize }} KB. Allowed file type: PDF.</span><br>
             </div>
 
             <!-- Additional Documents Section -->

@@ -4,25 +4,20 @@ function generateDocumentHash() {
     return '1' + random; // Last 4 digits of timestamp + random string
 }
 
-// Toggle documents section visibility
 document.getElementById('addMoreDocuments').addEventListener('change', function() {
     const documentsSection = document.getElementById('documentsSection');
     const tableBody = document.getElementById('documentsTableBody');
     
     if (this.checked) {
         documentsSection.classList.remove('d-none');
-        // Add a blank row by default
         if (tableBody.children.length === 0) {
             addDocumentRow();
         }
     } else {
         documentsSection.classList.add('d-none');
-        // Clear all rows when hiding
         tableBody.innerHTML = '';
     }
 });
-
-// Function to add a new document row
 function addDocumentRow() {
     const tableBody = document.getElementById('documentsTableBody');
     const documentHash = generateDocumentHash();
@@ -42,16 +37,38 @@ function addDocumentRow() {
     `;
     tableBody.appendChild(newRow);
 }
-
-// Add new document row on button click
 document.getElementById('addDocumentRow').addEventListener('click', function() {
     addDocumentRow();
 });
-
-// Remove document row
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('remove-row') || e.target.closest('.remove-row')) {
         const row = e.target.closest('tr');
         row.remove();
     }
+});
+document.getElementById('schedule').addEventListener('change', function() {
+    if (this.checked) {
+        document.getElementById('publishDateSection').classList.remove('d-none');
+    } else {
+        document.getElementById('publishDateSection').classList.add('d-none');
+    }
+});
+document.getElementById('notice_category_id').addEventListener('change', function() {
+    const select = document.getElementById('notice_subcategory_id');
+    select.innerHTML = '<option value="">Loading...</option>';
+    axios.get('notice-subcategories', {
+        params: {
+            notice_category_id: this.value
+        }
+    }).then(function (response) {
+        console.log(response);
+        const categories = response.data;
+        select.innerHTML = '<option value="">Select Subcategory</option>';
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category.id;
+            option.textContent = category.name;
+            select.appendChild(option);
+        });
+    });
 });

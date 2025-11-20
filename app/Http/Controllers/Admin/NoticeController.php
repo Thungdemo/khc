@@ -28,7 +28,9 @@ class NoticeController extends Controller
     public function create()
     {
         return view('admin.notice.create',[
-            'noticeCategories' => NoticeCategory::pluck('name', 'id')
+            'noticeCategories' => NoticeCategory::isParent()->pluck('name', 'id'),
+            'maxFileSize' => Notice::$documentMaxSize,
+            'noticeSubcategories' => NoticeCategory::where('parent_id',old('notice_category_id'))->pluck('name','id'),
         ]);
     }
 
@@ -38,6 +40,7 @@ class NoticeController extends Controller
             'title' => ['required', 'string', 'max:255', new Xss],
             'published_at' => ['required_if:schedule,1','nullable','date'],
             'notice_category_id' => ['required', 'exists:notice_categories,id'],
+            'notice_subcategory_id' => ['nullable', 'exists:notice_categories,id'],
             'document' => ['required', 'file', 'max:'.Notice::$documentMaxSize, new Filetype(['pdf'])],
             'notice_children' => ['nullable', 'array'],
             'notice_children.*.title' => ['required', 'string', 'max:255', new Xss],
@@ -48,6 +51,7 @@ class NoticeController extends Controller
             'title' => $request->title,
             'published_at' => $request->schedule ? $request->published_at : now(),
             'notice_category_id' => $request->notice_category_id,
+            'notice_subcategory_id' => $request->notice_subcategory_id,
         ]);
 
         $notice->saveDocument($request->file('document'));
@@ -69,7 +73,8 @@ class NoticeController extends Controller
     {
         return view('admin.notice.edit',[
             'notice' => $notice,
-            'noticeCategories' => NoticeCategory::pluck('name', 'id')
+            'noticeCategories' => NoticeCategory::pluck('name', 'id'),
+            'noticeSubcategories' => NoticeCategory::where('parent_id',old('notice_category_id', $notice->notice_category_id))->pluck('name','id'),
         ]);
     }
 
@@ -79,6 +84,7 @@ class NoticeController extends Controller
             'title' => ['required', 'string', 'max:255', new Xss],
             'published_at' => ['required_if:schedule,1','nullable','date'],
             'notice_category_id' => ['required', 'exists:notice_categories,id'],
+            'notice_subcategory_id' => ['nullable', 'exists:notice_categories,id'],
             'document' => ['nullable', 'file', 'max:'.Notice::$documentMaxSize, new Filetype(['pdf'])],
         ]);
 
@@ -86,6 +92,7 @@ class NoticeController extends Controller
             'title' => $validated['title'],
             'published_at' => $validated['published_at'],
             'notice_category_id' => $validated['notice_category_id'],
+            'notice_subcategory_id' => $validated['notice_subcategory_id'],
         ]);
 
         if($request->hasFile('document')) 
@@ -121,5 +128,16 @@ class NoticeController extends Controller
     {
         $notice->delete();
         return redirect()->route('admin.notice.index')->with('success', 'Notice deleted successfully.');
+    }
+
+    public function noticeSubcategory(Request $request)
+    {
+        $request->validate([
+            'notice_category_id' => ['required', 'exists:notice_categories,id'],
+        ]);
+
+        return response()->json(
+            NoticeCategory::where('parent_id', $request->notice_category_id)->get()
+        );
     }
 }
