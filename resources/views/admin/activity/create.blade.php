@@ -29,7 +29,7 @@
                 <div class="mb-3">
                     <label class="form-label">Image</label>
                     <div class="imgp-preview">
-                        <img src="{{ asset('images/placeholder-image.png') }}" alt="Preview" id="image-preview">
+                        <img src="{{ asset('images/blank-avatar.jpg') }}" alt="Preview" id="image-preview">
                     </div>
                     <input type="file" class="form-control imgp-input" data-target="#image-preview" name="image" accept="image/*">
                     <span class="text-muted">Maximum file size: {{ \App\Models\Activity::$photoSize }} KB.</span><br>

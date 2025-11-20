@@ -145,16 +145,23 @@
 		</div>
 		<div id="newsCarousel" class="carousel slide news-carousel" data-bs-ride="carousel">
 			<div class="carousel-inner">
-				@foreach($latestNews->chunk(3) as $items)
+				@foreach($latestNews->chunk(2) as $items)
 				<div class="carousel-item {{$loop->first?'active':''}}">
 					<div class="row g-3">
 						@foreach($items as $item)
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<div class="news-item">
-								<div class="post-date mb-1">
-									<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
+								<div class="post-date mb-1 d-flex align-items-center justify-content-between">
+									<div>
+										<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
+									</div>
+									@if($item->isRecentlyPublished())
+									<span class="badge bg-danger ms-2">NEW</span>
+									@endif
 								</div>
-								<div><a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a></div>
+								<div>
+									<a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a>
+								</div>
 							</div>
 						</div>
 						@endforeach

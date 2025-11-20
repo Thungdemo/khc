@@ -28,7 +28,7 @@
                         </div>
                     @endif
                     <div class="imgp-preview">
-                        <img src="{{ $legalCommittee->photo ? asset('storage/' . $legalCommittee->photo) : asset('images/placeholder-image.png') }}" alt="Preview" id="photo-preview">
+                        <img src="{{ $legalCommittee->photo ? asset('storage/' . $legalCommittee->photo) : asset('images/blank-avatar.jpg') }}" alt="Preview" id="photo-preview">
                     </div>
                     <input type="file" class="form-control imgp-input" data-target="#photo-preview" name="photo" accept="image/*">
                     <span class="text-muted">Maximum file size: {{ $photoSize }} KB. Leave empty to keep current photo.</span><br>

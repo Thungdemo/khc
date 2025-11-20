@@ -42,7 +42,7 @@
                 <div class="mb-3">
                     <label class="form-label">Photo</label>
                     <div class="imgp-preview">
-                        <img src="{{ $stationJudge->photo ? asset('storage/' . $stationJudge->photo) : asset('images/placeholder-image.png') }}" alt="Preview" id="photo-preview">
+                        <img src="{{ $stationJudge->photo ? asset('storage/' . $stationJudge->photo) : asset('images/blank-avatar.jpg') }}" alt="Preview" id="photo-preview">
                     </div>
                     <input type="file" class="form-control imgp-input" data-target="#photo-preview" name="photo" accept="image/*">
                     <span class="text-muted">Maximum file size: {{ $photoSize }} KB. Leave empty to keep current photo.</span><br>

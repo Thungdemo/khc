@@ -81,4 +81,9 @@ class Notice extends Model
         $this->documentDelete();
         parent::delete();
     }
+
+    public function isRecentlyPublished()
+    {
+        return $this->published_at && Carbon::parse($this->published_at)->greaterThanOrEqualTo(now()->subDays(14));
+    }
 }

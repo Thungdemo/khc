@@ -47,7 +47,7 @@
             <div class="mb-3">
                 <label class="form-label">Photo *</label>
                 <div class="imgp-preview">
-                    <img src="{{ asset('images/placeholder-image.png') }}" alt="Preview" id="photo-preview">
+                    <img src="{{ asset('images/blank-avatar.jpg') }}" alt="Preview" id="photo-preview">
                 </div>
                 <input type="file" class="form-control imgp-input" data-target="#photo-preview" name="photo" accept="image/*" required>
                 <span class="text-muted">Maximum file size: {{ $photoSize }} KB.</span><br>
