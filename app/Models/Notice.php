@@ -19,7 +19,7 @@ class Notice extends Model
 
     protected $guarded = [];
 
-    public static $documentPath = 'notices/{id}';
+    public static $documentPath = 'notice/{id}';
 
     public static $documentMaxSize = 5000;
 

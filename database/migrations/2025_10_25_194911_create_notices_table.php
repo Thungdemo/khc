@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title',512);
             $table->string('filename')->nullable();
             $table->foreignId('notice_category_id')->constrained();
             $table->foreignId('notice_subcategory_id')->nullable()->constrained('notice_categories');
