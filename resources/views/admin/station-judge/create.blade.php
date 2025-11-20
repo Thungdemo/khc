@@ -1,3 +1,6 @@
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.station-judge.create') }}
+@endsection
 @extends('layouts.admin')
 @section('content')
     <h4 class="mb-4">Create Station Judge</h4>

@@ -1,3 +1,6 @@
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.registry-official.create') }}
+@endsection
 @extends('layouts.admin')
 @section('content')
     <h4 class="mb-4">Create Registry Official</h4>

@@ -1,3 +1,6 @@
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.gallery-image.create') }}
+@endsection
 @extends('layouts.admin')
 @section('content')
     <h4 class="mb-4">Create Gallery Image</h4>

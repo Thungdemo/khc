@@ -1,3 +1,6 @@
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.legal-committee.edit', $legalCommittee) }}
+@endsection
 @extends('layouts.admin')
 @section('content')
     <h4 class="mb-4">Edit Legal Committee Member</h4>

@@ -1,3 +1,6 @@
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.legal-committee.index') }}
+@endsection
 @extends('layouts.admin')
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">

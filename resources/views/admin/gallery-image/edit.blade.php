@@ -1,3 +1,6 @@
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.gallery-image.edit', $galleryImage ?? $registryOfficial ?? null) }}
+@endsection
 @extends('layouts.admin')
 @section('content')
     <h4 class="mb-4">Edit Registry Official</h4>

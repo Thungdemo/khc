@@ -116,9 +116,8 @@ crontab -e
 ```
 Replace `/path/to/khc` to the full path to your actual project in the server
 
-## Security Considerations
+## Security TODO LIST
 
-- Keep Laravel and dependencies updated
-- Use strong database passwords
-- Enable HTTPS in production
-- Implement proper backup strategies
+- Hide powered by php in production server
+- Use strong server and database passwords
+- Implement proper backup policies
