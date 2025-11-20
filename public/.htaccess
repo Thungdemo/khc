@@ -22,4 +22,22 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    # whitelist host header domains
+    # ALWAYS KEEP BEFORE Trailing Slashes directive
+    RewriteCond %{HTTP_HOST} !^kohimahighcourt\.gov\.in/$ [NC]
+    RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+    RewriteRule ^ - [F,L]
 </IfModule>
+
+<IfModule mod_headers.c>
+Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Permissions-Policy "accelerometer=(self 'https://www.youtube.com' 'https://www.youtube-nocookie.com'),autoplay=(self 'https://www.youtube.com' 'https://www.youtube-nocookie.com'),camera=(),display-capture=(),encrypted-media=(self 'https://www.youtube.com' 'https://www.youtube-nocookie.com'),fullscreen=(self 'https://www.youtube.com' 'https://www.youtube-nocookie.com'),geolocation=(),gyroscope=(self 'https://www.youtube.com' 'https://www.youtube-nocookie.com'),magnetometer=(),microphone=(),midi=(),payment=(),picture-in-picture=(self 'https://www.youtube.com' 'https://www.youtube-nocookie.com'),sync-xhr=(self),usb=(),web-share=(),xr-spatial-tracking=()"
+</IfModule>
+
+
+
