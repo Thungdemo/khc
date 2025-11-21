@@ -32,15 +32,22 @@
                 <x-select class="form-select" name="notice_subcategory_id" placeholder="Select Subcategory" :options="$noticeSubcategories" :selected="old('notice_subcategory_id', $notice->notice_subcategory_id)" id="notice_subcategory_id" />
                 <span class="text-danger small">@error('notice_subcategory_id') {{ $message }} @enderror</span>
             </div>
-
             <div class="mb-3">
-                <label class="form-label">Publish Date *</label>
-                <input type="text" class="form-control datetimepicker" name="published_at"
-                       value="{{ old('published_at', $notice->published_at) }}" required>
-                <span class="text-danger small">@error('published_at') {{ $message }} @enderror</span>
+                <label class="form-label">Type</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="typeFile" value="file" {{ old('type', $notice->noticeType()) == 'file' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="typeFile">File</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="typeUrl" value="url" {{ old('type', $notice->noticeType()) == 'url' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="typeUrl">URL</label>
+                    </div>
+                </div>
+                <span class="text-danger small">@error('type') {{ $message }} @enderror</span>
             </div>
 
-            <div class="mb-3">
+            <div @class(['mb-2','d-none' => old('type', $notice->noticeType()) != 'file']) id="fileSection">
                 <label class="form-label">Upload PDF</label>
                 @if(!empty($notice->document))
                     <div class="mb-2">
@@ -50,8 +57,14 @@
                     </div>
                 @endif
                 <input type="file" class="form-control" name="document" accept="application/pdf">
-                <small class="text-muted">Upload a new PDF to replace the existing one.</small>
                 <span class="text-danger small d-block mt-1">@error('document') {{ $message }} @enderror</span>
+                <small class="text-muted">Upload a new PDF to replace the existing one. Maximum file size: {{ $maxFileSize }} KB. Allowed file type: PDF.</small>
+            </div>
+
+            <div @class(['mb-2','d-none' => old('type', $notice->noticeType()) != 'url']) id="urlSection">
+                <label class="form-label">URL *</label>
+                <input type="url" class="form-control" name="url" value="{{ old('url', $notice->url) }}" placeholder="Enter URL">
+                <span class="text-danger small">@error('url') {{ $message }} @enderror</span>
             </div>
 
             <div class="mb-4">
@@ -120,6 +133,13 @@
                         </table>
                     </div>
                 </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Publish Date *</label>
+                <input type="text" class="form-control datetimepicker" name="published_at"
+                       value="{{ old('published_at', $notice->published_at) }}" required>
+                <span class="text-danger small">@error('published_at') {{ $message }} @enderror</span>
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>

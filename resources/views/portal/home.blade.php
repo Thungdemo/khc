@@ -160,7 +160,7 @@
 									@endif
 								</div>
 								<div>
-									<a class="notif-link" href="{{$item->documentUrl()}}" target="_blank">{{$item->title}}</a>
+									<a class="notif-link" href="{{$item->noticeUrl()}}" target="_blank">{{$item->title}}</a>
 								</div>
 							</div>
 						</div>
@@ -245,7 +245,7 @@
 					<li class="list-group-item d-flex align-items-start py-1">
 						<div class="icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
 						<div class="flex-grow-1">
-							<a class="notif-link" href="{{$notice->documentUrl()}}" target="_blank">{{$notice->title}}</a>
+							<a class="notif-link" href="{{$notice->noticeUrl()}}" target="_blank">{{$notice->title}}</a>
 							<div class="post-date mt-1 mb-0">{{\App\Helpers\DateHelper::display($notice->published_at)}}</div>
 						</div>
 					</li>

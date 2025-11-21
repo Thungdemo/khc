@@ -23,26 +23,29 @@
                 <span class="text-danger small">@error('notice_subcategory_id') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="schedule" name="schedule" value="1" @checked(old('schedule'))>
-                    <label class="form-check-label" for="schedule">
-                        <i class="bi bi-clock me-1"></i>Schedule publish date
-                    </label>
+                <label class="form-label">Type</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="typeFile" value="file" {{ old('type', 'file') == 'file' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="typeFile">File</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="typeUrl" value="url" {{ old('type') == 'url' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="typeUrl">URL</label>
+                    </div>
                 </div>
-                <div class="form-text small text-muted">
-                    Check this box to set a specific publish date and time. If unchecked, the notice will be published immediately.
-                </div>
+                <span class="text-danger small">@error('type') {{ $message }} @enderror</span>
             </div>
-            <div id="publishDateSection" @class(['mb-3','d-none' => !old('schedule',false)])>
-                <label class="form-label">Publish Date</label>
-                <input type="text" class="form-control datetimepicker" name="published_at" value="{{ old('published_at') }}" placeholder="Select date and time">
-                <span class="text-danger small">@error('published_at') {{ $message }} @enderror</span>
-            </div>
-            <div class="mb-3">
+            <div @class(['mb-2','d-none' => old('type', 'file') != 'file']) id="fileSection">
                 <label class="form-label">Upload PDF *</label>
-                <input type="file" class="form-control" name="document" accept="application/pdf" required>
+                <input type="file" class="form-control" name="document" accept="application/pdf">
                 <span class="text-danger small">@error('document') {{ $message }} @enderror</span>
                 <span class="text-muted small">Maximum file size: {{ $maxFileSize }} KB. Allowed file type: PDF.</span><br>
+            </div>
+            <div @class(['mb-2','d-none' => old('type', 'file') != 'url']) id="urlSection">
+                <label class="form-label">URL *</label>
+                <input type="url" class="form-control" name="url" value="{{ old('url') }}" placeholder="Enter URL">
+                <span class="text-danger small">@error('url') {{ $message }} @enderror</span>
             </div>
 
             <!-- Additional Documents Section -->
@@ -94,6 +97,23 @@
                         </table>
                     </div>
                 </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="schedule" name="schedule" value="1" @checked(old('schedule'))>
+                    <label class="form-check-label" for="schedule">
+                        <i class="bi bi-clock me-1"></i>Schedule publish date
+                    </label>
+                </div>
+                <div class="form-text small text-muted">
+                    Check this box to set a specific publish date and time. If unchecked, the notice will be published immediately.
+                </div>
+            </div>
+            <div id="publishDateSection" @class(['mb-3','d-none' => !old('schedule',false)])>
+                <label class="form-label">Publish Date</label>
+                <input type="text" class="form-control datetimepicker" name="published_at" value="{{ old('published_at') }}" placeholder="Select date and time">
+                <span class="text-danger small">@error('published_at') {{ $message }} @enderror</span>
             </div>
 
             <div class="d-flex justify-content-between">

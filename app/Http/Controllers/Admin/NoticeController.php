@@ -42,7 +42,8 @@ class NoticeController extends Controller
             'published_at' => ['required_if:schedule,1','nullable','date'],
             'notice_category_id' => ['required', 'exists:notice_categories,id'],
             'notice_subcategory_id' => ['nullable', 'exists:notice_categories,id'],
-            'document' => ['required', 'file', 'max:'.Notice::$documentMaxSize, new Filetype(['pdf'])],
+            'document' => ['required_if:type,file', 'file', 'max:'.Notice::$documentMaxSize, new Filetype(['pdf'])],
+            'url' => ['required_if:type,url', 'nullable', 'url'],
             'notice_children' => ['nullable', 'array'],
             'notice_children.*.title' => ['required', 'string', 'max:255', new Xss],
             'notice_children.*.document' => ['required', 'file', 'max:'.NoticeChild::$documentMaxSize, new Filetype(['pdf'])],
@@ -53,9 +54,12 @@ class NoticeController extends Controller
             'published_at' => $request->schedule ? $request->published_at : now(),
             'notice_category_id' => $request->notice_category_id,
             'notice_subcategory_id' => $request->notice_subcategory_id,
+            'url' => $request->type == 'url' ? $request->url : null,
         ]);
 
-        $notice->saveDocument($request->file('document'));
+        if ($request->type == 'file') {
+            $notice->saveDocument($request->file('document'));
+        }
 
         if($request->more_documents)
         {
@@ -76,6 +80,7 @@ class NoticeController extends Controller
             'notice' => $notice,
             'noticeCategories' => NoticeCategory::pluck('name', 'id'),
             'noticeSubcategories' => NoticeCategory::where('parent_id',old('notice_category_id', $notice->notice_category_id))->pluck('name','id'),
+            'maxFileSize' => Notice::$documentMaxSize,
         ]);
     }
 
@@ -86,6 +91,7 @@ class NoticeController extends Controller
             'published_at' => ['required_if:schedule,1','nullable','date'],
             'notice_category_id' => ['required', 'exists:notice_categories,id'],
             'notice_subcategory_id' => ['nullable', 'exists:notice_categories,id'],
+            'url' => ['required_if:type,url', 'nullable', 'url'],
             'document' => ['nullable', 'file', 'max:'.Notice::$documentMaxSize, new Filetype(['pdf'])],
         ]);
 
@@ -94,9 +100,10 @@ class NoticeController extends Controller
             'published_at' => $validated['published_at'],
             'notice_category_id' => $validated['notice_category_id'],
             'notice_subcategory_id' => $validated['notice_subcategory_id'],
+            'url' => $request->type == 'url' ? $validated['url'] : null,
         ]);
 
-        if($request->hasFile('document')) 
+        if($request->type == 'file' && $request->hasFile('document')) 
         {
             $notice->documentDelete();
             $notice->saveDocument($request->file('document'));

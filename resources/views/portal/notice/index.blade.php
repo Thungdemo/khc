@@ -45,7 +45,7 @@
 								<div class="flex-grow-1">
 									<div class="d-flex justify-content-between align-items-start">
 										<div class="flex-grow-1 me-3">
-											<a class="notif-link" href="{{ $notice->documentUrl() }}" target="_blank">{{ $notice->title }}</a>
+											<a class="notif-link" href="{{ $notice->noticeUrl() }}" target="_blank">{{ $notice->title }}</a>
 											@foreach($notice->noticeChildren as $child)
 												<span class="text-muted">&nbsp;•&nbsp;</span>
 												<a class="notif-link" href="{{ $child->documentUrl() }}" target="_blank">{{ $child->title }}</a>

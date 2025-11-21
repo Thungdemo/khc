@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Notice extends Model
 {
-    /** @use HasFactory<\Database\Factories\NoticeFactory> */
     use HasFactory,AttributeHelper,HasDocument;
 
     const FILTER_PUBLISHED = 'published';
@@ -108,5 +107,18 @@ class Notice extends Model
     public function isRecentlyPublished()
     {
         return $this->published_at && Carbon::parse($this->published_at)->greaterThanOrEqualTo(now()->subDays(14));
+    }
+
+    public function noticeType()
+    {
+        return $this->url ? 'url' : 'file';
+    }
+
+    public function noticeUrl()
+    {
+        if ($this->noticeType() == 'url') {
+            return $this->url;
+        }
+        return $this->documentUrl();
     }
 }

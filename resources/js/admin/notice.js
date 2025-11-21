@@ -75,3 +75,16 @@ document.getElementById('notice_category_id').addEventListener('change', functio
         });
     });
 });
+document.querySelectorAll('input[name="type"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        const fileSection = document.getElementById('fileSection');
+        const urlSection = document.getElementById('urlSection');
+        if (this.value === 'file') {
+            fileSection.classList.remove('d-none');
+            urlSection.classList.add('d-none');
+        } else if (this.value === 'url') {
+            urlSection.classList.remove('d-none');
+            fileSection.classList.add('d-none');
+        }
+    });
+});
