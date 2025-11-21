@@ -8,16 +8,20 @@
 		<!-- Filter Section -->
 		<div class="mb-4">
 			<form method="GET" action="{{ route('portal.notice.index',$noticeCategory) }}">
-				<div class="d-flex flex-column flex-md-row gap-2 align-items-md-end">
-					<div class="flex-grow-1 w-100">
-						<label for="search" class="form-label small fw-semibold mb-1">Search Notices</label>
+				<div class="row align-items-end g-2">
+					<div class="col-12 col-md-4">
 						<input type="text" name="title" id="search" class="form-control" placeholder="Search by title or keywords..." value="{{request('title')}}">
 					</div>
-					<div class="d-flex gap-2 w-100 w-md-auto">
-						<button type="submit" class="btn btn-primary flex-fill flex-md-grow-0">
+					@if(count($noticeSubCategories) > 0)
+					<div class="col-12 col-md-3">
+						<x-select :options="$noticeSubCategories" name="notice_subcategory_id" class="form-select" placeholder="All Categories" :selected="request('notice_subcategory_id')" />
+					</div>
+					@endif
+					<div class="col-12 col-md-4">
+						<button type="submit" class="btn btn-primary">
 							<i class="bi bi-search"></i> Search
 						</button>
-						<a class="btn btn-secondary flex-fill flex-md-grow-0" href="{{route('portal.notice.index',$noticeCategory)}}">
+						<a class="btn btn-secondary" href="{{route('portal.notice.index',$noticeCategory)}}">
 							<i class="bi bi-arrow-counterclockwise"></i> Clear
 						</a>
 					</div>
