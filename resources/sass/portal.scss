@@ -4,6 +4,7 @@
 $dropdown-item-padding-y:0.5rem;
 $table-color:var(--text-color);
 $table-bg:--var(--card-bg);
+$nav-tabs-border-color:var(--border-color);
 
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
@@ -303,7 +304,7 @@ body {
 .list-notif .list-group-item {
     border: none;
     padding: 12px 0;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid var(--border-color);
     background-color: var(--card-bg);
 }
 
