@@ -45,7 +45,9 @@
 					<ul class="list-group list-notif">
 						@forelse($notices as $notice)
 							<li class="list-group-item d-flex align-items-start py-1">
-								<div class="icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+								<div class="pe-2">
+								<img src="{{asset('images/pdf.svg')}}" alt="PDF" class="pdf-icon"></div>
+								{{-- <div class="icon"><i class="bi bi-file-earmark-pdf-fill"></i></div> --}}
 								<div class="flex-grow-1">
 									<div class="d-flex justify-content-between align-items-start">
 										<div class="flex-grow-1 me-3">

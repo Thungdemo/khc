@@ -23,4 +23,5 @@ return [
     'ecourts' => 'http://ecourts.gov.in',
     'live_streaming' => 'https://www.youtube.com/@ecourtsnagaland/streams',
     'eservices_portal' => 'https://hcnlservices.in/',
+    'whatsapp_channel' => 'https://whatsapp.com/channel/0029Vach5CP42DcbQy9Gsg3o',
 ];

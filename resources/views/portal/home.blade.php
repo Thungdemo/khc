@@ -93,107 +93,18 @@
 		</div>
 	</div>
 </div>
-{{-- 
-<div class="row g-0">
-	<div class="col-md-2">
-		<div class="quick-menu-vertical h-100 bg-dark">
-			<div class="quick-menu-header text-center py-3">
-				<h6 class="text-white mb-0 fw-bold">Quick Access</h6>
-			</div>
-			<div class="quick-menu-item-wrapper">
-				<a href="{{ config('links.case_status') }}" class="quick-menu-link" target="_blank">
-					Case Status
-				</a>
-			</div>
-			<div class="quick-menu-item-wrapper">
-				<a href="#causeListMenu" class="quick-menu-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="causeListMenu">
-					Cause List
-					<i class="bi bi-chevron-down ms-2"></i>
-				</a>
-				<div class="collapse" id="causeListMenu">
-					<ul class="ps-3">
-						<li class="submenu-link">
-							<a href="{{config('links.causelist_local')}}" target="_blank">
-								Local Server
-							</a>
-						</li>
-						<li class="submenu-link">
-							<a href="{{config('links.causelist_national')}}" target="_blank">
-								National Server
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="quick-menu-item-wrapper">
-				<a href="{{ config('links.live_streaming') }}" class="quick-menu-link" target="_blank">
-					Live Streaming
-				</a>
-			</div>
-			<div class="quick-menu-item-wrapper">
-				<a href="{{ config('links.display_board') }}" class="quick-menu-link" target="_blank">
-					Display Board
-				</a>
-			</div>
-			<div class="quick-menu-item-wrapper">
-				<a href="#noticeBoardMenu" class="quick-menu-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="noticeBoardMenu">
-					Notice Board
-					<i class="bi bi-chevron-down ms-2"></i>
-				</a>
-				<div class="collapse" id="noticeBoardMenu">
-					<ul class="ps-3">
-						@foreach($noticeCategories as $noticeCategory)
-						<li class="submenu-link">
-							<a href="{{route('portal.notice.index',$noticeCategory)}}">
-								{{$noticeCategory->name}}
-							</a>
-						</li>
-							@foreach($noticeCategory->children as $childCategory)
-							<li class="submenu-link ps-5">
-								<a href="{{route('portal.notice.index',[$noticeCategory,'notice_subcategory_id'=>$childCategory->id])}}">
-									{{$childCategory->name}}
-								</a>
-							</li>
-							@endforeach
-						@endforeach
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="col-md-8 banner-full-width">
-		<div class="banner-hero">
-			<div class="hero-inner">
-				<h1 class="hero-title">Gauhati High Court Kohima Bench, Nagaland</h1>
-				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
-			</div>
-		</div>
-		<img src="{{asset('images/banner.webp')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
-	</div>
-	<div class="col-md-2">
-		<div class="card text-center h-100 banner-judge">
-			<div class="card-body">
-				<div class="swiper judges-slider">
-					<div class="swiper-wrapper">
-						@foreach($judges as $judge)
-						<div class="swiper-slide">
-							<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" style="width: 200px;border-radius: 5px;" class="mb-2">
-							<div class="h6 fw-bold px-4">{{ $judge['name'] }}</div>
-							<div class="hc-text-muted small">{{ $judge['position'] }}</div>
-						</div>
-						@endforeach
-					</div>
-				</div>
-				<div class="swiper-pagination"></div>
-			</div>
-		</div>
-	</div>
-</div> --}}
 
-<main class="container site-main">
+<div class="marquee-wrapper py-2">
+	<div class="marquee-text">
+		<a href="#" class="me-5"><i class="bi bi-megaphone"></i> Welcome to Gauhati High Court Kohima Bench, Nagaland.</a>
+		<a href="{{config('links.whatsapp_channel')}}" target="_blank" class="me-5"><i class="bi bi-whatsapp"></i> Click to follow the Official WhatsApp Channel of Gauhati High Court Kohima Bench for latest news and updates</a>
+		<a href="{{config('links.causelist_local')}}" target="_blank" class="me-5"><i class="bi bi-journal-text"></i> Access eCauselist to view case details & chronology of Orders by clicking on Case Number</a>
+	</div>
+</div>
+
+<main class="container mt-3">
 	<section class="services-section mb-4">
-		<div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
+		<div class="services-row d-flex align-items-stretch justify-content-between flex-nowrap">
 		@foreach([
 			['title'=>'Case Status','icon'=>'bi bi-search service-icon','url'=>config('links.case_status')],
 			['title'=>'Cause List','icon'=>'bi bi-journal-text service-icon','url'=>config('links.causelist_local')],
@@ -202,7 +113,7 @@
 			['title'=>'eCourts','icon'=>'bi bi bi-globe service-icon','url'=>config('links.ecourts')],
 			['title'=>'Live Streaming','icon'=>'bi bi-camera-video service-icon','url'=>config('links.live_streaming')]
 		] as $service)
-		<div class="service-tile d-flex">
+		<div class="service-tile">
 			<a href="{{$service['url']}}" class="service-card" target="_blank external-link">
 				<i class="{{$service['icon']}}"></i>
 				<h5 class="fw-bold">{{$service['title']}}</h5>
@@ -226,8 +137,8 @@
 						@foreach($items as $item)
 						<div class="col-md-6">
 							<div class="news-item">
-								<div class="post-date mb-1 d-flex align-items-center justify-content-between">
-									<div>
+								<div class="mb-1 d-flex align-items-center justify-content-between">
+									<div class="post-date ">
 										<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
 									</div>
 									@if($item->isRecentlyPublished())

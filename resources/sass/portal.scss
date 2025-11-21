@@ -91,6 +91,28 @@ body {
     }
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+.marquee-wrapper {
+	background: var(--theme-primary); 
+	position: relative; 
+	overflow: hidden;
+}
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: marquee 25s linear infinite;
+  font-weight: 500;
+}
+.marquee-text a {
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+}
+
 .nav-link.active {
     border-bottom: 2px solid var(--bs-link-hover-color) !important;
     border-radius: 10px 10px 0 0 !important;
@@ -203,7 +225,7 @@ body {
 }
 .notif-link {
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-color)
 }
 .notif-link:hover {
@@ -328,10 +350,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 160px;
+    width: 140px;
     aspect-ratio: 1 / 1;
-    height: auto; /* controlled by aspect-ratio */
     text-decoration: none; /* if wrapped in link later */
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .service-tile {
@@ -339,10 +363,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.service-card:hover {
-    transform: scale(1.05);
 }
 
 .service-icon {
