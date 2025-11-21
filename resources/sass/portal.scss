@@ -24,6 +24,73 @@ body {
     color: var(--text-color);
 }
 
+.banner-section {
+    display: flex;
+    height: 400px;
+    position: relative;
+}
+.banner-left, .banner-image, .banner-text, .banner-right {
+    height: 100%;
+}
+.banner-left, .banner-right {
+    backdrop-filter: blur(5px);
+}
+.banner-left {
+    position: absolute;
+    width: 20%;
+    left: 0;
+    overflow-y:auto;
+    background: color-mix(in srgb, var(--theme-primary) 90%, transparent);
+}
+.banner-image {
+    width: 100%;
+    background-image: url('../images/banner.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+.banner-text {
+    width: 60%;
+    background: linear-gradient(90deg, rgba(7, 18, 34, 0.62) 0%, rgba(7, 18, 34, 0.28) 30%, rgba(7, 18, 34, 0.08) 60%, rgba(7, 18, 34, 0) 100%);
+    display: flex;
+    align-items: center;
+}
+.banner-right {
+    width: 20%;
+    position: absolute;
+    right: 0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .banner-section {
+        flex-direction: column;
+        height: auto;
+    }
+    .banner-left, .banner-right, .banner-text, .banner-image {
+        width: 100%;
+        position: relative;
+    }
+    .banner-left{
+        height: auto;
+    }
+    .banner-right, .banner-text, .banner-image {
+        height: 350px;
+    }
+}
+
 .nav-link.active {
     border-bottom: 2px solid var(--bs-link-hover-color) !important;
     border-radius: 10px 10px 0 0 !important;
