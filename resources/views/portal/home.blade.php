@@ -1,5 +1,163 @@
 @extends('layouts.portal')
 @section('content')
+<style>
+	.banner-section {
+		display: flex;
+		height: 400px;
+		position: relative;
+	}
+	.banner-left, .banner-image, .banner-text, .banner-right {
+		height: 100%;
+	}
+	.banner-left, .banner-right {
+		backdrop-filter: blur(5px);
+	}
+	.banner-left {
+		position: absolute;
+		width: 20%;
+		left: 0;
+		overflow-y:auto;
+		background: color-mix(in srgb, var(--theme-primary) 90%, transparent);
+	}
+	.banner-image {
+		width: 100%;
+		background-image: url("{{asset('images/banner.webp')}}");
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		justify-content: center;
+	}
+	.banner-text {
+		width: 60%;
+		background: linear-gradient(90deg, rgba(7, 18, 34, 0.62) 0%, rgba(7, 18, 34, 0.28) 30%, rgba(7, 18, 34, 0.08) 60%, rgba(7, 18, 34, 0) 100%);
+		display: flex;
+		align-items: center;
+	}
+	.banner-right {
+		width: 20%;
+		position: absolute;
+		right: 0;
+	}
+	::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.5);
+		border-radius: 10px;
+	}
+	@media (max-width: 768px) {
+		.banner-section {
+			flex-direction: column;
+			height: auto;
+		}
+		.banner-left, .banner-right, .banner-text, .banner-image {
+			width: 100%;
+			position: relative;
+			height: auto;
+		}
+		.banner-text{
+			font-size: 0.8rem;
+		}
+	}
+</style>
+<div class="banner-section">
+	<div class="banner-left">
+		<div class="quick-menu-vertical">
+			<div class="quick-menu-header text-center py-3">
+				<h6 class="text-white mb-0 fw-bold">Quick Access</h6>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="{{ config('links.case_status') }}" class="quick-menu-link" target="_blank">
+					Case Status
+				</a>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="#causeListMenu" class="quick-menu-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="causeListMenu">
+					Cause List
+					<i class="bi bi-chevron-down ms-2"></i>
+				</a>
+				<div class="collapse" id="causeListMenu">
+					<ul class="ps-3">
+						<li class="submenu-link">
+							<a href="{{config('links.causelist_local')}}" target="_blank">
+								Local Server
+							</a>
+						</li>
+						<li class="submenu-link">
+							<a href="{{config('links.causelist_national')}}" target="_blank">
+								National Server
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="{{ config('links.live_streaming') }}" class="quick-menu-link" target="_blank">
+					Live Streaming
+				</a>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="{{ config('links.display_board') }}" class="quick-menu-link" target="_blank">
+					Display Board
+				</a>
+			</div>
+			<div class="quick-menu-item-wrapper">
+				<a href="#noticeBoardMenu" class="quick-menu-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="noticeBoardMenu">
+					Notice Board
+					<i class="bi bi-chevron-down ms-2"></i>
+				</a>
+				<div class="collapse" id="noticeBoardMenu">
+					<ul class="ps-3">
+						@foreach($noticeCategories as $noticeCategory)
+						<li class="submenu-link">
+							<a href="{{route('portal.notice.index',$noticeCategory)}}">
+								{{$noticeCategory->name}}
+							</a>
+						</li>
+							@foreach($noticeCategory->children as $childCategory)
+							<li class="submenu-link ps-5">
+								<a href="{{route('portal.notice.index',[$noticeCategory,'notice_subcategory_id'=>$childCategory->id])}}">
+									{{$childCategory->name}}
+								</a>
+							</li>
+							@endforeach
+						@endforeach
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="banner-image">
+		<div class="banner-text">
+			<div class="ps-3 w-75">
+				<h1 class="hero-title">Gauhati High Court Kohima Bench Nagaland</h1>
+				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="banner-right">
+		<div class="text-center banner-judge">
+			<div class="swiper judges-slider">
+				<div class="swiper-wrapper">
+					@foreach($judges as $judge)
+					<div class="swiper-slide">
+						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" style="width: 200px;border-radius: 5px;" class="mb-2">
+						<div class="h6 fw-bold px-4 mb-0">{{ $judge['name'] }}</div>
+						<div class="small">{{ $judge['position'] }}</div>
+					</div>
+					@endforeach
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+</div>
+{{-- 
 <div class="row g-0">
 	<div class="col-md-2">
 		<div class="quick-menu-vertical h-100 bg-dark">
@@ -94,25 +252,6 @@
 				<div class="swiper-pagination"></div>
 			</div>
 		</div>
-	</div>
-</div>
-
-{{-- <div class="banner-full-width">
-	<img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
-	<div class="banner-hero">
-		<div class="container">
-			<div class="hero-inner">
-				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
-				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
-			</div>
-		</div>
-	</div>
-	<div class="profile-card profile-overlay d-none d-md-block">
-		<div>
-			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="">
-		</div>
-		<div class="mb-1 text-center fw-bold">Hon’ble Mr. Justice Rajesh Mazumdar</div>
-		<div class="text-muted small text-center">Station Judge</div>
 	</div>
 </div> --}}
 
