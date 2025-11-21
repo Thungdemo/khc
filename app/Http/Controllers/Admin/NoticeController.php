@@ -21,7 +21,8 @@ class NoticeController extends Controller
     {
         return view('admin.notice.index',[
             'notices' => Notice::filter($request)->newest()->paginate(config('khc.pagination')),
-            'noticeCategories' => NoticeCategory::pluck('name', 'id')
+            'noticeCategories' => NoticeCategory::pluck('name', 'id'),
+            'statuses' => Notice::FILTER_STATUSES,
         ]);
     }
 

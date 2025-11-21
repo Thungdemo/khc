@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title',512);
             $table->string('filename')->nullable();
+            $table->string('url',512)->nullable();
             $table->foreignId('notice_category_id')->constrained();
             $table->foreignId('notice_subcategory_id')->nullable()->constrained('notice_categories');
             $table->timestamp('published_at')->nullable();

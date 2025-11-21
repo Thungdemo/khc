@@ -15,6 +15,14 @@ class Notice extends Model
     /** @use HasFactory<\Database\Factories\NoticeFactory> */
     use HasFactory,AttributeHelper,HasDocument;
 
+    const FILTER_PUBLISHED = 'published';
+    const FILTER_SCHEDULED = 'scheduled';
+
+    const FILTER_STATUSES = [
+        Notice::FILTER_PUBLISHED => 'Published',
+        Notice::FILTER_SCHEDULED => 'Scheduled',
+    ];
+
     protected $datetimeable = ['published_at'];
 
     protected $guarded = [];
@@ -37,6 +45,21 @@ class Notice extends Model
 
         if ($request->title) {
             $query->where('title', 'like', '%' . $request->title . '%');
+        }
+
+        if ($request->status) {
+            if ($request->status == Notice::FILTER_PUBLISHED) 
+            {
+                $query->where('published_at', '<=', now()->toDatetimeString());
+            }
+
+            if($request->status == Notice::FILTER_SCHEDULED) 
+            {
+                $query->where(function ($q) {
+                    $q->whereNull('published_at')
+                      ->orWhere('published_at', '>', now()->toDatetimeString());
+                });
+            }
         }
 
         return $query;

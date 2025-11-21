@@ -46,13 +46,16 @@ document.addEventListener('click', function(e) {
         row.remove();
     }
 });
-document.getElementById('schedule').addEventListener('change', function() {
-    if (this.checked) {
-        document.getElementById('publishDateSection').classList.remove('d-none');
-    } else {
-        document.getElementById('publishDateSection').classList.add('d-none');
-    }
-});
+const scheduleCheckbox = document.getElementById('schedule');
+if(scheduleCheckbox!==null){
+    document.getElementById('schedule').addEventListener('change', function() {
+        if (this.checked) {
+            document.getElementById('publishDateSection').classList.remove('d-none');
+        } else {
+            document.getElementById('publishDateSection').classList.add('d-none');
+        }
+    });
+}
 document.getElementById('notice_category_id').addEventListener('change', function() {
     const select = document.getElementById('notice_subcategory_id');
     select.innerHTML = '<option value="">Loading...</option>';

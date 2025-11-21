@@ -19,6 +19,10 @@
                 <label class="form-label small mb-1">Category</label>
                 <x-select :options="$noticeCategories" name="notice_category_id" class="form-select form-select-sm" placeholder="All Categories" :selected="request('notice_category_id')" />
             </div>
+            <div class="col-md-3">
+                <label class="form-label small mb-1">Status</label>
+                <x-select :options="$statuses" name="status" class="form-select form-select-sm" placeholder="All Statuses" :selected="request('status')" />
+            </div>
             <div class="col-md-3 d-flex gap-2">
                 <button type="submit" class="btn btn-sm btn-primary">Search</button>
                 <a href="{{route('admin.notice.index')}}" class="btn btn-sm btn-secondary">Clear</a>
