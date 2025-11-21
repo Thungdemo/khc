@@ -251,6 +251,24 @@
 				</div>
 			</div>
 		</footer>
+
+		<div class="modal" id="external-link-modal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">External Link Warning</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						You are being redirected to an external website not maintained by us. Do you wish to continue?
+					</div>
+					<div class="modal-footer d-flex justify-content-between">
+						<button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+						<a href="#" class="btn btn-primary ok-btn">OK</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		@vite('resources/js/portal.js')
 	</body>
 </html>

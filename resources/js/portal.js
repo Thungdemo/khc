@@ -3,7 +3,7 @@ import 'bootstrap';
 import './portal/calendar';
 import Swiper from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
-
+import { Modal } from 'bootstrap';
 function setTheme(theme, button) {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
@@ -41,24 +41,40 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('fontReset').addEventListener('click', () => setScale(1));
 
     // Initialize Swiper sliders
-    var swiper = new Swiper(".judges-slider", {
+    new Swiper(".judges-slider", {
         modules: [Pagination, Autoplay],
         pagination: {
-            el: ".swiper-pagination",
+            el: ".judges-pagination",
         },
         loop: true,
-        // autoplay: {
-        //     delay: 4000,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    new Swiper(".ln-slider", {
+        modules: [Pagination, Autoplay],
+        pagination: {
+            el: ".ln-pagination",
+        },
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
     });
 
     document.querySelectorAll('.external-link').forEach(link => {
         link.addEventListener('click', (e) => {
-            if(!confirm('You are being redirected to an external website not maintained by us. Do you wish to continue?')) {
-                e.preventDefault();
-                return;
-            }
+            e.preventDefault();
+            const url = link.href;
+            const okBtn = document.querySelector("#external-link-modal .ok-btn");
+            okBtn.setAttribute("href", url);
+            const modal = new Modal(
+                document.getElementById("external-link-modal")
+            );
+            modal.show();
         });
     });
 });

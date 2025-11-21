@@ -89,7 +89,7 @@
 					@endforeach
 				</div>
 			</div>
-			<div class="swiper-pagination"></div>
+			<div class="swiper-pagination judges-pagination"></div>
 		</div>
 	</div>
 </div>
@@ -125,19 +125,19 @@
 		@endforeach
 	</section>
 
-	<div class="card-wrap p-3 mb-4">
+	<div class="card-wrap p-3 mb-4" style="position: relative;">
 		<div class="d-flex justify-content-between align-items-start">
 			<h4 class="mb-3 fw-bold">Latest News & Updates</h4>
 		</div>
-		<div id="newsCarousel" class="carousel slide news-carousel" data-bs-ride="carousel">
-			<div class="carousel-inner">
+		<div class="swiper ln-slider">
+			<div class="swiper-wrapper">
 				@foreach($latestNews->chunk(2) as $items)
-				<div class="carousel-item {{$loop->first?'active':''}}">
+				<div class="swiper-slide">
 					<div class="row g-3">
 						@foreach($items as $item)
 						<div class="col-md-6">
 							<div class="news-item">
-								<div class="mb-1 d-flex align-items-center justify-content-between">
+								<div class="mb-1 d-flex align-items-center">
 									<div class="post-date ">
 										<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
 									</div>
@@ -155,15 +155,8 @@
 				</div>
 				@endforeach
 			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-			</button>
 		</div>
+		<div class="swiper-pagination ln-pagination"></div>
 	</div>
 
 	<!-- Activities Section -->
@@ -183,8 +176,8 @@
 								<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
 							</div>
 							<div class="p-3">
-								<div class="post-date">
-									<i class="bi bi-calendar3 me-2"></i>
+								<div class="post-date mb-2">
+									<i class="bi bi-calendar3 me-1"></i>
 									{{ $activity->published_at }}
 								</div>
 								<h6 class="activity-title">{{ $activity->title }}</h6>

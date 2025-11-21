@@ -232,20 +232,7 @@ body {
     color: var(--bs-link-hover-color);
 }
 
-.news-carousel .carousel-control-prev-icon,
-.news-carousel .carousel-control-next-icon {
-        background-color: rgba(32,58,106,0.9);
-        border-radius: 6px;
-        width: 36px;
-        height: 36px;
-}
-
 @media (max-width: 768px) {
-    /* On small screens, let each carousel slide show one item (the columns will stack) */
-    .news-carousel .carousel-item .col-md-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
     .app-downloads .download-box { flex-direction: column; gap: 8px; }
     .app-downloads .download-text { text-align: center; }
     .download-buttons .d-none.d-sm-block { display: none !important; }
@@ -267,29 +254,6 @@ body {
         font-size: 1rem;
     }
 }
-
-/* Place controls inside the news box; add inner padding to carousel-inner so cards don't get overlapped */
-.card-wrap .carousel-inner {
-    padding-left: 64px; /* space for left control */
-    padding-right: 64px; /* space for right control */
-}
-
-.card-wrap .carousel-control-prev,
-.card-wrap .carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 20;
-    background: rgba(32,58,106,0.95);
-    border-radius: 8px;
-    border: none;
-}
-
 .news-item {
     border-radius: 10px;
     padding: 14px;
@@ -632,7 +596,6 @@ footer ul li a:hover {
 .post-date {
     font-size: 0.85rem;
     color: var(--text-muted);
-    margin-bottom: 8px;
 }
 
 .gallery-caption{
@@ -721,4 +684,9 @@ table.pdf-table a {
         list-style: none;
         margin: 0;
     }
+}
+.modal-backdrop.show {
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
 }
