@@ -31,7 +31,7 @@ class NoticeController extends Controller
         return view('admin.notice.create',[
             'noticeCategories' => NoticeCategory::isParent()->pluck('name', 'id'),
             'maxFileSize' => Notice::$documentMaxSize,
-            'noticeSubcategories' => NoticeCategory::where('parent_id',old('notice_category_id'))->pluck('name','id'),
+            'noticeSubcategories' => NoticeCategory::whereNotNull('parent_id')->where('parent_id', old('notice_category_id'))->pluck('name', 'id'),
         ]);
     }
 
@@ -79,7 +79,7 @@ class NoticeController extends Controller
         return view('admin.notice.edit',[
             'notice' => $notice,
             'noticeCategories' => NoticeCategory::pluck('name', 'id'),
-            'noticeSubcategories' => NoticeCategory::where('parent_id',old('notice_category_id', $notice->notice_category_id))->pluck('name','id'),
+            'noticeSubcategories' => NoticeCategory::whereNotNull('parent_id')->where('parent_id',old('notice_category_id', $notice->notice_category_id))->pluck('name','id'),
             'maxFileSize' => Notice::$documentMaxSize,
         ]);
     }
