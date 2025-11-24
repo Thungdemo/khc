@@ -6,6 +6,7 @@ use App\Models\Notice;
 use App\Models\NoticeChild;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Mockery\Matcher\Not;
 
 class NoticeSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class NoticeSeeder extends Seeder
      */
     public function run(): void
     {
-        $notices = Notice::factory(200)->create();
+        $notices = Notice::factory(100)->create();
 
         // Create 1 NoticeChild for every 10 notices seeded
         $notices->each(function ($notice, $index) {
@@ -24,5 +25,6 @@ class NoticeSeeder extends Seeder
                 ]);
             }
         });
+        Notice::factory()->withUrl()->count(100)->create();
     }
 }

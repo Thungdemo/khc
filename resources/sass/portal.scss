@@ -301,17 +301,13 @@ body {
 }
 
 .list-notif .icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
-    background: #ffecec;
+    color: red;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    color: #b34040;
+    margin-right: 5px;
 }
-
+.list-notif .icon i{
+    font-size: 1.1rem;
+}
 .services-section {
     margin-top: 10px;
 }

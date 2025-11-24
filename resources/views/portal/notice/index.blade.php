@@ -45,13 +45,17 @@
 					<ul class="list-group list-notif">
 						@forelse($notices as $notice)
 							<li class="list-group-item d-flex align-items-start py-1">
-								<div class="pe-2">
-								<img src="{{asset('images/pdf.svg')}}" alt="PDF" class="pdf-icon"></div>
+								{{-- <div class="pe-2">
+									<img src="{{asset('images/pdf.svg')}}" alt="PDF" class="pdf-icon">
+								</div> --}}
 								{{-- <div class="icon"><i class="bi bi-file-earmark-pdf-fill"></i></div> --}}
 								<div class="flex-grow-1">
 									<div class="d-flex justify-content-between align-items-start">
 										<div class="flex-grow-1 me-3">
-											<a class="notif-link" href="{{ $notice->noticeUrl() }}" target="_blank">{{ $notice->title }}</a>
+											<a class="notif-link" href="{{ $notice->noticeUrl() }}" target="_blank">
+												<div class="icon"><i class="bi {{$notice->url ? 'bi-link-45deg' : 'bi-file-pdf'}}"></i></div>
+												{{ $notice->title }}
+											</a>
 											@foreach($notice->noticeChildren as $child)
 												<span class="text-muted">&nbsp;•&nbsp;</span>
 												<a class="notif-link" href="{{ $child->documentUrl() }}" target="_blank">{{ $child->title }}</a>

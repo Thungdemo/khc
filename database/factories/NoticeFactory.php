@@ -26,4 +26,14 @@ class NoticeFactory extends Factory
             'filename' => 'dummy/notice.pdf',
         ];
     }
+
+    public function withUrl(): static
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'url' => fake()->url(),
+                'filename' => null,
+            ];
+        });
+    }
 }
