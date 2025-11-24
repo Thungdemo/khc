@@ -28,7 +28,7 @@
           <div class="card-body">
             <h6 class="card-title">{{ $album->title }}</h6>
             <div class="d-flex justify-content-between align-items-center">
-              <small class="text-muted">
+              <small class="hc-text-muted">
                 <i class="bi bi-images me-1"></i>{{ $album->galleryImages->count() }} {{ Str::plural('photo', $album->galleryImages->count()) }}
               </small>
             </div>
@@ -46,11 +46,6 @@
     @endforelse
   </div>
 
-  <!-- Pagination -->
-  @if($albums->hasPages())
-    <div class="d-flex justify-content-center mt-4">
-      {{ $albums->links() }}
-    </div>
-  @endif
+  {{ $albums->links() }}
 </div>
 @endsection

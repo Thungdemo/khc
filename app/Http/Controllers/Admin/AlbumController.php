@@ -19,7 +19,7 @@ class AlbumController extends Controller
     {
         $albums = Album::withCount('galleryImages')
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(config('khc.pagination'));
 
         return view('admin.album.index', compact('albums'));
     }
@@ -40,6 +40,7 @@ class AlbumController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'publish_date' => 'required|date',
         ]);
 
         Album::create($validated);
@@ -65,6 +66,7 @@ class AlbumController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'publish_date' => 'required|date',
         ]);
 
         $album->update($validated);

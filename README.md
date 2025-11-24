@@ -21,7 +21,7 @@ A comprehensive web portal system for Gauhati High Court Kohima Bench built with
 
 Follow these step-by-step instructions to deploy the application to production.
 
-### 1. Server Requirements
+### Server Requirements
 
 Ensure your production server meets these requirements:
 
@@ -32,7 +32,7 @@ Ensure your production server meets these requirements:
 - **Database**: MySQL 8.0+ or PostgreSQL 13+
 - **Web Server**: Apache or Nginx
 
-### 2. Clone and Setup
+### Clone and Setup
 
 ```bash
 # Clone the repository
@@ -44,7 +44,7 @@ composer install --optimize-autoloader --no-dev
 npm install
 ```
 
-### 3. Environment Configuration
+### Environment Configuration
 
 ```bash
 # Copy environment file
@@ -80,7 +80,7 @@ MAIL_USERNAME=your-email
 MAIL_PASSWORD=your-password
 ```
 
-### 4. Database Setup
+### Database Setup
 
 ```bash
 # Run database migrations
@@ -88,13 +88,13 @@ php artisan migrate --force
 # Seed the database (optional)
 php artisan db:seed --force
 ```
-### 5. Build Assets for Production (Required every time you change css and js)
+### Build Assets for Production (Required every time you change css and js)
 ```bash
 # Build and optimize assets
 npm run build
 ```
 
-### 6. Storage and Permissions
+### Storage and Permissions
 
 ```bash
 # Create symbolic link for storage
@@ -104,7 +104,7 @@ chmod -R 755 storage bootstrap/cache
 chown -R www-data:www-data storage bootstrap/cache
 ```
 
-### 10. Cron Jobs (Optional)
+### Cron Jobs (Optional)
 
 Add Laravel scheduler to crontab:
 
@@ -116,7 +116,7 @@ crontab -e
 ```
 Replace `/path/to/khc` to the full path to your actual project in the server
 
-### 7. Create an Admin User (via Tinker)
+### Create an Admin User (via Tinker)
 
 To create an admin user manually, use Laravel Tinker:
 
@@ -143,3 +143,28 @@ Adjust the fields as needed for your user model and roles.
 - Hide powered by php in production server
 - Use strong server and database passwords
 - Implement proper backup policies. Backup folder `storage/app` and database at least weekly.
+
+### Increase PHP Upload Limit (50MB)
+
+To allow uploads up to 50MB, update your `php.ini` file:
+
+1. Find your `php.ini` file location. You can run:
+
+	```bash
+	php --ini
+	```
+
+2. Edit `php.ini` and set:
+
+	```ini
+	upload_max_filesize = 50M
+	post_max_size = 50M
+	```
+
+3. Restart your Apache web server:
+
+	```bash
+	sudo systemctl restart apache2
+	```
+
+This will allow file uploads up to 50MB in your Laravel application.

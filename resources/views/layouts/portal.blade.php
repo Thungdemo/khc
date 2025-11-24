@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<header class="site-header sticky-top">
-			<div class="container py-2">
+			<div class="container py-1">
 				<div class="logo-row">
 					<div class="d-flex align-items-center">
 						<a href="{{ url('/') }}" class="logo-link">
@@ -147,9 +147,11 @@
 								<li><a class="nav-link" href="{{config('links.causelist_national')}}" target="_blank">Cause List (National Server)</a></li>
 								<li><a class="nav-link" href="{{config('links.causelist_local')}}" target="_blank">Cause List (Local Server)</a></li>
 								<li><a class="nav-link" href="{{config('links.case_status')}}" target="_blank">Case Status</a></li>
+								<li><a class="nav-link" href="{{config('links.njdg')}}" target="_blank">NJDG</a></li>
+								<li><a class="nav-link" href="{{config('links.ecourts')}}" target="_blank">eCourts</a></li>
 								<li><a class="nav-link" href="{{config('links.neutral_citation')}}" target="_blank">Neutral Citation</a></li>
 								<li><a class="nav-link" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
-								<li><a class="nav-link" href="#">Statistics</a></li>
+								<li><a class="nav-link" href="{{route('portal.statistics.index')}}">Statistics</a></li>
 								<li><a class="nav-link" href="{{route('portal.library.index')}}">Library</a></li>
 								<li><a class="nav-link" href="{{route('portal.form-download.index')}}">Downloads</a></li>
 								<li><a class="nav-link" href="{{config('links.justice_clock')}}" target="_blank">Virtual Justice Clock</a></li>
@@ -171,6 +173,9 @@
 							<ul class="list-unstyled ps-3">
 								@foreach($navbarNotices as $item)
 								<li><a class="nav-link" href="{{route('portal.notice.index',$item)}}">{{$item->name}}</a></li>
+								@foreach($item->children as $child)
+								<li class="ps-4"><a class="nav-link" href="{{route('portal.notice.index',$child)}}">{{$child->name}}</a></li>
+								@endforeach
 								@endforeach
 							</ul>
 						</div>

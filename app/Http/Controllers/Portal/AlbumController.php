@@ -13,7 +13,7 @@ class AlbumController extends Controller
     {
         $albums = Album::has('galleryImages')
             ->with(['coverImage', 'galleryImages'])
-            ->latest()
+            ->orderBy('publish_date', 'desc')
             ->paginate(config('khc.pagination'));
 
         return view('portal.album.index', compact('albums'));

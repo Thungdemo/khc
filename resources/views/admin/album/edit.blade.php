@@ -13,7 +13,12 @@
                 <input type="text" class="form-control" name="title" value="{{ old('title', $album->title) }}" placeholder="Enter album title" required>
                 <span class="text-danger small">@error('title') {{ $message }} @enderror</span>
             </div>
-
+            
+            <div class="mb-3">
+                <label class="form-label">Date *</label>
+                <input type="text" class="form-control datepicker" name="publish_date" value="{{ old('publish_date', $album->publish_date) }}" placeholder="Enter album date" required>
+                <span class="text-danger small">@error('publish_date') {{ $message }} @enderror</span>
+            </div>
             <div class="mb-3">
                 <label class="form-label">Description</label>
                 <textarea class="form-control" name="description" rows="4" placeholder="Enter album description">{{ old('description', $album->description) }}</textarea>

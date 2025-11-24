@@ -13,7 +13,7 @@
             <thead class="table-dark">
                 <tr>
                     <th>Title</th>
-                    <th>Description</th>
+                    <th>Date</th>
                     <th>Images Count</th>
                     <th>Options</th>
                 </tr>
@@ -21,8 +21,8 @@
             <tbody>
                 @forelse ($albums as $album)
                 <tr>
-                    <td><strong>{{ $album->title }}</strong></td>
-                    <td>{{ Str::limit($album->description, 50) ?: 'No description' }}</td>
+                    <td>{{ $album->title }}</td>
+                    <td>{{ $album->publish_date }}</td>
                     <td>
                         {{ $album->gallery_images_count }} images
                     </td>
@@ -59,7 +59,5 @@
         </table>
     </div>
 
-    <div class="d-flex justify-content-center mt-4">
-        {{ $albums->links() }}
-    </div>
+    {{ $albums->links() }}
 @endsection
