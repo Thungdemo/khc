@@ -14,6 +14,7 @@ class NoticeController extends Controller
             'noticeCategories' => NoticeCategory::isParent()->sort()->get(),
             'noticeCategory' => $noticeCategory,
             'notices' => $noticeCategory->notices()->filter($request)->published()->newest()->paginate(config('khc.pagination')),
+            'noticeSubCategories' => $noticeCategory->children()->pluck('name', 'id'),
         ]);
     }
 }

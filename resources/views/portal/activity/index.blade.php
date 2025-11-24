@@ -13,7 +13,7 @@
                     <img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
                 </div>
                 <div class="p-3">
-                    <div class="post-date">
+                    <div class="post-date mb-2">
                         <i class="bi bi-calendar3 me-2"></i>
                         {{ \App\Helpers\DateHelper::display($activity->published_at) }}
                     </div>

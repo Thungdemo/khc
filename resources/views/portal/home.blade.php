@@ -1,8 +1,8 @@
 @extends('layouts.portal')
 @section('content')
-<div class="row g-0">
-	<div class="col-md-2">
-		<div class="quick-menu-vertical h-100 bg-dark">
+<div class="banner-section">
+	<div class="banner-left">
+		<div class="quick-menu-vertical">
 			<div class="quick-menu-header text-center py-3">
 				<h6 class="text-white mb-0 fw-bold">Quick Access</h6>
 			</div>
@@ -67,58 +67,44 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="col-md-8 banner-full-width">
-		<div class="banner-hero">
-			<div class="hero-inner">
-				<h1 class="hero-title">Gauhati High Court Kohima Bench, Nagaland</h1>
+	<div class="banner-image">
+		<div class="banner-text">
+			<div class="ps-3 w-75">
+				<h1 class="hero-title">Gauhati High Court Kohima Bench Nagaland</h1>
 				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
 			</div>
 		</div>
-		<img src="{{asset('images/banner.webp')}}" alt="Gauhati High Court Kohima Bench" class="h-100 object-fit-cover">
 	</div>
-	<div class="col-md-2">
-		<div class="card text-center h-100 banner-judge">
-			<div class="card-body">
-				<div class="swiper judges-slider">
-					<div class="swiper-wrapper">
-						@foreach($judges as $judge)
-						<div class="swiper-slide">
-							<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" style="width: 200px;border-radius: 5px;" class="mb-2">
-							<div class="h6 fw-bold px-4">{{ $judge['name'] }}</div>
-							<div class="hc-text-muted small">{{ $judge['position'] }}</div>
-						</div>
-						@endforeach
+	
+	<div class="banner-right">
+		<div class="text-center banner-judge">
+			<div class="swiper judges-slider">
+				<div class="swiper-wrapper">
+					@foreach($judges as $judge)
+					<div class="swiper-slide">
+						<img src="{{ $judge['image'] }}" alt="{{ $judge['name'] }}" style="width: 200px;border-radius: 5px;" class="mb-2">
+						<div class="h6 fw-bold px-4 mb-0">{{ $judge['name'] }}</div>
+						<div class="small">{{ $judge['position'] }}</div>
 					</div>
+					@endforeach
 				</div>
-				<div class="swiper-pagination"></div>
 			</div>
+			<div class="swiper-pagination judges-pagination"></div>
 		</div>
 	</div>
 </div>
 
-{{-- <div class="banner-full-width">
-	<img src="{{asset('images/banner.png')}}" alt="banner" class="banner-image">
-	<div class="banner-hero">
-		<div class="container">
-			<div class="hero-inner">
-				<h1 class="hero-title">Gauhati High Court Kohima Bench</h1>
-				<p class="hero-sub">Access case status, cause lists, notices and eServices in one place.</p>
-			</div>
-		</div>
+<div class="marquee-wrapper py-2">
+	<div class="marquee-text">
+		<a href="#" class="me-5"><i class="bi bi-megaphone"></i> Welcome to Gauhati High Court Kohima Bench, Nagaland.</a>
+		<a href="{{config('links.whatsapp_channel')}}" target="_blank" class="me-5"><i class="bi bi-whatsapp"></i> Click to follow the Official WhatsApp Channel of Gauhati High Court Kohima Bench for latest news and updates</a>
+		<a href="{{config('links.causelist_local')}}" target="_blank" class="me-5"><i class="bi bi-journal-text"></i> Access eCauselist to view case details & chronology of Orders by clicking on Case Number</a>
 	</div>
-	<div class="profile-card profile-overlay d-none d-md-block">
-		<div>
-			<img src="https://kohimahighcourt.gov.in/JudgesProfile/Rajesh_Mazumdar1.jpg" alt="judge" class="">
-		</div>
-		<div class="mb-1 text-center fw-bold">Hon’ble Mr. Justice Rajesh Mazumdar</div>
-		<div class="text-muted small text-center">Station Judge</div>
-	</div>
-</div> --}}
+</div>
 
-<main class="container site-main">
+<main class="container mt-3">
 	<section class="services-section mb-4">
-		<div class="services-row d-flex align-items-stretch justify-content-center flex-nowrap">
+		<div class="services-row d-flex align-items-stretch justify-content-between flex-nowrap">
 		@foreach([
 			['title'=>'Case Status','icon'=>'bi bi-search service-icon','url'=>config('links.case_status')],
 			['title'=>'Cause List','icon'=>'bi bi-journal-text service-icon','url'=>config('links.causelist_local')],
@@ -127,7 +113,7 @@
 			['title'=>'eCourts','icon'=>'bi bi bi-globe service-icon','url'=>config('links.ecourts')],
 			['title'=>'Live Streaming','icon'=>'bi bi-camera-video service-icon','url'=>config('links.live_streaming')]
 		] as $service)
-		<div class="service-tile d-flex">
+		<div class="service-tile">
 			<a href="{{$service['url']}}" class="service-card" target="_blank external-link">
 				<i class="{{$service['icon']}}"></i>
 				<h5 class="fw-bold">{{$service['title']}}</h5>
@@ -139,20 +125,20 @@
 		@endforeach
 	</section>
 
-	<div class="card-wrap p-3 mb-4">
+	<div class="card-wrap p-3 mb-4" style="position: relative;">
 		<div class="d-flex justify-content-between align-items-start">
 			<h4 class="mb-3 fw-bold">Latest News & Updates</h4>
 		</div>
-		<div id="newsCarousel" class="carousel slide news-carousel" data-bs-ride="carousel">
-			<div class="carousel-inner">
+		<div class="swiper ln-slider">
+			<div class="swiper-wrapper">
 				@foreach($latestNews->chunk(2) as $items)
-				<div class="carousel-item {{$loop->first?'active':''}}">
+				<div class="swiper-slide">
 					<div class="row g-3">
 						@foreach($items as $item)
 						<div class="col-md-6">
 							<div class="news-item">
-								<div class="post-date mb-1 d-flex align-items-center justify-content-between">
-									<div>
+								<div class="mb-1 d-flex align-items-center">
+									<div class="post-date ">
 										<i class="bi bi-calendar3 me-2"></i>{{\App\Helpers\DateHelper::display($item->published_at)}}
 									</div>
 									@if($item->isRecentlyPublished())
@@ -169,15 +155,8 @@
 				</div>
 				@endforeach
 			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-			</button>
 		</div>
+		<div class="swiper-pagination ln-pagination"></div>
 	</div>
 
 	<!-- Activities Section -->
@@ -197,8 +176,8 @@
 								<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
 							</div>
 							<div class="p-3">
-								<div class="post-date">
-									<i class="bi bi-calendar3 me-2"></i>
+								<div class="post-date mb-2">
+									<i class="bi bi-calendar3 me-1"></i>
 									{{ $activity->published_at }}
 								</div>
 								<h6 class="activity-title">{{ $activity->title }}</h6>
