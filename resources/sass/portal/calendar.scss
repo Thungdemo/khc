@@ -20,12 +20,9 @@
             font-weight: 600;
         }
     }
-    
     .fc-scrollgrid {
-        border-color: #dee2e6;
+        border-color: var(--border-color);
     }
-    
-    
     .fc-daygrid-day-number {
         padding: 0.15rem;
         font-size: 0.9rem;
