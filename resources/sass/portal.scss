@@ -18,9 +18,9 @@ $list-group-action-hover-color:var(--text-color);
 @import 'variables';
 @import 'portal/calendar';
 @import "flatpickr/dist/flatpickr.min.css";
-@import 'chocolat/dist/css/chocolat.css';
 @import 'swiper/css';
 @import 'swiper/css/pagination';
+@import 'chocolat.scss';
 
 html{
     font-size: var(--font-size);
@@ -530,9 +530,6 @@ footer ul li a:hover {
 
 .offcanvas .nav-link{
     color: black !important;
-}
-.chocolat-overlay{
-    background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 .activity-card {
