@@ -5,7 +5,14 @@ $dropdown-item-padding-y:0.5rem;
 $table-color:var(--text-color);
 $table-bg:--var(--card-bg);
 $nav-tabs-border-color:var(--border-color);
-
+$card-bg:var(--card-bg);
+$card-color:var(--text-color);
+$card-border-color:var(--border-color);
+$list-group-bg:var(--card-bg);
+$list-group-hover-bg:var(--card-bg);
+$list-group-border-color:var(--border-color);
+$list-group-action-color:var(--text-color);
+$list-group-action-hover-color:var(--text-color);
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import 'variables';
@@ -142,7 +149,11 @@ body {
 
 /* Logo link and image (moved from inline styles) */
 .logo-row .logo-link { display: inline-flex; align-items: center; margin-right: 8px; }
-.logo-row .logo-img { width: 60px; height: auto; display: block; }
+.logo-row .logo-img { 
+    width: 60px;
+    height: 65px; 
+    display: block; 
+}
 
 .logo-title {
     font-weight: 700;
@@ -155,7 +166,7 @@ body {
 }
 
 .nav-row {
-    margin-top: 8px;
+    // margin-top: 8px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     // padding-top: 4px;
 }

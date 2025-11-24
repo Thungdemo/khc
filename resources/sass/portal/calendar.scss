@@ -73,6 +73,9 @@
         background-color: var(--restricted-color) !important;
         border-color: var(--restricted-color);
     }
+    .fc-day-sun .fc-daygrid-day-number {
+        color: red !important;
+    }
 }
 
 #portalCalendar {
