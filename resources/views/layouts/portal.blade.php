@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<header class="site-header sticky-top">
+		<header class="site-header sticky-top" style="z-index: 10">
 			<div class="container py-1">
 				<div class="logo-row">
 					<div class="d-flex align-items-center">
@@ -19,13 +19,33 @@
 							<div class="logo-title">{{config('app.full_name')}}</div>
 						</div>
 					</div>
-					<div class="controls d-none d-md-flex">
-						<button class="control-btn" id="fontInc" type="button" aria-label="Increase font size">A+</button>
-						<button class="control-btn" id="fontReset" type="button" aria-label="Reset font size">A</button>
-						<button class="control-btn" id="fontDec" type="button" aria-label="Decrease font size">A-</button>
-						<button class="control-btn" id="themeToggle" type="button" aria-label="Toggle theme">
-							<i class="bi bi-brightness-high" aria-hidden="true"></i>
+
+					<div class="dropdown">
+						<button class="btn btn-light" type="button" id="accessibility" data-bs-toggle="dropdown"  data-bs-auto-close="outside">
+							<i class="bi bi-universal-access" aria-hidden="true"></i>
+							<span class="visually-hidden">Accessibility </span>
 						</button>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accessibility" style="min-width: 250px;">
+							
+							<div class="p-3">
+								<div class="mb-3">
+									<div class="fw-bold mb-2">Contrast Options</div>
+									<button class="btn btn-light border themeToggle" id="themeLight" data-theme="light" type="button" aria-label="Toggle theme">
+										<i class="bi bi-brightness-high" aria-hidden="true"></i> Light
+									</button>
+									<button class="btn btn-light border themeToggle" id="themeDark" data-theme="dark" type="button" aria-label="Toggle theme">
+										<i class="bi bi bi-moon-fill" aria-hidden="true"></i> Dark
+									</button>
+								</div>
+								<hr class="dropdown-divider">
+								<div>
+									<div class="fw-bold mb-2">Text Size</div>
+									<button class="btn btn-light border" id="fontInc" type="button" aria-label="Increase font size">A+</button>
+									<button class="btn btn-light border" id="fontReset" type="button" aria-label="Reset font size">A</button>
+									<button class="btn btn-light border" id="fontDec" type="button" aria-label="Decrease font size">A-</button>
+								</div>
+							</div>
+						</ul>
 					</div>
 				</div>
 			</div>

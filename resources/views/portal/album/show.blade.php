@@ -30,9 +30,9 @@
 
   <!-- Photos Grid -->
   @if($album->galleryImages->count() > 0)
-    <div class="row g-3" id="album-gallery">
+    <div class="row g-3 chocolat-parent" id="album-gallery">
       @foreach($album->galleryImages as $image)
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-3 chocolat-parent">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
           <a class="figure chocolat-image text-decoration-none" href="{{ $image->imageUrl() }}">
             <div class="position-relative">
               <img src="{{ $image->imageUrl() }}" class="img-fluid rounded" style="height: 200px; width: 100%; object-fit: cover;" alt="{{ $image->title ?: 'Gallery Image' }}">
@@ -60,20 +60,4 @@
     </div>
   @endif
 </div>
-
-@push('scripts')
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize chocolat for image gallery
-    if (typeof Chocolat !== 'undefined' && document.querySelector('.chocolat-image')) {
-        Chocolat(document.querySelectorAll('.chocolat-image'), {
-            loop: true,
-            imageSize: 'contain',
-            fullScreen: true
-        });
-    }
-});
-</script>
-@endpush
-
 @endsection

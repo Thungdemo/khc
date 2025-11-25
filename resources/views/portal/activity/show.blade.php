@@ -4,11 +4,11 @@
 	<div class="row g-4">
 		<!-- Main Content -->
 		<div class="col-lg-8">
-			<article class="card shadow-sm border-0">
+			<article class="card shadow-sm border-0 chocolat-parent">
 				@if($activity->photoUrl())
-				<div class="activity-featured-image">
+				<a class="activity-featured-image chocolat-image" href="{{ $activity->photoUrl() }}">
 					<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="card-img-top" style="height: 400px; object-fit: cover;">
-				</div>
+				</a>
 				@endif
 				<div class="card-body p-4">
 					<div class="post-date mb-3">

@@ -3,7 +3,6 @@
 	<div class="container site-main">
 		<div class="mb-4">
 			<h2 class="mb-1 fw-bold">Notice Board</h2>
-			<p class="text-muted mb-0">Browse official notices, circulars, tenders and announcements</p>
 		</div>
 		<!-- Filter Section -->
 		<div class="mb-4">

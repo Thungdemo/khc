@@ -125,7 +125,7 @@
 		@endforeach
 	</section>
 
-	<div class="card-wrap p-3 mb-4" style="position: relative;">
+	<div class="card-wrap p-3 mb-4">
 		<div class="d-flex justify-content-between align-items-start">
 			<h4 class="mb-3 fw-bold">Latest News & Updates</h4>
 		</div>
@@ -156,7 +156,7 @@
 				@endforeach
 			</div>
 		</div>
-		<div class="swiper-pagination ln-pagination"></div>
+		<div style="position: static" class="swiper-pagination ln-pagination"></div>
 	</div>
 
 	<!-- Activities Section -->
@@ -224,6 +224,7 @@
 					<li class="list-group-item d-flex align-items-start py-1">
 						{{-- <div class="icon"><i class="bi bi-file-earmark-pdf-fill"></i></div> --}}
 						<div class="flex-grow-1">
+							<div class="icon"><i class="bi {{$notice->url ? 'bi-link-45deg' : 'bi-file-pdf'}}"></i></div>
 							<a class="notif-link" href="{{$notice->noticeUrl()}}" target="_blank">{{$notice->title}}</a>
 							<div class="post-date mt-1 mb-0">{{\App\Helpers\DateHelper::display($notice->published_at)}}</div>
 						</div>
