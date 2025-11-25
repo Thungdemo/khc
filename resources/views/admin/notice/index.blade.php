@@ -13,7 +13,7 @@
         <form class="row g-3 align-items-end">
             <div class="col-md-3">
                 <label class="form-label small mb-1">Title</label>
-                <input type="text" class="form-control form-control-sm" placeholder="Title" name="title">
+                <input type="text" class="form-control form-control-sm" placeholder="Title" name="title" value="{{ request('title') }}">
             </div>
             <div class="col-md-3">
                 <label class="form-label small mb-1">Category</label>

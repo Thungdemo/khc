@@ -4,7 +4,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="mb-0">Notices</h4>
+        <h4 class="mb-0">Users</h4>
         <a class="btn btn-primary" href="{{route('admin.user.create')}}">Add User</a>
     </div>
 
@@ -26,7 +26,7 @@
         </form>
     </div> --}}
 
-    <div class="table-responsive">
+    <div class="">
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>

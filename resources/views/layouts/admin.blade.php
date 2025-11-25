@@ -17,7 +17,7 @@
 					<small class="text-secondary">Dashboard</small>
 				</div>
 				<nav class="nav flex-column">
-					<a class="nav-link active" href="{{route('admin.dashboard.index')}}"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+					<a class="nav-link" href="{{route('admin.dashboard.index')}}"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
 					@can('cms')
 					<div class="sidemenu-divider text-secondary fw-semibold">
 						Content Management

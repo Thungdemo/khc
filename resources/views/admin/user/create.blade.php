@@ -5,7 +5,7 @@
 @section('content')
     <h4 class="mb-4">Create User</h4>
     <div class="bg-white p-4 rounded shadow-sm">
-        <form action="{{ route('admin.user.store') }}" class="confirm-submit" method="POST">
+        <form action="{{ route('admin.user.store') }}" class="safe-submit" method="POST">
             @csrf
             <div class="mb-3">
                 <label class="form-label">Name *</label>

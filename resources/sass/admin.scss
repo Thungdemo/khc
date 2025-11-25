@@ -121,3 +121,7 @@ body.login-body {
 .row-options{
   @extend .btn, .btn-sm, .btn-light, .py-0;
 }
+.dashboard-card{
+  text-decoration: none;
+  padding: 20px;
+}

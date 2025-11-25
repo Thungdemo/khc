@@ -150,7 +150,7 @@
 							</ul>
 						</div>
 					</li>
-					<li class="nav-item">
+					{{-- <li class="nav-item">
 						<a class="nav-link" data-bs-toggle="collapse" href="#courtToolsMenu" role="button">Court Tools</a>
 						<div class="collapse" id="courtToolsMenu">
 							<ul class="list-unstyled ps-3">
@@ -159,7 +159,7 @@
 								<li><a class="nav-link" href="{{config('links.eservices_portal')}}" target="_blank">eServices Portal</a></li>
 							</ul>
 						</div>
-					</li>
+					</li> --}}
 					<li class="nav-item">
 						<a class="nav-link" data-bs-toggle="collapse" href="#servicesSubmenu" role="button">Services</a>
 						<div class="collapse" id="servicesSubmenu">
@@ -225,10 +225,10 @@
 						<h6>Contact & Info</h6>
 						<div class="footer-contact">
 							<p class="mb-1">Gauhati High Court Kohima Bench,<br>Old Minister's Hill, Kohima, Nagaland - 797001</p>
-							<p class="mb-1">Site last updated: 10-10-2025</p>
+							<p class="mb-1">Site last updated: {{$lastUpdatedAt}}</p>
 							<p class="mb-1">Visitor count: <span id="visitorCount">2,34,567</span></p>
 							<p class="mb-0">
-								<a href="#" class="text-white me-2" aria-label="YouTube channel"><i class="bi bi-youtube fs-5"></i></a>
+								<a href="https://www.youtube.com/@ecourtsnagaland" target="_blank" class="text-white me-2" aria-label="YouTube channel"><i class="bi bi-youtube fs-5"></i></a>
 								<a href="#" class="text-white me-2" aria-label="Twitter"><i class="bi bi-twitter fs-5"></i></a>
 								<a href="#" class="text-white" aria-label="Facebook"><i class="bi bi-facebook fs-5"></i></a>
 							</p>

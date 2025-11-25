@@ -5,16 +5,16 @@
 @section('content')
     <h4 class="mb-4">Create Notice</h4>
     <div class="bg-white p-4 rounded shadow-sm">
-        <form action="{{ route('admin.notice.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.notice.store') }}" method="POST" enctype="multipart/form-data" class="safe-submit">
             @csrf
             <div class="mb-3">
                 <label class="form-label">Title *</label>
-                <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter notice title" required>
+                <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter notice title" rrr>
                 <span class="text-danger small">@error('title') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Category *</label>
-                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :value="old('notice_category_id')" id="notice_category_id" required/>
+                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :value="old('notice_category_id')" id="notice_category_id" rrr/>
                 <span class="text-danger small">@error('notice_category_id') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->date('doj');
-            $table->date('served_till');
+            $table->date('served_till')->nullable();
             $table->foreignId('ag_category_id')->constrained('ag_categories');
             $table->timestamps();
         });

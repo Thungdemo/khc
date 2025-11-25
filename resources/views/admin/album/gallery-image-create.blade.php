@@ -5,7 +5,7 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.album.gallery-images.store', $album) }}" class="confirm-submit" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.album.gallery-images.store', $album) }}" class="safe-submit" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Image *</label>

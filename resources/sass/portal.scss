@@ -13,7 +13,7 @@ $list-group-hover-bg:var(--card-bg);
 $list-group-border-color:var(--border-color);
 $list-group-action-color:var(--text-color);
 $list-group-action-hover-color:var(--text-color);
-
+$table-border-color:var(--border-color);
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import 'variables';

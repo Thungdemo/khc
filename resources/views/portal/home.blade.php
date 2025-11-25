@@ -30,10 +30,15 @@
 						</li>
 					</ul>
 				</div>
+				<div class="quick-menu-item-wrapper">
+					<a href="{{ config('links.live_streaming') }}" class="quick-menu-link" target="_blank">
+						Live Streaming
+					</a>
+				</div>
 			</div>
 			<div class="quick-menu-item-wrapper">
-				<a href="{{ config('links.live_streaming') }}" class="quick-menu-link" target="_blank">
-					Live Streaming
+				<a href="{{ config('links.eservices_portal') }}" class="quick-menu-link" target="_blank">
+					eServices Portal
 				</a>
 			</div>
 			<div class="quick-menu-item-wrapper">

@@ -25,11 +25,11 @@
             </div>
             <div class="col-md-2">
                 <label class="form-label small mb-1">Start Date</label>
-                <input type="date" class="form-control form-control-sm" name="start_date" value="{{ request('start_date') }}">
+                <input type="text" class="form-control form-control-sm datepicker" name="start_date" value="{{ request('start_date') }}">
             </div>
             <div class="col-md-2">
                 <label class="form-label small mb-1">End Date</label>
-                <input type="date" class="form-control form-control-sm" name="end_date" value="{{ request('end_date') }}">
+                <input type="text" class="form-control form-control-sm datepicker" name="end_date" value="{{ request('end_date') }}">
             </div>
             <div class="col-md-3 d-flex gap-2">
                 <button type="submit" class="btn btn-sm btn-primary">Search</button>
@@ -56,9 +56,7 @@
                         <td>{{ $calendar->start_date }}</td>
                         <td>{{ $calendar->end_date }}</td>
                         <td>
-                            <span class="badge bg-{{ $calendar->type == 'national' ? 'success' : 'warning text-dark' }}">
-                                {{ ucfirst($calendar->type) }}
-                            </span>
+                            {{ ucfirst($calendar->type) }}
                         </td>
                         <td>
                             <div class="dropdown">

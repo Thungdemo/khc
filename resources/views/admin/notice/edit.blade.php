@@ -5,7 +5,7 @@
 @section('content')
     <h4 class="mb-4">Edit Notice</h4>
     <div class="bg-white p-4 rounded shadow-sm">
-        <form action="{{ route('admin.notice.update', $notice->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.notice.update', $notice->id) }}" method="POST" enctype="multipart/form-data"  class="safe-submit">
             @csrf
             @method('PUT')
 

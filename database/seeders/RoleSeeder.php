@@ -15,7 +15,7 @@ class RoleSeeder extends Seeder
     {
         Role::insert([
             ['id' => 1, 'name' => 'admin', 'display_name' => 'Admin','guard_name'=>'web'],
-            ['id' => 2, 'name' => 'cms', 'display_name' => 'CMS Manager','guard_name'=>'web']
+            ['id' => 2, 'name' => 'cms', 'display_name' => 'CMS Manager','guard_name'=>'web'],
         ]);
     }
 }
