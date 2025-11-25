@@ -21,8 +21,8 @@
 					</div>
 
 					<div class="dropdown">
-						<button class="btn btn-light" type="button" id="accessibility" data-bs-toggle="dropdown"  data-bs-auto-close="outside">
-							<i class="bi bi-universal-access" aria-hidden="true"></i>
+						<button class="btn text-white" type="button" id="accessibility" data-bs-toggle="dropdown"  data-bs-auto-close="outside">
+							<i class="bi bi-universal-access-circle fs-4" aria-hidden="true"></i>
 							<span class="visually-hidden">Accessibility </span>
 						</button>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accessibility" style="min-width: 250px;">
@@ -219,7 +219,7 @@
 		<!-- Full-width banner with overlapping profile card -->
 		@yield('content')
 		<footer>
-			<div class="container" style="font-size:0.85em">
+			<div class="container" style="font-size:0.9em">
 				<div class="row text-md-start">
 					<div class="col-md-3 mb-3">
 						<h6>Contact & Info</h6>
@@ -228,9 +228,9 @@
 							<p class="mb-1">Site last updated: 10-10-2025</p>
 							<p class="mb-1">Visitor count: <span id="visitorCount">2,34,567</span></p>
 							<p class="mb-0">
-								<a href="#" class="text-white me-2" aria-label="YouTube channel"><i class="bi bi-youtube"></i></a>
-								<a href="#" class="text-white me-2" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-								<a href="#" class="text-white" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+								<a href="#" class="text-white me-2" aria-label="YouTube channel"><i class="bi bi-youtube fs-5"></i></a>
+								<a href="#" class="text-white me-2" aria-label="Twitter"><i class="bi bi-twitter fs-5"></i></a>
+								<a href="#" class="text-white" aria-label="Facebook"><i class="bi bi-facebook fs-5"></i></a>
 							</p>
 						</div>
 					</div>

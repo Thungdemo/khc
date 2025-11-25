@@ -1,7 +1,7 @@
 @extends('layouts.portal')
 @section('content')
 <div class="banner-section">
-	<div class="banner-left">
+	<div class="banner-left" id="quickMenu">
 		<div class="quick-menu-vertical">
 			<div class="quick-menu-header text-center py-3">
 				<h6 class="text-white mb-0 fw-bold">Quick Access</h6>

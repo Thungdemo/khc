@@ -8,6 +8,9 @@ import { Modal } from 'bootstrap';
 function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
+    document.querySelectorAll('.themeToggle').forEach(button => {
+        button.dataset.theme === theme ? button.classList.add('active') : button.classList.remove('active');
+    });
 }
 // Load theme from localStorage on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,10 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.themeToggle').forEach(button => {
         button.addEventListener('click', function() {
             const theme = button.dataset.theme;
-            setTheme(theme, button);
+            setTheme(theme);
         });
     });
 
+    // font size adjustment
     const MIN_SCALE = 0.8;
     const MAX_SCALE = 1.4;
     const STEP = 0.05;
@@ -61,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
+    // External link modal
     document.querySelectorAll('.external-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -74,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Initialize Chocolat for image lightbox
     if (typeof Chocolat !== 'undefined' && document.querySelector('.chocolat-image')) {
         Chocolat(document.querySelectorAll('.chocolat-image'), {
             loop: true,
@@ -81,4 +87,17 @@ document.addEventListener('DOMContentLoaded', function() {
             fullScreen: true
         });
     }
+
+    const scrollBox = document.getElementById("quickMenu");
+    const collapseEl = document.getElementById("noticeBoardMenu");
+    collapseEl.addEventListener('shown.bs.collapse', function () {
+        const overflowing = scrollBox.scrollHeight > scrollBox.clientHeight;
+        if (overflowing) {
+            scrollBox.scrollTo({
+                top: scrollBox.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+    });
 });

@@ -84,9 +84,9 @@ MAIL_PASSWORD=your-password
 
 ```bash
 # Run database migrations
-php artisan migrate --force
+php artisan migrate
 # Seed the database (optional)
-php artisan db:seed --force
+php artisan db:seed
 ```
 ### Build Assets for Production (Required every time you change css and js)
 ```bash
