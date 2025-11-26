@@ -92,7 +92,7 @@
 										<li><a class="dropdown-item" href="{{route('portal.form-download.index')}}">Downloads</a></li>
 										<li><a class="dropdown-item" href="{{config('links.justice_clock')}}" target="_blank">Virtual Justice Clock</a></li>
 										<li><a class="dropdown-item" href="#">eCommittee Newsletters</a></li>
-										<li><a class="dropdown-item" href="{{config('links.mact_dashboard')}}" target="_blank">MACT Dashboard</a></li>
+										<li><a class="dropdown-item" href="{{route('portal.mact.index')}}" target="_blank">MACT Dashboard</a></li>
 										<li><a class="dropdown-item" href="{{config('links.mact')}}" target="_blank">MACT Information Portal</a></li>
 										<li><a class="dropdown-item" href="#">RTI</a></li>
 										<li><a class="dropdown-item" href="{{config('links.escr')}}" target="_blank">eSCR Judgements & Orders</a></li>
@@ -176,7 +176,7 @@
 								<li><a class="nav-link" href="{{route('portal.form-download.index')}}">Downloads</a></li>
 								<li><a class="nav-link" href="{{config('links.justice_clock')}}" target="_blank">Virtual Justice Clock</a></li>
 								<li><a class="nav-link" href="#">eCommittee Newsletters</a></li>
-								<li><a class="nav-link" href="{{config('links.mact_dashboard')}}" target="_blank">MACT Dashboard</a></li>
+								<li><a class="nav-link" href="{{route('portal.mact.index')}}" target="_blank">MACT Dashboard</a></li>
 								<li><a class="nav-link" href="{{config('links.mact')}}" target="_blank">MACT Information Portal</a></li>
 								<li><a class="nav-link" href="#">RTI</a></li>
 								<li><a class="nav-link" href="{{config('links.escr')}}" target="_blank">eSCR Judgements & Orders</a></li>
@@ -255,6 +255,7 @@
 							<li><a href="{{ route('portal.about') }}">About</a></li>
 							<li><a href="{{ route('portal.album.index')}}">Gallery</a></li>
 							<li><a href="{{ route('portal.contact.index') }}">Contact</a></li>
+							<li><a target="_blank" href="{{ asset('sitemap.xml') }}">Sitemap</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3 mb-3">
