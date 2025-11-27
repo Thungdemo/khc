@@ -63,7 +63,7 @@
 									<a class="nav-link dropdown-toggle" href="#" id="court-tools-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Court Tools</a>
 									<ul class="dropdown-menu" aria-labelledby="court-tools-menu">
 										<li><a class="dropdown-item" href="{{config('links.live_streaming')}}" target="_blank">Live Streaming</a></li>
-										<li><a class="dropdown-item" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
+										<li><a class="dropdown-item" href="{{url('board/display')}}" target="_blank">Display Board</a></li>
 										<li><a class="dropdown-item" href="{{config('links.eservices_portal')}}" target="_blank">eServices Portal</a></li>
 									</ul>
 								</li>
@@ -86,7 +86,7 @@
 										<li><a class="dropdown-item" href="{{config('links.causelist_local')}}" target="_blank">Cause List (Local Server)</a></li>
 										<li><a class="dropdown-item" href="{{config('links.case_status')}}" target="_blank">Case Status</a></li>
 										<li><a class="dropdown-item" href="{{config('links.neutral_citation')}}" target="_blank">Neutral Citation</a></li>
-										<li><a class="dropdown-item" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
+										<li><a class="dropdown-item" href="{{url('board/display')}}" target="_blank">Display Board</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.statistics.index')}}">Statistics</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.library.index')}}">Library</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.form-download.index')}}">Downloads</a></li>
@@ -150,16 +150,6 @@
 							</ul>
 						</div>
 					</li>
-					{{-- <li class="nav-item">
-						<a class="nav-link" data-bs-toggle="collapse" href="#courtToolsMenu" role="button">Court Tools</a>
-						<div class="collapse" id="courtToolsMenu">
-							<ul class="list-unstyled ps-3">
-								<li><a class="nav-link" href="{{config('links.live_streaming')}}" target="_blank">Live Streaming</a></li>
-								<li><a class="nav-link" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
-								<li><a class="nav-link" href="{{config('links.eservices_portal')}}" target="_blank">eServices Portal</a></li>
-							</ul>
-						</div>
-					</li> --}}
 					<li class="nav-item">
 						<a class="nav-link" data-bs-toggle="collapse" href="#servicesSubmenu" role="button">Services</a>
 						<div class="collapse" id="servicesSubmenu">
@@ -170,7 +160,7 @@
 								<li><a class="nav-link" href="{{config('links.njdg')}}" target="_blank">NJDG</a></li>
 								<li><a class="nav-link" href="{{config('links.ecourts')}}" target="_blank">eCourts</a></li>
 								<li><a class="nav-link" href="{{config('links.neutral_citation')}}" target="_blank">Neutral Citation</a></li>
-								<li><a class="nav-link" href="{{config('links.display_board')}}" target="_blank">Display Board</a></li>
+								<li><a class="nav-link" href="{{url('board/display')}}" target="_blank">Display Board</a></li>
 								<li><a class="nav-link" href="{{route('portal.statistics.index')}}">Statistics</a></li>
 								<li><a class="nav-link" href="{{route('portal.library.index')}}">Library</a></li>
 								<li><a class="nav-link" href="{{route('portal.form-download.index')}}">Downloads</a></li>
