@@ -7,7 +7,7 @@
     @vite('resources/sass/admin.scss')
 </head>
 <body class="login-body">
-    <div>
+    <div class="mt-5">
         <div class="logo">
             <div class="text-center  text-light">
                 <img src="{{asset('images/logo.png')}}" alt="Logo" style="height: 100px;">
@@ -23,6 +23,7 @@
             © {{ date('Y') }} {{config('app.full_name')}}. All rights reserved.
         </small>
     </footer>
+    @vite(['resources/js/admin.js'])
     @stack('scripts')
 </body>
 </html>

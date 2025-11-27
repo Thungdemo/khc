@@ -54,4 +54,15 @@ Chocolat(document.querySelectorAll('.chocolat-parent .chocolat-image'),{
 });
 // init Bootstrap popovers
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new Popover(popoverTriggerEl))
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new Popover(popoverTriggerEl));
+
+document.querySelectorAll('.safe-submit').forEach(form => {
+    form.addEventListener('submit', function(event) {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.classList.add('disabled');
+            submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Submitting...`;
+        }
+    });
+});

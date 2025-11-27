@@ -103,14 +103,15 @@ body.login-body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
 }
 .login-card {
+    
     background: #fff;
     border-radius: 10px;
     padding: 2rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    width: 400px;
+    // width: 400px;
     border: 2px solid #dfdfdf;
 }
 .logo {

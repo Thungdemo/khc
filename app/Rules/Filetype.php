@@ -13,6 +13,8 @@ class Filetype implements ValidationRule
         'jpeg' => 'image/jpeg',
         'png' => 'image/png',
         'webp' => 'image/webp',
+        'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'xls' => 'application/vnd.ms-excel',
     ];
 
     protected array $allowedTypes;

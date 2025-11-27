@@ -3,11 +3,11 @@
 
     @section('content')
         <div class="login-card">
-            <form method="POST" action="{{ route('admin.login') }}">
+            <form method="POST" action="{{ route('admin.login') }}" class="safe-submit">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" autocomplete="off" autofocus>
                     @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -32,18 +32,18 @@
                     @enderror
                 </div>
                 @endif
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="remember">
                         <label class="form-check-label" for="remember">Remember me</label>
                     </div>
-                </div>
+                </div> --}}
 
                 <button type="submit" class="btn btn-dark w-100">LOG IN</button>
                 
-                <div class="mt-3 text-end">
+                {{-- <div class="mt-3 text-end">
                     <a href="{{ route('admin.password.request') }}" class="text-decoration-none small">Forgot your password?</a>
-                </div>
+                </div> --}}
             </form>
         </div>
     @endsection

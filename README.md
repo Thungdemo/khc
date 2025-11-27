@@ -72,13 +72,19 @@ CACHE_DRIVER=file
 SESSION_DRIVER=file
 QUEUE_CONNECTION=sync
 
-# Mail Configuration (if needed)
+# Mail Configuration (Needed for 2 factory authentication)
 MAIL_MAILER=smtp
 MAIL_HOST=your-smtp-server
 MAIL_PORT=587
 MAIL_USERNAME=your-email
 MAIL_PASSWORD=your-password
+
+# IMPORTANT enable captcha and 2fa
+CAPTCHA=true
+2FA=true
 ```
+
+<strong>IMPORTANT! enable captcha and 2 factor authentication for Production. Update smtp credentials to use 2 factor authentication.</strong>
 
 ### Database Setup
 
@@ -104,18 +110,6 @@ chmod -R 755 storage bootstrap/cache
 chown -R www-data:www-data storage bootstrap/cache
 ```
 
-### Cron Jobs (Optional)
-
-Add Laravel scheduler to crontab:
-
-```bash
-# Edit crontab
-crontab -e
-# Add this line
-* * * * * cd /path/to/khc && php artisan schedule:run >> /dev/null 2>&1
-```
-Replace `/path/to/khc` to the full path to your actual project in the server
-
 ### Create an Admin User (via Tinker)
 
 To create an admin user manually, use Laravel Tinker:
@@ -136,15 +130,7 @@ $user->save();
 $user->roles()->attach(1);
 ```
 
-Adjust the fields as needed for your user model and roles.
-
-## Security TODO LIST
-
-- Hide powered by php in production server
-- Use strong server and database passwords
-- Implement proper backup policies. Backup folder `storage/app` and database at least weekly.
-
-### Increase PHP Upload Limit (50MB)
+### Increase PHP Upload Limit in Production Server(50MB)
 
 To allow uploads up to 50MB, update your `php.ini` file:
 
@@ -168,3 +154,40 @@ To allow uploads up to 50MB, update your `php.ini` file:
 	```
 
 This will allow file uploads up to 50MB in your Laravel application.
+
+### Apache: Allow .htaccess Overrides (private server)
+
+If you're deploying to a private Apache server and need to allow Laravel's `.htaccess` (or other per-directory overrides), ensure Apache is configured to allow overrides and that `mod_rewrite` is enabled. The important setting is `AllowOverride` — it must be set to `All` for the application's `public` directory (or the directory you want `.htaccess` to work in).
+
+Typical steps (Ubuntu / Debian):
+
+1. Enable `mod_rewrite`:
+
+```bash
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+```
+
+2. Update your Apache site configuration (example `/etc/apache2/sites-available/000-default.conf` or your VirtualHost file) and set `AllowOverride All` for the directory that serves your application (pointing to the `public` folder):
+
+```apache
+<VirtualHost *:80>
+	ServerName yourdomain.com
+	DocumentRoot /var/www/khc/public
+
+	<Directory /var/www/khc/public>
+		AllowOverride All
+		Require all granted
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/khc-error.log
+	CustomLog ${APACHE_LOG_DIR}/khc-access.log combined
+</VirtualHost>
+```
+
+3. Restart Apache:
+
+```bash
+sudo systemctl restart apache2
+```
+

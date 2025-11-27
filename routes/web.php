@@ -127,7 +127,6 @@ Route::name('portal.')->group(function () {
     Route::get('statistics',[App\Http\Controllers\Portal\StatisticsController::class,'index'])->name('statistics.index');
     Route::get('form-downloads',[App\Http\Controllers\Portal\FormDownloadController::class,'index'])->name('form-download.index');
     Route::get('library',[App\Http\Controllers\Portal\LibraryController::class,'index'])->name('library.index');
-    Route::get('sitemap.xml', [App\Http\Controllers\Portal\SitemapController::class, 'index'])->name('sitemap');
     Route::get('mact', [App\Http\Controllers\Portal\MactController::class, 'index'])->name('mact.index');
 });
 
