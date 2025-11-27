@@ -1,5 +1,10 @@
 @extends('layouts.portal')
 @section('content')
+
+<style>
+	
+</style>
+
 <div class="banner-section">
 	<div class="banner-left" id="quickMenu">
 		<div class="quick-menu-vertical">
@@ -107,9 +112,9 @@
 	</div>
 </div>
 
-<main class="container mt-3">
-	<section class="services-section mb-4">
-		<div class="services-row d-flex align-items-stretch justify-content-between flex-nowrap">
+<main class="container">
+	<section class="my-4">
+		<div class="d-flex flex-wrap justify-content-evenly justify-content-lg-between gap-4">
 		@foreach([
 			['title'=>'Case Status','icon'=>'bi bi-search service-icon','url'=>config('links.case_status')],
 			['title'=>'Cause List','icon'=>'bi bi-journal-text service-icon','url'=>config('links.causelist_local')],
@@ -122,9 +127,6 @@
 			<a href="{{$service['url']}}" class="service-card" target="_blank external-link">
 				<i class="{{$service['icon']}}"></i>
 				<h5 class="fw-bold">{{$service['title']}}</h5>
-				{{-- 
-				<p class="text-muted mb-0">Track your case status easily</p>
-				--}}
 			</a>
 		</div>
 		@endforeach
@@ -163,57 +165,62 @@
 		</div>
 		<div style="position: static" class="swiper-pagination ln-pagination"></div>
 	</div>
+</main>
 
-	<!-- Activities Section -->
-	<div class="row g-4 mb-4">
-		<!-- Notice Board - Left Side (Larger) -->
-		<div class="col-lg-8">
-			<div class="card-wrap p-3 mb-4 h-100">
-				<div class="d-flex justify-content-between align-items-center mb-3">
-					<h4 class="mb-0 fw-bold">Recent Activities</h4>
-					<a href="{{ route('portal.activity.index') }}" class="link-primary small">View all</a>
-				</div>
-				<div class="row g-3">
-					@foreach($activities as $activity)
-					<div class="col-sm-12 col-md-6">
-						<a class="activity-card " href="{{ route('portal.activity.show', $activity) }}">
-							<div class="activity-image">
-								<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
-							</div>
-							<div class="p-3">
-								<div class="post-date mb-2">
-									<i class="bi bi-calendar3 me-1"></i>
-									{{ $activity->published_at }}
-								</div>
-								<h6 class="activity-title">{{ $activity->title }}</h6>
-								<p class="activity-description">
-									{{ Str::limit(strip_tags($activity->description),100) }}
-								</p>
-							</div>
-						</a>
+<section class="bg-band mb-4">
+	<div class="container" style="opacity: 0.9">
+		<div class="row g-4">
+			<!-- Notice Board - Left Side (Larger) -->
+			<div class="col-lg-8">
+				<div class="card-wrap p-3 mb-4 h-100">
+					<div class="d-flex justify-content-between align-items-center mb-3">
+						<h4 class="mb-0 fw-bold">Recent Activities</h4>
+						<a href="{{ route('portal.activity.index') }}" class="link-primary small">View all</a>
 					</div>
-					@endforeach
+					<div class="row g-3">
+						@foreach($activities as $activity)
+						<div class="col-sm-12 col-md-6">
+							<a class="activity-card " href="{{ route('portal.activity.show', $activity) }}">
+								<div class="activity-image">
+									<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
+								</div>
+								<div class="p-3">
+									<div class="post-date mb-2">
+										<i class="bi bi-calendar3 me-1"></i>
+										{{ $activity->published_at }}
+									</div>
+									<h6 class="activity-title">{{ $activity->title }}</h6>
+									<p class="activity-description">
+										{{ Str::limit(strip_tags($activity->description),100) }}
+									</p>
+								</div>
+							</a>
+						</div>
+						@endforeach
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-lg-4">
-			<div class="card-wrap p-3">
-				<h5 class="fw-bold mb-3">Calendar</h5>
-				<div id="portalCalendar" data-events='@json($calendarEvents)'></div>
-				<div class="calendar-legend mt-2">
-					<div class="d-flex align-items-center gap-1">
-						<div class="calendar-legend-color legend-national"></div>
-						<span>National</span>
-					</div>
-					<div class="d-flex align-items-center gap-1">
-						<div class="calendar-legend-color legend-restricted"></div>
-						<span>Restricted</span>
+			<div class="col-lg-4">
+				<div class="card-wrap p-3">
+					<h5 class="fw-bold mb-3">Calendar</h5>
+					<div id="portalCalendar" data-events='@json($calendarEvents)'></div>
+					<div class="calendar-legend mt-2">
+						<div class="d-flex align-items-center gap-1">
+							<div class="calendar-legend-color legend-national"></div>
+							<span>National</span>
+						</div>
+						<div class="d-flex align-items-center gap-1">
+							<div class="calendar-legend-color legend-restricted"></div>
+							<span>Restricted</span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</section>
 
+<main class="container">
 	<div class="card-wrap p-3 mb-4">
 		<h4 class="fw-bold">Notice Board</h4>
 		<ul class="nav nav-tabs mt-3 mb-2" role="tablist">

@@ -70,7 +70,17 @@ body {
     position: absolute;
     right: 0;
 }
-
+.bg-band {
+    position:relative;
+    width:100%;
+    background-image:url('../images/home-bg-1.webp');
+    background-attachment:fixed;
+    background-size:cover;
+    background-position:center;
+    padding:2rem 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+}
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -308,9 +318,6 @@ body {
 }
 .list-notif .icon i{
     font-size: 1.1rem;
-}
-.services-section {
-    margin-top: 10px;
 }
 
 .service-card {
