@@ -168,7 +168,7 @@
 	<div class="row g-4 mb-4">
 		<!-- Notice Board - Left Side (Larger) -->
 		<div class="col-lg-8">
-			<div class="card-wrap p-3 mb-4">
+			<div class="card-wrap p-3 mb-4 h-100">
 				<div class="d-flex justify-content-between align-items-center mb-3">
 					<h4 class="mb-0 fw-bold">Recent Activities</h4>
 					<a href="{{ route('portal.activity.index') }}" class="link-primary small">View all</a>
@@ -176,7 +176,7 @@
 				<div class="row g-3">
 					@foreach($activities as $activity)
 					<div class="col-sm-12 col-md-6">
-						<a class="activity-card" href="{{ route('portal.activity.show', $activity) }}">
+						<a class="activity-card " href="{{ route('portal.activity.show', $activity) }}">
 							<div class="activity-image">
 								<img src="{{ $activity->photoUrl() }}" alt="{{ $activity->title }}" class="w-100 h-100 object-fit-cover">
 							</div>
