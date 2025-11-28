@@ -8,29 +8,34 @@
 
     <!-- Level 1: Registrar General (Top Level) -->
     @foreach($levels as $registryOfficials)
-    <div class="d-flex justify-content-center gap-3">
+    <div class="d-flex flex-wrap justify-content-evenly justify-content-lg-center gap-4">
         @foreach($registryOfficials as $registryOfficial)
-        <div class="card-wrap" style="width: 260px;">
+        <div class="card-wrap" style="width: 240px;">
             <div class="text-center">
                 <img src="{{ $registryOfficial->photo ? $registryOfficial->photoUrl() : asset('images/blank-avatar.jpg') }}" 
                      alt="Registrar General" 
                      class="rounded img-fluid mb-2"
                      style="width: 120px; height: 140px; object-fit: cover;">
-                <div class="text-primary fw-semibold">{{ $registryOfficial->designation }}</div>
+                <div class="hc-text-muted fw-semibold">{{ $registryOfficial->designation }}</div>
                 <div class="fw-bold fs-6">{{ $registryOfficial->full_name }}</div>
             </div>
             <hr>
             <div class="hc-text-muted small">
                 <div><span class="fw-bold">Date of Birth:</span> {{ $registryOfficial->dob }}</div>
                 <div><span class="fw-bold">Qualification:</span> {{ $registryOfficial->qualification ?: 'N/A' }}</div>
-                <div><span class="fw-bold">Email:</span> {{ $registryOfficial->email ?: 'N/A' }}</div>
+                <div>
+                    <span class="fw-bold">Email:</span>
+                    <span style="word-break: break-all;">
+                        {{ str_replace(['@', '.'], ['[at]', '[dot]'], $registryOfficial->email) ?: 'N/A' }}
+                    </span>
+                </div>
                 <div><span class="fw-bold">Phone:</span> {{ $registryOfficial->phone_no ?: 'N/A' }}</div>
             </div>
         </div>
         @endforeach
     </div>
     @if(!$loop->last)
-    <hr class="border border-dark">
+    <hr style="border: 1px solid var(--border-color)">
     @endif
     @endforeach
     

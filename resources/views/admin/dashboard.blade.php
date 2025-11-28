@@ -8,7 +8,7 @@
     </div>
     <div class="row g-3 mb-4">
         @can('user')
-        <div class="col-12 col-sm-6 col-md-4">
+        <div class="col-md-3 col-sm-12">
             <a class="card dashboard-card" href="{{route('admin.user.index')}}">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -21,7 +21,7 @@
         </div>
         @endcan
         @can('cms')
-        <div class="col-12 col-sm-6 col-md-4">
+        <div class="col-md-3 col-sm-12">
             <a class="card dashboard-card" href="{{route('admin.notice.index')}}">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -32,7 +32,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-12 col-sm-6 col-md-4">
+        <div class="col-md-3 col-sm-12">
             <a class="card dashboard-card" href="{{route('admin.calendar.index')}}">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -40,6 +40,18 @@
                         <div class="card-counter"></div>
                     </div>
                     <i class="bi bi-calendar-date fs-2 text-muted"></i>
+                </div>
+            </a>
+        </div>
+        @endcan
+        @can('security')
+        <div class="col-md-3 col-sm-12">
+            <a class="card dashboard-card" href="{{route('admin.authentication-log.index')}}">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <div class="text-muted">Auth Logs</div>
+                    </div>
+                    <i class="bi bi-journal-text fs-2 text-muted"></i>
                 </div>
             </a>
         </div>

@@ -90,14 +90,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const scrollBox = document.getElementById("quickMenu");
     const collapseEl = document.getElementById("noticeBoardMenu");
-    collapseEl.addEventListener('shown.bs.collapse', function () {
-        const overflowing = scrollBox.scrollHeight > scrollBox.clientHeight;
-        if (overflowing) {
-            scrollBox.scrollTo({
-                top: scrollBox.scrollHeight,
-                behavior: 'smooth'
-            });
-        }
+    if (scrollBox && collapseEl) {
+        collapseEl.addEventListener('shown.bs.collapse', function () {
+            const overflowing = scrollBox.scrollHeight > scrollBox.clientHeight;
+            if (overflowing) {
+                scrollBox.scrollTo({
+                    top: scrollBox.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
 
-    });
+        });
+    }
 });

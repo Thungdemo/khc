@@ -25,7 +25,7 @@
 							<i class="bi bi-universal-access-circle fs-4" aria-hidden="true"></i>
 							<span class="visually-hidden">Accessibility </span>
 						</button>
-						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accessibility" style="min-width: 250px;">
+						<ul class="dropdown-menu dropdown-menu-end accessibility-panel" aria-labelledby="accessibility" style="min-width: 250px;">
 							
 							<div class="p-3">
 								<div class="mb-3">
@@ -59,14 +59,14 @@
 						<div class="collapse navbar-collapse justify-content-center d-none d-lg-block" id="navMenu">
 							<ul class="navbar-nav align-items-center gap-3 mx-auto">
 								<li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-								<li class="nav-item dropdown">
+								{{-- <li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="court-tools-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Court Tools</a>
 									<ul class="dropdown-menu" aria-labelledby="court-tools-menu">
 										<li><a class="dropdown-item" href="{{config('links.live_streaming')}}" target="_blank">Live Streaming</a></li>
 										<li><a class="dropdown-item" href="{{url('board/display')}}" target="_blank">Display Board</a></li>
 										<li><a class="dropdown-item" href="{{config('links.eservices_portal')}}" target="_blank">eServices Portal</a></li>
 									</ul>
-								</li>
+								</li> --}}
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="profile-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
 									<ul class="dropdown-menu" aria-labelledby="profile-menu">

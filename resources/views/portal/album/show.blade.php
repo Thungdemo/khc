@@ -3,17 +3,18 @@
 
 <div class="container py-4">
   <!-- Album Header -->
-  <div class="mb-4">
+  <div class="mb-2">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('portal.album.index') }}">Albums</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ $album->title }}</li>
+        <li class="breadcrumb-item active" aria-current="page">View</li>
       </ol>
     </nav>
-    
+  </div>
+  <div class="mb-2">
     <div class="d-flex justify-content-between align-items-start">
       <div>
-        <h2 class="mb-2 fw-bold">{{ $album->title }}</h2>
+        <h3 class="mb-2 fw-bold">{{ $album->title }}</h3>
         @if($album->description)
           <p class="text-muted mb-3">{{ $album->description }}</p>
         @endif
@@ -22,10 +23,13 @@
           <span>{{ $album->galleryImages->count() }} {{ Str::plural('photo', $album->galleryImages->count()) }}</span>
         </div>
       </div>
-      <a href="{{ route('portal.album.index') }}" class="btn btn-outline-secondary">
-        <i class="bi bi-arrow-left me-1"></i>Back to Albums
-      </a>
     </div>
+  </div>
+  
+  <div class="d-flex justify-content-end mb-3">
+    <a href="{{ route('portal.album.index') }}" class="btn btn-sm btn-outline-secondary">
+      <i class="bi bi-arrow-left me-1"></i>Back to Albums
+    </a>
   </div>
 
   <!-- Photos Grid -->
