@@ -75,8 +75,10 @@ class NoticeController extends Controller
         return redirect()->route('admin.notice.index')->with('success', 'Notice created successfully.');
     }
 
-    public function edit(Notice $notice)
+    public function edit($id)
     {
+        $notice = Notice::roleAccess()->findOrFail($id);
+
         return view('admin.notice.edit',[
             'notice' => $notice,
             'noticeCategories' => NoticeCategory::isParent()->roleAccess()->pluck('name', 'id'),
@@ -85,8 +87,9 @@ class NoticeController extends Controller
         ]);
     }
 
-    public function update(Request $request, Notice $notice)
+    public function update(Request $request, $id)
     {
+        $notice = Notice::roleAccess()->findOrFail($id);
         $request->validate([
             'title' => ['required', 'string', 'max:255', new Xss],
             'published_at' => ['required_if:schedule,1','nullable','date'],
@@ -138,11 +141,12 @@ class NoticeController extends Controller
             });
         }
 
-        return redirect()->route('admin.notice.edit',$notice)->with('success', 'Notice updated successfully.');
+        return redirect()->route('admin.notice.edit',$notice->id)->with('success', 'Notice updated successfully.');
     }
 
-    public function destroy(Notice $notice)
+    public function destroy($id)
     {
+        $notice = Notice::roleAccess()->findOrFail($id);
         $notice->delete();
         return redirect()->route('admin.notice.index')->with('success', 'Notice deleted successfully.');
     }

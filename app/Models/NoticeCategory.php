@@ -35,7 +35,7 @@ class NoticeCategory extends Model
 
     public function scopeRoleAccess($query)
     {
-        if(!auth()->user()->hasRole('admin')) 
+        if(!auth()->user()->hasAnyRole('admin','cms')) 
         {
             $query->whereIn('id',auth()->user()->noticeCategories->pluck('id'));
         }
