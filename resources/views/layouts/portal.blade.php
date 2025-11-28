@@ -82,8 +82,9 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="services-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
 									<ul class="dropdown-menu" aria-labelledby="services-menu">
-										<li><a class="dropdown-item" href="{{config('links.causelist_national')}}" target="_blank">Cause List (National Server)</a></li>
-										<li><a class="dropdown-item" href="{{config('links.causelist_local')}}" target="_blank">Cause List (Local Server)</a></li>
+										<li><a class="dropdown-item" href="#">Cause List</a></li>
+										<li><a class="dropdown-item ps-4" href="{{config('links.causelist_national')}}" target="_blank">National Server</a></li>
+										<li><a class="dropdown-item ps-4" href="{{config('links.causelist_local')}}" target="_blank">Local Server</a></li>
 										<li><a class="dropdown-item" href="{{config('links.case_status')}}" target="_blank">Case Status</a></li>
 										<li><a class="dropdown-item" href="{{config('links.neutral_citation')}}" target="_blank">Neutral Citation</a></li>
 										<li><a class="dropdown-item" href="{{url('board/display')}}" target="_blank">Display Board</a></li>
