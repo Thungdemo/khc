@@ -24,6 +24,7 @@ function addDocumentRow() {
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
         <td>
+            <input type="hidden" name="notice_children[${documentHash}][is_new]" value="1">
             <input type="text" class="form-control" name="notice_children[${documentHash}][title]" placeholder="Enter document title">
         </td>
         <td>

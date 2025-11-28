@@ -11,6 +11,10 @@ use App\Http\Controllers\Controller;
 class FormerJudgeController extends Controller
 {
     const PHOTO_MAX_SIZE = 1000; // in KB
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
 
     public function index()
     {

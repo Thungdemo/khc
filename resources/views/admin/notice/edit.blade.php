@@ -97,6 +97,7 @@
                                     @foreach(old('notice_children', []) as $index => $item)
                                     <tr>
                                         <td>
+                                            <input type="hidden" name="notice_children[{{ $index }}][is_new]" value="{{ $item['is_new'] ?? 1 }}">
                                             <input type="text" class="form-control" name="notice_children[{{ $index }}][title]" placeholder="Enter document title" value="{{ $item['title'] }}">
                                             <span class="text-danger small">@error('notice_children.'.$index.'.title') {{ $message }} @enderror</span>
                                         </td>
@@ -115,6 +116,7 @@
                                     @foreach($notice->noticeChildren as $index => $child)
                                     <tr>
                                         <td>
+                                            <input type="hidden" name="notice_children[{{ $child->id }}][is_new]" value="0">
                                             <input type="text" class="form-control" name="notice_children[{{ $child->id }}][title]" placeholder="Enter document title" value="{{ $child->title }}">
                                         </td>
                                         <td>

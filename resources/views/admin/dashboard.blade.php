@@ -20,7 +20,7 @@
             </a>
         </div>
         @endcan
-        @can('cms')
+        @can('notice')
         <div class="col-md-3 col-sm-12">
             <a class="card dashboard-card" href="{{route('admin.notice.index')}}">
                 <div class="d-flex justify-content-between">
@@ -32,6 +32,8 @@
                 </div>
             </a>
         </div>
+        @endcan
+        @can('cms')
         <div class="col-md-3 col-sm-12">
             <a class="card dashboard-card" href="{{route('admin.calendar.index')}}">
                 <div class="d-flex justify-content-between">

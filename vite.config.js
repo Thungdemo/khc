@@ -9,7 +9,8 @@ export default defineConfig({
                 'resources/sass/portal.scss',
                 'resources/js/admin.js',
                 'resources/js/portal.js',
-                'resources/js/admin/notice.js'
+                'resources/js/admin/notice.js',
+                'resources/js/admin/user.js',
             ],
             refresh: true,
         }),

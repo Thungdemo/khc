@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\NoticeCategory;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -49,5 +50,10 @@ class User extends Authenticatable
     {
         $this->roles()->detach();
         return parent::delete();
+    }
+
+    public function noticeCategories()
+    {
+        return $this->belongsToMany(NoticeCategory::class);
     }
 }

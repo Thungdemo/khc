@@ -12,6 +12,10 @@ use Illuminate\Http\RedirectResponse;
 
 class AlbumController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
     /**
      * Display a listing of the albums.
      */

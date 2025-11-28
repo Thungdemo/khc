@@ -9,6 +9,10 @@ use Illuminate\Validation\Rule;
 
 class CalendarController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
     public function index(Request $request)
     {
         $calendars = Calendar::filter($request)->newest()->paginate(config('khc.pagination'));

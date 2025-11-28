@@ -30,7 +30,7 @@
         </form>
     </div>
 
-    <div class="table-responsive">
+    <div class="">
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>

@@ -40,6 +40,11 @@ trait HasDocument
         return basename($this[static::$documentColumn]);
     }
 
+    public function documentExists()
+    {
+        return $this[static::$documentColumn] && Storage::disk('public')->exists($this[static::$documentColumn]);
+    }
+
     public function documentDelete()
     {
         if($this[static::$documentColumn] && stripos($this[static::$documentColumn], 'dummy') === false)

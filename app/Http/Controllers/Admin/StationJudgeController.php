@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 
 class StationJudgeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
     public function index()
     {
         return view('admin.station-judge.index',[

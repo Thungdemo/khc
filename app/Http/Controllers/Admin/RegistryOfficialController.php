@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 
 class RegistryOfficialController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
     public function index(Request $request)
     {
         return view('admin.registry-official.index',[

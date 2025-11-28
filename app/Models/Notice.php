@@ -121,4 +121,11 @@ class Notice extends Model
         }
         return $this->documentUrl();
     }
+
+    public function scopeRoleAccess($query)
+    {
+        $query->whereHas('noticeCategory', function($q) {
+            $q->roleAccess();
+        });
+    }
 }
