@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 
 class StatisticsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
     /**
      * Display a listing of the resource.
      */

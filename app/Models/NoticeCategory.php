@@ -32,4 +32,12 @@ class NoticeCategory extends Model
     {
         return $query->whereNull('parent_id');
     }
+
+    public function scopeRoleAccess($query)
+    {
+        if(!auth()->user()->hasAnyRole('admin','cms')) 
+        {
+            $query->whereIn('id',auth()->user()->noticeCategories->pluck('id'));
+        }
+    }
 }

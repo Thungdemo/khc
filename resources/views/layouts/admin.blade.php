@@ -18,11 +18,14 @@
 				</div>
 				<nav class="nav flex-column">
 					<a class="nav-link" href="{{route('admin.dashboard.index')}}"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
-					@can('cms')
+					@canany(['cms', 'notice'])
 					<div class="sidemenu-divider text-secondary fw-semibold">
 						Content Management
 					</div>
+					@can('notice')
 					<a class="nav-link" href="{{route('admin.notice.index')}}"><i class="bi bi-bell me-2"></i>Notices</a>
+					@endcan
+					@can('cms')
 					<a class="nav-link" href="{{route('admin.activity.index')}}"><i class="bi bi-calendar-event me-2"></i>Activities</a>
 					<a class="nav-link" href="{{route('admin.calendar.index')}}"><i class="bi bi-calendar-date me-2"></i>Calendar</a>
 					<a class="nav-link" href="{{route('admin.statistics.index')}}"><i class="bi bi-bar-chart me-2"></i>Statistics</a>
@@ -34,14 +37,17 @@
 					<a class="nav-link" href="{{route('admin.album.index')}}"><i class="bi bi-collection me-2"></i>Albums</a>
 					<a class="nav-link" href="{{route('admin.form-download.index')}}"><i class="bi bi-file-earmark-pdf me-2"></i>Form Downloads</a>
 					@endcan
-					<div class="sidemenu-divider text-secondary fw-semibold">
-						Administration
-					</div>
-					@can('user')
-					<a class="nav-link" href="{{route('admin.user.index')}}"><i class="bi bi-people me-2"></i>Users</a>
-					@endcan
-					@can('security')
-					<a class="nav-link" href="{{route('admin.authentication-log.index')}}"><i class="bi bi-lock me-2"></i>Authentication Logs</a>
+					@endcanany
+					@can('user', 'security')
+						<div class="sidemenu-divider text-secondary fw-semibold">
+							Administration
+						</div>
+						@can('user')
+						<a class="nav-link" href="{{route('admin.user.index')}}"><i class="bi bi-people me-2"></i>Users</a>
+						@endcan
+						@can('security')
+						<a class="nav-link" href="{{route('admin.authentication-log.index')}}"><i class="bi bi-lock me-2"></i>Authentication Logs</a>
+						@endcan
 					@endcan
 				</nav>
 			</aside>

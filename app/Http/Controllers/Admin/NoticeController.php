@@ -9,18 +9,19 @@ use App\Models\NoticeChild;
 use Illuminate\Http\Request;
 use App\Models\NoticeCategory;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 
 class NoticeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:cms');
+        $this->middleware('can:notice');
     }
 
     public function index(Request $request)
     {
         return view('admin.notice.index',[
-            'notices' => Notice::filter($request)->newest()->paginate(config('khc.pagination')),
+            'notices' => Notice::filter($request)->newest()->roleAccess()->paginate(config('khc.pagination')),
             'noticeCategories' => NoticeCategory::pluck('name', 'id'),
             'statuses' => Notice::FILTER_STATUSES,
         ]);
@@ -29,7 +30,7 @@ class NoticeController extends Controller
     public function create()
     {
         return view('admin.notice.create',[
-            'noticeCategories' => NoticeCategory::isParent()->pluck('name', 'id'),
+            'noticeCategories' => NoticeCategory::isParent()->roleAccess()->pluck('name', 'id'),
             'maxFileSize' => Notice::$documentMaxSize,
             'noticeSubcategories' => NoticeCategory::whereNotNull('parent_id')->where('parent_id', old('notice_category_id'))->pluck('name', 'id'),
         ]);
@@ -74,33 +75,44 @@ class NoticeController extends Controller
         return redirect()->route('admin.notice.index')->with('success', 'Notice created successfully.');
     }
 
-    public function edit(Notice $notice)
+    public function edit($id)
     {
+        $notice = Notice::roleAccess()->findOrFail($id);
+
         return view('admin.notice.edit',[
             'notice' => $notice,
-            'noticeCategories' => NoticeCategory::pluck('name', 'id'),
+            'noticeCategories' => NoticeCategory::isParent()->roleAccess()->pluck('name', 'id'),
             'noticeSubcategories' => NoticeCategory::whereNotNull('parent_id')->where('parent_id',old('notice_category_id', $notice->notice_category_id))->pluck('name','id'),
             'maxFileSize' => Notice::$documentMaxSize,
         ]);
     }
 
-    public function update(Request $request, Notice $notice)
+    public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $notice = Notice::roleAccess()->findOrFail($id);
+        $request->validate([
             'title' => ['required', 'string', 'max:255', new Xss],
             'published_at' => ['required_if:schedule,1','nullable','date'],
             'notice_category_id' => ['required', 'exists:notice_categories,id'],
             'notice_subcategory_id' => ['nullable', 'exists:notice_categories,id'],
             'url' => ['required_if:type,url', 'nullable', 'url'],
-            'document' => ['nullable', 'file', 'max:'.Notice::$documentMaxSize, new Filetype(['pdf'])],
+            'document' => [
+                Rule::requiredIf($request->type == 'file' && !$notice->documentExists()), 
+                'file', 
+                'max:'.Notice::$documentMaxSize, 
+                new Filetype(['pdf'])
+            ],
+            'notice_children' => ['nullable', 'array'],
+            'notice_children.*.title' => ['required', 'string', 'max:255', new Xss],
+            'notice_children.*.document' => ['required_if:notice_children.*.is_new,1', 'file', 'max:'.NoticeChild::$documentMaxSize, new Filetype(['pdf'])],
         ]);
 
         $notice->update([
-            'title' => $validated['title'],
-            'published_at' => $validated['published_at'],
-            'notice_category_id' => $validated['notice_category_id'],
-            'notice_subcategory_id' => $validated['notice_subcategory_id'],
-            'url' => $request->type == 'url' ? $validated['url'] : null,
+            'title' => $request->title,
+            'published_at' => $request->published_at,
+            'notice_category_id' => $request->notice_category_id,
+            'notice_subcategory_id' => $request->notice_subcategory_id,
+            'url' => $request->type == 'url' ? $request->url : null,
         ]);
 
         if($request->type == 'file' && $request->hasFile('document')) 
@@ -108,7 +120,7 @@ class NoticeController extends Controller
             $notice->documentDelete();
             $notice->saveDocument($request->file('document'));
         }
-        
+
         if($request->more_documents)
         {
             $notice->noticeChildren()->whereNotIn('id', array_keys($request->notice_children ?? []))->each(function($child) {
@@ -129,11 +141,12 @@ class NoticeController extends Controller
             });
         }
 
-        return redirect()->route('admin.notice.edit',$notice)->with('success', 'Notice updated successfully.');
+        return redirect()->route('admin.notice.edit',$notice->id)->with('success', 'Notice updated successfully.');
     }
 
-    public function destroy(Notice $notice)
+    public function destroy($id)
     {
+        $notice = Notice::roleAccess()->findOrFail($id);
         $notice->delete();
         return redirect()->route('admin.notice.index')->with('success', 'Notice deleted successfully.');
     }

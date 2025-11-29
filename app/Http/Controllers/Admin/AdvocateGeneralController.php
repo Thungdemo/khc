@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 
 class AdvocateGeneralController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
     public function index()
     {
         $advocateGenerals = AdvocateGeneral::with('agCategory')

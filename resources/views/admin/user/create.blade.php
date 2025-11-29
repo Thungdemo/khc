@@ -35,13 +35,26 @@
                 <label class="form-label d-block">Roles *</label>
                 @foreach($roles as $role)
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="{{$role->name}}role" name="roles[]" value="{{$role->name}}">
+                    <input class="form-check-input" type="checkbox" id="{{$role->name}}role" name="roles[]" value="{{$role->name}}" @checked(in_array($role->name, old('roles', [])))>
                     <label class="form-check-label" for="{{$role->name}}role">
-                    {{$role->display_name}}
+                    {{$role->display_name}} - <span class="text-muted">{{$role->description}}</span>
                     </label>
                 </div>
                 @endforeach
                 <span class="text-danger small">@error('roles') {{ $message }} @enderror</span>
+            </div>
+            
+            <div id="noticeCategoriesSection" @class(['mb-3','d-none' => !in_array('notice', old('roles', []))])>
+                <label class="form-label d-block">Notice Categories *</label>
+                @foreach($noticeCategories as $noticeCategory)
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="{{$noticeCategory->id}}noticeCategory" name="notices_categories[]" value="{{$noticeCategory->id}}" @checked(in_array($noticeCategory->id, old('notices_categories', [])))>
+                    <label class="form-check-label" for="{{$noticeCategory->id}}noticeCategory">
+                    {{$noticeCategory->name}}
+                    </label>
+                </div>
+                @endforeach
+                <span class="text-danger small">@error('notices_categories') {{ $message }} @enderror</span>
             </div>
             <div class="d-flex justify-content-between">
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -50,3 +63,7 @@
         </form>
     </div>
 @endsection
+
+@push('scripts')
+@vite(['resources/js/admin/user.js'])
+@endpush

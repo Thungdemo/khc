@@ -9,12 +9,12 @@
             @csrf
             <div class="mb-3">
                 <label class="form-label">Title *</label>
-                <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter notice title" rrr>
+                <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter notice title" required>
                 <span class="text-danger small">@error('title') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Category *</label>
-                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :value="old('notice_category_id')" id="notice_category_id" rrr/>
+                <x-select class="form-select" name="notice_category_id" placeholder="Select category" :options="$noticeCategories" :selected="old('notice_category_id')" id="notice_category_id" required/>
                 <span class="text-danger small">@error('notice_category_id') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">

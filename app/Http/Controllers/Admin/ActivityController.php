@@ -11,6 +11,11 @@ use App\Http\Controllers\Controller;
 
 class ActivityController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:cms');
+    }
+    
     public function index()
     {
         return view('admin.activity.index',[
