@@ -16,6 +16,9 @@ $list-group-action-hover-color:var(--text-color);
 $table-border-color:var(--border-color);
 $offcanvas-bg-color:var(--card-bg);
 $offcanvas-color:var(--text-color);
+$popover-bg:var(--card-bg);
+$popover-border-color:var(--border-color);
+$popover-body-color:var(--text-color);
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import 'variables';
@@ -415,7 +418,7 @@ footer {
     background: var(--theme-primary);
     color: #fff;
     padding: 40px 0;
-    // margin-top: 40px;
+    margin-top: 40px;
 }
 
 footer h6 {
@@ -457,7 +460,7 @@ footer ul li a:hover {
 }
 
 /* Main top spacing moved from inline */
-.site-main { margin-top: 40px; }
+.site-main { margin-top: 30px; }
 
 /* Station Judges Page Styles */
 .judge-photo-wrap {

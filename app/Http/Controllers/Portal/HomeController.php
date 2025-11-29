@@ -17,7 +17,7 @@ class HomeController extends Controller
             'noticeCategories' => NoticeCategory::isParent()->sort()->get(),
             'latestNews' => Notice::published()->newest()->limit(6)->get(),
             'activities' => Activity::latest()->limit(2)->get(),
-            'calendarEvents' => Calendar::recentHolidays()->get(),
+            'calendarEvents' => Calendar::recentHolidays()->toFullCalendar()->get()->toArray(),
             'judges' => [
                 ['name' => "Hon'ble Mr. Justice Ashutosh Kumar", 'position' => 'Chief Justice', 'image' => asset('images/judges/chief-justice.jpg')],
                 ['name' => "Hon’ble Mrs. Justice Yarenjungla Longkumer", 'position' => 'Station Judge', 'image' => asset('images/judges/station-judge-1.jpg')],

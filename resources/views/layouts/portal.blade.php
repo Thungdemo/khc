@@ -185,7 +185,7 @@
 								@foreach($navbarNotices as $item)
 								<li><a class="nav-link" href="{{route('portal.notice.index',$item)}}">{{$item->name}}</a></li>
 								@foreach($item->children as $child)
-								<li class="ps-4"><a class="nav-link" href="{{route('portal.notice.index',$child)}}">{{$child->name}}</a></li>
+								<li class="ps-4"><a class="nav-link" href="{{route('portal.notice.index',['noticeCategory'=>$item,'notice_subcategory_id'=>$child->id])}}">{{$child->name}}</a></li>
 								@endforeach
 								@endforeach
 							</ul>

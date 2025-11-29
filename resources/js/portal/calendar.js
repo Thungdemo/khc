@@ -1,6 +1,7 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { Popover } from 'bootstrap';
 
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('portalCalendar');
@@ -27,8 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Optional: Show event details in a modal or tooltip
             },
             eventDidMount: function(info) {
-                // Add tooltip
-                info.el.title = info.event.title;
+                info.el.setAttribute("data-bs-toggle", "popover");
+                info.el.setAttribute("data-bs-trigger", "hover");
+                info.el.setAttribute("data-bs-placement", "top");
+                info.el.setAttribute("data-bs-content", info.event.title);
+                new Popover(info.el);
             }
         });
         calendar.render();

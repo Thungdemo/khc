@@ -54,4 +54,9 @@ class Calendar extends Model
         return $query->where('start_date', '>=', now()->subMonths(6)->toDateString())
                      ->orderBy('start_date');
     }
+
+    public function scopeToFullCalendar($query)
+    {
+        return $query->selectRaw('title, start_date, DATE_ADD(end_date, INTERVAL 1 DAY) as end_date, type');
+    }
 }
