@@ -52,7 +52,7 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
         ]);
         $user->syncRoles($request->roles);
-        $user->noticesCategories()->sync($request->notices_categories ?? []);
+        $user->noticeCategories()->sync($request->notices_categories ?? []);
         DB::commit();
         return redirect()->route('admin.user.index')->with('success', 'User created successfully.');
     }

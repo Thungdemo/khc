@@ -242,7 +242,7 @@ body {
 
 /* profile avatar refinements */
 .card-wrap {
-    background: var(--card-bg);
+    background: rgba(var(--card-bg-rgb, 255,255,255), 0.5);
     border-radius: 14px;
     padding: 18px;
     box-shadow: 0 6px 20px rgba(7, 25, 50, 0.06);
@@ -415,7 +415,7 @@ footer {
     background: var(--theme-primary);
     color: #fff;
     padding: 40px 0;
-    margin-top: 40px;
+    // margin-top: 40px;
 }
 
 footer h6 {
