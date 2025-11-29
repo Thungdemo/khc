@@ -6,6 +6,7 @@
 		<title>{{config('app.name')}}</title>
 		@vite('resources/sass/portal.scss')
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+		<link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 	</head>
 	<body>
 		<header class="site-header sticky-top" style="z-index: 10">
@@ -13,45 +14,17 @@
 				<div class="logo-row">
 					<div class="d-flex align-items-center">
 						<a href="{{ url('/') }}" class="logo-link">
-						<img src="{{ asset('images/logo.png') }}" alt="logo" class="logo-img" />
+							<img src="{{ asset('images/logo.png') }}" alt="logo" class="logo-img" />
 						</a>
 						<div>
 							<div class="logo-title">{{config('app.full_name')}}</div>
 						</div>
 					</div>
-
-					<div class="dropdown">
-						<button class="btn text-white" type="button" id="accessibility" data-bs-toggle="dropdown"  data-bs-auto-close="outside">
-							<i class="bi bi-universal-access-circle fs-4" aria-hidden="true"></i>
-							<span class="visually-hidden">Accessibility </span>
-						</button>
-						<ul class="dropdown-menu dropdown-menu-end accessibility-panel" aria-labelledby="accessibility" style="min-width: 250px;">
-							
-							<div class="p-3">
-								<div class="mb-3">
-									<div class="fw-bold mb-2">Contrast Options</div>
-									<button class="btn btn-light border themeToggle" id="themeLight" data-theme="light" type="button" aria-label="Toggle theme">
-										<i class="bi bi-brightness-high" aria-hidden="true"></i> Light
-									</button>
-									<button class="btn btn-light border themeToggle" id="themeDark" data-theme="dark" type="button" aria-label="Toggle theme">
-										<i class="bi bi bi-moon-fill" aria-hidden="true"></i> Dark
-									</button>
-								</div>
-								<hr class="dropdown-divider">
-								<div>
-									<div class="fw-bold mb-2">Text Size</div>
-									<button class="btn btn-light border" id="fontInc" type="button" aria-label="Increase font size">A+</button>
-									<button class="btn btn-light border" id="fontReset" type="button" aria-label="Reset font size">A</button>
-									<button class="btn btn-light border" id="fontDec" type="button" aria-label="Decrease font size">A-</button>
-								</div>
-							</div>
-						</ul>
-					</div>
 				</div>
 			</div>
 			<!-- Navbar in its own container so it sits separately from the logo row -->
 			<div class="container">
-				<div class="nav-row py-2">
+				<div class="nav-row py-0">
 					<nav class="navbar navbar-expand-lg p-0">
 						<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
@@ -59,18 +32,9 @@
 						<div class="collapse navbar-collapse justify-content-center d-none d-lg-block" id="navMenu">
 							<ul class="navbar-nav align-items-center gap-3 mx-auto">
 								<li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-								{{-- <li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="court-tools-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Court Tools</a>
-									<ul class="dropdown-menu" aria-labelledby="court-tools-menu">
-										<li><a class="dropdown-item" href="{{config('links.live_streaming')}}" target="_blank">Live Streaming</a></li>
-										<li><a class="dropdown-item" href="{{url('board/display')}}" target="_blank">Display Board</a></li>
-										<li><a class="dropdown-item" href="{{config('links.eservices_portal')}}" target="_blank">eServices Portal</a></li>
-									</ul>
-								</li> --}}
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="profile-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
 									<ul class="dropdown-menu" aria-labelledby="profile-menu">
-										{{-- <li><a class="dropdown-item" href="{{route('portal.history')}}">History</a></li> --}}
 										<li><a class="dropdown-item" href="{{route('portal.about')}}">About</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.station-judge.index')}}">Station Judges</a></li>
 										<li><a class="dropdown-item" href="{{route('portal.former-judge.index')}}">Former Judges of Kohima Bench</a></li>
@@ -123,8 +87,36 @@
 								</li>
 							</ul>
 						</div>
+						<div class="dropdown">
+							<button class="btn text-white" type="button" id="accessibility" data-bs-toggle="dropdown"  data-bs-auto-close="outside">
+								<i class="bi bi-universal-access-circle fs-4" aria-hidden="true"></i>
+								<span class="visually-hidden">Accessibility </span>
+							</button>
+							<ul class="dropdown-menu dropdown-menu-end accessibility-panel" aria-labelledby="accessibility" style="min-width: 250px;">
+								
+								<div class="p-3">
+									<div class="mb-3">
+										<div class="fw-bold mb-2">Contrast Options</div>
+										<button class="btn btn-light border themeToggle" id="themeLight" data-theme="light" type="button" aria-label="Toggle theme">
+											<i class="bi bi-brightness-high" aria-hidden="true"></i> Light
+										</button>
+										<button class="btn btn-light border themeToggle" id="themeDark" data-theme="dark" type="button" aria-label="Toggle theme">
+											<i class="bi bi bi-moon-fill" aria-hidden="true"></i> Dark
+										</button>
+									</div>
+									<hr class="dropdown-divider">
+									<div>
+										<div class="fw-bold mb-2">Text Size</div>
+										<button class="btn btn-light border" id="fontInc" type="button" aria-label="Increase font size">A+</button>
+										<button class="btn btn-light border" id="fontReset" type="button" aria-label="Reset font size">A</button>
+										<button class="btn btn-light border" id="fontDec" type="button" aria-label="Decrease font size">A-</button>
+									</div>
+								</div>
+							</ul>
+						</div>
 					</nav>
 				</div>
+				
 			</div>
 		</header>
 
@@ -281,7 +273,7 @@
 					</div>
 					<div class="modal-footer d-flex justify-content-between">
 						<button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-						<a href="#" class="btn btn-primary ok-btn">OK</a>
+						<a href="#" class="btn btn-primary ok-btn" target="_blank">OK</a>
 					</div>
 				</div>
 			</div>
