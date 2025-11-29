@@ -75,6 +75,15 @@ class NoticeController extends Controller
         return redirect()->route('admin.notice.index')->with('success', 'Notice created successfully.');
     }
 
+    public function show($id)
+    {
+        $notice = Notice::roleAccess()->findOrFail($id);
+
+        return view('admin.notice.show',[
+            'notice' => $notice,
+        ]);
+    }
+
     public function edit($id)
     {
         $notice = Notice::roleAccess()->findOrFail($id);

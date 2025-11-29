@@ -25,6 +25,7 @@ Route::middleware(['auth',\App\Http\Middleware\DisableCacheMiddleware::class])->
     Route::get('notices/{id}/edit', [App\Http\Controllers\Admin\NoticeController::class, 'edit'])->name('notice.edit');
     Route::put('notices/{id}', [App\Http\Controllers\Admin\NoticeController::class, 'update'])->name('notice.update');
     Route::delete('notices/{id}', [App\Http\Controllers\Admin\NoticeController::class, 'destroy'])->name('notice.destroy');
+    Route::get('notices/{id}', [App\Http\Controllers\Admin\NoticeController::class, 'show'])->name('notice.show');
 
     Route::get('registries', [App\Http\Controllers\Admin\RegistryOfficialController::class, 'index'])->name('registry-official.index');
     Route::get('registries/create', [App\Http\Controllers\Admin\RegistryOfficialController::class, 'create'])->name('registry-official.create');

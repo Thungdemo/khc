@@ -69,6 +69,7 @@
                         <div class="dropdown">
                             <button class="row-options dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item show-resource-btn" href="#" data-url="{{ route('admin.notice.show', $notice->id) }}">View</a></li>
                                 <li><a class="dropdown-item" href="{{route('admin.notice.edit',$notice->id)}}">Edit</a></li>
                                 <li>
                                     <form action="{{ route('admin.notice.destroy', $notice->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this notice?')">
