@@ -12,12 +12,17 @@
 		<header class="site-header sticky-top" style="z-index: 10">
 			<div class="container py-1">
 				<div class="logo-row">
-					<div class="d-flex align-items-center">
-						<a href="{{ url('/') }}" class="logo-link">
-							<img src="{{ asset('images/logo.png') }}" alt="logo" class="logo-img" />
-						</a>
-						<div>
-							<div class="logo-title">{{config('app.full_name')}}</div>
+					<div class="row">
+						<div class="col-md-9 d-flex align-items-center">
+							<a href="{{ url('/') }}" class="logo-link">
+								<img src="{{ asset('images/logo.png') }}" alt="logo" class="logo-img" />
+							</a>
+							<div>
+								<div class="logo-title">{{config('app.full_name')}}</div>
+							</div>
+						</div>
+						<div class="col-md-3 d-flex align-items-end justify-content-end">
+							{{date('j F Y')}}
 						</div>
 					</div>
 				</div>
@@ -87,32 +92,34 @@
 								</li>
 							</ul>
 						</div>
-						<div class="dropdown">
-							<button class="btn text-white" type="button" id="accessibility" data-bs-toggle="dropdown"  data-bs-auto-close="outside">
-								<i class="bi bi-universal-access-circle fs-4" aria-hidden="true"></i>
-								<span class="visually-hidden">Accessibility </span>
-							</button>
-							<ul class="dropdown-menu dropdown-menu-end accessibility-panel" aria-labelledby="accessibility" style="min-width: 250px;">
-								
-								<div class="p-3">
-									<div class="mb-3">
-										<div class="fw-bold mb-2">Contrast Options</div>
-										<button class="btn btn-light border themeToggle" id="themeLight" data-theme="light" type="button" aria-label="Toggle theme">
-											<i class="bi bi-brightness-high" aria-hidden="true"></i> Light
-										</button>
-										<button class="btn btn-light border themeToggle" id="themeDark" data-theme="dark" type="button" aria-label="Toggle theme">
-											<i class="bi bi bi-moon-fill" aria-hidden="true"></i> Dark
-										</button>
-									</div>
-									<hr class="dropdown-divider">
-									<div>
-										<div class="fw-bold mb-2">Text Size</div>
-										<button class="btn btn-light border" id="fontInc" type="button" aria-label="Increase font size">A+</button>
-										<button class="btn btn-light border" id="fontReset" type="button" aria-label="Reset font size">A</button>
-										<button class="btn btn-light border" id="fontDec" type="button" aria-label="Decrease font size">A-</button>
+						<div class="d-flex align-items-center">					
+							<div class="dropdown">
+								<button class="btn text-white" type="button" id="accessibility" data-bs-toggle="dropdown"  data-bs-auto-close="outside">
+									<i class="bi bi-universal-access-circle fs-4" aria-hidden="true"></i>
+									<span class="visually-hidden">Accessibility </span>
+								</button>
+								<div class="dropdown-menu dropdown-menu-end accessibility-panel" aria-labelledby="accessibility" style="min-width: 250px;">
+									
+									<div class="p-3">
+										<div class="mb-3">
+											<div class="fw-bold mb-2">Contrast Options</div>
+											<button class="btn btn-light border themeToggle" id="themeLight" data-theme="light" type="button" aria-label="Toggle theme">
+												<i class="bi bi-brightness-high" aria-hidden="true"></i> Light
+											</button>
+											<button class="btn btn-light border themeToggle" id="themeDark" data-theme="dark" type="button" aria-label="Toggle theme">
+												<i class="bi bi bi-moon-fill" aria-hidden="true"></i> Dark
+											</button>
+										</div>
+										<hr class="dropdown-divider">
+										<div>
+											<div class="fw-bold mb-2">Text Size</div>
+											<button class="btn btn-light border" id="fontInc" type="button" aria-label="Increase font size">A+</button>
+											<button class="btn btn-light border" id="fontReset" type="button" aria-label="Reset font size">A</button>
+											<button class="btn btn-light border" id="fontDec" type="button" aria-label="Decrease font size">A-</button>
+										</div>
 									</div>
 								</div>
-							</ul>
+							</div>
 						</div>
 					</nav>
 				</div>
