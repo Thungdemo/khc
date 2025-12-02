@@ -9,13 +9,13 @@
 			</div>
 			<div class="quick-menu-item-wrapper">
 				<a href="{{ config('links.case_status') }}" class="quick-menu-link" target="_blank">
-					Case Status
+					<i class="bi bi-search me-2"></i>Case Status
 				</a>
 			</div>
 			<div class="quick-menu-item-wrapper">
 				<a href="#causeListMenu" class="quick-menu-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="causeListMenu">
-					Cause List
-					<i class="bi bi-chevron-down ms-2"></i>
+					<span><i class="bi bi-list-ul me-2"></i>Cause List</span>
+					<i class="bi bi-chevron-right ms-2"></i>
 				</a>
 				<div class="collapse" id="causeListMenu">
 					<ul class="ps-3">
@@ -33,24 +33,24 @@
 				</div>
 				<div class="quick-menu-item-wrapper">
 					<a href="{{ config('links.live_streaming') }}" class="quick-menu-link" target="_blank">
-						Live Streaming
+						<i class="bi bi-camera-video me-2"></i>Live Streaming
 					</a>
 				</div>
 			</div>
 			<div class="quick-menu-item-wrapper">
 				<a href="{{ config('links.eservices_portal') }}" class="quick-menu-link" target="_blank">
-					eServices Portal
+					<i class="bi bi-globe me-2"></i>eServices Portal
 				</a>
 			</div>
 			<div class="quick-menu-item-wrapper">
 				<a href="{{ url('board/display') }}" class="quick-menu-link" target="_blank">
-					Display Board
+					<i class="bi bi-display me-2"></i>Display Board
 				</a>
 			</div>
 			<div class="quick-menu-item-wrapper">
 				<a href="#noticeBoardMenu" class="quick-menu-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="noticeBoardMenu">
-					Notice Board
-					<i class="bi bi-chevron-down ms-2"></i>
+					<span><i class="bi bi-bell me-2"></i>Notice Board</span>
+					<i class="bi bi-chevron-right ms-2"></i>
 				</a>
 				<div class="collapse" id="noticeBoardMenu">
 					<ul class="ps-3">

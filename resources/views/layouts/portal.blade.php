@@ -12,7 +12,7 @@
 		<header class="site-header sticky-top" style="z-index: 10">
 			<div class="container py-1">
 				<div class="logo-row">
-					<div class="row">
+					<div class="row g-2">
 						<div class="col-md-9 d-flex align-items-center">
 							<a href="{{ url('/') }}" class="logo-link">
 								<img src="{{ asset('images/logo.png') }}" alt="logo" class="logo-img" />
@@ -21,7 +21,7 @@
 								<div class="logo-title">{{config('app.full_name')}}</div>
 							</div>
 						</div>
-						<div class="col-md-3 d-flex align-items-end justify-content-end">
+						<div class="col-md-3 d-flex align-items-end justify-content-end small">
 							{{date('j F Y')}}
 						</div>
 					</div>

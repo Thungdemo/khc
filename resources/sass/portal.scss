@@ -655,7 +655,7 @@ table.pdf-table a {
     .quick-menu-link {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        // justify-content: space-between;
         padding: var(--quick-menu-padding);
         color: white;
         text-decoration: none;
@@ -682,6 +682,16 @@ table.pdf-table a {
         margin: 0;
     }
 }
+
+// Quick menu chevron animation
+.quick-menu-link[aria-expanded="true"] .bi-chevron-right {
+    transform: rotate(90deg);
+}
+
+.quick-menu-link .bi-chevron-right {
+    transition: transform 0.2s ease;
+}
+
 .modal-backdrop.show {
     backdrop-filter: blur(5px);
     background: rgba(0, 0, 0, 0.5);
